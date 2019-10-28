@@ -30,15 +30,20 @@ const ListItem = ({ title, onPress }) => (
   </View>
 );
 
-const AppNavigator = createStackNavigator({
-  Home: {
-    screen: HomeScreen,
-    navigationOptions: {
-      title: '👓 RN Hero Design'
-    }
+const AppNavigator = createStackNavigator(
+  {
+    Home: {
+      screen: HomeScreen,
+      navigationOptions: {
+        title: '👓 RN Hero Design'
+      }
+    },
+    ...routes
   },
-  ...routes
-});
+  {
+    initialRouteName: 'Home'
+  }
+);
 
 const styles = StyleSheet.create({
   container: {
