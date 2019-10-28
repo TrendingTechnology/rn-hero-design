@@ -13,8 +13,13 @@
 2	package.json	/^      "playground"$/;"	s	array:workspaces.packages
 2	playground/app.json	/^    "platforms": ["ios", "android", "web"],$/;"	s	array:expo.platforms
 89ed26367cdb9b771858e026f2eb95bfdb90e5ae943e716575327ec325f39c44	playground/.expo-shared/assets.json	/^  "89ed26367cdb9b771858e026f2eb95bfdb90e5ae943e716575327ec325f39c44": true$/;"	b
-App	playground/App.js	/^export default function App() {$/;"	f
+AppNavigator	playground/App.js	/^const AppNavigator = createStackNavigator({$/;"	C
 Button	lib/src/components/Button.js	/^const Button = () => ($/;"	C
+ButtonScreen	playground/screens/Button.js	/^const ButtonScreen = () => <Button \/>;$/;"	C
+ButtonScreen	playground/screens/Text.js	/^const ButtonScreen = () => <Button \/>;$/;"	C
+HomeScreen	playground/App.js	/^const HomeScreen = ({ navigation }) => ($/;"	C
+ListItem	playground/App.js	/^const ListItem = ({ title, onPress }) => ($/;"	C
+TextScreen	playground/stories/Text.js	/^const TextScreen = () => <Text>LOL<\/Text>;$/;"	C
 android	playground/package.json	/^    "android": "expo start --android",$/;"	s	object:scripts
 assetBundlePatterns	playground/app.json	/^    "assetBundlePatterns": ["**\/*"],$/;"	a	object:expo
 author	lib/package.json	/^  "author": "",$/;"	s
@@ -33,7 +38,7 @@ eject	playground/package.json	/^    "eject": "expo eject",$/;"	s	object:scripts
 expo	playground/app.json	/^  "expo": {$/;"	o
 expo	playground/package.json	/^    "expo": "^35.0.0",$/;"	s	object:dependencies
 expo-yarn-workspaces	playground/package.json	/^    "expo-yarn-workspaces": "^1.2.1"$/;"	s	object:devDependencies
-expoServerNgrokUrl	playground/.expo/packager-info.json	/^  "expoServerNgrokUrl": null,$/;"	z
+expoServerNgrokUrl	playground/.expo/packager-info.json	/^  "expoServerNgrokUrl": "https:\/\/4g-e69.toan2406.playground.exp.direct",$/;"	s
 expoServerPort	playground/.expo/packager-info.json	/^  "expoServerPort": null,$/;"	z
 exports	playground/babel.config.js	/^module.exports = function(api) {$/;"	f	function:module
 f9155ac790fd02fadcdeca367b02581c04a353aa6d5aa84409a59f6804c87acd	playground/.expo-shared/assets.json	/^  "f9155ac790fd02fadcdeca367b02581c04a353aa6d5aa84409a59f6804c87acd": true,$/;"	b
@@ -55,9 +60,9 @@ name	lib/package.json	/^  "name": "rn-hero-design",$/;"	s
 name	package.json	/^  "name": "react-native-hero-design",$/;"	s
 name	playground/app.json	/^    "name": "RN Hero Design",$/;"	s	object:expo
 name	playground/package.json	/^  "name": "@rn-hero-design\/playground",$/;"	s
-ngrokPid	playground/.expo/packager-info.json	/^  "ngrokPid": null$/;"	z
+ngrokPid	playground/.expo/packager-info.json	/^  "ngrokPid": 88158$/;"	n
 orientation	playground/app.json	/^    "orientation": "portrait",$/;"	s	object:expo
-packagerNgrokUrl	playground/.expo/packager-info.json	/^  "packagerNgrokUrl": null,$/;"	z
+packagerNgrokUrl	playground/.expo/packager-info.json	/^  "packagerNgrokUrl": "https:\/\/packager.4g-e69.toan2406.playground.exp.direct",$/;"	s
 packagerOpts	playground/app.json	/^    "packagerOpts": {$/;"	o	object:expo
 packagerPid	playground/.expo/packager-info.json	/^  "packagerPid": null,$/;"	z
 packagerPort	playground/.expo/packager-info.json	/^  "packagerPort": null,$/;"	z
@@ -73,7 +78,12 @@ react	playground/package.json	/^    "react": "16.8.3",$/;"	s	object:dependencies
 react-dom	playground/package.json	/^    "react-dom": "16.8.3",$/;"	s	object:dependencies
 react-native	lib/package.json	/^    "react-native": "0.60.5"$/;"	s	object:peerDependencies
 react-native	playground/package.json	/^    "react-native": "https:\/\/github.com\/expo\/react-native\/archive\/sdk-35.0.0.tar.gz",$/;"	s	object:dependencies
+react-native-gesture-handler	playground/package.json	/^    "react-native-gesture-handler": "~1.3.0",$/;"	s	object:dependencies
+react-native-reanimated	playground/package.json	/^    "react-native-reanimated": "~1.2.0",$/;"	s	object:dependencies
+react-native-screens	playground/package.json	/^    "react-native-screens": "~1.0.0-alpha.23",$/;"	s	object:dependencies
 react-native-web	playground/package.json	/^    "react-native-web": "^0.11.7",$/;"	s	object:dependencies
+react-navigation	playground/package.json	/^    "react-navigation": "^4.0.10",$/;"	s	object:dependencies
+react-navigation-stack	playground/package.json	/^    "react-navigation-stack": "^1.10.3",$/;"	s	object:dependencies
 resizeMode	playground/app.json	/^      "resizeMode": "contain",$/;"	s	object:expo.splash
 rn-hero-design	playground/package.json	/^    "rn-hero-design": "1.0.0"$/;"	s	object:dependencies
 scripts	lib/package.json	/^  "scripts": {$/;"	o

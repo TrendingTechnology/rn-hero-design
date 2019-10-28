@@ -10,7 +10,10 @@
 1	app.json	/^    "platforms": ["ios", "android", "web"],$/;"	s	array:expo.platforms
 2	app.json	/^    "platforms": ["ios", "android", "web"],$/;"	s	array:expo.platforms
 89ed26367cdb9b771858e026f2eb95bfdb90e5ae943e716575327ec325f39c44	.expo-shared/assets.json	/^  "89ed26367cdb9b771858e026f2eb95bfdb90e5ae943e716575327ec325f39c44": true$/;"	b
-App	App.js	/^export default function App() {$/;"	f
+AppNavigator	App.js	/^const AppNavigator = createStackNavigator({$/;"	C
+HomeScreen	App.js	/^const HomeScreen = () => ($/;"	C
+Item	App.js	/^const Item = ({ screen }) => ($/;"	C
+SCREENS	App.js	/^const SCREENS = [{ screen: 'Text' }, { screen: 'Button' }];$/;"	C
 android	package.json	/^    "android": "expo start --android",$/;"	s	object:scripts
 assetBundlePatterns	app.json	/^    "assetBundlePatterns": ["**\/*"],$/;"	a	object:expo
 babel-preset-expo	package.json	/^    "babel-preset-expo": "^7.1.0",$/;"	s	object:devDependencies
