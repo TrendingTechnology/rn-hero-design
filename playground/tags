@@ -1,0 +1,70 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/b818539/
+0	app.json	/^    "assetBundlePatterns": ["**\/*"],$/;"	s	array:expo.assetBundlePatterns
+0	app.json	/^    "platforms": ["ios", "android", "web"],$/;"	s	array:expo.platforms
+1	app.json	/^    "platforms": ["ios", "android", "web"],$/;"	s	array:expo.platforms
+2	app.json	/^    "platforms": ["ios", "android", "web"],$/;"	s	array:expo.platforms
+89ed26367cdb9b771858e026f2eb95bfdb90e5ae943e716575327ec325f39c44	.expo-shared/assets.json	/^  "89ed26367cdb9b771858e026f2eb95bfdb90e5ae943e716575327ec325f39c44": true$/;"	b
+App	App.js	/^export default function App() {$/;"	f
+android	package.json	/^    "android": "expo start --android",$/;"	s	object:scripts
+assetBundlePatterns	app.json	/^    "assetBundlePatterns": ["**\/*"],$/;"	a	object:expo
+babel-preset-expo	package.json	/^    "babel-preset-expo": "^7.1.0",$/;"	s	object:devDependencies
+backgroundColor	app.json	/^      "backgroundColor": "#ffffff"$/;"	s	object:expo.splash
+config	app.json	/^      "config": "metro.config.js"$/;"	s	object:expo.packagerOpts
+dependencies	package.json	/^  "dependencies": {$/;"	o
+dev	.expo/settings.json	/^  "dev": true,$/;"	b
+devDependencies	package.json	/^  "devDependencies": {$/;"	o
+devToolsPort	.expo/packager-info.json	/^  "devToolsPort": 19002,$/;"	n
+eject	package.json	/^    "eject": "expo eject",$/;"	s	object:scripts
+expo	app.json	/^  "expo": {$/;"	o
+expo	package.json	/^    "expo": "^35.0.0",$/;"	s	object:dependencies
+expo-yarn-workspaces	package.json	/^    "expo-yarn-workspaces": "^1.2.1"$/;"	s	object:devDependencies
+expoServerNgrokUrl	.expo/packager-info.json	/^  "expoServerNgrokUrl": null,$/;"	z
+expoServerPort	.expo/packager-info.json	/^  "expoServerPort": null,$/;"	z
+exports	babel.config.js	/^module.exports = function(api) {$/;"	f	function:module
+f9155ac790fd02fadcdeca367b02581c04a353aa6d5aa84409a59f6804c87acd	.expo-shared/assets.json	/^  "f9155ac790fd02fadcdeca367b02581c04a353aa6d5aa84409a59f6804c87acd": true,$/;"	b
+fallbackToCacheTimeout	app.json	/^      "fallbackToCacheTimeout": 0$/;"	n	object:expo.updates
+hostType	.expo/settings.json	/^  "hostType": "lan",$/;"	s
+https	.expo/settings.json	/^  "https": false$/;"	b
+icon	app.json	/^    "icon": ".\/assets\/icon.png",$/;"	s	object:expo
+image	app.json	/^      "image": ".\/assets\/splash.png",$/;"	s	object:expo.splash
+ios	app.json	/^    "ios": {$/;"	o	object:expo
+ios	package.json	/^    "ios": "expo start --ios",$/;"	s	object:scripts
+lanType	.expo/settings.json	/^  "lanType": "ip",$/;"	s
+main	package.json	/^  "main": "__generated__\/AppEntry.js",$/;"	s
+minify	.expo/settings.json	/^  "minify": false,$/;"	b
+name	app.json	/^    "name": "RN Hero Design",$/;"	s	object:expo
+name	package.json	/^  "name": "@rn-hero-design\/playground",$/;"	s
+ngrokPid	.expo/packager-info.json	/^  "ngrokPid": null$/;"	z
+orientation	app.json	/^    "orientation": "portrait",$/;"	s	object:expo
+packagerNgrokUrl	.expo/packager-info.json	/^  "packagerNgrokUrl": null,$/;"	z
+packagerOpts	app.json	/^    "packagerOpts": {$/;"	o	object:expo
+packagerPid	.expo/packager-info.json	/^  "packagerPid": null,$/;"	z
+packagerPort	.expo/packager-info.json	/^  "packagerPort": null,$/;"	z
+platforms	app.json	/^    "platforms": ["ios", "android", "web"],$/;"	a	object:expo
+postinstall	package.json	/^    "postinstall": "expo-yarn-workspaces postinstall"$/;"	s	object:scripts
+privacy	app.json	/^    "privacy": "public",$/;"	s	object:expo
+private	package.json	/^  "private": true$/;"	b
+react	package.json	/^    "react": "16.8.3",$/;"	s	object:dependencies
+react-dom	package.json	/^    "react-dom": "16.8.3",$/;"	s	object:dependencies
+react-native	package.json	/^    "react-native": "https:\/\/github.com\/expo\/react-native\/archive\/sdk-35.0.0.tar.gz",$/;"	s	object:dependencies
+react-native-web	package.json	/^    "react-native-web": "^0.11.7",$/;"	s	object:dependencies
+resizeMode	app.json	/^      "resizeMode": "contain",$/;"	s	object:expo.splash
+rn-hero-design	package.json	/^    "rn-hero-design": "1.0.0"$/;"	s	object:dependencies
+scripts	package.json	/^  "scripts": {$/;"	o
+sdkVersion	app.json	/^    "sdkVersion": "35.0.0",$/;"	s	object:expo
+slug	app.json	/^    "slug": "rn-hero-design",$/;"	s	object:expo
+splash	app.json	/^    "splash": {$/;"	o	object:expo
+start	package.json	/^    "start": "expo start",$/;"	s	object:scripts
+styles	App.js	/^const styles = StyleSheet.create({$/;"	C
+supportsTablet	app.json	/^      "supportsTablet": true$/;"	b	object:expo.ios
+updates	app.json	/^    "updates": {$/;"	o	object:expo
+urlRandomness	.expo/settings.json	/^  "urlRandomness": "4g-e69",$/;"	s
+version	app.json	/^    "version": "1.0.0",$/;"	s	object:expo
+version	package.json	/^  "version": "1.0.0",$/;"	s
+web	package.json	/^    "web": "expo start --web",$/;"	s	object:scripts

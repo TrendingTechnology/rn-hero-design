@@ -1,0 +1,96 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	0.0.0	/b818539/
+0	package.json	/^      "lib",$/;"	s	array:workspaces.packages
+0	playground/app.json	/^    "assetBundlePatterns": ["**\/*"],$/;"	s	array:expo.assetBundlePatterns
+0	playground/app.json	/^    "platforms": ["ios", "android", "web"],$/;"	s	array:expo.platforms
+1	package.json	/^      "documentation",$/;"	s	array:workspaces.packages
+1	playground/app.json	/^    "platforms": ["ios", "android", "web"],$/;"	s	array:expo.platforms
+2	package.json	/^      "playground"$/;"	s	array:workspaces.packages
+2	playground/app.json	/^    "platforms": ["ios", "android", "web"],$/;"	s	array:expo.platforms
+89ed26367cdb9b771858e026f2eb95bfdb90e5ae943e716575327ec325f39c44	playground/.expo-shared/assets.json	/^  "89ed26367cdb9b771858e026f2eb95bfdb90e5ae943e716575327ec325f39c44": true$/;"	b
+App	playground/App.js	/^export default function App() {$/;"	f
+Button	lib/src/components/Button.js	/^const Button = () => ($/;"	C
+android	playground/package.json	/^    "android": "expo start --android",$/;"	s	object:scripts
+assetBundlePatterns	playground/app.json	/^    "assetBundlePatterns": ["**\/*"],$/;"	a	object:expo
+author	lib/package.json	/^  "author": "",$/;"	s
+author	package.json	/^  "author": "",$/;"	s
+babel-preset-expo	playground/package.json	/^    "babel-preset-expo": "^7.1.0",$/;"	s	object:devDependencies
+backgroundColor	playground/app.json	/^      "backgroundColor": "#ffffff"$/;"	s	object:expo.splash
+config	playground/app.json	/^      "config": "metro.config.js"$/;"	s	object:expo.packagerOpts
+dependencies	playground/package.json	/^  "dependencies": {$/;"	o
+description	lib/package.json	/^  "description": "",$/;"	s
+description	package.json	/^  "description": "",$/;"	s
+dev	package.json	/^    "dev": "cd playground && expo start"$/;"	s	object:scripts
+dev	playground/.expo/settings.json	/^  "dev": true,$/;"	b
+devDependencies	playground/package.json	/^  "devDependencies": {$/;"	o
+devToolsPort	playground/.expo/packager-info.json	/^  "devToolsPort": 19002,$/;"	n
+eject	playground/package.json	/^    "eject": "expo eject",$/;"	s	object:scripts
+expo	playground/app.json	/^  "expo": {$/;"	o
+expo	playground/package.json	/^    "expo": "^35.0.0",$/;"	s	object:dependencies
+expo-yarn-workspaces	playground/package.json	/^    "expo-yarn-workspaces": "^1.2.1"$/;"	s	object:devDependencies
+expoServerNgrokUrl	playground/.expo/packager-info.json	/^  "expoServerNgrokUrl": null,$/;"	z
+expoServerPort	playground/.expo/packager-info.json	/^  "expoServerPort": null,$/;"	z
+exports	playground/babel.config.js	/^module.exports = function(api) {$/;"	f	function:module
+f9155ac790fd02fadcdeca367b02581c04a353aa6d5aa84409a59f6804c87acd	playground/.expo-shared/assets.json	/^  "f9155ac790fd02fadcdeca367b02581c04a353aa6d5aa84409a59f6804c87acd": true,$/;"	b
+fallbackToCacheTimeout	playground/app.json	/^      "fallbackToCacheTimeout": 0$/;"	n	object:expo.updates
+hostType	playground/.expo/settings.json	/^  "hostType": "lan",$/;"	s
+https	playground/.expo/settings.json	/^  "https": false$/;"	b
+icon	playground/app.json	/^    "icon": ".\/assets\/icon.png",$/;"	s	object:expo
+image	playground/app.json	/^      "image": ".\/assets\/splash.png",$/;"	s	object:expo.splash
+ios	playground/app.json	/^    "ios": {$/;"	o	object:expo
+ios	playground/package.json	/^    "ios": "expo start --ios",$/;"	s	object:scripts
+lanType	playground/.expo/settings.json	/^  "lanType": "ip",$/;"	s
+license	lib/package.json	/^  "license": "ISC",$/;"	s
+license	package.json	/^  "license": "ISC"$/;"	s
+main	lib/package.json	/^  "main": "src\/index.js",$/;"	s
+main	package.json	/^  "main": "index.js",$/;"	s
+main	playground/package.json	/^  "main": "__generated__\/AppEntry.js",$/;"	s
+minify	playground/.expo/settings.json	/^  "minify": false,$/;"	b
+name	lib/package.json	/^  "name": "rn-hero-design",$/;"	s
+name	package.json	/^  "name": "react-native-hero-design",$/;"	s
+name	playground/app.json	/^    "name": "RN Hero Design",$/;"	s	object:expo
+name	playground/package.json	/^  "name": "@rn-hero-design\/playground",$/;"	s
+ngrokPid	playground/.expo/packager-info.json	/^  "ngrokPid": null$/;"	z
+orientation	playground/app.json	/^    "orientation": "portrait",$/;"	s	object:expo
+packagerNgrokUrl	playground/.expo/packager-info.json	/^  "packagerNgrokUrl": null,$/;"	z
+packagerOpts	playground/app.json	/^    "packagerOpts": {$/;"	o	object:expo
+packagerPid	playground/.expo/packager-info.json	/^  "packagerPid": null,$/;"	z
+packagerPort	playground/.expo/packager-info.json	/^  "packagerPort": null,$/;"	z
+packages	package.json	/^    "packages": [$/;"	a	object:workspaces
+peerDependencies	lib/package.json	/^  "peerDependencies": {$/;"	o
+platforms	playground/app.json	/^    "platforms": ["ios", "android", "web"],$/;"	a	object:expo
+postinstall	playground/package.json	/^    "postinstall": "expo-yarn-workspaces postinstall"$/;"	s	object:scripts
+privacy	playground/app.json	/^    "privacy": "public",$/;"	s	object:expo
+private	package.json	/^  "private": true,$/;"	b
+private	playground/package.json	/^  "private": true$/;"	b
+react	lib/package.json	/^    "react": "16.9.0",$/;"	s	object:peerDependencies
+react	playground/package.json	/^    "react": "16.8.3",$/;"	s	object:dependencies
+react-dom	playground/package.json	/^    "react-dom": "16.8.3",$/;"	s	object:dependencies
+react-native	lib/package.json	/^    "react-native": "0.60.5"$/;"	s	object:peerDependencies
+react-native	playground/package.json	/^    "react-native": "https:\/\/github.com\/expo\/react-native\/archive\/sdk-35.0.0.tar.gz",$/;"	s	object:dependencies
+react-native-web	playground/package.json	/^    "react-native-web": "^0.11.7",$/;"	s	object:dependencies
+resizeMode	playground/app.json	/^      "resizeMode": "contain",$/;"	s	object:expo.splash
+rn-hero-design	playground/package.json	/^    "rn-hero-design": "1.0.0"$/;"	s	object:dependencies
+scripts	lib/package.json	/^  "scripts": {$/;"	o
+scripts	package.json	/^  "scripts": {$/;"	o
+scripts	playground/package.json	/^  "scripts": {$/;"	o
+sdkVersion	playground/app.json	/^    "sdkVersion": "35.0.0",$/;"	s	object:expo
+slug	playground/app.json	/^    "slug": "rn-hero-design",$/;"	s	object:expo
+splash	playground/app.json	/^    "splash": {$/;"	o	object:expo
+start	playground/package.json	/^    "start": "expo start",$/;"	s	object:scripts
+styles	playground/App.js	/^const styles = StyleSheet.create({$/;"	C
+supportsTablet	playground/app.json	/^      "supportsTablet": true$/;"	b	object:expo.ios
+test	lib/package.json	/^    "test": "echo \\"Error: no test specified\\" && exit 1"$/;"	s	object:scripts
+updates	playground/app.json	/^    "updates": {$/;"	o	object:expo
+urlRandomness	playground/.expo/settings.json	/^  "urlRandomness": "4g-e69",$/;"	s
+version	lib/package.json	/^  "version": "1.0.0",$/;"	s
+version	package.json	/^  "version": "1.0.0",$/;"	s
+version	playground/app.json	/^    "version": "1.0.0",$/;"	s	object:expo
+version	playground/package.json	/^  "version": "1.0.0",$/;"	s
+web	playground/package.json	/^    "web": "expo start --web",$/;"	s	object:scripts
+workspaces	package.json	/^  "workspaces": {$/;"	o

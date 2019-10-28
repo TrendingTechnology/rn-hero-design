@@ -1,0 +1,19 @@
+{
+  "name": "react-native-hero-design",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "lib",
+      "documentation",
+      "playground"
+    ]
+  },
+  "scripts": {
+    "dev": "cd playground && expo start"
+  },
+  "author": "",
+  "license": "ISC"
+}
