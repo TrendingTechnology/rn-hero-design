@@ -6,7 +6,7 @@ import routes from './stories/routes';
 
 const menuData = Object.keys(routes).map(route => ({
   title: routes[route].navigationOptions.title,
-  route
+  route,
 }));
 
 const HomeScreen = ({ navigation }) => (
@@ -35,25 +35,25 @@ const AppNavigator = createStackNavigator(
     Home: {
       screen: HomeScreen,
       navigationOptions: {
-        title: '👓 RN Hero Design'
-      }
+        title: '👓 RN Hero Design',
+      },
     },
-    ...routes
+    ...routes,
   },
   {
-    initialRouteName: 'Home'
-  }
+    initialRouteName: 'Home',
+  },
 );
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
   },
   item: {
     padding: 8,
     borderBottomColor: 'grey',
-    borderBottomWidth: StyleSheet.hairlineWidth
-  }
+    borderBottomWidth: StyleSheet.hairlineWidth,
+  },
 });
 
 export default createAppContainer(AppNavigator);
