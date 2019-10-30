@@ -12,7 +12,9 @@
     ]
   },
   "scripts": {
-    "dev": "cd playground && expo start"
+    "dev": "cd playground && yarn start",
+    "doc:dev": "cd documentation && yarn dev",
+    "doc:build": "cd documentation && yarn build"
   },
   "author": "",
   "license": "ISC"

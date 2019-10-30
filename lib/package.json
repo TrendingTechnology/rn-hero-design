@@ -8,7 +8,11 @@
   },
   "author": "",
   "license": "ISC",
+  "devDependencies": {
+    "prop-types": "^15.7.2"
+  },
   "peerDependencies": {
+    "prop-types": "^15.7.2",
     "react": "16.9.0",
     "react-native": "0.60.5"
   }
