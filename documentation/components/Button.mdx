@@ -13,7 +13,36 @@ import { Button } from 'rn-hero-design'
 ## Basic usage
 
 <Playground>
-  <Button text="Button" style={{ marginBottom: 16 }} />
-  <Button text="Button" loading style={{ marginBottom: 16 }} />
-  <Button text="Button" disabled />
+  <Button
+    text="Filled Button"
+    wrapperStyle={{ marginBottom: 16 }}
+  />
+  <Button
+    text="Loading Filled Button"
+    loading
+    wrapperStyle={{ marginBottom: 16 }}
+  />
+  <Button
+    text="Disabled Filled Button"
+    disabled
+    wrapperStyle={{ marginBottom: 32 }}
+  />
+
+  <Button
+    variant="outlined"
+    text="Outlined Button"
+    wrapperStyle={{ marginBottom: 16 }}
+  />
+  <Button
+    variant="outlined"
+    text="Loading Outlined Button"
+    loading
+    wrapperStyle={{ marginBottom: 16 }}
+  />
+  <Button
+    variant="outlined"
+    text="Disabled Outlined Button"
+    disabled
+    wrapperStyle={{ marginBottom: 16 }}
+  />
 </Playground>

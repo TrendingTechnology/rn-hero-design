@@ -6,18 +6,43 @@ const callback = () => Alert.alert('Button clicked!');
 
 const ButtonScreen = () => (
   <View style={styles.container}>
-    <Button text="Button" onPress={callback} style={{ marginBottom: 16 }} />
     <Button
-      text="Loading"
+      text="Filled Button"
       onPress={callback}
-      loading
-      style={{ marginBottom: 16 }}
+      wrapperStyle={{ marginBottom: 16 }}
     />
     <Button
-      text="Disabled"
+      text="Loading Filled Button"
+      onPress={callback}
+      loading
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+    <Button
+      text="Disabled Filled Button"
       onPress={callback}
       disabled
-      style={{ marginBottom: 16 }}
+      wrapperStyle={{ marginBottom: 32 }}
+    />
+
+    <Button
+      variant="outlined"
+      text="Outlined Button"
+      onPress={callback}
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+    <Button
+      variant="outlined"
+      text="Loading Outlined Button"
+      onPress={callback}
+      loading
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+    <Button
+      variant="outlined"
+      text="Disabled Outlined Button"
+      onPress={callback}
+      disabled
+      wrapperStyle={{ marginBottom: 16 }}
     />
   </View>
 );
