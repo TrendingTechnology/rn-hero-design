@@ -5,6 +5,7 @@ menu: Components
 
 import { Playground, Props } from 'docz'
 import { Button } from 'rn-hero-design'
+import { RED } from 'rn-hero-design/src/themes/hero/variables';
 
 # Button
 
@@ -43,6 +44,11 @@ import { Button } from 'rn-hero-design'
     variant="outlined"
     text="Disabled Outlined Button"
     disabled
-    wrapperStyle={{ marginBottom: 16 }}
+    wrapperStyle={{ marginBottom: 32 }}
+  />
+
+  <Button
+    text="Custom Button"
+    wrapperStyle={{ marginBottom: 16, backgroundColor: RED, borderRadius: 8 }}
   />
 </Playground>

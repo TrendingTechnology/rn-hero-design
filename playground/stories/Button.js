@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Alert, StyleSheet } from 'react-native';
 import { Button } from 'rn-hero-design';
+import { RED } from 'rn-hero-design/src/themes/hero/variables';
 
 const callback = () => Alert.alert('Button clicked!');
 
@@ -42,7 +43,13 @@ const ButtonScreen = () => (
       text="Disabled Outlined Button"
       onPress={callback}
       disabled
-      wrapperStyle={{ marginBottom: 16 }}
+      wrapperStyle={{ marginBottom: 32 }}
+    />
+
+    <Button
+      text="Custom Button"
+      onPress={callback}
+      wrapperStyle={{ marginBottom: 16, backgroundColor: RED, borderRadius: 8 }}
     />
   </View>
 );
