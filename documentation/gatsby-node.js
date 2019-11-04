@@ -3,6 +3,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
     resolve: {
       alias: {
         'react-native': 'react-native-web',
+        'react-native-svg':
+          '@rn-hero-design/documentation/mocks/react-native-svg-web',
       },
     },
   });

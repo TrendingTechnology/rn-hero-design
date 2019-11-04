@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1024px" height="1024px" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 55.2 (78181) - https://sketchapp.com -->
+    <title>Desktop</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Desktop" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="email-outline" transform="translate(0.000000, 127.000000)" fill="currentColor" fill-rule="nonzero">
+            <path d="M913.365019,72.0228537 C912.911882,72.0076584 912.456836,72 912,72 L112,72 C111.563351,72 111.128337,72.0069965 110.695062,72.0208835 L511.973674,366.935114 L913.365019,72.0228537 Z M952,132.951771 L546.611954,430.621342 C525.877397,445.275581 498.163568,445.292139 477.411516,430.662685 L72,132.903208 L72,658 C72,680.09139 89.90861,698 112,698 L912,698 C934.09139,698 952,680.09139 952,658 L952,132.951771 Z M112,0 L912,0 C973.855892,0 1024,50.144108 1024,112 L1024,658 C1024,719.855892 973.855892,770 912,770 L112,770 C50.144108,770 0,719.855892 0,658 L0,112 C0,50.144108 50.144108,0 112,0 Z" id="Rectangle"></path>
+        </g>
+    </g>
+</svg>
