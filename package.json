@@ -14,7 +14,8 @@
   "scripts": {
     "dev": "cd playground && yarn start",
     "doc:dev": "cd documentation && yarn dev",
-    "doc:build": "cd documentation && yarn build"
+    "doc:build": "cd documentation && yarn build",
+    "test": "cd lib && yarn test"
   },
   "author": "",
   "license": "ISC",
