@@ -1,0 +1,22 @@
+---
+name: TextInput
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { TextInput } from 'rn-hero-design'
+
+# TextInput
+
+## Basic usage
+
+<Playground>
+  <TextInput value="" label="Email" />
+  <TextInput value="toan.nguyen@employmenthero.com" label="Email" rightIcon="email-outline" />
+  <TextInput value="toan.nguyen$employmenthero.com" label="Email" rightIcon="email-outline" error="Invalid email" />
+  <TextInput value="toan.nguyen$employmenthero.com" label="Email" rightIcon="email-outline" disabled />
+</Playground>
+
+## Properties
+
+<Props of={TextInput} />
