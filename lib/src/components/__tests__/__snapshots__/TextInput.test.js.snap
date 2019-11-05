@@ -199,8 +199,15 @@ exports[`TextInput renders correctly 3`] = `
         }
       }
     >
-      <Image
-        source={
+      <View
+        override={
+          Object {
+            "color": "#c3c6cc",
+            "height": 24,
+            "width": 24,
+          }
+        }
+        xml={
           Object {
             "testUri": "../../../lib/src/icons/email.svg",
           }
@@ -286,8 +293,15 @@ exports[`TextInput renders correctly 4`] = `
         }
       }
     >
-      <Image
-        source={
+      <View
+        override={
+          Object {
+            "color": "#c3c6cc",
+            "height": 24,
+            "width": 24,
+          }
+        }
+        xml={
           Object {
             "testUri": "../../../lib/src/icons/email.svg",
           }
@@ -373,8 +387,15 @@ exports[`TextInput renders correctly 5`] = `
         }
       }
     >
-      <Image
-        source={
+      <View
+        override={
+          Object {
+            "color": "#de350b",
+            "height": 24,
+            "width": 24,
+          }
+        }
+        xml={
           Object {
             "testUri": "../../../lib/src/icons/email.svg",
           }

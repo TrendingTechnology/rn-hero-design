@@ -1,0 +1,88 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Icon renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": 24,
+      "justifyContent": "center",
+      "width": 24,
+    }
+  }
+>
+  <View
+    override={
+      Object {
+        "color": "#000000",
+        "height": 24,
+        "width": 24,
+      }
+    }
+    xml={
+      Object {
+        "testUri": "../../../lib/src/icons/email-outline.svg",
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Icon renders correctly 2`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": 24,
+      "justifyContent": "center",
+      "width": 24,
+    }
+  }
+>
+  <View
+    override={
+      Object {
+        "color": "red",
+        "height": 24,
+        "width": 24,
+      }
+    }
+    xml={
+      Object {
+        "testUri": "../../../lib/src/icons/email-outline.svg",
+      }
+    }
+  />
+</View>
+`;
+
+exports[`Icon renders correctly 3`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": 48,
+      "justifyContent": "center",
+      "width": 48,
+    }
+  }
+>
+  <View
+    override={
+      Object {
+        "color": "red",
+        "height": 48,
+        "width": 48,
+      }
+    }
+    xml={
+      Object {
+        "testUri": "../../../lib/src/icons/email-outline.svg",
+      }
+    }
+  />
+</View>
+`;
