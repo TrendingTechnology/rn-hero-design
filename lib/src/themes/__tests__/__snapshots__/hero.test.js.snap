@@ -1,0 +1,101 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Theme Hero has correct configs 1`] = `
+Object {
+  "button": Object {
+    "disabledText": Object {
+      "color": "#fcfcfc",
+    },
+    "disabledWrapper": Object {
+      "backgroundColor": "#d9dbdf",
+      "borderWidth": 0,
+    },
+    "filledLoadingIndicator": Object {
+      "color": "#fcfcfc",
+    },
+    "filledText": Object {
+      "color": "#fcfcfc",
+    },
+    "filledWrapper": Object {
+      "backgroundColor": "#1dbeee",
+    },
+    "outlinedLoadingIndicator": Object {
+      "color": "#1dbeee",
+    },
+    "outlinedText": Object {
+      "color": "#1dbeee",
+      "fontWeight": "500",
+    },
+    "outlinedWrapper": Object {
+      "backgroundColor": "transparent",
+      "borderColor": "#1dbeee",
+      "borderWidth": 1.2,
+    },
+    "text": Object {
+      "fontSize": 16,
+      "lineHeight": 16,
+    },
+    "wrapper": Object {
+      "alignItems": "center",
+      "borderRadius": 24,
+      "display": "flex",
+      "height": 48,
+      "justifyContent": "center",
+      "paddingHorizontal": 16,
+    },
+  },
+  "icon": Object {
+    "icon": Object {
+      "color": "#000000",
+    },
+  },
+  "textInput": Object {
+    "baseTextInput": Object {
+      "color": "#000000",
+      "flex": 1,
+      "fontSize": 16,
+      "height": 48,
+    },
+    "disabledBaseTextInput": Object {
+      "color": "#c3c6cc",
+    },
+    "errorIcon": Object {
+      "color": "#de350b",
+    },
+    "errorLabel": Object {
+      "color": "#de350b",
+    },
+    "errorMessage": Object {
+      "color": "#de350b",
+      "fontSize": 13.28,
+      "fontWeight": "500",
+      "height": 13.28,
+      "lineHeight": 13.28,
+      "marginTop": 8,
+    },
+    "errorTextInput": Object {
+      "borderBottomColor": "#de350b",
+    },
+    "icon": Object {
+      "color": "#c3c6cc",
+    },
+    "label": Object {
+      "color": "#c3c6cc",
+      "fontSize": 13.28,
+      "fontWeight": "500",
+      "height": 13.28,
+      "lineHeight": 13.28,
+    },
+    "textInput": Object {
+      "alignItems": "center",
+      "borderBottomColor": "#c3c6cc",
+      "borderBottomWidth": 1,
+      "flexDirection": "row",
+      "height": 48,
+    },
+    "wrapper": Object {
+      "marginBottom": 16,
+    },
+  },
+}
+`;
