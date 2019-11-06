@@ -1,6 +1,8 @@
 import React from 'react';
 import { View, SafeAreaView, StyleSheet } from 'react-native';
-import { TextInput, Button } from 'rn-hero-design';
+import { TextInput, Button, Text } from 'rn-hero-design';
+
+const noop = () => {};
 
 const TextInputScreen = () => (
   <SafeAreaView style={styles.safeArea}>
@@ -10,12 +12,14 @@ const TextInputScreen = () => (
           label="Email"
           value="toan.nguyen@employmenthero.com"
           rightIcon="email-outline"
+          onChange={noop}
         />
 
         <TextInput
           label="Password"
           value="123456"
           rightIcon="eye-outline"
+          onChange={noop}
           secureTextEntry
         />
 
@@ -23,12 +27,15 @@ const TextInputScreen = () => (
           label="Confirm password"
           value="12345"
           rightIcon="eye-outline"
+          onChange={noop}
           secureTextEntry
           error="Password not matched"
           wrapperStyle={{ marginBottom: 32 }}
         />
 
-        <TextInput label="Region" value="Vietnam" disabled />
+        <TextInput label="Region" value="Vietnam" disabled onChange={noop} />
+
+        <Text>* By signing up, you agree to our terms and conditions</Text>
       </View>
 
       <Button text="Register" onPress={() => {}} />

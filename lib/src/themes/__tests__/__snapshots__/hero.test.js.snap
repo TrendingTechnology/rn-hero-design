@@ -49,6 +49,27 @@ Object {
       "color": "#000000",
     },
   },
+  "text": Object {
+    "h1": Object {
+      "fontSize": 32,
+    },
+    "h2": Object {
+      "fontSize": 24,
+    },
+    "h3": Object {
+      "fontSize": 18.72,
+    },
+    "h4": Object {
+      "fontSize": 16,
+    },
+    "h5": Object {
+      "fontSize": 13.28,
+    },
+    "text": Object {
+      "color": "#000000",
+      "fontSize": 16,
+    },
+  },
   "textInput": Object {
     "baseTextInput": Object {
       "color": "#000000",
