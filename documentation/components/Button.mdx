@@ -6,49 +6,52 @@ menu: Components
 import { Playground, Props } from 'docz'
 import { Button } from 'rn-hero-design'
 import { RED } from 'rn-hero-design/src/themes/hero/variables';
+import { IPhoneX } from './DeviceFrame'
 
 # Button
 
 ## Basic usage
 
 <Playground>
-  <Button
-    text="Filled Button"
-    wrapperStyle={{ marginBottom: 16 }}
-  />
-  <Button
-    text="Loading Filled Button"
-    loading
-    wrapperStyle={{ marginBottom: 16 }}
-  />
-  <Button
-    text="Disabled Filled Button"
-    disabled
-    wrapperStyle={{ marginBottom: 32 }}
-  />
+  <IPhoneX>
+    <Button
+      text="Filled Button"
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+    <Button
+      text="Loading Filled Button"
+      loading
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+    <Button
+      text="Disabled Filled Button"
+      disabled
+      wrapperStyle={{ marginBottom: 32 }}
+    />
 
-  <Button
-    variant="outlined"
-    text="Outlined Button"
-    wrapperStyle={{ marginBottom: 16 }}
-  />
-  <Button
-    variant="outlined"
-    text="Loading Outlined Button"
-    loading
-    wrapperStyle={{ marginBottom: 16 }}
-  />
-  <Button
-    variant="outlined"
-    text="Disabled Outlined Button"
-    disabled
-    wrapperStyle={{ marginBottom: 32 }}
-  />
+    <Button
+      variant="outlined"
+      text="Outlined Button"
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+    <Button
+      variant="outlined"
+      text="Loading Outlined Button"
+      loading
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+    <Button
+      variant="outlined"
+      text="Disabled Outlined Button"
+      disabled
+      wrapperStyle={{ marginBottom: 32 }}
+    />
 
-  <Button
-    text="Custom Button"
-    wrapperStyle={{ marginBottom: 16, backgroundColor: RED, borderRadius: 8 }}
-  />
+    <Button
+      text="Custom Button"
+      wrapperStyle={{ marginBottom: 16, backgroundColor: RED, borderRadius: 8 }}
+    />
+  </IPhoneX>
 </Playground>
 
 ## Properties

@@ -5,16 +5,19 @@ menu: Components
 
 import { Playground, Props } from 'docz'
 import { TextInput } from 'rn-hero-design'
+import { IPhoneX } from './DeviceFrame'
 
 # TextInput
 
 ## Basic usage
 
 <Playground>
-  <TextInput value="" label="Email" />
-  <TextInput value="toan.nguyen@employmenthero.com" label="Email" rightIcon="email-outline" />
-  <TextInput value="toan.nguyen$employmenthero.com" label="Email" rightIcon="email-outline" error="Invalid email" />
-  <TextInput value="toan.nguyen$employmenthero.com" label="Email" rightIcon="email-outline" disabled />
+  <IPhoneX>
+    <TextInput value="" label="Email" />
+    <TextInput value="toan.nguyen@employmenthero.com" label="Email" rightIcon="email-outline" />
+    <TextInput value="toan.nguyen$employmenthero.com" label="Email" rightIcon="email-outline" error="Invalid email" />
+    <TextInput value="toan.nguyen$employmenthero.com" label="Email" rightIcon="email-outline" disabled />
+  </IPhoneX>
 </Playground>
 
 ## Properties
