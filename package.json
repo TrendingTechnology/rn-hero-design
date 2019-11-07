@@ -15,6 +15,7 @@
     "dev": "cd playground && yarn start",
     "doc:dev": "cd documentation && yarn dev",
     "doc:build": "cd documentation && yarn build",
+    "doc:serve": "cd documentation && yarn serve",
     "test": "cd lib && yarn test"
   },
   "author": "",
