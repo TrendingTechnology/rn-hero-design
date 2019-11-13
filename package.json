@@ -16,7 +16,8 @@
     "doc:dev": "cd documentation && yarn dev",
     "doc:build": "cd documentation && yarn build",
     "doc:serve": "cd documentation && yarn serve",
-    "test": "cd lib && yarn test"
+    "test": "cd lib && yarn test",
+    "publish": "cd lib && npm publish"
   },
   "author": "",
   "license": "ISC",
