@@ -16,6 +16,7 @@
     "doc:dev": "cd documentation && yarn dev",
     "doc:build": "cd documentation && yarn build",
     "doc:serve": "cd documentation && yarn serve",
+    "doc:deploy": "cd documentation && yarn build && yarn deploy",
     "test": "cd lib && yarn test",
     "lib:publish": "cd lib && npm publish"
   },
