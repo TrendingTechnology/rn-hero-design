@@ -3,4 +3,5 @@ export default {
   docgenConfig: {
     searchPath: '../lib',
   },
+  repository: 'https://github.com/Thinkei/rn-hero-design',
 };
