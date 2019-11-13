@@ -5,7 +5,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import routes from './stories/routes';
 
 const menuData = Object.keys(routes).map(route => ({
-  title: routes[route].navigationOptions.title,
+  title: route,
   route,
 }));
 

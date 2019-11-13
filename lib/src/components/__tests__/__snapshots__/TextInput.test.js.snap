@@ -36,8 +36,8 @@ exports[`TextInput renders correctly 1`] = `
       allowFontScaling={true}
       editable={true}
       onBlur={[Function]}
+      onChangeText={[Function]}
       onFocus={[Function]}
-      onTextChange={[Function]}
       placeholder=""
       placeholderTextColor="#000000"
       rejectResponderTermination={true}
@@ -51,6 +51,21 @@ exports[`TextInput renders correctly 1`] = `
       }
       underlineColorAndroid="transparent"
       value=""
+    />
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
     />
   </View>
   <Text
@@ -104,8 +119,8 @@ exports[`TextInput renders correctly 2`] = `
       allowFontScaling={true}
       editable={true}
       onBlur={[Function]}
+      onChangeText={[Function]}
       onFocus={[Function]}
-      onTextChange={[Function]}
       placeholder="Email"
       placeholderTextColor="#000000"
       rejectResponderTermination={true}
@@ -119,6 +134,21 @@ exports[`TextInput renders correctly 2`] = `
       }
       underlineColorAndroid="transparent"
       value=""
+    />
+    <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Object {
+          "opacity": 1,
+        }
+      }
     />
   </View>
   <Text
@@ -172,8 +202,8 @@ exports[`TextInput renders correctly 3`] = `
       allowFontScaling={true}
       editable={true}
       onBlur={[Function]}
+      onChangeText={[Function]}
       onFocus={[Function]}
-      onTextChange={[Function]}
       placeholder="Email"
       placeholderTextColor="#000000"
       rejectResponderTermination={true}
@@ -189,30 +219,52 @@ exports[`TextInput renders correctly 3`] = `
       value=""
     />
     <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "center",
-          "display": "flex",
-          "height": 24,
-          "justifyContent": "center",
-          "width": 24,
+          "opacity": 1,
         }
       }
     >
       <View
-        override={
-          Object {
-            "color": "#c3c6cc",
-            "height": 24,
-            "width": 24,
-          }
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "height": 24,
+              "justifyContent": "center",
+              "width": 24,
+            },
+            Object {
+              "color": "#c3c6cc",
+              "height": 48,
+            },
+          ]
         }
-        xml={
-          Object {
-            "testUri": "../../../lib/src/icons/email.svg",
+      >
+        <View
+          override={
+            Object {
+              "color": "#c3c6cc",
+              "height": 24,
+              "width": 24,
+            }
           }
-        }
-      />
+          xml={
+            Object {
+              "testUri": "../../../lib/src/icons/email.svg",
+            }
+          }
+        />
+      </View>
     </View>
   </View>
   <Text
@@ -266,8 +318,8 @@ exports[`TextInput renders correctly 4`] = `
       allowFontScaling={true}
       editable={false}
       onBlur={[Function]}
+      onChangeText={[Function]}
       onFocus={[Function]}
-      onTextChange={[Function]}
       placeholder="Email"
       placeholderTextColor="#c3c6cc"
       rejectResponderTermination={true}
@@ -283,30 +335,52 @@ exports[`TextInput renders correctly 4`] = `
       value=""
     />
     <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "center",
-          "display": "flex",
-          "height": 24,
-          "justifyContent": "center",
-          "width": 24,
+          "opacity": 1,
         }
       }
     >
       <View
-        override={
-          Object {
-            "color": "#c3c6cc",
-            "height": 24,
-            "width": 24,
-          }
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "height": 24,
+              "justifyContent": "center",
+              "width": 24,
+            },
+            Object {
+              "color": "#c3c6cc",
+              "height": 48,
+            },
+          ]
         }
-        xml={
-          Object {
-            "testUri": "../../../lib/src/icons/email.svg",
+      >
+        <View
+          override={
+            Object {
+              "color": "#c3c6cc",
+              "height": 24,
+              "width": 24,
+            }
           }
-        }
-      />
+          xml={
+            Object {
+              "testUri": "../../../lib/src/icons/email.svg",
+            }
+          }
+        />
+      </View>
     </View>
   </View>
   <Text
@@ -360,8 +434,8 @@ exports[`TextInput renders correctly 5`] = `
       allowFontScaling={true}
       editable={false}
       onBlur={[Function]}
+      onChangeText={[Function]}
       onFocus={[Function]}
-      onTextChange={[Function]}
       placeholder="Email"
       placeholderTextColor="#c3c6cc"
       rejectResponderTermination={true}
@@ -377,30 +451,52 @@ exports[`TextInput renders correctly 5`] = `
       value=""
     />
     <View
+      accessible={true}
+      isTVSelectable={true}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "alignItems": "center",
-          "display": "flex",
-          "height": 24,
-          "justifyContent": "center",
-          "width": 24,
+          "opacity": 1,
         }
       }
     >
       <View
-        override={
-          Object {
-            "color": "#de350b",
-            "height": 24,
-            "width": 24,
-          }
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "height": 24,
+              "justifyContent": "center",
+              "width": 24,
+            },
+            Object {
+              "color": "#c3c6cc",
+              "height": 48,
+            },
+          ]
         }
-        xml={
-          Object {
-            "testUri": "../../../lib/src/icons/email.svg",
+      >
+        <View
+          override={
+            Object {
+              "color": "#de350b",
+              "height": 24,
+              "width": 24,
+            }
           }
-        }
-      />
+          xml={
+            Object {
+              "testUri": "../../../lib/src/icons/email.svg",
+            }
+          }
+        />
+      </View>
     </View>
   </View>
   <Text

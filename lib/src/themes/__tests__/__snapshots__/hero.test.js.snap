@@ -99,6 +99,7 @@ Object {
     },
     "icon": Object {
       "color": "#c3c6cc",
+      "height": 48,
     },
     "label": Object {
       "color": "#c3c6cc",

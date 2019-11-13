@@ -2,6 +2,7 @@ import TextScreen from './Text';
 import ButtonScreen from './Button';
 import TextInputScreen from './TextInput';
 import IconScreen from './Icon';
+import LoginScreen from './LoginScreen';
 
 export default {
   Text: {
@@ -27,5 +28,8 @@ export default {
     navigationOptions: {
       title: 'Icon',
     },
+  },
+  LoginScreen: {
+    screen: LoginScreen,
   },
 };
