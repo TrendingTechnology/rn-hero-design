@@ -43,6 +43,7 @@ workflows:
                 - master
           requires:
             - test
+            - hold_publish
       - deploy_doc:
           context: org-global
           filters:
@@ -51,4 +52,10 @@ workflows:
                 - master
           requires:
             - test
+            - hold_publish
+      - hold_publish:
+          type: approval
+          filters:
+            branches:
+              only: master
 
