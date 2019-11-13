@@ -1,31 +1,29 @@
+defaults: &defaults
+  working_directory: ~/rn-hero-design
+  docker:
+    - image: ehdevops/node:0.1.3
+  environment:
+    - CI: true
+
 version: 2
 jobs:
   test:
-    working_directory: ~/rn-hero-design
-    docker:
-      - image: ehdevops/node:0.1.3
-    environment:
-      - CI: true
+    <<: *defaults
     steps:
       - checkout
       - run: yarn install
       - run: yarn test
   publish_lib:
-    working_directory: ~/rn-hero-design
-    docker:
-      - image: ehdevops/node:0.1.3
-    environment:
-      - CI: true
+    <<: *defaults
     steps:
       - checkout
       - run: yarn install
+      - run:
+          name: Authenticate with registry
+          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run: yarn lib:publish
   deploy_doc:
-    working_directory: ~/rn-hero-design
-    docker:
-      - image: ehdevops/node:0.1.3
-    environment:
-      - CI: true
+    <<: *defaults
     steps:
       - checkout
       - run: yarn install
