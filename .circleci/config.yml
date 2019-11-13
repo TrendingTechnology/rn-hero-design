@@ -1,0 +1,38 @@
+version: 2
+jobs:
+  test:
+    working_directory: ~/rn-hero-design
+    docker:
+      - image: ehdevops/node:0.1.3
+    environment:
+      - CI: true
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn test
+  publish:
+    working_directory: ~/rn-hero-design
+    docker:
+      - image: ehdevops/node:0.1.3
+    environment:
+      - CI: true
+    steps:
+      - checkout
+      - run: yarn install
+      - run: yarn publish
+
+workflows:
+  version: 2
+  build_and_deploy:
+    jobs:
+      - test:
+          context: org-global
+      - publish:
+          context: org-global
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - test
+
