@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
 });
 
 LoginScreen.navigationOptions = {
-  title: null,
+  headerTitle: () => null,
   headerStyle: {
     backgroundColor: FOCUS_BLUE_1,
     borderBottomWidth: 0,
