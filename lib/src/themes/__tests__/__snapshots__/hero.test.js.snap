@@ -49,6 +49,35 @@ Object {
       "color": "#000000",
     },
   },
+  "listItem": Object {
+    "contentWrapper": Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+    },
+    "subtitle": Object {
+      "color": "#a3a6ac",
+      "fontSize": 13.28,
+      "fontWeight": "500",
+      "lineHeight": 18.592,
+    },
+    "title": Object {
+      "color": "#000000",
+      "fontSize": 16,
+      "fontWeight": "500",
+      "lineHeight": 22.4,
+    },
+    "wrapper": Object {
+      "alignItems": "center",
+      "borderBottomColor": "#a3a6ac",
+      "borderBottomWidth": 0.5,
+      "display": "flex",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "minHeight": 72.99199999999999,
+      "paddingHorizontal": 16,
+      "paddingVertical": 16,
+    },
+  },
   "text": Object {
     "h1": Object {
       "fontSize": 32,
@@ -78,7 +107,7 @@ Object {
       "height": 48,
     },
     "disabledBaseTextInput": Object {
-      "color": "#c3c6cc",
+      "color": "#a3a6ac",
     },
     "errorIcon": Object {
       "color": "#de350b",
@@ -98,11 +127,11 @@ Object {
       "borderBottomColor": "#de350b",
     },
     "icon": Object {
-      "color": "#c3c6cc",
+      "color": "#a3a6ac",
       "height": 48,
     },
     "label": Object {
-      "color": "#c3c6cc",
+      "color": "#a3a6ac",
       "fontSize": 13.28,
       "fontWeight": "500",
       "height": 13.28,
@@ -110,7 +139,7 @@ Object {
     },
     "textInput": Object {
       "alignItems": "center",
-      "borderBottomColor": "#c3c6cc",
+      "borderBottomColor": "#a3a6ac",
       "borderBottomWidth": 1,
       "flexDirection": "row",
       "height": 48,

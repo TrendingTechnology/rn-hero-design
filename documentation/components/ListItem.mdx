@@ -1,0 +1,48 @@
+---
+name: ListItem
+menu: Components
+---
+
+import { Playground, Props } from 'docz'
+import { ListItem, Icon } from 'rn-hero-design'
+import { FOCUS_BLUE_1 } from 'rn-hero-design/src/themes/hero/variables';
+import { IPhoneX } from './DeviceFrame';
+import Avatar from './Avatar';
+
+# ListItem
+
+## Basic usage
+
+<Playground>
+  <IPhoneX screenStyle={{ paddingLeft: 0, paddingRight: 0 }}>
+    <ListItem title="Huy Vo" />
+    <ListItem title="Huy Vo" subtitle="Bug creator" />
+    <ListItem
+      title="Huy Vo"
+      subtitle="Bug creator"
+      leftElement={<Avatar uri="https://avatars0.githubusercontent.com/u/17645203?s=400&v=4" />}
+    />
+    <ListItem
+      title="Huy Vo"
+      onPress={() => {}}
+      rightElement={<Icon icon="ok-circle" color={FOCUS_BLUE_1} />}
+    />
+    <ListItem
+      title="Huy Vo"
+      subtitle="Bug creator"
+      onPress={() => {}}
+      rightElement={<Icon icon="ok-circle" color={FOCUS_BLUE_1} />}
+    />
+    <ListItem
+      title="Huy Vo"
+      subtitle="Bug creator"
+      onPress={() => {}}
+      rightElement={<Icon icon="ok-circle" color={FOCUS_BLUE_1} />}
+      leftElement={<Avatar uri="https://avatars0.githubusercontent.com/u/17645203?s=400&v=4" />}
+    />
+  </IPhoneX>
+</Playground>
+
+## Properties
+
+<Props of={ListItem} />

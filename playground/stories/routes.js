@@ -3,6 +3,7 @@ import ButtonScreen from './Button';
 import TextInputScreen from './TextInput';
 import IconScreen from './Icon';
 import LoginScreen from './LoginScreen';
+import ListItemScreen from './ListItem';
 
 export default {
   Text: {
@@ -31,5 +32,14 @@ export default {
   },
   LoginScreen: {
     screen: LoginScreen,
+    navigationOptions: {
+      title: '🎩 Login Screen',
+    },
+  },
+  ListItem: {
+    screen: ListItemScreen,
+    navigationOptions: {
+      title: 'ListItem',
+    },
   },
 };

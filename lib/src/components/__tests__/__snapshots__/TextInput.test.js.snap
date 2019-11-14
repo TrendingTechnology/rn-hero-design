@@ -11,7 +11,7 @@ exports[`TextInput renders correctly 1`] = `
   <Text
     style={
       Object {
-        "color": "#c3c6cc",
+        "color": "#a3a6ac",
         "fontSize": 13.28,
         "fontWeight": "500",
         "height": 13.28,
@@ -25,7 +25,7 @@ exports[`TextInput renders correctly 1`] = `
     style={
       Object {
         "alignItems": "center",
-        "borderBottomColor": "#c3c6cc",
+        "borderBottomColor": "#a3a6ac",
         "borderBottomWidth": 1,
         "flexDirection": "row",
         "height": 48,
@@ -94,7 +94,7 @@ exports[`TextInput renders correctly 2`] = `
   <Text
     style={
       Object {
-        "color": "#c3c6cc",
+        "color": "#a3a6ac",
         "fontSize": 13.28,
         "fontWeight": "500",
         "height": 13.28,
@@ -108,7 +108,7 @@ exports[`TextInput renders correctly 2`] = `
     style={
       Object {
         "alignItems": "center",
-        "borderBottomColor": "#c3c6cc",
+        "borderBottomColor": "#a3a6ac",
         "borderBottomWidth": 1,
         "flexDirection": "row",
         "height": 48,
@@ -177,7 +177,7 @@ exports[`TextInput renders correctly 3`] = `
   <Text
     style={
       Object {
-        "color": "#c3c6cc",
+        "color": "#a3a6ac",
         "fontSize": 13.28,
         "fontWeight": "500",
         "height": 13.28,
@@ -191,7 +191,7 @@ exports[`TextInput renders correctly 3`] = `
     style={
       Object {
         "alignItems": "center",
-        "borderBottomColor": "#c3c6cc",
+        "borderBottomColor": "#a3a6ac",
         "borderBottomWidth": 1,
         "flexDirection": "row",
         "height": 48,
@@ -244,7 +244,7 @@ exports[`TextInput renders correctly 3`] = `
               "width": 24,
             },
             Object {
-              "color": "#c3c6cc",
+              "color": "#a3a6ac",
               "height": 48,
             },
           ]
@@ -253,7 +253,7 @@ exports[`TextInput renders correctly 3`] = `
         <View
           override={
             Object {
-              "color": "#c3c6cc",
+              "color": "#a3a6ac",
               "height": 24,
               "width": 24,
             }
@@ -293,7 +293,7 @@ exports[`TextInput renders correctly 4`] = `
   <Text
     style={
       Object {
-        "color": "#c3c6cc",
+        "color": "#a3a6ac",
         "fontSize": 13.28,
         "fontWeight": "500",
         "height": 13.28,
@@ -307,7 +307,7 @@ exports[`TextInput renders correctly 4`] = `
     style={
       Object {
         "alignItems": "center",
-        "borderBottomColor": "#c3c6cc",
+        "borderBottomColor": "#a3a6ac",
         "borderBottomWidth": 1,
         "flexDirection": "row",
         "height": 48,
@@ -321,11 +321,11 @@ exports[`TextInput renders correctly 4`] = `
       onChangeText={[Function]}
       onFocus={[Function]}
       placeholder="Email"
-      placeholderTextColor="#c3c6cc"
+      placeholderTextColor="#a3a6ac"
       rejectResponderTermination={true}
       style={
         Object {
-          "color": "#c3c6cc",
+          "color": "#a3a6ac",
           "flex": 1,
           "fontSize": 16,
           "height": 48,
@@ -360,7 +360,7 @@ exports[`TextInput renders correctly 4`] = `
               "width": 24,
             },
             Object {
-              "color": "#c3c6cc",
+              "color": "#a3a6ac",
               "height": 48,
             },
           ]
@@ -369,7 +369,7 @@ exports[`TextInput renders correctly 4`] = `
         <View
           override={
             Object {
-              "color": "#c3c6cc",
+              "color": "#a3a6ac",
               "height": 24,
               "width": 24,
             }
@@ -437,11 +437,11 @@ exports[`TextInput renders correctly 5`] = `
       onChangeText={[Function]}
       onFocus={[Function]}
       placeholder="Email"
-      placeholderTextColor="#c3c6cc"
+      placeholderTextColor="#a3a6ac"
       rejectResponderTermination={true}
       style={
         Object {
-          "color": "#c3c6cc",
+          "color": "#a3a6ac",
           "flex": 1,
           "fontSize": 16,
           "height": 48,
@@ -476,7 +476,7 @@ exports[`TextInput renders correctly 5`] = `
               "width": 24,
             },
             Object {
-              "color": "#c3c6cc",
+              "color": "#a3a6ac",
               "height": 48,
             },
           ]
