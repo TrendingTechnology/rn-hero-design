@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, Button, FlatList, StyleSheet } from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  FlatList,
+  StyleSheet,
+} from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import routes from './stories/routes';
@@ -25,9 +31,9 @@ const HomeScreen = ({ navigation }) => (
 );
 
 const ListItem = ({ title, onPress }) => (
-  <View style={styles.item}>
-    <Button title={title} onPress={onPress} />
-  </View>
+  <TouchableOpacity onPress={onPress} style={styles.item}>
+    <Text style={styles.itemText}>{title}</Text>
+  </TouchableOpacity>
 );
 
 const AppNavigator = createStackNavigator(
@@ -41,7 +47,7 @@ const AppNavigator = createStackNavigator(
     ...routes,
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'Icon',
   },
 );
 
@@ -50,9 +56,13 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   item: {
-    padding: 8,
+    padding: 16,
     borderBottomColor: 'grey',
     borderBottomWidth: StyleSheet.hairlineWidth,
+  },
+  itemText: {
+    fontSize: 16,
+    textAlign: 'center',
   },
 });
 
