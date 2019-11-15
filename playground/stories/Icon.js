@@ -8,6 +8,13 @@ const IconScreen = () => (
     <Icon icon="eye" size={24} wrapperStyle={styles.iconWrapper} />
     <Icon icon="email-outline" size={24} wrapperStyle={styles.iconWrapper} />
     <Icon icon="eye-outline" size={24} wrapperStyle={styles.iconWrapper} />
+    <Icon icon="eye-invisible" size={24} wrapperStyle={styles.iconWrapper} />
+    <Icon
+      icon="eye-invisible-outline"
+      size={24}
+      wrapperStyle={styles.iconWrapper}
+    />
+    <Icon icon="ok-circle" size={24} wrapperStyle={styles.iconWrapper} />
   </View>
 );
 
