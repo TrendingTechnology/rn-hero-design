@@ -1,18 +1,14 @@
 import React from 'react';
 import { View, Alert, StyleSheet } from 'react-native';
 import { BottomButton } from 'rn-hero-design';
-import { RED } from 'rn-hero-design/src/themes/hero/variables';
 
 const callback = () => Alert.alert('Button clicked!');
 
 const BottomButtonScreen = () => (
   <View style={styles.container}>
     <View style={styles.pusher} />
-    <BottomButton
-      text="Custom Button"
-      onPress={callback}
-      wrapperStyle={{ marginBottom: 16, backgroundColor: RED, borderRadius: 8 }}
-    />
+    <BottomButton text="Bottom Button" onPress={callback} />
+    <BottomButton text="Bottom Button" onPress={callback} />
   </View>
 );
 
