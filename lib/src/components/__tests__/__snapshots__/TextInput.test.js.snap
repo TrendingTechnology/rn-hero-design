@@ -253,7 +253,7 @@ exports[`TextInput renders correctly 3`] = `
         <View
           override={
             Object {
-              "color": "#a3a6ac",
+              "fill": "#a3a6ac",
               "height": 24,
               "width": 24,
             }
@@ -369,7 +369,7 @@ exports[`TextInput renders correctly 4`] = `
         <View
           override={
             Object {
-              "color": "#a3a6ac",
+              "fill": "#a3a6ac",
               "height": 24,
               "width": 24,
             }
@@ -485,7 +485,7 @@ exports[`TextInput renders correctly 5`] = `
         <View
           override={
             Object {
-              "color": "#de350b",
+              "fill": "#de350b",
               "height": 24,
               "width": 24,
             }

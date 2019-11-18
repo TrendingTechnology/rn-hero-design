@@ -4,6 +4,7 @@ import TextInputScreen from './TextInput';
 import IconScreen from './Icon';
 import LoginScreen from './LoginScreen';
 import ListItemScreen from './ListItem';
+import BottomButtonScreen from './BottomButton';
 
 export default {
   Text: {
@@ -40,6 +41,12 @@ export default {
     screen: ListItemScreen,
     navigationOptions: {
       title: 'ListItem',
+    },
+  },
+  BottomButton: {
+    screen: BottomButtonScreen,
+    navigationOptions: {
+      title: 'BottomButton',
     },
   },
 };

@@ -2,6 +2,42 @@
 
 exports[`Theme Hero has correct configs 1`] = `
 Object {
+  "bottomButton": Object {
+    "button": Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": 48,
+      "justifyContent": "center",
+      "paddingHorizontal": 16,
+    },
+    "disabledText": Object {
+      "color": "#fcfcfc",
+    },
+    "disabledWrapper": Object {
+      "backgroundColor": "#d9dbdf",
+    },
+    "loadingIndicator": Object {
+      "color": "#fcfcfc",
+    },
+    "text": Object {
+      "color": "#fcfcfc",
+      "fontSize": 16,
+      "lineHeight": 16,
+    },
+    "wrapper": Object {
+      "backgroundColor": "#1dbeee",
+      "borderRadius": 24,
+      "marginHorizontal": 16,
+    },
+    "wrapperWithHomeBar": Object {
+      "marginBottom": 0,
+      "paddingBottom": 0,
+    },
+    "wrapperWithoutHomeBar": Object {
+      "marginBottom": 16,
+      "paddingBottom": 0,
+    },
+  },
   "button": Object {
     "disabledText": Object {
       "color": "#fcfcfc",
