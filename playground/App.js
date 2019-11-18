@@ -47,7 +47,7 @@ const AppNavigator = createStackNavigator(
     ...routes,
   },
   {
-    initialRouteName: 'BottomButton',
+    initialRouteName: 'Home',
   },
 );
 
