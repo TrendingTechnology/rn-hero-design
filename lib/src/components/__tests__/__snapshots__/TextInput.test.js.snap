@@ -4,7 +4,7 @@ exports[`TextInput renders correctly 1`] = `
 <View
   style={
     Object {
-      "marginBottom": 16,
+      "marginBottom": 17.5,
     }
   }
 >
@@ -12,10 +12,11 @@ exports[`TextInput renders correctly 1`] = `
     style={
       Object {
         "color": "#a3a6ac",
-        "fontSize": 13.28,
+        "fontFamily": undefined,
+        "fontSize": 14.524999999999999,
         "fontWeight": "500",
-        "height": 13.28,
-        "lineHeight": 13.28,
+        "height": 14.524999999999999,
+        "lineHeight": 14.524999999999999,
       }
     }
   >
@@ -28,7 +29,7 @@ exports[`TextInput renders correctly 1`] = `
         "borderBottomColor": "#a3a6ac",
         "borderBottomWidth": 1,
         "flexDirection": "row",
-        "height": 48,
+        "height": 52.5,
       }
     }
   >
@@ -45,38 +46,25 @@ exports[`TextInput renders correctly 1`] = `
         Object {
           "color": "#000000",
           "flex": 1,
-          "fontSize": 16,
-          "height": 48,
+          "fontFamily": undefined,
+          "fontSize": 17.5,
+          "height": 52.5,
         }
       }
       underlineColorAndroid="transparent"
       value=""
-    />
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
     />
   </View>
   <Text
     style={
       Object {
         "color": "#de350b",
-        "fontSize": 13.28,
+        "fontFamily": undefined,
+        "fontSize": 14.524999999999999,
         "fontWeight": "500",
-        "height": 13.28,
-        "lineHeight": 13.28,
-        "marginTop": 8,
+        "height": 14.524999999999999,
+        "lineHeight": 14.524999999999999,
+        "marginTop": 8.75,
       }
     }
   />
@@ -87,7 +75,7 @@ exports[`TextInput renders correctly 2`] = `
 <View
   style={
     Object {
-      "marginBottom": 16,
+      "marginBottom": 17.5,
     }
   }
 >
@@ -95,10 +83,11 @@ exports[`TextInput renders correctly 2`] = `
     style={
       Object {
         "color": "#a3a6ac",
-        "fontSize": 13.28,
+        "fontFamily": undefined,
+        "fontSize": 14.524999999999999,
         "fontWeight": "500",
-        "height": 13.28,
-        "lineHeight": 13.28,
+        "height": 14.524999999999999,
+        "lineHeight": 14.524999999999999,
       }
     }
   >
@@ -111,7 +100,7 @@ exports[`TextInput renders correctly 2`] = `
         "borderBottomColor": "#a3a6ac",
         "borderBottomWidth": 1,
         "flexDirection": "row",
-        "height": 48,
+        "height": 52.5,
       }
     }
   >
@@ -128,38 +117,25 @@ exports[`TextInput renders correctly 2`] = `
         Object {
           "color": "#000000",
           "flex": 1,
-          "fontSize": 16,
-          "height": 48,
+          "fontFamily": undefined,
+          "fontSize": 17.5,
+          "height": 52.5,
         }
       }
       underlineColorAndroid="transparent"
       value=""
-    />
-    <View
-      accessible={true}
-      isTVSelectable={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
-        Object {
-          "opacity": 1,
-        }
-      }
     />
   </View>
   <Text
     style={
       Object {
         "color": "#de350b",
-        "fontSize": 13.28,
+        "fontFamily": undefined,
+        "fontSize": 14.524999999999999,
         "fontWeight": "500",
-        "height": 13.28,
-        "lineHeight": 13.28,
-        "marginTop": 8,
+        "height": 14.524999999999999,
+        "lineHeight": 14.524999999999999,
+        "marginTop": 8.75,
       }
     }
   />
@@ -170,7 +146,7 @@ exports[`TextInput renders correctly 3`] = `
 <View
   style={
     Object {
-      "marginBottom": 16,
+      "marginBottom": 17.5,
     }
   }
 >
@@ -178,10 +154,11 @@ exports[`TextInput renders correctly 3`] = `
     style={
       Object {
         "color": "#a3a6ac",
-        "fontSize": 13.28,
+        "fontFamily": undefined,
+        "fontSize": 14.524999999999999,
         "fontWeight": "500",
-        "height": 13.28,
-        "lineHeight": 13.28,
+        "height": 14.524999999999999,
+        "lineHeight": 14.524999999999999,
       }
     }
   >
@@ -194,7 +171,7 @@ exports[`TextInput renders correctly 3`] = `
         "borderBottomColor": "#a3a6ac",
         "borderBottomWidth": 1,
         "flexDirection": "row",
-        "height": 48,
+        "height": 52.5,
       }
     }
   >
@@ -211,8 +188,9 @@ exports[`TextInput renders correctly 3`] = `
         Object {
           "color": "#000000",
           "flex": 1,
-          "fontSize": 16,
-          "height": 48,
+          "fontFamily": undefined,
+          "fontSize": 17.5,
+          "height": 52.5,
         }
       }
       underlineColorAndroid="transparent"
@@ -220,7 +198,6 @@ exports[`TextInput renders correctly 3`] = `
     />
     <View
       accessible={true}
-      isTVSelectable={true}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -228,54 +205,47 @@ exports[`TextInput renders correctly 3`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "height": 24,
+            "justifyContent": "center",
+            "width": 24,
+          },
+          Object {
+            "color": "#a3a6ac",
+            "height": 52.5,
+          },
+        ]
       }
     >
       <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "display": "flex",
-              "height": 24,
-              "justifyContent": "center",
-              "width": 24,
-            },
-            Object {
-              "color": "#a3a6ac",
-              "height": 48,
-            },
-          ]
+        override={
+          Object {
+            "fill": "#a3a6ac",
+            "height": 24,
+            "width": 24,
+          }
         }
-      >
-        <View
-          override={
-            Object {
-              "fill": "#a3a6ac",
-              "height": 24,
-              "width": 24,
-            }
+        xml={
+          Object {
+            "testUri": "../../../lib/src/icons/email.svg",
           }
-          xml={
-            Object {
-              "testUri": "../../../lib/src/icons/email.svg",
-            }
-          }
-        />
-      </View>
+        }
+      />
     </View>
   </View>
   <Text
     style={
       Object {
         "color": "#de350b",
-        "fontSize": 13.28,
+        "fontFamily": undefined,
+        "fontSize": 14.524999999999999,
         "fontWeight": "500",
-        "height": 13.28,
-        "lineHeight": 13.28,
-        "marginTop": 8,
+        "height": 14.524999999999999,
+        "lineHeight": 14.524999999999999,
+        "marginTop": 8.75,
       }
     }
   />
@@ -286,7 +256,7 @@ exports[`TextInput renders correctly 4`] = `
 <View
   style={
     Object {
-      "marginBottom": 16,
+      "marginBottom": 17.5,
     }
   }
 >
@@ -294,10 +264,11 @@ exports[`TextInput renders correctly 4`] = `
     style={
       Object {
         "color": "#a3a6ac",
-        "fontSize": 13.28,
+        "fontFamily": undefined,
+        "fontSize": 14.524999999999999,
         "fontWeight": "500",
-        "height": 13.28,
-        "lineHeight": 13.28,
+        "height": 14.524999999999999,
+        "lineHeight": 14.524999999999999,
       }
     }
   >
@@ -310,7 +281,7 @@ exports[`TextInput renders correctly 4`] = `
         "borderBottomColor": "#a3a6ac",
         "borderBottomWidth": 1,
         "flexDirection": "row",
-        "height": 48,
+        "height": 52.5,
       }
     }
   >
@@ -327,8 +298,9 @@ exports[`TextInput renders correctly 4`] = `
         Object {
           "color": "#a3a6ac",
           "flex": 1,
-          "fontSize": 16,
-          "height": 48,
+          "fontFamily": undefined,
+          "fontSize": 17.5,
+          "height": 52.5,
         }
       }
       underlineColorAndroid="transparent"
@@ -336,7 +308,6 @@ exports[`TextInput renders correctly 4`] = `
     />
     <View
       accessible={true}
-      isTVSelectable={true}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -344,54 +315,47 @@ exports[`TextInput renders correctly 4`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "height": 24,
+            "justifyContent": "center",
+            "width": 24,
+          },
+          Object {
+            "color": "#a3a6ac",
+            "height": 52.5,
+          },
+        ]
       }
     >
       <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "display": "flex",
-              "height": 24,
-              "justifyContent": "center",
-              "width": 24,
-            },
-            Object {
-              "color": "#a3a6ac",
-              "height": 48,
-            },
-          ]
+        override={
+          Object {
+            "fill": "#a3a6ac",
+            "height": 24,
+            "width": 24,
+          }
         }
-      >
-        <View
-          override={
-            Object {
-              "fill": "#a3a6ac",
-              "height": 24,
-              "width": 24,
-            }
+        xml={
+          Object {
+            "testUri": "../../../lib/src/icons/email.svg",
           }
-          xml={
-            Object {
-              "testUri": "../../../lib/src/icons/email.svg",
-            }
-          }
-        />
-      </View>
+        }
+      />
     </View>
   </View>
   <Text
     style={
       Object {
         "color": "#de350b",
-        "fontSize": 13.28,
+        "fontFamily": undefined,
+        "fontSize": 14.524999999999999,
         "fontWeight": "500",
-        "height": 13.28,
-        "lineHeight": 13.28,
-        "marginTop": 8,
+        "height": 14.524999999999999,
+        "lineHeight": 14.524999999999999,
+        "marginTop": 8.75,
       }
     }
   />
@@ -402,7 +366,7 @@ exports[`TextInput renders correctly 5`] = `
 <View
   style={
     Object {
-      "marginBottom": 16,
+      "marginBottom": 17.5,
     }
   }
 >
@@ -410,10 +374,11 @@ exports[`TextInput renders correctly 5`] = `
     style={
       Object {
         "color": "#de350b",
-        "fontSize": 13.28,
+        "fontFamily": undefined,
+        "fontSize": 14.524999999999999,
         "fontWeight": "500",
-        "height": 13.28,
-        "lineHeight": 13.28,
+        "height": 14.524999999999999,
+        "lineHeight": 14.524999999999999,
       }
     }
   >
@@ -426,7 +391,7 @@ exports[`TextInput renders correctly 5`] = `
         "borderBottomColor": "#de350b",
         "borderBottomWidth": 1,
         "flexDirection": "row",
-        "height": 48,
+        "height": 52.5,
       }
     }
   >
@@ -443,8 +408,9 @@ exports[`TextInput renders correctly 5`] = `
         Object {
           "color": "#a3a6ac",
           "flex": 1,
-          "fontSize": 16,
-          "height": 48,
+          "fontFamily": undefined,
+          "fontSize": 17.5,
+          "height": 52.5,
         }
       }
       underlineColorAndroid="transparent"
@@ -452,7 +418,6 @@ exports[`TextInput renders correctly 5`] = `
     />
     <View
       accessible={true}
-      isTVSelectable={true}
       onResponderGrant={[Function]}
       onResponderMove={[Function]}
       onResponderRelease={[Function]}
@@ -460,54 +425,47 @@ exports[`TextInput renders correctly 5`] = `
       onResponderTerminationRequest={[Function]}
       onStartShouldSetResponder={[Function]}
       style={
-        Object {
-          "opacity": 1,
-        }
+        Array [
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "height": 24,
+            "justifyContent": "center",
+            "width": 24,
+          },
+          Object {
+            "color": "#a3a6ac",
+            "height": 52.5,
+          },
+        ]
       }
     >
       <View
-        style={
-          Array [
-            Object {
-              "alignItems": "center",
-              "display": "flex",
-              "height": 24,
-              "justifyContent": "center",
-              "width": 24,
-            },
-            Object {
-              "color": "#a3a6ac",
-              "height": 48,
-            },
-          ]
+        override={
+          Object {
+            "fill": "#de350b",
+            "height": 24,
+            "width": 24,
+          }
         }
-      >
-        <View
-          override={
-            Object {
-              "fill": "#de350b",
-              "height": 24,
-              "width": 24,
-            }
+        xml={
+          Object {
+            "testUri": "../../../lib/src/icons/email.svg",
           }
-          xml={
-            Object {
-              "testUri": "../../../lib/src/icons/email.svg",
-            }
-          }
-        />
-      </View>
+        }
+      />
     </View>
   </View>
   <Text
     style={
       Object {
         "color": "#de350b",
-        "fontSize": 13.28,
+        "fontFamily": undefined,
+        "fontSize": 14.524999999999999,
         "fontWeight": "500",
-        "height": 13.28,
-        "lineHeight": 13.28,
-        "marginTop": 8,
+        "height": 14.524999999999999,
+        "lineHeight": 14.524999999999999,
+        "marginTop": 8.75,
       }
     }
   >
