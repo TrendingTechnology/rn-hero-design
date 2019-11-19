@@ -12,14 +12,14 @@ const TextInputScreen = () => (
           label="Email"
           value="toan.nguyen@employmenthero.com"
           rightIcon="email-outline"
-          onChange={noop}
+          onChangeText={noop}
         />
 
         <TextInput
           label="Password"
           value="123456"
           rightIcon="eye-outline"
-          onChange={noop}
+          onChangeText={noop}
           secureTextEntry
         />
 
@@ -27,13 +27,18 @@ const TextInputScreen = () => (
           label="Confirm password"
           value="12345"
           rightIcon="eye-outline"
-          onChange={noop}
+          onChangeText={noop}
           secureTextEntry
           error="Password not matched"
           wrapperStyle={{ marginBottom: 32 }}
         />
 
-        <TextInput label="Region" value="Vietnam" disabled onChange={noop} />
+        <TextInput
+          label="Region"
+          value="Vietnam"
+          disabled
+          onChangeText={noop}
+        />
 
         <Text>* By signing up, you agree to our terms and conditions</Text>
       </View>

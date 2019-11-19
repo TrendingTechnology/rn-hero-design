@@ -18,7 +18,7 @@ const LoginScreen = () => {
         <TextInput
           label="Email"
           value={email}
-          onChange={value => setEmail(value)}
+          onChangeText={value => setEmail(value)}
           labelStyle={{ color: INVERTED_TEXT_COLOR }}
           inputStyle={{
             color: INVERTED_TEXT_COLOR,
@@ -31,7 +31,7 @@ const LoginScreen = () => {
           label="Password"
           value={password}
           rightIcon={visiblePassword ? 'eye-invisible-outline' : 'eye-outline'}
-          onChange={value => setPassword(value)}
+          onChangeText={value => setPassword(value)}
           onPressIcon={() => setVisiblePassword(!visiblePassword)}
           secureTextEntry={!visiblePassword}
           wrapperStyle={{ marginBottom: 32 }}
