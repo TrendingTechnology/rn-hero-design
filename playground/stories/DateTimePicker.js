@@ -5,25 +5,54 @@ import { DateTimePicker, TextInput } from 'rn-hero-design';
 const noop = () => {};
 
 const DateTimePickerScreen = () => {
-  const [showDateTimePicker, setShowDateTimePicker] = useState(false);
   const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
+  const [changingField, setChangingField] = useState(null);
+
+  const fieldMap = {
+    startDate: {
+      value: startDate,
+      onChange: setStartDate,
+    },
+    endDate: {
+      value: endDate,
+      onChange: setEndDate,
+    },
+    null: {
+      value: null,
+      onChange: noop,
+    },
+  };
 
   return (
     <>
       <View style={styles.container}>
-        <TouchableOpacity onPress={() => setShowDateTimePicker(true)}>
-          <TextInput
-            label="Start date"
-            value={startDate.toISOString()}
-            onChangeText={noop}
-            pointerEvents="none"
-          />
+        <TouchableOpacity onPress={() => setChangingField('startDate')}>
+          <View pointerEvents="none">
+            <TextInput
+              label="Start date"
+              value={startDate.toISOString()}
+              onChangeText={noop}
+            />
+          </View>
+        </TouchableOpacity>
+
+        <TouchableOpacity onPress={() => setChangingField('endDate')}>
+          <View pointerEvents="none">
+            <TextInput
+              label="End date"
+              value={endDate.toISOString()}
+              onChangeText={noop}
+            />
+          </View>
         </TouchableOpacity>
       </View>
+
       <DateTimePicker
-        show={showDateTimePicker}
-        value={startDate}
-        onChange={date => setStartDate(date)}
+        show={!!changingField}
+        value={fieldMap[changingField].value}
+        onChange={date => fieldMap[changingField].onChange(date)}
+        onDismiss={() => setChangingField(null)}
       />
     </>
   );
