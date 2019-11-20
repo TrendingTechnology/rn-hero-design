@@ -5,6 +5,7 @@ import IconScreen from './Icon';
 import LoginScreen from './LoginScreen';
 import ListItemScreen from './ListItem';
 import BottomButtonScreen from './BottomButton';
+import DateTimePickerScreen from './DateTimePicker';
 
 export default {
   Text: {
@@ -47,6 +48,12 @@ export default {
     screen: BottomButtonScreen,
     navigationOptions: {
       title: 'BottomButton',
+    },
+  },
+  DateTimePicker: {
+    screen: DateTimePickerScreen,
+    navigationOptions: {
+      title: 'DateTimePicker',
     },
   },
 };

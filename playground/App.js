@@ -47,7 +47,7 @@ const AppNavigator = createStackNavigator(
     ...routes,
   },
   {
-    initialRouteName: 'Home',
+    initialRouteName: 'DateTimePicker',
   },
 );
 
