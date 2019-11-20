@@ -47,7 +47,7 @@ const AppNavigator = createStackNavigator(
     ...routes,
   },
   {
-    initialRouteName: 'DateTimePicker',
+    initialRouteName: 'LeaveRequestScreen',
   },
 );
 

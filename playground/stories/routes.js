@@ -6,6 +6,7 @@ import LoginScreen from './LoginScreen';
 import ListItemScreen from './ListItem';
 import BottomButtonScreen from './BottomButton';
 import DateTimePickerScreen from './DateTimePicker';
+import LeaveRequestScreen from './LeaveRequestScreen';
 
 export default {
   Text: {
@@ -20,6 +21,12 @@ export default {
       title: 'Button',
     },
   },
+  BottomButton: {
+    screen: BottomButtonScreen,
+    navigationOptions: {
+      title: 'BottomButton',
+    },
+  },
   TextInput: {
     screen: TextInputScreen,
     navigationOptions: {
@@ -32,28 +39,28 @@ export default {
       title: 'Icon',
     },
   },
-  LoginScreen: {
-    screen: LoginScreen,
-    navigationOptions: {
-      title: '🎩 Login Screen',
-    },
-  },
   ListItem: {
     screen: ListItemScreen,
     navigationOptions: {
       title: 'ListItem',
     },
   },
-  BottomButton: {
-    screen: BottomButtonScreen,
-    navigationOptions: {
-      title: 'BottomButton',
-    },
-  },
   DateTimePicker: {
     screen: DateTimePickerScreen,
     navigationOptions: {
       title: 'DateTimePicker',
+    },
+  },
+  LoginScreen: {
+    screen: LoginScreen,
+    navigationOptions: {
+      title: '🎩 Login Screen',
+    },
+  },
+  LeaveRequestScreen: {
+    screen: LeaveRequestScreen,
+    navigationOptions: {
+      title: '✈️ Leave Request Screen',
     },
   },
 };
