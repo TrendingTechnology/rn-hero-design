@@ -14,6 +14,9 @@ const TextInputScreen = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [changingField, setChangingField] = useState(null);
+  const [comment, setComment] = useState(
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  );
 
   const fieldMap = {
     startDate: {
@@ -40,11 +43,15 @@ const TextInputScreen = () => {
       <ScrollView contentContainerStyle={styles.container}>
         <TouchableOpacity>
           <View pointerEvents="none">
-            <TextInput label="Leave category" value="" onChangeText={noop} />
+            <TextInput
+              label="Leave category"
+              value="Annual Leave"
+              onChangeText={noop}
+            />
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => setChangingField('startDate')}>
           <View pointerEvents="none">
             <TextInput
               label="Start date"
@@ -55,7 +62,7 @@ const TextInputScreen = () => {
           </View>
         </TouchableOpacity>
 
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => setChangingField('endDate')}>
           <View pointerEvents="none">
             <TextInput
               label="End date"
@@ -68,9 +75,10 @@ const TextInputScreen = () => {
 
         <TextInput
           label="Comments"
-          value=""
+          value={comment}
           rightIcon="comment-outline"
-          onChangeText={noop}
+          multiline
+          onChangeText={text => setComment(text)}
         />
 
         <TextInput
@@ -81,14 +89,18 @@ const TextInputScreen = () => {
         />
       </ScrollView>
 
+      <BottomButton
+        text="Register"
+        forceInset={changingField ? 'never' : null}
+        onPress={() => {}}
+      />
+
       <DateTimePicker
         show={!!changingField}
         value={fieldMap[changingField].value}
         onChange={date => fieldMap[changingField].onChange(date)}
         onDismiss={() => setChangingField(null)}
       />
-
-      <BottomButton text="Register" onPress={() => {}} />
     </KeyboardAvoidingView>
   );
 };
