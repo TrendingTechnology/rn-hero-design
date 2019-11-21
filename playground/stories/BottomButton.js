@@ -11,7 +11,7 @@ const BottomButtonScreen = () => {
   const input = useRef(null);
 
   return (
-    <KeyboardAvoidingView style={styles.keyboardAvoidingView}>
+    <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
       <View style={styles.container}>
         <View style={styles.configRow}>
           <Text style={styles.configText}>Use legacy theme</Text>

@@ -10,7 +10,7 @@ import {
 const noop = () => {};
 
 const TextInputScreen = () => (
-  <KeyboardAvoidingView style={styles.keyboardAvoidingView}>
+  <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
     <ScrollView contentContainerStyle={styles.container}>
       <TextInput
         label="Email"

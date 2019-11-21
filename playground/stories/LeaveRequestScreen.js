@@ -9,7 +9,7 @@ import {
 
 const noop = () => {};
 
-const TextInputScreen = () => {
+const LeaveRequestScreen = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [changingField, setChangingField] = useState(null);
@@ -33,7 +33,7 @@ const TextInputScreen = () => {
   };
 
   return (
-    <KeyboardAvoidingView style={styles.keyboardAvoidingView}>
+    <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
       <ScrollView contentContainerStyle={styles.container}>
         <TouchableOpacity>
           <View pointerEvents="none">
@@ -108,4 +108,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default TextInputScreen;
+export default LeaveRequestScreen;
