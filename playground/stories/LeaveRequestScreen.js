@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
+import { View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
 import {
-  View,
-  ScrollView,
+  TextInput,
+  DateTimePicker,
+  BottomButton,
   KeyboardAvoidingView,
-  TouchableOpacity,
-  StyleSheet,
-} from 'react-native';
-import { TextInput, DateTimePicker, BottomButton } from 'rn-hero-design';
+} from 'rn-hero-design';
 
 const noop = () => {};
 
@@ -34,12 +33,7 @@ const TextInputScreen = () => {
   };
 
   return (
-    <KeyboardAvoidingView
-      behavior="padding"
-      keyboardVerticalOffset={88}
-      enabled
-      style={styles.keyboardAvoidingView}
-    >
+    <KeyboardAvoidingView style={styles.keyboardAvoidingView}>
       <ScrollView contentContainerStyle={styles.container}>
         <TouchableOpacity>
           <View pointerEvents="none">
