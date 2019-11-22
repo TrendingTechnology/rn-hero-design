@@ -93,7 +93,7 @@ Object {
       "fontSize": 16.25,
     },
     "actions": Object {
-      "borderBottomColor": "#c3c6cc",
+      "borderBottomColor": "#d9dbdf",
       "borderBottomWidth": 0.5,
       "flexDirection": "row",
       "justifyContent": "flex-end",
@@ -113,7 +113,7 @@ Object {
       "flexDirection": "row",
     },
     "subtitle": Object {
-      "color": "#c3c6cc",
+      "color": "#a3a6ac",
       "fontFamily": undefined,
       "fontSize": 13.487499999999999,
       "fontWeight": "500",
@@ -128,8 +128,8 @@ Object {
     },
     "wrapper": Object {
       "alignItems": "center",
-      "borderBottomColor": "#c3c6cc",
-      "borderBottomWidth": 0.5,
+      "borderBottomColor": "#d9dbdf",
+      "borderBottomWidth": 0.8,
       "display": "flex",
       "flexDirection": "row",
       "justifyContent": "space-between",
@@ -171,7 +171,7 @@ Object {
       "textAlignVertical": "top",
     },
     "disabledBaseTextInput": Object {
-      "color": "#c3c6cc",
+      "color": "#a3a6ac",
     },
     "errorIcon": Object {
       "color": "#de350b",
@@ -192,12 +192,11 @@ Object {
       "borderBottomColor": "#de350b",
     },
     "icon": Object {
-      "color": "#c3c6cc",
+      "color": "#a3a6ac",
       "height": 48.75,
-      "paddingLeft": 8.125,
     },
     "label": Object {
-      "color": "#c3c6cc",
+      "color": "#a3a6ac",
       "fontFamily": undefined,
       "fontSize": 13.487499999999999,
       "fontWeight": "500",
@@ -206,8 +205,8 @@ Object {
     },
     "textInput": Object {
       "alignItems": "center",
-      "borderBottomColor": "#c3c6cc",
-      "borderBottomWidth": 0.5,
+      "borderBottomColor": "#d9dbdf",
+      "borderBottomWidth": 0.8,
       "flexDirection": "row",
     },
     "wrapper": Object {
