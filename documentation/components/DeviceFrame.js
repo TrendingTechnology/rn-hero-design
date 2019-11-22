@@ -15,8 +15,6 @@ const IPhoneX = ({ children, screenStyle }) => (
       className="screen"
       style={{
         boxSizing: 'border-box',
-        padding: 16,
-        paddingTop: 48,
         ...screenStyle,
       }}
     >

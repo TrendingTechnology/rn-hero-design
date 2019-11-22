@@ -18,5 +18,8 @@
     "react": "16.9.0",
     "react-native": "0.60.5",
     "react-native-svg": "~9.9.2"
+  },
+  "dependencies": {
+    "react-native-safe-area-view": "^0.14.8"
   }
 }

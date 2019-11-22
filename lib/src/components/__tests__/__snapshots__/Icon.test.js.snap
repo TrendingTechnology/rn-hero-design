@@ -15,7 +15,7 @@ exports[`Icon renders correctly 1`] = `
   <View
     override={
       Object {
-        "color": "#000000",
+        "fill": "#000000",
         "height": 24,
         "width": 24,
       }
@@ -44,7 +44,7 @@ exports[`Icon renders correctly 2`] = `
   <View
     override={
       Object {
-        "color": "red",
+        "fill": "red",
         "height": 24,
         "width": 24,
       }
@@ -73,7 +73,7 @@ exports[`Icon renders correctly 3`] = `
   <View
     override={
       Object {
-        "color": "red",
+        "fill": "red",
         "height": 48,
         "width": 48,
       }

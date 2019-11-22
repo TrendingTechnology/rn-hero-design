@@ -2,6 +2,43 @@
 
 exports[`Theme Hero has correct configs 1`] = `
 Object {
+  "bottomButton": Object {
+    "button": Object {
+      "alignItems": "center",
+      "display": "flex",
+      "height": 48.75,
+      "justifyContent": "center",
+      "paddingHorizontal": 16.25,
+    },
+    "disabledText": Object {
+      "color": "#fcfcfc",
+    },
+    "disabledWrapper": Object {
+      "backgroundColor": "#d9dbdf",
+    },
+    "loadingIndicator": Object {
+      "color": "#fcfcfc",
+    },
+    "text": Object {
+      "color": "#fcfcfc",
+      "fontFamily": undefined,
+      "fontSize": 16.25,
+      "lineHeight": 16.25,
+    },
+    "wrapper": Object {
+      "backgroundColor": "#1dbeee",
+      "borderRadius": 24.375,
+      "marginHorizontal": 16.25,
+    },
+    "wrapperWithHomeBar": Object {
+      "marginBottom": 0,
+      "paddingBottom": 0,
+    },
+    "wrapperWithoutHomeBar": Object {
+      "marginBottom": 16.25,
+      "paddingBottom": 0,
+    },
+  },
   "button": Object {
     "disabledText": Object {
       "color": "#fcfcfc",
@@ -32,16 +69,37 @@ Object {
       "borderWidth": 1.2,
     },
     "text": Object {
-      "fontSize": 16,
-      "lineHeight": 16,
+      "fontFamily": undefined,
+      "fontSize": 16.25,
+      "lineHeight": 16.25,
     },
     "wrapper": Object {
       "alignItems": "center",
-      "borderRadius": 24,
+      "borderRadius": 24.375,
       "display": "flex",
-      "height": 48,
+      "height": 48.75,
       "justifyContent": "center",
-      "paddingHorizontal": 16,
+      "paddingHorizontal": 16.25,
+    },
+  },
+  "dateTimePicker": Object {
+    "action": Object {
+      "height": 45.9875,
+      "justifyContent": "center",
+      "paddingHorizontal": 16.25,
+    },
+    "actionText": Object {
+      "color": "#1dbeee",
+      "fontSize": 16.25,
+    },
+    "actions": Object {
+      "borderBottomColor": "#d9dbdf",
+      "borderBottomWidth": 0.5,
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    },
+    "wrapper": Object {
+      "backgroundColor": "#f5f6f8",
     },
   },
   "icon": Object {
@@ -56,55 +114,61 @@ Object {
     },
     "subtitle": Object {
       "color": "#a3a6ac",
-      "fontSize": 13.28,
+      "fontFamily": undefined,
+      "fontSize": 13.487499999999999,
       "fontWeight": "500",
-      "lineHeight": 18.592,
+      "lineHeight": 18.882499999999997,
     },
     "title": Object {
       "color": "#000000",
-      "fontSize": 16,
+      "fontFamily": undefined,
+      "fontSize": 16.25,
       "fontWeight": "500",
-      "lineHeight": 22.4,
+      "lineHeight": 22.75,
     },
     "wrapper": Object {
       "alignItems": "center",
-      "borderBottomColor": "#a3a6ac",
-      "borderBottomWidth": 0.5,
+      "borderBottomColor": "#d9dbdf",
+      "borderBottomWidth": 0.8,
       "display": "flex",
       "flexDirection": "row",
       "justifyContent": "space-between",
-      "minHeight": 72.99199999999999,
-      "paddingHorizontal": 16,
-      "paddingVertical": 16,
+      "minHeight": 74.1325,
+      "paddingHorizontal": 16.25,
+      "paddingVertical": 16.25,
     },
   },
   "text": Object {
     "h1": Object {
-      "fontSize": 32,
+      "fontSize": 32.5,
     },
     "h2": Object {
-      "fontSize": 24,
+      "fontSize": 24.375,
     },
     "h3": Object {
-      "fontSize": 18.72,
+      "fontSize": 19.0125,
     },
     "h4": Object {
-      "fontSize": 16,
+      "fontSize": 16.25,
     },
     "h5": Object {
-      "fontSize": 13.28,
+      "fontSize": 13.487499999999999,
     },
     "text": Object {
       "color": "#000000",
-      "fontSize": 16,
+      "fontFamily": undefined,
+      "fontSize": 16.25,
     },
   },
   "textInput": Object {
     "baseTextInput": Object {
       "color": "#000000",
       "flex": 1,
-      "fontSize": 16,
-      "height": 48,
+      "fontFamily": undefined,
+      "fontSize": 16.25,
+      "paddingBottom": 16.25,
+      "paddingTop": 16.25,
+      "textAlignVertical": "top",
     },
     "disabledBaseTextInput": Object {
       "color": "#a3a6ac",
@@ -117,35 +181,36 @@ Object {
     },
     "errorMessage": Object {
       "color": "#de350b",
-      "fontSize": 13.28,
+      "fontFamily": undefined,
+      "fontSize": 13.487499999999999,
       "fontWeight": "500",
-      "height": 13.28,
-      "lineHeight": 13.28,
-      "marginTop": 8,
+      "height": 13.487499999999999,
+      "lineHeight": 13.487499999999999,
+      "marginTop": 8.125,
     },
     "errorTextInput": Object {
       "borderBottomColor": "#de350b",
     },
     "icon": Object {
       "color": "#a3a6ac",
-      "height": 48,
+      "height": 48.75,
     },
     "label": Object {
       "color": "#a3a6ac",
-      "fontSize": 13.28,
+      "fontFamily": undefined,
+      "fontSize": 13.487499999999999,
       "fontWeight": "500",
-      "height": 13.28,
-      "lineHeight": 13.28,
+      "height": 13.487499999999999,
+      "lineHeight": 13.487499999999999,
     },
     "textInput": Object {
       "alignItems": "center",
-      "borderBottomColor": "#a3a6ac",
-      "borderBottomWidth": 1,
+      "borderBottomColor": "#d9dbdf",
+      "borderBottomWidth": 0.8,
       "flexDirection": "row",
-      "height": 48,
     },
     "wrapper": Object {
-      "marginBottom": 16,
+      "marginBottom": 16.25,
     },
   },
 }

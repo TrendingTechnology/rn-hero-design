@@ -17,7 +17,8 @@
     "doc:dev": "cd documentation && yarn dev",
     "doc:build": "cd documentation && yarn build",
     "doc:serve": "cd documentation && yarn serve",
-    "doc:deploy": "cd documentation && yarn build && yarn deploy"
+    "doc:deploy": "cd documentation && yarn build && yarn deploy",
+    "playground:publish": "cd playground && expo publish"
   },
   "author": "",
   "license": "ISC",
