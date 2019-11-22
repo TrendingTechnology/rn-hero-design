@@ -21,7 +21,7 @@ Object {
     },
     "text": Object {
       "color": "#fcfcfc",
-      "fontFamily": undefined,
+      "fontFamily": "Proxima Nova",
       "fontSize": 16.25,
       "lineHeight": 16.25,
     },
@@ -69,7 +69,7 @@ Object {
       "borderWidth": 1.2,
     },
     "text": Object {
-      "fontFamily": undefined,
+      "fontFamily": "Proxima Nova",
       "fontSize": 16.25,
       "lineHeight": 16.25,
     },
@@ -114,14 +114,14 @@ Object {
     },
     "subtitle": Object {
       "color": "#a3a6ac",
-      "fontFamily": undefined,
+      "fontFamily": "Proxima Nova",
       "fontSize": 13.487499999999999,
       "fontWeight": "500",
       "lineHeight": 18.882499999999997,
     },
     "title": Object {
       "color": "#000000",
-      "fontFamily": undefined,
+      "fontFamily": "Proxima Nova",
       "fontSize": 16.25,
       "fontWeight": "500",
       "lineHeight": 22.75,
@@ -156,7 +156,7 @@ Object {
     },
     "text": Object {
       "color": "#000000",
-      "fontFamily": undefined,
+      "fontFamily": "Proxima Nova",
       "fontSize": 16.25,
     },
   },
@@ -164,7 +164,7 @@ Object {
     "baseTextInput": Object {
       "color": "#000000",
       "flex": 1,
-      "fontFamily": undefined,
+      "fontFamily": "Proxima Nova",
       "fontSize": 16.25,
       "paddingBottom": 16.25,
       "paddingTop": 16.25,
@@ -181,7 +181,7 @@ Object {
     },
     "errorMessage": Object {
       "color": "#de350b",
-      "fontFamily": undefined,
+      "fontFamily": "Proxima Nova",
       "fontSize": 13.487499999999999,
       "fontWeight": "500",
       "height": 13.487499999999999,
@@ -197,7 +197,7 @@ Object {
     },
     "label": Object {
       "color": "#a3a6ac",
-      "fontFamily": undefined,
+      "fontFamily": "Proxima Nova",
       "fontSize": 13.487499999999999,
       "fontWeight": "500",
       "height": 13.487499999999999,
