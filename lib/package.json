@@ -1,6 +1,6 @@
 {
   "name": "rn-hero-design",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -20,6 +20,6 @@
     "react-native-svg": "~9.9.2"
   },
   "dependencies": {
-    "react-native-safe-area-view": "^0.14.8"
+    "react-native-safe-area-view": "0.14.8"
   }
 }
