@@ -12,7 +12,7 @@ import * as Font from 'expo-font';
 import routes from './stories/routes';
 
 const menuData = Object.keys(routes).map(route => ({
-  title: routes[route].navigationOptions.title || route,
+  title: routes[route].defaultNavigationOptions.title || route,
   route,
 }));
 

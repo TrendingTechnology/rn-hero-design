@@ -6,6 +6,7 @@ import {
   BottomButton,
   KeyboardAvoidingView,
 } from 'rn-hero-design';
+import { FOCUS_BLUE_1, WHITE } from 'rn-hero-design/src/themes/hero/variables';
 
 const noop = () => {};
 
@@ -34,7 +35,10 @@ const LeaveRequestScreen = () => {
 
   return (
     <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
-      <ScrollView contentContainerStyle={styles.container}>
+      <ScrollView
+        keyboardShouldPersistTaps="handled"
+        contentContainerStyle={styles.container}
+      >
         <TouchableOpacity>
           <View pointerEvents="none">
             <TextInput
@@ -84,7 +88,7 @@ const LeaveRequestScreen = () => {
       </ScrollView>
 
       <BottomButton
-        text="Register"
+        text="Submit"
         forceInset={changingField ? 'never' : null}
         onPress={() => {}}
       />
@@ -97,6 +101,17 @@ const LeaveRequestScreen = () => {
       />
     </KeyboardAvoidingView>
   );
+};
+
+LeaveRequestScreen.navigationOptions = {
+  title: 'Leave request',
+  headerStyle: {
+    backgroundColor: FOCUS_BLUE_1,
+    borderBottomWidth: 0,
+  },
+  headerTitleStyle: {
+    color: WHITE,
+  },
 };
 
 const styles = StyleSheet.create({

@@ -1,62 +1,74 @@
 import React, { useState } from 'react';
-import { View, SafeAreaView, StyleSheet } from 'react-native';
-import { TextInput, Button, Text } from 'rn-hero-design';
+import { View, Image, SafeAreaView, StyleSheet } from 'react-native';
+import { TextInput, Button, Text, KeyboardAvoidingView } from 'rn-hero-design';
 import {
   FOCUS_BLUE_1,
   FOCUS_BLUE_3,
   INVERTED_TEXT_COLOR,
 } from 'rn-hero-design/src/themes/hero/variables';
 
-const LoginScreen = () => {
+const LoginScreen = ({ navigation }) => {
   const [email, setEmail] = useState('toan@gmail.com');
   const [password, setPassword] = useState('123456');
   const [visiblePassword, setVisiblePassword] = useState(false);
 
   return (
     <SafeAreaView style={styles.safeArea}>
-      <View style={styles.container}>
-        <TextInput
-          label="Email"
-          value={email}
-          onChangeText={value => setEmail(value)}
-          labelStyle={{ color: INVERTED_TEXT_COLOR }}
-          inputStyle={{
-            color: INVERTED_TEXT_COLOR,
-            borderBottomColor: FOCUS_BLUE_3,
-          }}
-          iconStyle={{ color: INVERTED_TEXT_COLOR }}
-        />
+      <KeyboardAvoidingView style={styles.keyboardAvoidingView}>
+        <View style={styles.loginForm}>
+          <Image
+            source={require('../assets/login_logo.png')}
+            resizeMode="contain"
+            style={styles.logo}
+          />
 
-        <TextInput
-          label="Password"
-          value={password}
-          rightIcon={visiblePassword ? 'eye-invisible-outline' : 'eye-outline'}
-          onChangeText={value => setPassword(value)}
-          onPressIcon={() => setVisiblePassword(!visiblePassword)}
-          secureTextEntry={!visiblePassword}
-          wrapperStyle={{ marginBottom: 32 }}
-          labelStyle={{ color: INVERTED_TEXT_COLOR }}
-          inputStyle={{
-            color: INVERTED_TEXT_COLOR,
-            borderBottomColor: FOCUS_BLUE_3,
-          }}
-          iconStyle={{ color: INVERTED_TEXT_COLOR }}
-        />
+          <TextInput
+            label="Email"
+            value={email}
+            onChangeText={value => setEmail(value)}
+            labelStyle={{ color: INVERTED_TEXT_COLOR }}
+            inputStyle={{
+              color: INVERTED_TEXT_COLOR,
+              borderBottomColor: FOCUS_BLUE_3,
+            }}
+            iconStyle={{ color: INVERTED_TEXT_COLOR }}
+          />
 
-        <Button
-          text="Log In"
-          onPress={() => {}}
-          wrapperStyle={{ marginBottom: 16 }}
-        />
+          <TextInput
+            label="Password"
+            value={password}
+            rightIcon={
+              visiblePassword ? 'eye-invisible-outline' : 'eye-outline'
+            }
+            onChangeText={value => setPassword(value)}
+            onPressIcon={() => setVisiblePassword(!visiblePassword)}
+            secureTextEntry={!visiblePassword}
+            wrapperStyle={{ marginBottom: 32 }}
+            labelStyle={{ color: INVERTED_TEXT_COLOR }}
+            inputStyle={{
+              color: INVERTED_TEXT_COLOR,
+              borderBottomColor: FOCUS_BLUE_3,
+            }}
+            iconStyle={{ color: INVERTED_TEXT_COLOR }}
+          />
 
-        <Text
-          size="h5"
-          color={INVERTED_TEXT_COLOR}
-          style={{ textAlign: 'center' }}
-        >
-          Email me a magic login link
-        </Text>
-      </View>
+          <Button
+            text="Log In"
+            onPress={() => navigation.goBack()}
+            wrapperStyle={{ marginBottom: 16 }}
+          />
+
+          <Text
+            size="h5"
+            color={INVERTED_TEXT_COLOR}
+            style={{ marginBottom: 16, textAlign: 'center' }}
+          >
+            Email me a magic login link
+          </Text>
+        </View>
+
+        <View style={styles.pusher} />
+      </KeyboardAvoidingView>
     </SafeAreaView>
   );
 };
@@ -64,21 +76,27 @@ const LoginScreen = () => {
 const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
-    justifyContent: 'center',
     backgroundColor: FOCUS_BLUE_1,
   },
-  container: {
-    paddingHorizontal: 16,
-    paddingBottom: 128,
+  keyboardAvoidingView: {
+    flex: 1,
+    justifyContent: 'flex-end',
+  },
+  loginForm: {
+    paddingHorizontal: 24,
+  },
+  pusher: {
+    flex: 1,
+  },
+  logo: {
+    height: 100,
+    marginVertical: 64,
+    alignSelf: 'center',
   },
 });
 
 LoginScreen.navigationOptions = {
-  headerTitle: () => null,
-  headerStyle: {
-    backgroundColor: FOCUS_BLUE_1,
-    borderBottomWidth: 0,
-  },
+  header: null,
 };
 
 export default LoginScreen;

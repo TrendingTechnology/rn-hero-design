@@ -11,56 +11,56 @@ import LeaveRequestScreen from './LeaveRequestScreen';
 export default {
   Text: {
     screen: TextScreen,
-    navigationOptions: {
+    defaultNavigationOptions: {
       title: 'Typo',
     },
   },
   Button: {
     screen: ButtonScreen,
-    navigationOptions: {
+    defaultNavigationOptions: {
       title: 'Button',
     },
   },
   BottomButton: {
     screen: BottomButtonScreen,
-    navigationOptions: {
+    defaultNavigationOptions: {
       title: 'BottomButton',
     },
   },
   TextInput: {
     screen: TextInputScreen,
-    navigationOptions: {
+    defaultNavigationOptions: {
       title: 'TextInput',
     },
   },
   Icon: {
     screen: IconScreen,
-    navigationOptions: {
+    defaultNavigationOptions: {
       title: 'Icon',
     },
   },
   ListItem: {
     screen: ListItemScreen,
-    navigationOptions: {
+    defaultNavigationOptions: {
       title: 'ListItem',
     },
   },
   DateTimePicker: {
     screen: DateTimePickerScreen,
-    navigationOptions: {
+    defaultNavigationOptions: {
       title: 'DateTimePicker',
     },
   },
   LoginScreen: {
     screen: LoginScreen,
-    navigationOptions: {
-      title: '🎩 Login Screen',
+    defaultNavigationOptions: {
+      title: '🥑 Login Screen',
     },
   },
   LeaveRequestScreen: {
     screen: LeaveRequestScreen,
-    navigationOptions: {
-      title: '✈️ Leave Request Screen',
+    defaultNavigationOptions: {
+      title: '🍉 Leave Request Screen',
     },
   },
 };
