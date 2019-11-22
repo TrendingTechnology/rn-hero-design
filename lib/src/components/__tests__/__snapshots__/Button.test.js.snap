@@ -14,12 +14,12 @@ exports[`Button renders correctly 1`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#1dbeee",
-      "borderRadius": 26.25,
+      "borderRadius": 24.375,
       "display": "flex",
-      "height": 52.5,
+      "height": 48.75,
       "justifyContent": "center",
       "opacity": 1,
-      "paddingHorizontal": 17.5,
+      "paddingHorizontal": 16.25,
     }
   }
 >
@@ -28,8 +28,8 @@ exports[`Button renders correctly 1`] = `
       Object {
         "color": "#fcfcfc",
         "fontFamily": undefined,
-        "fontSize": 17.5,
-        "lineHeight": 17.5,
+        "fontSize": 16.25,
+        "lineHeight": 16.25,
       }
     }
   >
@@ -45,12 +45,12 @@ exports[`Button renders correctly 2`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#d9dbdf",
-      "borderRadius": 26.25,
+      "borderRadius": 24.375,
       "borderWidth": 0,
       "display": "flex",
-      "height": 52.5,
+      "height": 48.75,
       "justifyContent": "center",
-      "paddingHorizontal": 17.5,
+      "paddingHorizontal": 16.25,
     }
   }
 >
@@ -59,8 +59,8 @@ exports[`Button renders correctly 2`] = `
       Object {
         "color": "#fcfcfc",
         "fontFamily": undefined,
-        "fontSize": 17.5,
-        "lineHeight": 17.5,
+        "fontSize": 16.25,
+        "lineHeight": 16.25,
       }
     }
   >
@@ -76,11 +76,11 @@ exports[`Button renders correctly 3`] = `
     Object {
       "alignItems": "center",
       "backgroundColor": "#1dbeee",
-      "borderRadius": 26.25,
+      "borderRadius": 24.375,
       "display": "flex",
-      "height": 52.5,
+      "height": 48.75,
       "justifyContent": "center",
-      "paddingHorizontal": 17.5,
+      "paddingHorizontal": 16.25,
     }
   }
 >
@@ -108,13 +108,13 @@ exports[`Button renders correctly 4`] = `
       "alignItems": "center",
       "backgroundColor": "transparent",
       "borderColor": "#1dbeee",
-      "borderRadius": 26.25,
+      "borderRadius": 24.375,
       "borderWidth": 1.2,
       "display": "flex",
-      "height": 52.5,
+      "height": 48.75,
       "justifyContent": "center",
       "opacity": 1,
-      "paddingHorizontal": 17.5,
+      "paddingHorizontal": 16.25,
     }
   }
 >
@@ -123,9 +123,9 @@ exports[`Button renders correctly 4`] = `
       Object {
         "color": "#1dbeee",
         "fontFamily": undefined,
-        "fontSize": 17.5,
+        "fontSize": 16.25,
         "fontWeight": "500",
-        "lineHeight": 17.5,
+        "lineHeight": 16.25,
       }
     }
   >

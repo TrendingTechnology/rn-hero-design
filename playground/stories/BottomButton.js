@@ -1,13 +1,6 @@
 import React, { useState, useRef } from 'react';
-import {
-  View,
-  Switch,
-  Text,
-  TextInput,
-  KeyboardAvoidingView,
-  StyleSheet,
-} from 'react-native';
-import { BottomButton } from 'rn-hero-design';
+import { View, Switch, Text, TextInput, StyleSheet } from 'react-native';
+import { BottomButton, KeyboardAvoidingView } from 'rn-hero-design';
 import legacyTheme from 'rn-hero-design/src/themes/legacy';
 
 const noop = () => {};
@@ -18,15 +11,10 @@ const BottomButtonScreen = () => {
   const input = useRef(null);
 
   return (
-    <KeyboardAvoidingView
-      behavior="padding"
-      keyboardVerticalOffset={88}
-      enabled
-      style={styles.keyboardAvoidingView}
-    >
+    <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
       <View style={styles.container}>
         <View style={styles.configRow}>
-          <Text>Use legacy theme</Text>
+          <Text style={styles.configText}>Use legacy theme</Text>
           <Switch
             value={useLegacy}
             onValueChange={value => setUseLegacy(value)}
@@ -34,7 +22,7 @@ const BottomButtonScreen = () => {
         </View>
 
         <View style={styles.configRow}>
-          <Text>Show keyboard</Text>
+          <Text style={styles.configText}>Show keyboard</Text>
           <Switch
             value={showKeyboard}
             onValueChange={value => {
@@ -70,6 +58,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     paddingVertical: 8,
     paddingHorizontal: 16,
+  },
+  configText: {
+    fontSize: 16,
   },
   input: {
     width: 1,

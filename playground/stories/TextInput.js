@@ -1,16 +1,16 @@
 import React from 'react';
-import { ScrollView, KeyboardAvoidingView, StyleSheet } from 'react-native';
-import { TextInput, BottomButton, Text } from 'rn-hero-design';
+import { ScrollView, StyleSheet } from 'react-native';
+import {
+  TextInput,
+  BottomButton,
+  Text,
+  KeyboardAvoidingView,
+} from 'rn-hero-design';
 
 const noop = () => {};
 
 const TextInputScreen = () => (
-  <KeyboardAvoidingView
-    behavior="padding"
-    keyboardVerticalOffset={88}
-    enabled
-    style={styles.keyboardAvoidingView}
-  >
+  <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
     <ScrollView contentContainerStyle={styles.container}>
       <TextInput
         label="Email"
