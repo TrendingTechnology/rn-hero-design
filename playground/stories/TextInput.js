@@ -39,7 +39,7 @@ const TextInputScreen = () => (
 
       <TextInput label="Region" value="Vietnam" disabled onChangeText={noop} />
 
-      <Text>* By signing up, you agree to our terms and conditions</Text>
+      <Text size="h5">* By sign-up, you agree to our terms and conditions</Text>
     </ScrollView>
 
     <BottomButton text="Register" onPress={() => {}} />
