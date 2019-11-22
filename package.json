@@ -18,7 +18,8 @@
     "doc:build": "cd documentation && yarn build",
     "doc:serve": "cd documentation && yarn serve",
     "doc:deploy": "cd documentation && yarn build && yarn deploy",
-    "playground:publish": "cd playground && expo publish"
+    "playground:publish": "cd playground && expo publish",
+    "bump": "yarn version --cwd lib"
   },
   "author": "",
   "license": "ISC",
