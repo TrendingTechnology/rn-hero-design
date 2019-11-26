@@ -7,16 +7,13 @@ import {
   KeyboardAvoidingView,
   ListItem,
   Icon,
+  injectTheme,
 } from 'rn-hero-design';
-import {
-  FOCUS_BLUE_1,
-  WHITE,
-  RED,
-} from 'rn-hero-design/src/themes/hero/variables';
+import { FOCUS_BLUE_1, WHITE } from 'rn-hero-design/src/themes/hero/variables';
 
 const noop = () => {};
 
-const LeaveRequestScreen = () => {
+const LeaveRequestScreen = ({ theme }) => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [changingField, setChangingField] = useState(null);
@@ -38,10 +35,18 @@ const LeaveRequestScreen = () => {
   };
 
   return (
-    <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
+    <KeyboardAvoidingView
+      withNavigation
+      style={StyleSheet.flatten([
+        styles.keyboardAvoidingView,
+        { backgroundColor: theme.variables.BACKGROUND_COLOR },
+      ])}
+    >
       <ScrollView
         keyboardShouldPersistTaps="handled"
-        contentContainerStyle={styles.container}
+        contentContainerStyle={{
+          padding: theme.variables.MEDIUM_SIZE,
+        }}
       >
         <TouchableOpacity>
           <View pointerEvents="none">
@@ -93,44 +98,69 @@ const LeaveRequestScreen = () => {
         <ListItem
           title="Attach file"
           subtitle="Accept only jpeg, jpg, png, pdf extensions"
+          rightElement={
+            <Icon
+              icon="plus-outline"
+              color={theme.variables.PRIMARY_COLOR}
+              size={20}
+            />
+          }
           onPress={noop}
           wrapperStyle={{
             paddingVertical: 0,
             paddingHorizontal: 0,
-            marginBottom: 8,
+            marginBottom: theme.variables.SMALL_SIZE,
             borderBottomWidth: 0,
           }}
         />
         <ListItem
           title="IMG-001.jpeg"
-          rightElement={<Icon icon="cancel-outline" color={RED} size={20} />}
+          rightElement={
+            <Icon
+              icon="cancel-outline"
+              color={theme.variables.DANGER_COLOR}
+              size={20}
+            />
+          }
           wrapperStyle={{
             minHeight: 0,
             paddingVertical: 0,
             paddingHorizontal: 0,
-            marginBottom: 16,
+            marginBottom: theme.variables.MEDIUM_SIZE,
             borderBottomWidth: 0,
           }}
         />
         <ListItem
           title="IMG-002.jpeg"
-          rightElement={<Icon icon="cancel-outline" color={RED} size={20} />}
+          rightElement={
+            <Icon
+              icon="cancel-outline"
+              color={theme.variables.DANGER_COLOR}
+              size={20}
+            />
+          }
           wrapperStyle={{
             minHeight: 0,
             paddingVertical: 0,
             paddingHorizontal: 0,
-            marginBottom: 16,
+            marginBottom: theme.variables.MEDIUM_SIZE,
             borderBottomWidth: 0,
           }}
         />
         <ListItem
           title="IMG-003.jpeg"
-          rightElement={<Icon icon="cancel-outline" color={RED} size={20} />}
+          rightElement={
+            <Icon
+              icon="cancel-outline"
+              color={theme.variables.DANGER_COLOR}
+              size={20}
+            />
+          }
           wrapperStyle={{
             minHeight: 0,
             paddingVertical: 0,
             paddingHorizontal: 0,
-            marginBottom: 16,
+            marginBottom: theme.variables.MEDIUM_SIZE,
             borderBottomWidth: 0,
           }}
         />
@@ -167,9 +197,6 @@ const styles = StyleSheet.create({
   keyboardAvoidingView: {
     flex: 1,
   },
-  container: {
-    padding: 16,
-  },
 });
 
-export default LeaveRequestScreen;
+export default injectTheme(LeaveRequestScreen);
