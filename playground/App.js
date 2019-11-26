@@ -6,6 +6,8 @@ import {
   FlatList,
   StyleSheet,
 } from 'react-native';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import * as Font from 'expo-font';
@@ -69,6 +71,8 @@ const styles = StyleSheet.create({
 
 const AppContainer = createAppContainer(AppNavigator);
 
+const store = createStore(state => state, { __theme: undefined });
+
 export default () => {
   const [fontLoaded, setFontLoaded] = useState(false);
 
@@ -82,5 +86,9 @@ export default () => {
 
   if (!fontLoaded) return null;
 
-  return <AppContainer />;
+  return (
+    <Provider store={store}>
+      <AppContainer />
+    </Provider>
+  );
 };

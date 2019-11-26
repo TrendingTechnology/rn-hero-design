@@ -1,6 +1,6 @@
 {
   "name": "rn-hero-design",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
   "main": "src/index.js",
   "scripts": {
@@ -11,13 +11,15 @@
   "devDependencies": {
     "jest": "^24.9.0",
     "prop-types": "^15.7.2",
+    "react-redux": "^5.1.2",
     "react-test-renderer": "16.8.3"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "16.9.0",
     "react-native": "0.60.5",
-    "react-native-svg": "~9.9.2"
+    "react-native-svg": "~9.9.2",
+    "react-redux": "^5.1.2"
   },
   "dependencies": {
     "react-native-safe-area-view": "0.14.8"

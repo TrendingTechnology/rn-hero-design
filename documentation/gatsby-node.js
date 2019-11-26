@@ -7,6 +7,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
           '@rn-hero-design/documentation/mocks/react-native-svg-web',
         'react-native-safe-area-view':
           '@rn-hero-design/documentation/mocks/react-native-safe-area-view',
+        'react-redux': '@rn-hero-design/documentation/mocks/react-redux',
       },
     },
   });
