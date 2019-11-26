@@ -5,8 +5,14 @@ import {
   DateTimePicker,
   BottomButton,
   KeyboardAvoidingView,
+  ListItem,
+  Icon,
 } from 'rn-hero-design';
-import { FOCUS_BLUE_1, WHITE } from 'rn-hero-design/src/themes/hero/variables';
+import {
+  FOCUS_BLUE_1,
+  WHITE,
+  RED,
+} from 'rn-hero-design/src/themes/hero/variables';
 
 const noop = () => {};
 
@@ -14,9 +20,7 @@ const LeaveRequestScreen = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [changingField, setChangingField] = useState(null);
-  const [comment, setComment] = useState(
-    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  );
+  const [comment, setComment] = useState('Monthly health checkup');
 
   const fieldMap = {
     startDate: {
@@ -43,7 +47,7 @@ const LeaveRequestScreen = () => {
           <View pointerEvents="none">
             <TextInput
               label="Leave category"
-              value="Annual Leave"
+              value="Sick Leave"
               onChangeText={noop}
             />
           </View>
@@ -53,7 +57,7 @@ const LeaveRequestScreen = () => {
           <View pointerEvents="none">
             <TextInput
               label="Start date"
-              value={startDate.toISOString()}
+              value={startDate.toDateString()}
               rightIcon="calendar"
               onChangeText={noop}
             />
@@ -64,12 +68,19 @@ const LeaveRequestScreen = () => {
           <View pointerEvents="none">
             <TextInput
               label="End date"
-              value={endDate.toISOString()}
+              value={endDate.toDateString()}
               rightIcon="calendar"
               onChangeText={noop}
             />
           </View>
         </TouchableOpacity>
+
+        <TextInput
+          label="Total leave hours"
+          value="8.00"
+          rightIcon="clock-circle-outline"
+          onChangeText={noop}
+        />
 
         <TextInput
           label="Comments"
@@ -79,11 +90,49 @@ const LeaveRequestScreen = () => {
           onChangeText={text => setComment(text)}
         />
 
-        <TextInput
-          label="Total leave hours"
-          value=""
-          rightIcon="clock-circle-outline"
-          onChangeText={noop}
+        <ListItem
+          title="Attach file"
+          subtitle="Accept only jpeg, jpg, png, pdf extensions"
+          onPress={noop}
+          wrapperStyle={{
+            paddingVertical: 0,
+            paddingHorizontal: 0,
+            marginBottom: 8,
+            borderBottomWidth: 0,
+          }}
+        />
+        <ListItem
+          title="IMG-001.jpeg"
+          rightElement={<Icon icon="cancel-outline" color={RED} size={20} />}
+          wrapperStyle={{
+            minHeight: 0,
+            paddingVertical: 0,
+            paddingHorizontal: 0,
+            marginBottom: 16,
+            borderBottomWidth: 0,
+          }}
+        />
+        <ListItem
+          title="IMG-002.jpeg"
+          rightElement={<Icon icon="cancel-outline" color={RED} size={20} />}
+          wrapperStyle={{
+            minHeight: 0,
+            paddingVertical: 0,
+            paddingHorizontal: 0,
+            marginBottom: 16,
+            borderBottomWidth: 0,
+          }}
+        />
+        <ListItem
+          title="IMG-003.jpeg"
+          rightElement={<Icon icon="cancel-outline" color={RED} size={20} />}
+          wrapperStyle={{
+            minHeight: 0,
+            paddingVertical: 0,
+            paddingHorizontal: 0,
+            marginBottom: 16,
+            borderBottomWidth: 0,
+          }}
         />
       </ScrollView>
 
