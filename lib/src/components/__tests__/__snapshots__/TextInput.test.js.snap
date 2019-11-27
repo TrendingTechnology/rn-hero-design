@@ -50,7 +50,7 @@ exports[`TextInput renders correctly 1`] = `
           "fontSize": 16.25,
           "paddingBottom": 16.25,
           "paddingTop": 16.25,
-          "textAlignVertical": "top",
+          "textAlignVertical": "center",
         }
       }
       underlineColorAndroid="transparent"
@@ -123,7 +123,7 @@ exports[`TextInput renders correctly 2`] = `
           "fontSize": 16.25,
           "paddingBottom": 16.25,
           "paddingTop": 16.25,
-          "textAlignVertical": "top",
+          "textAlignVertical": "center",
         }
       }
       underlineColorAndroid="transparent"
@@ -196,7 +196,7 @@ exports[`TextInput renders correctly 3`] = `
           "fontSize": 16.25,
           "paddingBottom": 16.25,
           "paddingTop": 16.25,
-          "textAlignVertical": "top",
+          "textAlignVertical": "center",
         }
       }
       underlineColorAndroid="transparent"
@@ -308,7 +308,7 @@ exports[`TextInput renders correctly 4`] = `
           "fontSize": 16.25,
           "paddingBottom": 16.25,
           "paddingTop": 16.25,
-          "textAlignVertical": "top",
+          "textAlignVertical": "center",
         }
       }
       underlineColorAndroid="transparent"
@@ -420,7 +420,7 @@ exports[`TextInput renders correctly 5`] = `
           "fontSize": 16.25,
           "paddingBottom": 16.25,
           "paddingTop": 16.25,
-          "textAlignVertical": "top",
+          "textAlignVertical": "center",
         }
       }
       underlineColorAndroid="transparent"
