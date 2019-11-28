@@ -161,6 +161,16 @@ Object {
     },
   },
   "textInput": Object {
+    "activeIcon": Object {
+      "color": "#1dbeee",
+    },
+    "activeLabel": Object {
+      "color": "#1dbeee",
+    },
+    "activeTextInput": Object {
+      "borderBottomColor": "#1dbeee",
+      "borderBottomWidth": 1,
+    },
     "baseTextInput": Object {
       "color": "#000000",
       "flex": 1,
