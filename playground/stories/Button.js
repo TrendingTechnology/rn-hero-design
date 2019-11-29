@@ -1,12 +1,12 @@
 import React from 'react';
-import { View, Alert, StyleSheet } from 'react-native';
-import { Button } from 'rn-hero-design';
+import { Alert } from 'react-native';
+import { Button, Container } from 'rn-hero-design';
 import { RED } from 'rn-hero-design/src/themes/hero/variables';
 
 const callback = () => Alert.alert('Button clicked!');
 
 const ButtonScreen = () => (
-  <View style={styles.container}>
+  <Container>
     <Button
       text="Filled Button"
       onPress={callback}
@@ -51,13 +51,7 @@ const ButtonScreen = () => (
       onPress={callback}
       wrapperStyle={{ marginBottom: 16, backgroundColor: RED, borderRadius: 8 }}
     />
-  </View>
+  </Container>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-  },
-});
 
 export default ButtonScreen;

@@ -82,6 +82,14 @@ Object {
       "paddingHorizontal": 16.25,
     },
   },
+  "container": Object {
+    "container": Object {
+      "padding": 16.25,
+    },
+    "fluid": Object {
+      "flex": 1,
+    },
+  },
   "dateTimePicker": Object {
     "action": Object {
       "height": 45.9875,
