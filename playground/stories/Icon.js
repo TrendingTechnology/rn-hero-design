@@ -1,16 +1,17 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Icon } from 'rn-hero-design';
+import { StyleSheet } from 'react-native';
+import { Icon, Container } from 'rn-hero-design';
 
 const IconScreen = () => (
   <>
-    <View style={styles.container}>
+    <Container direction="row" style={styles.container}>
       <Icon icon="email" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon icon="eye" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon icon="eye-invisible" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon icon="ok-circle" size={24} wrapperStyle={styles.iconWrapper} />
-    </View>
-    <View style={styles.container}>
+      <Icon icon="calendar" size={24} wrapperStyle={styles.iconWrapper} />
+    </Container>
+    <Container direction="row" style={styles.container}>
       <Icon icon="email-outline" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon icon="eye-outline" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon
@@ -18,15 +19,30 @@ const IconScreen = () => (
         size={24}
         wrapperStyle={styles.iconWrapper}
       />
-    </View>
+      <Icon icon="cancel-outline" size={24} wrapperStyle={styles.iconWrapper} />
+      <Icon
+        icon="clock-circle-outline"
+        size={24}
+        wrapperStyle={styles.iconWrapper}
+      />
+      <Icon
+        icon="comment-outline"
+        size={24}
+        wrapperStyle={styles.iconWrapper}
+      />
+      <Icon
+        icon="plus-circle-outline"
+        size={24}
+        wrapperStyle={styles.iconWrapper}
+      />
+      <Icon icon="plus-outline" size={24} wrapperStyle={styles.iconWrapper} />
+    </Container>
   </>
 );
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
     flexWrap: 'wrap',
-    padding: 16,
     paddingBottom: 0,
   },
   iconWrapper: {

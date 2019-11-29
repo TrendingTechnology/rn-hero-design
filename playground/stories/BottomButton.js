@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { View, Switch, Text, TextInput, StyleSheet } from 'react-native';
-import { BottomButton, KeyboardAvoidingView } from 'rn-hero-design';
+import { BottomButton, KeyboardAvoidingView, Container } from 'rn-hero-design';
 import legacyTheme from 'rn-hero-design/src/themes/legacy';
 
 const noop = () => {};
@@ -12,7 +12,7 @@ const BottomButtonScreen = () => {
 
   return (
     <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
-      <View style={styles.container}>
+      <Container fluid>
         <View style={styles.configRow}>
           <Text style={styles.configText}>Use legacy theme</Text>
           <Switch
@@ -33,7 +33,7 @@ const BottomButtonScreen = () => {
         </View>
 
         <TextInput ref={input} style={styles.input} />
-      </View>
+      </Container>
 
       <BottomButton
         text="Bottom Button"
@@ -48,16 +48,11 @@ const styles = StyleSheet.create({
   keyboardAvoidingView: {
     flex: 1,
   },
-  container: {
-    flex: 1,
-    paddingVertical: 8,
-  },
   configRow: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: 8,
-    paddingHorizontal: 16,
+    paddingBottom: 16,
   },
   configText: {
     fontSize: 16,

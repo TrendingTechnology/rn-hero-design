@@ -1,9 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Text } from 'rn-hero-design';
+import { Text, Container } from 'rn-hero-design';
 
 const TextScreen = () => (
-  <View style={styles.container}>
+  <Container>
     <Text size="h1" style={{ marginBottom: 16 }}>
       The quick brown fox
     </Text>
@@ -23,13 +22,7 @@ const TextScreen = () => (
     <Text weight="700" style={{ marginBottom: 16 }}>
       The quick brown fox
     </Text>
-  </View>
+  </Container>
 );
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-  },
-});
 
 export default TextScreen;

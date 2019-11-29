@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import { DateTimePicker, TextInput } from 'rn-hero-design';
+import { View, TouchableOpacity } from 'react-native';
+import { DateTimePicker, TextInput, Container } from 'rn-hero-design';
 
 const noop = () => {};
 
@@ -26,7 +26,7 @@ const DateTimePickerScreen = () => {
 
   return (
     <>
-      <View style={styles.container}>
+      <Container fluid>
         <TouchableOpacity onPress={() => setChangingField('startDate')}>
           <View pointerEvents="none">
             <TextInput
@@ -46,7 +46,7 @@ const DateTimePickerScreen = () => {
             />
           </View>
         </TouchableOpacity>
-      </View>
+      </Container>
 
       <DateTimePicker
         show={!!changingField}
@@ -57,12 +57,5 @@ const DateTimePickerScreen = () => {
     </>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 16,
-  },
-});
 
 export default DateTimePickerScreen;
