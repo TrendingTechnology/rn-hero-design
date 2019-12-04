@@ -45,6 +45,7 @@ const AppNavigator = createStackNavigator(
       screen: HomeScreen,
       navigationOptions: {
         title: '👓 RN Hero Design',
+        headerBackTitle: null,
       },
     },
     ...routes,

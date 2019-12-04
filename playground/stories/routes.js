@@ -11,6 +11,7 @@ import ListItemScreen from './ListItem';
 import BottomButtonScreen from './BottomButton';
 import DateTimePickerScreen from './DateTimePicker';
 import LeaveRequestScreen from './LeaveRequestScreen';
+import CardScreen from './Card';
 import darkKnightTheme from 'rn-hero-design/src/themes/dark-knight';
 
 const store = createStore(state => state, { __theme: 'dark-knight' });
@@ -62,6 +63,12 @@ export default {
     screen: DateTimePickerScreen,
     defaultNavigationOptions: {
       title: 'DateTimePicker',
+    },
+  },
+  Card: {
+    screen: CardScreen,
+    defaultNavigationOptions: {
+      title: 'Card',
     },
   },
   LoginScreen: {
