@@ -48,4 +48,10 @@ let styles: Js.t('a) = {
   "disabledText": style(~color=_DISABLED_TEXT_COLOR, ()),
 };
 
-let default: Js.t('a) = ReactNative.StyleSheet.create(styles);
+let default: Js.t('a) = {
+  "variables": {
+    "_FILLED_TEXT_COLOR": _FILLED_TEXT_COLOR,
+    "_OUTLINED_TEXT_COLOR": _OUTLINED_TEXT_COLOR,
+  },
+  "styles": ReactNative.StyleSheet.create(styles),
+};
