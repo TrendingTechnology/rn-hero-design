@@ -1,15 +1,5 @@
 open ReactNative;
 
-[@bs.module "../helpers/injectTheme.js"]
-external injectTheme: React.component('a) => React.component('a) = "default";
-
-module ThemeComponent = {
-  let theme = Hero_Theme.default;
-  let make = (~render) => {
-    render(theme);
-  };
-};
-
 type variant =
   | Filled
   | Outlined;
@@ -74,10 +64,4 @@ let make =
   </Wrapper>;
 };
 
-/* ThemeComponent.make(~render=theme => */
-/*   <Wrapper> */
-/*     <Text> {(text ++ string_of_int(theme))->React.string} </Text> */
-/*   </Wrapper> */
-/* ); */
-
-let default = make;
+let default = Helpers.injectTheme(make);
