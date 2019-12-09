@@ -63,7 +63,7 @@ let make =
            style={StyleSheet.flatten([|
              theme##button##styles##text,
              styles##text,
-             disabled ? theme##button##styles##disabledWrapper : Style.style(),
+             disabled ? theme##button##styles##disabledText : Style.style(),
              textStyle,
            |])}>
            text->React.string
