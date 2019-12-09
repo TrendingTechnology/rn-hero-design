@@ -43,14 +43,15 @@ let make =
   <RNText
     style={RN.StyleSheet.flatten([|
       theme##text##text,
-      switch (size) {
-      | Some(`h1) => theme##text##h1
-      | Some(`h2) => theme##text##h2
-      | Some(`h3) => theme##text##h3
-      | Some(`h4) => theme##text##h4
-      | Some(`h5) => theme##text##h5
-      | None => RN.Style.style()
-      },
+      Belt.Option.mapWithDefault(size, noStyle, size =>
+        switch (size) {
+        | `h1 => theme##text##h1
+        | `h2 => theme##text##h2
+        | `h3 => theme##text##h3
+        | `h4 => theme##text##h4
+        | `h5 => theme##text##h5
+        }
+      ),
       RN.Style.style(~fontWeight=toRNWeight(weight), ~color?, ()),
       style |? noStyle,
     |])}>
