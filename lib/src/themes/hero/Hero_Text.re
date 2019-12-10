@@ -10,7 +10,7 @@ let _H3_FONT_SIZE = _HEADER_3;
 let _H4_FONT_SIZE = _HEADER_4;
 let _H5_FONT_SIZE = _HEADER_5;
 
-let default = {
+let styles: Js.t('a) = {
   "text":
     style(
       ~fontFamily=_FONT_FAMILY,
@@ -23,4 +23,8 @@ let default = {
   "h3": style(~fontSize=_H3_FONT_SIZE, ()),
   "h4": style(~fontSize=_H4_FONT_SIZE, ()),
   "h5": style(~fontSize=_H5_FONT_SIZE, ()),
+};
+
+let default: Js.t('a) = {
+  "styles": ReactNative.StyleSheet.create(styles),
 };

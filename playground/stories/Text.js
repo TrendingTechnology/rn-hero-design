@@ -13,7 +13,7 @@ const TextScreen = () => (
     <Text size="h3" style={{ marginBottom: 16 }}>
       🐔 The quick brown fox
     </Text>
-    <Text style={{ marginBottom: 16 }}>The quick brown fox</Text>
+    <Text style={{ marginBottom: 16 }}>🐔 The quick brown fox</Text>
     <Text weight="500" style={{ marginBottom: 16 }}>
       🐔 The quick brown fox
     </Text>
