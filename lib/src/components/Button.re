@@ -1,24 +1,28 @@
 open ReactNative;
 
-type variant =
-  | Filled
-  | Outlined;
+type variant = [ | `filled | `outlined];
 
-let getStylesByVariant = (variant: variant, theme: Js.t('a)) => {
+let variantFromString = str => {
+  switch (str) {
+  | "filled" => `filled
+  | "outlined" => `outlined
+  | _ => `filled
+  };
+};
+
+[@bs.get] external getColorProperty: Style.t => Color.t = "color";
+
+let getStylesByVariant = (variant: variant, styles: Js.t('a)) => {
   switch (variant) {
-  | Filled => {
-      "wrapper": theme##styles##filledWrapper,
-      "text": theme##styles##filledText,
-      "loadingIndicator": {
-        "color": theme##variables##_FILLED_TEXT_COLOR,
-      },
+  | `filled => {
+      "wrapper": styles##filledWrapper,
+      "text": styles##filledText,
+      "loadingIndicator": styles##filledLoadingIndicator,
     }
-  | Outlined => {
-      "wrapper": theme##styles##outlinedWrapper,
-      "text": theme##styles##outlinedText,
-      "loadingIndicator": {
-        "color": theme##variables##_OUTLINED_TEXT_COLOR,
-      },
+  | `outlined => {
+      "wrapper": styles##outlinedWrapper,
+      "text": styles##outlinedText,
+      "loadingIndicator": styles##outlinedLoadingIndicator,
     }
   };
 };
@@ -30,19 +34,19 @@ let make =
       ~onPress,
       ~loading=false,
       ~disabled=false,
-      ~variant=Filled,
+      ~variant,
       ~theme=Hero_Theme.default,
       ~wrapperStyle=Style.style(),
       ~textStyle=Style.style(),
     ) => {
-  let styles = getStylesByVariant(variant, theme##button);
+  let styles = variant->variantFromString->getStylesByVariant(theme##button);
 
   module Wrapper = {
     let style =
       StyleSheet.flatten([|
-        theme##button##styles##wrapper,
+        theme##button##wrapper,
         styles##wrapper,
-        disabled ? theme##button##styles##disabledWrapper : Style.style(),
+        disabled ? theme##button##disabledWrapper : Style.style(),
         wrapperStyle,
       |]);
 
@@ -57,13 +61,13 @@ let make =
     {loading && !disabled
        ? <ActivityIndicator
            size=ActivityIndicator.Size.small
-           color=styles##loadingIndicator##color
+           color={getColorProperty(styles##loadingIndicator)}
          />
        : <Text
            style={StyleSheet.flatten([|
-             theme##button##styles##text,
+             theme##button##text,
              styles##text,
-             disabled ? theme##button##styles##disabledText : Style.style(),
+             disabled ? theme##button##disabledText : Style.style(),
              textStyle,
            |])}>
            text->React.string
