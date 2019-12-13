@@ -2,13 +2,11 @@ open ReactNative;
 
 type variant = [ | `filled | `outlined];
 
-let variantFromString = str => {
-  switch (str) {
+let variantFromString =
+  fun
   | "filled" => `filled
   | "outlined" => `outlined
-  | _ => `filled
-  };
-};
+  | _ => `filled;
 
 [@bs.get] external getColorProperty: Style.t => Color.t = "color";
 
