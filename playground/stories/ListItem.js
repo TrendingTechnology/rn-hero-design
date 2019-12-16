@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image, StyleSheet } from 'react-native';
-import { ListItem, Icon } from 'rn-hero-design';
+import { ListItem, ReListItem, Icon } from 'rn-hero-design';
 import {
   FOCUS_BLUE_1,
   LARGE_SIZE,
@@ -31,6 +31,15 @@ const ListItemScreen = () => (
     />
     <ListItem
       title="Huy Vo"
+      subtitle="Bug creator"
+      onPress={noop}
+      rightElement={<Icon icon="ok-circle" color={FOCUS_BLUE_1} />}
+      leftElement={
+        <Avatar uri="https://avatars0.githubusercontent.com/u/17645203?s=400&v=4" />
+      }
+    />
+    <ReListItem
+      title="🐪 Huy Vo"
       subtitle="Bug creator"
       onPress={noop}
       rightElement={<Icon icon="ok-circle" color={FOCUS_BLUE_1} />}
