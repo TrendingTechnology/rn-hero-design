@@ -32,7 +32,7 @@ let styles: Js.t('a) = {
     ),
   "title":
     style(
-      ~fontFamily=_FONT_FAMILY,
+      ~fontFamily=?_FONT_FAMILY,
       ~fontSize=_TITLE_FONT_SIZE,
       ~fontWeight=`_500,
       ~lineHeight=_TITLE_LINE_HEIGHT,
@@ -41,7 +41,7 @@ let styles: Js.t('a) = {
     ),
   "subtitle":
     style(
-      ~fontFamily=_FONT_FAMILY,
+      ~fontFamily=?_FONT_FAMILY,
       ~fontSize=_SUBTITLE_FONT_SIZE,
       ~fontWeight=`_500,
       ~lineHeight=_SUBTITLE_LINE_HEIGHT,

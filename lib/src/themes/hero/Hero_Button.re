@@ -26,7 +26,7 @@ let styles: Js.t('a) = {
     ),
   "text":
     style(
-      ~fontFamily=_FONT_FAMILY,
+      ~fontFamily=?_FONT_FAMILY,
       ~fontSize=_TEXT_FONT_SIZE,
       ~lineHeight=_TEXT_FONT_SIZE,
       (),

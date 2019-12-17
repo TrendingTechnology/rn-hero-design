@@ -26,7 +26,7 @@ let _FONT_SIZE = isWeb ? 16.0 : normalizeText(13.0);
 
 /* Edit these 👇 */
 
-let _FONT_FAMILY = isWeb ? "sans-serif" : "Proxima Nova";
+let _FONT_FAMILY = isWeb ? None : Some("Proxima Nova");
 
 let _PRIMARY_COLOR = _BLUE;
 let _DANGER_COLOR = _RED;
