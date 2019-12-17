@@ -50,7 +50,7 @@ let make =
         ~fontWeight=
           weight
           ->Belt.Option.flatMap(weightFromJs)
-          ->Belt.Option.mapWithDefault(`_400, w => w),
+          ->Belt.Option.getWithDefault(`_400),
         ~color?,
         (),
       ),
