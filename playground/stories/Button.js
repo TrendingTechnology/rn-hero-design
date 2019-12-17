@@ -56,6 +56,7 @@ const ButtonScreen = ({ theme }) => (
     />
 
     <ReButton
+      variant="filled"
       text="ReasonML Button"
       onPress={callback}
       wrapperStyle={{
@@ -64,6 +65,7 @@ const ButtonScreen = ({ theme }) => (
       }}
     />
     <ReButton
+      variant="filled"
       text="ReasonML Button"
       onPress={callback}
       loading
