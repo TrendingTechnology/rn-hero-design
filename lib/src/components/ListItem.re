@@ -34,8 +34,8 @@ let make =
     |])}
     ?onPress>
     <View style={theme##listItem##styles##contentWrapper}>
+      {leftElement ||= React.null}
       <View>
-        {leftElement ||= React.null}
         <Text
           style={StyleSheet.flatten([|
             theme##listItem##styles##title,
