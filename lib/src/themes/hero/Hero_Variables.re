@@ -29,6 +29,7 @@ let _FONT_SIZE = isWeb ? 16.0 : normalizeText(13.0);
 let _FONT_FAMILY = isWeb ? None : Some("Proxima Nova");
 
 let _PRIMARY_COLOR = _BLUE;
+let _DARK_PRIMARY_COLOR = _FOCUS_BLUE_1;
 let _DANGER_COLOR = _RED;
 
 let _TEXT_COLOR = _BLACK;
