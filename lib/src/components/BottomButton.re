@@ -38,7 +38,9 @@ let make =
 
   React.useEffect0(() => {
     let listener =
-      Keyboard.addListener(`keyboardWillHide, _ => setShowKeyboard(_ => false));
+      Keyboard.addListener(`keyboardWillHide, _ =>
+        setShowKeyboard(_ => false)
+      );
     Some(() => EventSubscription.remove(listener));
   });
 

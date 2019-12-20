@@ -9,5 +9,3 @@ let hasHomeBar = () => {
   let bottomPadding = RNSafeAreaView.getInset(`bottom, Some(isLandscape));
   bottomPadding > 0.0;
 };
-
-
