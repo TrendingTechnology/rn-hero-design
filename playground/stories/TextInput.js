@@ -5,6 +5,7 @@ import {
   BottomButton,
   Text,
   KeyboardAvoidingView,
+  ReTextInput,
 } from 'rn-hero-design';
 
 const noop = () => {};
@@ -12,7 +13,7 @@ const noop = () => {};
 const TextInputScreen = () => (
   <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
     <ScrollView contentContainerStyle={styles.container}>
-      <TextInput
+      <ReTextInput
         label="Email"
         value="toan.nguyen@employmenthero.com"
         rightIcon="email-outline"

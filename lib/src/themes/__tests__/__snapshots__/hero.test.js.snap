@@ -82,6 +82,13 @@ Object {
       "paddingHorizontal": 16.25,
     },
   },
+  "card": Object {
+    "card": Object {
+      "backgroundColor": "#fcfcfc",
+      "borderRadius": 8.125,
+      "overflow": "hidden",
+    },
+  },
   "container": Object {
     "container": Object {
       "padding": 16.25,
@@ -263,6 +270,7 @@ Object {
     "LINK_TEXT_COLOR": "#1dbeee",
     "MEDIUM_SIZE": 16.25,
     "MUTED_TEXT_COLOR": "#a3a6ac",
+    "ORANGE": "#ffa234",
     "PRIMARY_COLOR": "#1dbeee",
     "RED": "#de350b",
     "SMALL_SIZE": 8.125,
