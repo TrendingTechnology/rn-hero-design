@@ -5,7 +5,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "re:watch": "bsb -clean-world -make-world -w"
+    "re:watch": "bsb -clean-world -make-world -w",
+    "postinstall": "bsb -clean-world -make-world"
   },
   "author": "",
   "license": "ISC",
