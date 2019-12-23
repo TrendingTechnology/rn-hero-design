@@ -14,7 +14,9 @@
     "jest": "^24.9.0",
     "prop-types": "^15.7.2",
     "react-redux": "^5.1.2",
-    "react-test-renderer": "16.8.3"
+    "react-test-renderer": "16.8.3",
+    "reason-react": "^0.7.0",
+    "reason-react-native": "^0.61.0"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
@@ -24,8 +26,6 @@
     "react-redux": "^5.1.2"
   },
   "dependencies": {
-    "react-native-safe-area-view": "0.14.8",
-    "reason-react": "^0.7.0",
-    "reason-react-native": "^0.61.0"
+    "react-native-safe-area-view": "0.14.8"
   }
 }
