@@ -1,11 +1,12 @@
 {
   "name": "rn-hero-design",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "",
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "re:watch": "bsb -clean-world -make-world -w"
+    "re:watch": "bsb -clean-world -make-world -w",
+    "postinstall": "bsb -clean-world -make-world"
   },
   "author": "",
   "license": "ISC",
