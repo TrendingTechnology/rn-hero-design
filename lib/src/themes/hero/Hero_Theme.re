@@ -5,4 +5,5 @@ let default = {
   "textInput": Hero_TextInput.default,
   "icon": Hero_Icon.default,
   "_switch": Hero_Switch.default,
+  "avatar": Hero_Avatar.default,
 };
