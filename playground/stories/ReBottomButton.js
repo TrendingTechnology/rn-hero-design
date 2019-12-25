@@ -40,7 +40,7 @@ const ReBottomButtonScreen = () => {
       </Container>
 
       <ReBottomButton
-        text="🐪 Bottom Button"
+        text="Bottom Button"
         onPress={noop}
         theme={useLegacy ? legacyTheme : undefined}
       />

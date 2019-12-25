@@ -29,6 +29,14 @@ let make =
       ~theme=Hero_Theme.default,
     ) => {
   let (showKeyboard, setShowKeyboard) = React.useState(() => false);
+  let hasHomeBar = Helpers.hasHomeBar();
+  let themeWrapperStyle =
+    switch (forceInset, showKeyboard, hasHomeBar) {
+    | (Some("always"), _, _) => theme##bottomButton##wrapperWithHomeBar
+    | (Some("never"), _, _) => theme##bottomButton##wrapperWithoutHomeBar
+    | (_, false, true) => theme##bottomButton##wrapperWithHomeBar
+    | (_, _, _) => theme##bottomButton##wrapperWithoutHomeBar
+    };
 
   React.useEffect0(() => {
     let listener =
@@ -44,14 +52,6 @@ let make =
     Some(() => EventSubscription.remove(listener));
   });
 
-  let hasHomeBar = Helpers.hasHomeBar();
-  let themeWrapperStyle =
-    switch (forceInset, showKeyboard, hasHomeBar) {
-    | (Some("always"), _, _) => theme##bottomButton##wrapperWithHomeBar
-    | (Some("never"), _, _) => theme##bottomButton##wrapperWithoutHomeBar
-    | (_, false, true) => theme##bottomButton##wrapperWithHomeBar
-    | (_, _, _) => theme##bottomButton##wrapperWithoutHomeBar
-    };
   <Wrapper
     enabled={!loading && !disabled}
     style={StyleSheet.flatten([|
