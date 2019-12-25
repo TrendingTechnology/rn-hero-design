@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity } from 'react-native';
-import { DateTimePicker, TextInput, Container } from 'rn-hero-design';
+import {
+  DateTimePicker,
+  TextInput,
+  Container,
+  ReDateTimePicker,
+} from 'rn-hero-design';
 
 const noop = () => {};
 
 const DateTimePickerScreen = () => {
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
+  const today = new Date();
+  const [startDate, setStartDate] = useState(today);
+  const [endDate, setEndDate] = useState(today);
   const [changingField, setChangingField] = useState(null);
 
   const fieldMap = {
@@ -19,7 +25,7 @@ const DateTimePickerScreen = () => {
       onChange: setEndDate,
     },
     null: {
-      value: null,
+      value: today,
       onChange: noop,
     },
   };
@@ -48,7 +54,7 @@ const DateTimePickerScreen = () => {
         </TouchableOpacity>
       </Container>
 
-      <DateTimePicker
+      <ReDateTimePicker
         show={!!changingField}
         value={fieldMap[changingField].value}
         onChange={date => fieldMap[changingField].onChange(date)}

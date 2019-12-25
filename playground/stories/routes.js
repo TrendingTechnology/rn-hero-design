@@ -13,6 +13,7 @@ import ReBottomButtonScreen from './ReBottomButton';
 import DateTimePickerScreen from './DateTimePicker';
 import LeaveRequestScreen from './LeaveRequestScreen';
 import CardScreen from './Card';
+import SwitchScreen from './Switch';
 import AvatarScreen from './Avatar';
 import darkKnightTheme from 'rn-hero-design/src/themes/dark-knight';
 
@@ -77,6 +78,12 @@ export default {
     screen: CardScreen,
     defaultNavigationOptions: {
       title: 'Card',
+    },
+  },
+  Switch: {
+    screen: SwitchScreen,
+    defaultNavigationOptions: {
+      title: 'Switch',
     },
   },
   Avatar: {
