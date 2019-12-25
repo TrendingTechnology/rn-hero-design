@@ -6,5 +6,6 @@ let default = {
   "icon": Hero_Icon.default,
   "_switch": Hero_Switch.default,
   "avatar": Hero_Avatar.default,
+  "bottomButton": Hero_BottomButton.default,
   "dateTimePicker": Hero_DateTimePicker.default,
 };
