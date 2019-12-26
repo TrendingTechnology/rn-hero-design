@@ -12,9 +12,10 @@
     ]
   },
   "scripts": {
-    "dev": "cd playground && yarn start",
     "test": "cd lib && yarn test",
-    "dev:re": "cd lib && yarn re:watch",
+    "dev": "cd playground && yarn start",
+    "lib:watch": "cd lib && yarn watch",
+    "lib:build": "cd lib && yarn build",
     "doc:dev": "cd documentation && yarn dev",
     "doc:build": "cd documentation && yarn build",
     "doc:serve": "cd documentation && yarn serve",

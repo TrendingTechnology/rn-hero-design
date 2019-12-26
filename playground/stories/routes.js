@@ -9,6 +9,7 @@ import IconScreen from './Icon';
 import LoginScreen from './LoginScreen';
 import ListItemScreen from './ListItem';
 import BottomButtonScreen from './BottomButton';
+import ReBottomButtonScreen from './ReBottomButton';
 import DateTimePickerScreen from './DateTimePicker';
 import LeaveRequestScreen from './LeaveRequestScreen';
 import CardScreen from './Card';
@@ -41,6 +42,12 @@ export default {
     screen: BottomButtonScreen,
     defaultNavigationOptions: {
       title: 'BottomButton',
+    },
+  },
+  ReBottomButtonScreen: {
+    screen: ReBottomButtonScreen,
+    defaultNavigationOptions: {
+      title: '🐪 BottomButton',
     },
   },
   TextInput: {

@@ -73,5 +73,4 @@ let make =
   </Wrapper>;
 };
 
-/* let default = Helpers.injectTheme(make); */
 let default = make;
