@@ -2,10 +2,10 @@
   "name": "rn-hero-design",
   "version": "1.0.18",
   "description": "",
-  "main": "src/index.js",
+  "main": "lib.js",
   "scripts": {
     "test": "jest",
-    "re:watch": "bsb -clean-world -make-world -w",
+    "watch": "bsb -clean-world -make-world -w & rollup --config -w",
     "build": "bsb -clean-world -make-world && rollup --config"
   },
   "author": "",
