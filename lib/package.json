@@ -6,15 +6,25 @@
   "scripts": {
     "test": "jest",
     "re:watch": "bsb -clean-world -make-world -w",
-    "postinstall": "bsb -clean-world -make-world"
+    "re:compile": "bsb -clean-world -make-world",
+    "build": "rollup --config"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/preset-flow": "^7.7.4",
+    "@babel/preset-react": "^7.7.4",
+    "babel-plugin-inline-import": "^3.0.0",
     "jest": "^24.9.0",
     "prop-types": "^15.7.2",
     "react-redux": "^5.1.2",
-    "react-test-renderer": "16.8.3"
+    "react-test-renderer": "16.8.3",
+    "rollup": "^1.27.14",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-node-resolve": "^5.2.0"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
