@@ -14,7 +14,7 @@
   "scripts": {
     "test": "cd lib && yarn test",
     "dev": "cd playground && yarn start",
-    "lib:watch": "cd lib && yarn watch",
+    "lib:watch": "cd lib && yarn clean && yarn watch",
     "lib:build": "cd lib && yarn build",
     "doc:dev": "cd documentation && yarn dev",
     "doc:build": "cd documentation && yarn build",
