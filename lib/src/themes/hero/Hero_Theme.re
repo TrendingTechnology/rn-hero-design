@@ -9,4 +9,5 @@ let default = {
   "bottomButton": Hero_BottomButton.default,
   "dateTimePicker": Hero_DateTimePicker.default,
   "card": Hero_Card.default,
+  "container": Hero_Container.default,
 };

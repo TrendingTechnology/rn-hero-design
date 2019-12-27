@@ -3,7 +3,7 @@ import { View, Switch, Text, TextInput, StyleSheet } from 'react-native';
 import {
   ReBottomButton,
   ReKeyboardAvoidingView,
-  Container,
+  ReContainer,
 } from 'rn-hero-design';
 import legacyTheme from 'rn-hero-design/src/themes/legacy';
 
@@ -16,7 +16,7 @@ const ReBottomButtonScreen = () => {
 
   return (
     <ReKeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
-      <Container fluid>
+      <ReContainer fluid>
         <View style={styles.configRow}>
           <Text style={styles.configText}>Use legacy theme</Text>
           <Switch
@@ -37,7 +37,7 @@ const ReBottomButtonScreen = () => {
         </View>
 
         <TextInput ref={input} style={styles.input} />
-      </Container>
+      </ReContainer>
 
       <ReBottomButton
         text="Bottom Button"

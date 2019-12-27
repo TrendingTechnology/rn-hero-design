@@ -5,7 +5,8 @@
   "main": "lib.js",
   "scripts": {
     "test": "jest",
-    "watch": "bsb -clean-world -make-world -w & rollup --config -w",
+    "clean": "bsb -clean-world && bsb -make-world",
+    "watch": "bsb -make-world -w & rollup --config -w",
     "build": "bsb -clean-world -make-world && rollup --config"
   },
   "author": "",
