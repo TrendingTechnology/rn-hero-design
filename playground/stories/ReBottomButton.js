@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { View, Switch, Text, TextInput, StyleSheet } from 'react-native';
 import {
   ReBottomButton,
-  KeyboardAvoidingView,
+  ReKeyboardAvoidingView,
   Container,
 } from 'rn-hero-design';
 import legacyTheme from 'rn-hero-design/src/themes/legacy';
@@ -15,7 +15,7 @@ const ReBottomButtonScreen = () => {
   const input = useRef(null);
 
   return (
-    <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
+    <ReKeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
       <Container fluid>
         <View style={styles.configRow}>
           <Text style={styles.configText}>Use legacy theme</Text>
@@ -44,7 +44,7 @@ const ReBottomButtonScreen = () => {
         onPress={noop}
         theme={useLegacy ? legacyTheme : undefined}
       />
-    </KeyboardAvoidingView>
+    </ReKeyboardAvoidingView>
   );
 };
 
