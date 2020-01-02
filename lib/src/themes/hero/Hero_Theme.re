@@ -8,4 +8,5 @@ let default = {
   "avatar": Hero_Avatar.default,
   "bottomButton": Hero_BottomButton.default,
   "dateTimePicker": Hero_DateTimePicker.default,
+  "tabBar": Hero_TabBar.default,
 };
