@@ -29,16 +29,16 @@ let make =
     ) => {
   <Wrapper
     style={StyleSheet.flatten([|
-      theme##listItem##styles##wrapper,
+      theme##listItem##wrapper,
       wrapperStyle ||= emptyStyle,
     |])}
     ?onPress>
-    <View style={theme##listItem##styles##contentWrapper}>
+    <View style={theme##listItem##contentWrapper}>
       {leftElement ||= React.null}
       <View>
         <Text
           style={StyleSheet.flatten([|
-            theme##listItem##styles##title,
+            theme##listItem##title,
             titleStyle ||= emptyStyle,
           |])}>
           title
@@ -48,7 +48,7 @@ let make =
          | Some(subtitle) =>
            <Text
              style={StyleSheet.flatten([|
-               theme##listItem##styles##subtitle,
+               theme##listItem##subtitle,
                subtitleStyle ||= emptyStyle,
              |])}>
              subtitle
@@ -60,4 +60,5 @@ let make =
   </Wrapper>;
 };
 
-let default = make;
+let default = Helpers.injectTheme(make);
+

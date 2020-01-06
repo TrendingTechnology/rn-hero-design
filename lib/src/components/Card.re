@@ -12,4 +12,4 @@ let make = (~children, ~style=?, ~theme=Hero_Theme.default) =>
     children
   </View>;
 
-let default = make;
+let default = Helpers.injectTheme(make);

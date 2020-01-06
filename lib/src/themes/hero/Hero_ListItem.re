@@ -51,4 +51,4 @@ let styles: Js.t('a) = {
   "contentWrapper": style(~flexDirection=`row, ~alignItems=`center, ()),
 };
 
-let default: Js.t('a) = {"styles": ReactNative.StyleSheet.create(styles)};
+let default: Js.t('a) = ReactNative.StyleSheet.create(styles);

@@ -128,4 +128,4 @@ let make =
   </View>;
 };
 
-let default = make;
+let default = Helpers.injectTheme(make);

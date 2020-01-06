@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Icon, ReIcon, Container } from 'rn-hero-design';
+import { Icon, Container } from 'rn-hero-design';
 
 const IconScreen = () => (
   <>
@@ -10,6 +10,7 @@ const IconScreen = () => (
       <Icon icon="eye-invisible" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon icon="ok-circle" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon icon="calendar" size={24} wrapperStyle={styles.iconWrapper} />
+      <Icon icon="more-vertical" size={24} wrapperStyle={styles.iconWrapper} />
     </Container>
     <Container direction="row" style={styles.container}>
       <Icon icon="email-outline" size={24} wrapperStyle={styles.iconWrapper} />
@@ -36,9 +37,17 @@ const IconScreen = () => (
         wrapperStyle={styles.iconWrapper}
       />
       <Icon icon="plus-outline" size={24} wrapperStyle={styles.iconWrapper} />
-    </Container>
-    <Container direction="row" style={styles.container}>
-      <ReIcon icon="email" size={24} wrapperStyle={styles.iconWrapper} />
+      <Icon
+        icon="piggy-bank-outline"
+        size={24}
+        wrapperStyle={styles.iconWrapper}
+      />
+      <Icon icon="target-outline" size={24} wrapperStyle={styles.iconWrapper} />
+      <Icon
+        icon="single-right-outline"
+        size={24}
+        wrapperStyle={styles.iconWrapper}
+      />
     </Container>
   </>
 );
