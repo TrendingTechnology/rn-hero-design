@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { View, Switch, Text, TextInput, StyleSheet } from 'react-native';
 import { BottomButton, KeyboardAvoidingView, Container } from 'rn-hero-design';
-import legacyTheme from 'rn-hero-design/src/themes/legacy';
+import legacyTheme from 'rn-hero-design/src/themes/legacy/Legacy_Theme.bs';
 
 const noop = () => {};
 

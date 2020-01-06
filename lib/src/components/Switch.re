@@ -43,4 +43,4 @@ let make = (~value=false, ~onValueChange=noop, ~theme=Hero_Theme.default) => {
   </TouchableWithoutFeedback>;
 };
 
-let default = make;
+let default = Helpers.injectTheme(make);

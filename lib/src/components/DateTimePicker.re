@@ -132,4 +132,4 @@ let make =
     ? <DateTimePickerAndroid show mode value onChange onDismiss />
     : <DateTimePickerIOS show mode value onChange onDismiss theme />;
 
-let default = make;
+let default = Helpers.injectTheme(make);

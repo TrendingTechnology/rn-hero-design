@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ScrollView, Switch } from 'react-native';
 import { ReSwitch, ReListItem } from 'rn-hero-design';
 
-const TextScreen = () => {
+const SwitchScreen = () => {
   let [switch1, setSwitch1] = useState(false);
   let [switch2, setSwitch2] = useState(true);
 
@@ -27,4 +27,4 @@ const TextScreen = () => {
   );
 };
 
-export default TextScreen;
+export default SwitchScreen;

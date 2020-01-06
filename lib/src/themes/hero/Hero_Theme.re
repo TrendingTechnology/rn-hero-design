@@ -1,4 +1,5 @@
 let default = {
+  "variables": Hero_Variables.default,
   "button": Hero_Button.default,
   "text": Hero_Text.default,
   "listItem": Hero_ListItem.default,
@@ -8,4 +9,7 @@ let default = {
   "avatar": Hero_Avatar.default,
   "bottomButton": Hero_BottomButton.default,
   "dateTimePicker": Hero_DateTimePicker.default,
+  "tabBar": Hero_TabBar.default,
+  "card": Hero_Card.default,
+  "container": Hero_Container.default,
 };

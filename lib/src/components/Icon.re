@@ -1,5 +1,7 @@
 open ReactNative;
 
+[@bs.get] external getColorProperty: Style.t => Color.t = "color";
+
 module SvgXml = {
   [@react.component] [@bs.module "react-native-svg"]
   external make: (~xml: string, ~override: Js.t('a)) => React.element =
@@ -7,15 +9,58 @@ module SvgXml = {
 };
 
 [@bs.module "../icons/email"] external email: string = "default";
+[@bs.module "../icons/email-outline"]
+external emailOutline: string = "default";
+[@bs.module "../icons/eye"] external eye: string = "default";
+[@bs.module "../icons/eye-outline"] external eyeOutline: string = "default";
+[@bs.module "../icons/eye-invisible"]
+external eyeInvisible: string = "default";
+[@bs.module "../icons/eye-invisible-outline"]
+external eyeInvisibleOutline: string = "default";
+[@bs.module "../icons/ok-circle"] external okCircle: string = "default";
+[@bs.module "../icons/calendar"] external calendar: string = "default";
+[@bs.module "../icons/clock-circle-outline"]
+external clockCircleOutline: string = "default";
+[@bs.module "../icons/comment-outline"]
+external commentOutline: string = "default";
+[@bs.module "../icons/cancel-outline"]
+external cancelOutline: string = "default";
+[@bs.module "../icons/plus-circle-outline"]
+external plusCircleOutline: string = "default";
+[@bs.module "../icons/plus-outline"] external plusOutline: string = "default";
+[@bs.module "../icons/piggy-bank-outline"]
+external piggyBankOutline: string = "default";
+[@bs.module "../icons/target-outline"]
+external targetOutline: string = "default";
+[@bs.module "../icons/single-right-outline"]
+external singleRightOutline: string = "default";
+[@bs.module "../icons/more-vertical"]
+external moreVertical: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
   | "email" => Some(email)
+  | "email-outline" => Some(emailOutline)
+  | "eye" => Some(eye)
+  | "eye-outline" => Some(eyeOutline)
+  | "eye-invisible" => Some(eyeInvisible)
+  | "eye-invisible-outline" => Some(eyeInvisibleOutline)
+  | "ok-circle" => Some(okCircle)
+  | "calendar" => Some(calendar)
+  | "clock-circle-outline" => Some(clockCircleOutline)
+  | "comment-outline" => Some(commentOutline)
+  | "cancel-outline" => Some(cancelOutline)
+  | "plus-circle-outline" => Some(plusCircleOutline)
+  | "plus-outline" => Some(plusOutline)
+  | "piggy-bank-outline" => Some(piggyBankOutline)
+  | "target-outline" => Some(targetOutline)
+  | "single-right-outline" => Some(singleRightOutline)
+  | "more-vertical" => Some(moreVertical)
   | _ => None
   };
 
 [@react.component]
-let make = (~icon, ~size, ~color, ~wrapperStyle) => {
+let make = (~icon, ~size=24.0, ~color=?, ~wrapperStyle, ~theme=Hero_Theme.default) => {
   switch (xmlFromIcon(icon)) {
   | None => ReasonReact.null
   | Some(xml) =>
@@ -33,9 +78,20 @@ let make = (~icon, ~size, ~color, ~wrapperStyle) => {
         ),
         wrapperStyle,
       |])}>
-      <SvgXml xml override={"width": size, "height": size, "fill": color} />
+      <SvgXml
+        xml
+        override={
+          "width": size,
+          "height": size,
+          "fill":
+            color->Belt.Option.getWithDefault @@
+            getColorProperty @@
+
+            theme##icon##icon,
+        }
+      />
     </View>
   };
 };
 
-let default = make;
+let default = Helpers.injectTheme(make);
