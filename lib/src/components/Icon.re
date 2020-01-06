@@ -60,7 +60,7 @@ let xmlFromIcon = icon =>
   };
 
 [@react.component]
-let make = (~icon, ~size, ~color=?, ~wrapperStyle, ~theme=Hero_Theme.default) => {
+let make = (~icon, ~size=24.0, ~color=?, ~wrapperStyle, ~theme=Hero_Theme.default) => {
   switch (xmlFromIcon(icon)) {
   | None => ReasonReact.null
   | Some(xml) =>
