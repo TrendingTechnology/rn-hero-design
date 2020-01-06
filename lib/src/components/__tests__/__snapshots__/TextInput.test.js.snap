@@ -34,14 +34,18 @@ exports[`TextInput renders correctly 1`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoFocus={false}
       editable={true}
+      multiline={false}
       onBlur={[Function]}
+      onChange={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
       placeholder=""
       placeholderTextColor="#000000"
       rejectResponderTermination={true}
       scrollEnabled={false}
+      secureTextEntry={false}
       style={
         Object {
           "color": "#000000",
@@ -69,7 +73,9 @@ exports[`TextInput renders correctly 1`] = `
         "marginTop": 8.125,
       }
     }
-  />
+  >
+    
+  </Text>
 </View>
 `;
 
@@ -107,14 +113,18 @@ exports[`TextInput renders correctly 2`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoFocus={false}
       editable={true}
+      multiline={false}
       onBlur={[Function]}
+      onChange={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
       placeholder="Email"
       placeholderTextColor="#000000"
       rejectResponderTermination={true}
       scrollEnabled={false}
+      secureTextEntry={false}
       style={
         Object {
           "color": "#000000",
@@ -142,7 +152,9 @@ exports[`TextInput renders correctly 2`] = `
         "marginTop": 8.125,
       }
     }
-  />
+  >
+    
+  </Text>
 </View>
 `;
 
@@ -180,14 +192,18 @@ exports[`TextInput renders correctly 3`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoFocus={false}
       editable={true}
+      multiline={false}
       onBlur={[Function]}
+      onChange={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
       placeholder="Email"
       placeholderTextColor="#000000"
       rejectResponderTermination={true}
       scrollEnabled={false}
+      secureTextEntry={false}
       style={
         Object {
           "color": "#000000",
@@ -203,27 +219,15 @@ exports[`TextInput renders correctly 3`] = `
       value=""
     />
     <View
-      accessible={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "height": 20,
-            "justifyContent": "center",
-            "width": 20,
-          },
-          Object {
-            "color": "#a3a6ac",
-            "height": 48.75,
-          },
-        ]
+        Object {
+          "alignItems": "center",
+          "color": "#a3a6ac",
+          "display": "flex",
+          "height": 48.75,
+          "justifyContent": "center",
+          "width": 20,
+        }
       }
     >
       <View
@@ -261,7 +265,9 @@ exports[`TextInput renders correctly 3`] = `
         "marginTop": 8.125,
       }
     }
-  />
+  >
+    
+  </Text>
 </View>
 `;
 
@@ -299,14 +305,18 @@ exports[`TextInput renders correctly 4`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoFocus={false}
       editable={false}
+      multiline={false}
       onBlur={[Function]}
+      onChange={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
       placeholder="Email"
       placeholderTextColor="#a3a6ac"
       rejectResponderTermination={true}
       scrollEnabled={false}
+      secureTextEntry={false}
       style={
         Object {
           "color": "#a3a6ac",
@@ -322,27 +332,15 @@ exports[`TextInput renders correctly 4`] = `
       value=""
     />
     <View
-      accessible={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "height": 20,
-            "justifyContent": "center",
-            "width": 20,
-          },
-          Object {
-            "color": "#a3a6ac",
-            "height": 48.75,
-          },
-        ]
+        Object {
+          "alignItems": "center",
+          "color": "#a3a6ac",
+          "display": "flex",
+          "height": 48.75,
+          "justifyContent": "center",
+          "width": 20,
+        }
       }
     >
       <View
@@ -380,7 +378,9 @@ exports[`TextInput renders correctly 4`] = `
         "marginTop": 8.125,
       }
     }
-  />
+  >
+    
+  </Text>
 </View>
 `;
 
@@ -418,14 +418,18 @@ exports[`TextInput renders correctly 5`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoFocus={false}
       editable={false}
+      multiline={false}
       onBlur={[Function]}
+      onChange={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
       placeholder="Email"
       placeholderTextColor="#a3a6ac"
       rejectResponderTermination={true}
       scrollEnabled={false}
+      secureTextEntry={false}
       style={
         Object {
           "color": "#a3a6ac",
@@ -441,27 +445,15 @@ exports[`TextInput renders correctly 5`] = `
       value=""
     />
     <View
-      accessible={true}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
-        Array [
-          Object {
-            "alignItems": "center",
-            "display": "flex",
-            "height": 20,
-            "justifyContent": "center",
-            "width": 20,
-          },
-          Object {
-            "color": "#a3a6ac",
-            "height": 48.75,
-          },
-        ]
+        Object {
+          "alignItems": "center",
+          "color": "#a3a6ac",
+          "display": "flex",
+          "height": 48.75,
+          "justifyContent": "center",
+          "width": 20,
+        }
       }
     >
       <View

@@ -40,7 +40,6 @@ exports[`Button renders correctly 1`] = `
 
 exports[`Button renders correctly 2`] = `
 <View
-  onPress={[Function]}
   style={
     Object {
       "alignItems": "center",
@@ -71,7 +70,6 @@ exports[`Button renders correctly 2`] = `
 
 exports[`Button renders correctly 3`] = `
 <View
-  onPress={[Function]}
   style={
     Object {
       "alignItems": "center",
