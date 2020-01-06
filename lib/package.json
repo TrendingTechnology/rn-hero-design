@@ -4,10 +4,10 @@
   "description": "",
   "main": "lib.js",
   "scripts": {
-    "test": "jest",
     "clean": "bsb -clean-world && bsb -make-world",
     "watch": "bsb -make-world -w & rollup --config -w",
-    "build": "bsb -clean-world -make-world && rollup --config"
+    "build": "bsb -clean-world -make-world && rollup --config",
+    "test": "bsb -make-world && jest"
   },
   "author": "",
   "license": "ISC",
