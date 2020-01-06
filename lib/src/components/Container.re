@@ -1,5 +1,8 @@
 open ReactNative;
 
+[@bs.deriving jsConverter]
+type containerDirection = [ | `column | `row | `columnReverse | `rowReverse];
+
 let noStyle = Style.style();
 
 let (|?) = (x, y) =>
@@ -10,13 +13,9 @@ let (|?) = (x, y) =>
 
 [@react.component]
 let make =
-    (
-      ~children,
-      ~fluid=false,
-      ~direction=`column,
-      ~style=?,
-      ~theme=Hero_Theme.default,
-    ) => {
+    (~children, ~fluid=false, ~direction, ~style=?, ~theme=Hero_Theme.default) => {
+  let direction =
+    containerDirectionFromJs(direction)->Belt.Option.getWithDefault(`column);
   <View
     style={StyleSheet.flatten([|
       theme##container##container,
@@ -28,4 +27,4 @@ let make =
   </View>;
 };
 
-let default = make;
+let default = Helpers.injectTheme(make);

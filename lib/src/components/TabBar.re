@@ -71,4 +71,4 @@ let make =
 
 setTabSubComponent(make, Tab.make);
 
-let default = make;
+let default = Helpers.injectTheme(make);

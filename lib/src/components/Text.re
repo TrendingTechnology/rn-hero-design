@@ -59,4 +59,4 @@ let make =
     {children |> React.string}
   </ReactNative.Text>;
 
-let default = make;
+let default = Helpers.injectTheme(make);

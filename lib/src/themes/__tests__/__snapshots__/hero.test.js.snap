@@ -2,6 +2,97 @@
 
 exports[`Theme Hero has correct configs 1`] = `
 Object {
+  "_switch": Object {
+    "thumb": Object {
+      "backgroundColor": "#fcfcfc",
+      "borderRadius": 12.1875,
+      "height": 24.375,
+      "position": "absolute",
+      "top": 0,
+      "width": 24.375,
+    },
+    "thumbOff": Object {
+      "left": 0,
+    },
+    "thumbOn": Object {
+      "left": 24.375,
+    },
+    "thumbWrapper": Object {
+      "borderRadius": 12.1875,
+      "height": 24.375,
+      "width": 48.75,
+    },
+    "track": Object {
+      "borderRadius": 14.1875,
+      "height": 28.375,
+      "padding": 2,
+      "width": 52.75,
+    },
+    "trackOff": Object {
+      "backgroundColor": "#d9dbdf",
+    },
+    "trackOn": Object {
+      "backgroundColor": "#1dbeee",
+    },
+  },
+  "avatar": Object {
+    "image": Object {
+      "left": 0,
+      "position": "absolute",
+      "top": 0,
+    },
+    "largeImage": Object {
+      "borderRadius": 48.75,
+      "height": 97.5,
+      "width": 97.5,
+    },
+    "largeTitle": Object {
+      "fontSize": 48.75,
+      "fontWeight": "200",
+    },
+    "largeTitleWrapper": Object {
+      "borderRadius": 48.75,
+      "borderWidth": 1.5,
+      "height": 97.5,
+      "width": 97.5,
+    },
+    "largeWrapper": Object {
+      "height": 97.5,
+      "width": 97.5,
+    },
+    "mediumImage": Object {
+      "borderRadius": 24.375,
+      "height": 48.75,
+      "width": 48.75,
+    },
+    "mediumTitle": Object {
+      "fontSize": 24.375,
+      "fontWeight": "300",
+    },
+    "mediumTitleWrapper": Object {
+      "borderRadius": 24.375,
+      "borderWidth": 1.2,
+      "height": 48.75,
+      "width": 48.75,
+    },
+    "mediumWrapper": Object {
+      "height": 48.75,
+      "width": 48.75,
+    },
+    "title": Object {
+      "color": "#003580",
+      "fontFamily": "Proxima Nova",
+    },
+    "titleWrapper": Object {
+      "alignItems": "center",
+      "borderColor": "#003580",
+      "justifyContent": "center",
+      "left": 0,
+      "position": "absolute",
+      "top": 0,
+    },
+    "wrapper": Object {},
+  },
   "bottomButton": Object {
     "button": Object {
       "alignItems": "center",
@@ -153,6 +244,25 @@ Object {
       "paddingVertical": 16.25,
     },
   },
+  "tabBar": Object {
+    "navigator": Object {
+      "alignItems": "stretch",
+      "flexDirection": "row",
+    },
+    "selectedTab": Object {
+      "borderBottomColor": "#1dbeee",
+    },
+    "tab": Object {
+      "alignItems": "center",
+      "borderBottomColor": "transparent",
+      "borderBottomWidth": 3,
+      "flex": 1,
+      "flexDirection": "row",
+      "justifyContent": "center",
+      "padding": 8.125,
+    },
+    "wrapper": Object {},
+  },
   "text": Object {
     "h1": Object {
       "fontSize": 32.5,
@@ -248,6 +358,7 @@ Object {
     "BLUE": "#1dbeee",
     "BORDER_COLOR": "#d9dbdf",
     "DANGER_COLOR": "#de350b",
+    "DARK_PRIMARY_COLOR": "#003580",
     "DISABLED_BACKGROUND_COLOR": "#d9dbdf",
     "DISABLED_TEXT_COLOR": "#a3a6ac",
     "FOCUS_BLUE_1": "#003580",

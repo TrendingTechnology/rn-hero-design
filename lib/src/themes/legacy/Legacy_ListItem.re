@@ -1,5 +1,5 @@
 open ReactNative.Style;
-open Hero_Variables;
+open Legacy_Variables;
 
 let _TITLE_FONT_SIZE = _HEADER_4;
 let _TITLE_LINE_HEIGHT = _TITLE_FONT_SIZE *. 1.4;

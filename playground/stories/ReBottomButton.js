@@ -5,7 +5,7 @@ import {
   ReKeyboardAvoidingView,
   ReContainer,
 } from 'rn-hero-design';
-import legacyTheme from 'rn-hero-design/src/themes/legacy';
+import legacyTheme from 'rn-hero-design/src/themes/legacy/Legacy_Theme.bs';
 
 const noop = () => {};
 

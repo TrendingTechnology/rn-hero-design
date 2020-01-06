@@ -1,5 +1,5 @@
-[@bs.module "../../helpers/normalizeText.js"]
-external normalizeText: float => float = "default";
+[@bs.module "../../helpers/legacyScale.js"]
+external scale: float => float = "default";
 
 let isWeb = ReactNative.(Platform.os == Platform.web);
 
@@ -12,6 +12,7 @@ let _BACKGROUND_BLUE_2 = "#b5eeff";
 let _BACKGROUND_BLUE_3 = "#e6f7ff";
 let _RED = "#de350b";
 let _ORANGE = "#ffa234";
+let _MAGENTA = "#ee1d84";
 
 let _BLACK = "#000000";
 let _GREY_1 = "#2b2b2b";
@@ -21,8 +22,8 @@ let _GREY_4 = "#d9dbdf";
 let _GREY_5 = "#f5f6f8";
 let _WHITE = "#fcfcfc";
 
-let _BASE_SIZE = isWeb ? 16.0 : normalizeText(13.0);
-let _FONT_SIZE = isWeb ? 16.0 : normalizeText(13.0);
+let _BASE_SIZE = isWeb ? 16.0 : scale(16.0);
+let _FONT_SIZE = isWeb ? 16.0 : scale(16.0);
 
 /* Edit these 👇 */
 
@@ -30,7 +31,7 @@ let _FONT_FAMILY = isWeb ? None : Some("Proxima Nova");
 
 let _PRIMARY_COLOR = _BLUE;
 let _DARK_PRIMARY_COLOR = _FOCUS_BLUE_1;
-let _DANGER_COLOR = _RED;
+let _DANGER_COLOR = _MAGENTA;
 
 let _TEXT_COLOR = _BLACK;
 let _INVERTED_TEXT_COLOR = _WHITE;
@@ -62,6 +63,7 @@ let default = {
   "BACKGROUND_BLUE_3": _BACKGROUND_BLUE_3,
   "RED": _RED,
   "ORANGE": _ORANGE,
+  "MAGENTA": _MAGENTA,
 
   "BLACK": _BLACK,
   "GREY_1": _GREY_1,
