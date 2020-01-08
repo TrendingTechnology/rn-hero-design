@@ -24,7 +24,7 @@ let noop = _ => ();
 
 module Tab = {
   [@react.component]
-  let make = (~_title=?, ~_children=?) => React.null;
+  let make = () => React.null;
 };
 
 [@react.component]
