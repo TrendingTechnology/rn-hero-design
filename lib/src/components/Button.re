@@ -2,27 +2,37 @@ open ReactNative;
 
 type variant = [ | `filled | `outlined];
 
-let variantFromString =
-  fun
-  | "filled" => `filled
-  | "outlined" => `outlined
-  | _ => `filled;
+module ButtonVariant: {
+  type t;
+  [@bs.inline "filled"]
+  let filled: t;
+  [@bs.inline "outlined"]
+  let outlined: t;
+} = {
+  type t = string;
+  [@bs.inline]
+  let filled = "filled";
+  [@bs.inline]
+  let outlined = "outlined";
+};
 
 [@bs.get] external getColorProperty: Style.t => Color.t = "color";
 
-let getStylesByVariant = (variant: variant, styles: Js.t('a)) => {
-  switch (variant) {
-  | `filled => {
-      "wrapper": styles##filledWrapper,
-      "text": styles##filledText,
-      "loadingIndicator": styles##filledLoadingIndicator,
+let getStylesByVariant = (variant: ButtonVariant.t, styles: Js.t('a)) => {
+  ButtonVariant.(
+    switch (variant) {
+    | v when v === outlined => {
+        "wrapper": styles##outlinedWrapper,
+        "text": styles##outlinedText,
+        "loadingIndicator": styles##outlinedLoadingIndicator,
+      }
+    | _ => {
+        "wrapper": styles##filledWrapper,
+        "text": styles##filledText,
+        "loadingIndicator": styles##filledLoadingIndicator,
+      }
     }
-  | `outlined => {
-      "wrapper": styles##outlinedWrapper,
-      "text": styles##outlinedText,
-      "loadingIndicator": styles##outlinedLoadingIndicator,
-    }
-  };
+  );
 };
 
 [@react.component]
@@ -32,12 +42,12 @@ let make =
       ~onPress,
       ~loading=false,
       ~disabled=false,
-      ~variant,
+      ~variant: ButtonVariant.t,
       ~theme=Hero_Theme.default,
       ~wrapperStyle=Style.style(),
       ~textStyle=Style.style(),
     ) => {
-  let styles = variant->variantFromString->getStylesByVariant(theme##button);
+  let styles = variant->getStylesByVariant(theme##button);
 
   module Wrapper = {
     let style =
