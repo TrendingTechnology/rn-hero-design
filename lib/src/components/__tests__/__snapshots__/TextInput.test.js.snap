@@ -235,6 +235,7 @@ exports[`TextInput renders correctly 3`] = `
           Object {
             "fill": "#a3a6ac",
             "height": 20,
+            "stroke": "#a3a6ac",
             "width": 20,
           }
         }
@@ -348,6 +349,7 @@ exports[`TextInput renders correctly 4`] = `
           Object {
             "fill": "#a3a6ac",
             "height": 20,
+            "stroke": "#a3a6ac",
             "width": 20,
           }
         }
@@ -461,6 +463,7 @@ exports[`TextInput renders correctly 5`] = `
           Object {
             "fill": "#de350b",
             "height": 20,
+            "stroke": "#de350b",
             "width": 20,
           }
         }

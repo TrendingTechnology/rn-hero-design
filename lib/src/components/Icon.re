@@ -36,6 +36,8 @@ external targetOutline: string = "default";
 external singleRightOutline: string = "default";
 [@bs.module "../icons/more-vertical"]
 external moreVertical: string = "default";
+[@bs.module "../icons/calendar-outline"]
+external calendarOutline: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -47,6 +49,7 @@ let xmlFromIcon = icon =>
   | "eye-invisible-outline" => Some(eyeInvisibleOutline)
   | "ok-circle" => Some(okCircle)
   | "calendar" => Some(calendar)
+  | "calendar-outline" => Some(calendarOutline)
   | "clock-circle-outline" => Some(clockCircleOutline)
   | "comment-outline" => Some(commentOutline)
   | "cancel-outline" => Some(cancelOutline)
@@ -60,7 +63,11 @@ let xmlFromIcon = icon =>
   };
 
 [@react.component]
-let make = (~icon, ~size=24.0, ~color=?, ~wrapperStyle, ~theme=Hero_Theme.default) => {
+let make =
+    (~icon, ~size=24.0, ~color=?, ~wrapperStyle, ~theme=Hero_Theme.default) => {
+  let iconColor =
+    color->Belt.Option.getWithDefault @@ getColorProperty @@  theme##icon##icon;
+
   switch (xmlFromIcon(icon)) {
   | None => ReasonReact.null
   | Some(xml) =>
@@ -83,11 +90,8 @@ let make = (~icon, ~size=24.0, ~color=?, ~wrapperStyle, ~theme=Hero_Theme.defaul
         override={
           "width": size,
           "height": size,
-          "fill":
-            color->Belt.Option.getWithDefault @@
-            getColorProperty @@
-
-            theme##icon##icon,
+          "stroke": iconColor,
+          "fill": iconColor,
         }
       />
     </View>

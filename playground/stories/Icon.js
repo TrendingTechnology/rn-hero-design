@@ -48,6 +48,11 @@ const IconScreen = () => (
         size={24}
         wrapperStyle={styles.iconWrapper}
       />
+      <Icon
+        icon="calendar-outline"
+        size={24}
+        wrapperStyle={styles.iconWrapper}
+      />
     </Container>
   </>
 );
