@@ -244,6 +244,45 @@ Object {
       "paddingVertical": 16.25,
     },
   },
+  "message": Object {
+    "content": Object {
+      "fontFamily": "Proxima Nova",
+      "fontSize": 13.487499999999999,
+      "fontWeight": "500",
+      "textAlign": "center",
+    },
+    "errorContent": Object {
+      "color": "#fcfcfc",
+    },
+    "errorWrapper": Object {
+      "backgroundColor": "#de350b",
+    },
+    "infoContent": Object {
+      "color": "#fcfcfc",
+    },
+    "infoWrapper": Object {
+      "backgroundColor": "#1dbeee",
+    },
+    "successContent": Object {
+      "color": "#fcfcfc",
+    },
+    "successWrapper": Object {
+      "backgroundColor": "#01b39c",
+    },
+    "warningContent": Object {
+      "color": "#000000",
+    },
+    "warningWrapper": Object {
+      "backgroundColor": "#fadb14",
+    },
+    "wrapper": Object {
+      "left": 0,
+      "paddingHorizontal": 16.25,
+      "paddingVertical": 8.125,
+      "right": 0,
+      "top": 0,
+    },
+  },
   "tabBar": Object {
     "navigator": Object {
       "alignItems": "stretch",
@@ -361,11 +400,13 @@ Object {
     "DARK_PRIMARY_COLOR": "#003580",
     "DISABLED_BACKGROUND_COLOR": "#d9dbdf",
     "DISABLED_TEXT_COLOR": "#a3a6ac",
+    "ERROR_COLOR": "#de350b",
     "FOCUS_BLUE_1": "#003580",
     "FOCUS_BLUE_2": "#40679f",
     "FOCUS_BLUE_3": "#5d7ead",
     "FONT_FAMILY": "Proxima Nova",
     "FONT_SIZE": 16.25,
+    "GREEN": "#01b39c",
     "GREY_1": "#2b2b2b",
     "GREY_2": "#71767c",
     "GREY_3": "#a3a6ac",
@@ -376,17 +417,22 @@ Object {
     "HEADER_3": 19.0125,
     "HEADER_4": 16.25,
     "HEADER_5": 13.487499999999999,
+    "INFO_COLOR": "#1dbeee",
     "INVERTED_TEXT_COLOR": "#fcfcfc",
     "LARGE_SIZE": 24.375,
     "LINK_TEXT_COLOR": "#1dbeee",
+    "MAGENTA": "#ee1d84",
     "MEDIUM_SIZE": 16.25,
     "MUTED_TEXT_COLOR": "#a3a6ac",
     "ORANGE": "#ffa234",
     "PRIMARY_COLOR": "#1dbeee",
     "RED": "#de350b",
     "SMALL_SIZE": 8.125,
+    "SUCCESS_COLOR": "#01b39c",
     "TEXT_COLOR": "#000000",
+    "WARNING_COLOR": "#fadb14",
     "WHITE": "#fcfcfc",
+    "YELLOW": "#fadb14",
   },
 }
 `;
