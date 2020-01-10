@@ -5,7 +5,7 @@ let _TAB_PADDING = _SMALL_SIZE;
 let _SELECTED_BORDER_COLOR = _PRIMARY_COLOR;
 
 let styles: Js.t('a) = {
-  "wrapper": style(),
+  "wrapper": style(~flex=1.0, ()),
   "navigator": style(~flexDirection=`row, ~alignItems=`stretch, ()),
   "tab":
     style(
@@ -18,6 +18,7 @@ let styles: Js.t('a) = {
       ~borderBottomColor="transparent",
       (),
     ),
+  "content": style(~flex=1.0, ()),
   "selectedTab": style(~borderBottomColor=_SELECTED_BORDER_COLOR, ()),
 };
 

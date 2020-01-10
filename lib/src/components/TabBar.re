@@ -33,7 +33,9 @@ let make =
       ~selectedIndex=0,
       ~onSelect=noop,
       ~children,
+      ~wrapperStyle=emptyStyle,
       ~tabStyle=emptyStyle,
+      ~contentStyle=emptyStyle,
       ~theme=Hero_Theme.default,
     ) => {
   let children = children->toArray;
@@ -66,11 +68,12 @@ let make =
         };
       });
 
-  <View style={StyleSheet.flatten([|theme##tabBar##wrapper|])}>
+  <View style={StyleSheet.flatten([|theme##tabBar##wrapper, wrapperStyle|])}>
     <View style={StyleSheet.flatten([|theme##tabBar##navigator|])}>
       titles->ReasonReact.array
     </View>
-    <View style={StyleSheet.flatten([|theme##tabBar##wrapper|])}>
+    <View
+      style={StyleSheet.flatten([|theme##tabBar##content, contentStyle|])}>
       contents->ReasonReact.array
     </View>
   </View>;
