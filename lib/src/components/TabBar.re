@@ -29,7 +29,13 @@ module Tab = {
 
 [@react.component]
 let make =
-    (~selectedIndex=0, ~onSelect=noop, ~children, ~theme=Hero_Theme.default) => {
+    (
+      ~selectedIndex=0,
+      ~onSelect=noop,
+      ~children,
+      ~tabStyle=emptyStyle,
+      ~theme=Hero_Theme.default,
+    ) => {
   let children = children->toArray;
 
   let titles: array(React.element) =
@@ -43,6 +49,7 @@ let make =
           style={StyleSheet.flatten([|
             theme##tabBar##tab,
             index === selectedIndex ? theme##tabBar##selectedTab : emptyStyle,
+            tabStyle,
           |])}>
           title
         </TouchableOpacity>;

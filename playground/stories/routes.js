@@ -16,6 +16,7 @@ import CardScreen from './Card';
 import SwitchScreen from './Switch';
 import AvatarScreen from './Avatar';
 import TabBarScreen from './TabBar';
+import MessageScreen from './Message';
 import darkKnightTheme from 'rn-hero-design/src/themes/dark-knight';
 
 const store = createStore(state => state, { __theme: 'dark-knight' });
@@ -97,6 +98,12 @@ export default {
     screen: TabBarScreen,
     defaultNavigationOptions: {
       title: 'TabBar',
+    },
+  },
+  Message: {
+    screen: MessageScreen,
+    defaultNavigationOptions: {
+      title: 'Message',
     },
   },
   LoginScreen: {

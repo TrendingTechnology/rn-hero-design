@@ -12,4 +12,5 @@ let default = {
   "tabBar": Legacy_TabBar.default,
   "card": Legacy_Card.default,
   "container": Legacy_Container.default,
+  "message": Legacy_Message.default
 };
