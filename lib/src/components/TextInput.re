@@ -11,6 +11,7 @@ let noop = _ => ();
 [@react.component]
 let make =
     (
+      ~testID="",
       ~label="",
       ~value="",
       ~onChange=noop,
@@ -70,6 +71,7 @@ let make =
         inputStyle,
       |])}>
       <ReactNative.TextInput
+        testID=testID
         placeholder={focused ? "" : label}
         value
         onChange
