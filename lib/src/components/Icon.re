@@ -38,6 +38,10 @@ external singleRightOutline: string = "default";
 external moreVertical: string = "default";
 [@bs.module "../icons/calendar-outline"]
 external calendarOutline: string = "default";
+[@bs.module "../icons/phone-outline"]
+external phoneOutline: string = "default";
+[@bs.module "../icons/face-id"]
+external faceId: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -59,6 +63,8 @@ let xmlFromIcon = icon =>
   | "target-outline" => Some(targetOutline)
   | "single-right-outline" => Some(singleRightOutline)
   | "more-vertical" => Some(moreVertical)
+  | "phone-outline" => Some(phoneOutline)
+  | "face-id" => Some(faceId)
   | _ => None
   };
 

@@ -53,6 +53,8 @@ const IconScreen = () => (
         size={24}
         wrapperStyle={styles.iconWrapper}
       />
+      <Icon icon="phone-outline" size={24} wrapperStyle={styles.iconWrapper} />
+      <Icon icon="face-id" size={24} wrapperStyle={styles.iconWrapper} />
     </Container>
   </>
 );
