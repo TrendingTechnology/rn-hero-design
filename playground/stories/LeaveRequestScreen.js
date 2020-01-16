@@ -63,7 +63,7 @@ const LeaveRequestScreen = ({ theme }) => {
             <TextInput
               label="Start date"
               value={startDate.toDateString()}
-              rightIcon="calendar"
+              rightIcon="calendar-outline"
               onChangeText={noop}
             />
           </View>
@@ -74,7 +74,7 @@ const LeaveRequestScreen = ({ theme }) => {
             <TextInput
               label="End date"
               value={endDate.toDateString()}
-              rightIcon="calendar"
+              rightIcon="calendar-outline"
               onChangeText={noop}
             />
           </View>
