@@ -283,6 +283,51 @@ Object {
       "top": 0,
     },
   },
+  "select": Object {
+    "action": Object {
+      "height": 45.9875,
+      "justifyContent": "center",
+      "paddingHorizontal": 16.25,
+    },
+    "actionText": Object {
+      "color": "#1dbeee",
+      "fontSize": 16.25,
+    },
+    "actions": Object {
+      "borderBottomColor": "#d9dbdf",
+      "borderBottomWidth": 0.5,
+      "flexDirection": "row",
+      "justifyContent": "flex-end",
+    },
+    "dialog": Object {
+      "backgroundColor": "white",
+      "borderRadius": 2,
+      "elevation": 10,
+      "maxHeight": "70%",
+      "width": "80%",
+    },
+    "optionText": Object {
+      "color": "#000000",
+      "fontSize": 16.25,
+    },
+    "optionWrapper": Object {
+      "paddingHorizontal": 16.25,
+      "paddingVertical": 16.25,
+    },
+    "overlay": Object {
+      "alignItems": "center",
+      "backgroundColor": "rgba(0,0,0,0.5)",
+      "flex": 1,
+      "justifyContent": "center",
+    },
+    "selectedOptionText": Object {
+      "color": "#1dbeee",
+      "fontWeight": "400",
+    },
+    "wrapper": Object {
+      "backgroundColor": "#f5f6f8",
+    },
+  },
   "tabBar": Object {
     "content": Object {
       "flex": 1,

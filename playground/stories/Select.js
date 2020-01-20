@@ -21,6 +21,7 @@ const languages = [
 const genders = [
   { label: 'Male', value: '1' },
   { label: 'Female', value: '0' },
+  { label: 'Other', value: '2' },
 ];
 
 const getLabelOfValue = (options, value) => {
