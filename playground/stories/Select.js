@@ -55,6 +55,13 @@ const SelectScreen = () => {
   return (
     <>
       <Container fluid>
+        <TextInput
+          label="Email"
+          value="toan.nguyen@employmenthero.com"
+          rightIcon="email-outline"
+          onChangeText={noop}
+        />
+
         <TouchableOpacity onPress={() => setChangingField('gender')}>
           <View pointerEvents="none">
             <TextInput

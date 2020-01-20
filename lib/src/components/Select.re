@@ -10,15 +10,7 @@ let noop = _ => ();
 
 module SelectIOS = {
   [@react.component]
-  let make =
-      (
-        ~options: array(option_)=[||],
-        ~show,
-        ~value,
-        ~onChange,
-        ~onDismiss,
-        ~theme=Hero_Theme.default,
-      ) => {
+  let make = (~options, ~show, ~value, ~onChange, ~onDismiss, ~theme) => {
     let (pickedValue, setPickedValue) = React.useState(() => value);
     let handleChange =
       React.useCallback1(
@@ -99,15 +91,7 @@ let emptyStyle = Style.style();
 
 module SelectAndroid = {
   [@react.component]
-  let make =
-      (
-        ~options: array(option_)=[||],
-        ~show,
-        ~value,
-        ~onChange,
-        ~onDismiss,
-        ~theme=Hero_Theme.default,
-      ) => {
+  let make = (~options, ~show, ~value, ~onChange, ~onDismiss, ~theme) => {
     let handleChange =
       React.useCallback(value => {
         onChange(value);
@@ -120,7 +104,7 @@ module SelectAndroid = {
         ();
       });
 
-    <Modal visible=show transparent=true>
+    <Modal visible=show transparent=true animationType=`fade>
       <TouchableWithoutFeedback onPress=handleDismiss>
         <View style=theme##select##overlay>
           <View style=theme##select##dialog>
@@ -162,7 +146,7 @@ let make =
       ~theme=Hero_Theme.default,
     ) =>
   Helpers.Platform.isAndroid
-    ? <SelectAndroid options show value onChange onDismiss />
+    ? <SelectAndroid options show value onChange onDismiss theme />
     : <SelectIOS options show value onChange onDismiss theme />;
 
-let default = make;
+let default = Helpers.injectTheme(make);

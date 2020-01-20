@@ -10,7 +10,6 @@ let _ACTION_PADDING_VERTICAL = _MEDIUM_SIZE;
 let _ACTION_PADDING_HORIZONTAL = _MEDIUM_SIZE;
 let _ACTION_HEIGHT =
   _ACTION_TEXT_LINE_HEIGHT +. _ACTION_PADDING_VERTICAL *. 2.0;
-
 let _OPTION_PADDING_VERTICAL = _MEDIUM_SIZE;
 let _OPTION_PADDING_HORIZONTAL = _MEDIUM_SIZE;
 let _OPTION_TEXT_FONT_SIZE = _HEADER_4;
@@ -37,7 +36,6 @@ let styles: Js.t('a) = {
   /* Select uses system font */
   "actionText":
     style(~fontSize=_ACTION_TEXT_FONT_SIZE, ~color=_ACTION_TEXT_COLOR, ()),
-
   "overlay":
     style(
       ~flex=1.0,
@@ -50,7 +48,7 @@ let styles: Js.t('a) = {
     style(
       ~width=80.0->pct,
       ~maxHeight=70.0->pct,
-      ~backgroundColor="white",
+      ~backgroundColor=_WHITE,
       ~borderRadius=2.0,
       ~elevation=10.0,
       (),
