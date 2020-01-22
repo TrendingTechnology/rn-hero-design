@@ -14,4 +14,5 @@ let default = {
   "container": Hero_Container.default,
   "message": Hero_Message.default,
   "select": Hero_Select.default,
+  "mentionTextInput": Hero_MentionTextInput.default,
 };

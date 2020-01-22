@@ -13,9 +13,10 @@ let make =
     (
       ~testID="",
       ~label="",
-      ~value="",
+      ~value=?,
       ~onChange=noop,
       ~onChangeText=noop,
+      ~onSelectionChange=noop,
       ~onFocus=noop,
       ~onBlur=noop,
       ~onPressIcon=noop,
@@ -30,6 +31,7 @@ let make =
       ~inputStyle=emptyStyle,
       ~iconStyle=emptyStyle,
       ~errorStyle=emptyStyle,
+      ~children=React.null,
       ~theme=Hero_Theme.default,
     ) => {
   let (focused, setFocused) = React.useState(() => false);
@@ -61,7 +63,7 @@ let make =
         !isEmptyString(error) ? theme##textInput##errorLabel : emptyStyle,
         labelStyle,
       |])}>
-      (focused || !isEmptyString(value) ? label : "")->React.string
+      (focused || !isEmptyString(Belt.Option.getWithDefault(value, "")) ? label : "")->React.string
     </Text>
     <View
       style={StyleSheet.flatten([|
@@ -70,12 +72,13 @@ let make =
         !isEmptyString(error) ? theme##textInput##errorTextInput : emptyStyle,
         inputStyle,
       |])}>
-      <ReactNative.TextInput
-        testID=testID
+      <RNTextInput
+        testID
         placeholder={focused ? "" : label}
-        value
+        value=?value
         onChange
         onChangeText
+        onSelectionChange
         onFocus=handleFocus
         onBlur=handleBlur
         editable={!disabled}
@@ -100,8 +103,9 @@ let make =
             ? Style.style(~color=inputStyle->getColorProperty, ())
             : emptyStyle,
           disabled ? theme##textInput##disabledBaseTextInput : emptyStyle,
-        |])}
-      />
+        |])}>
+        children
+      </RNTextInput>
       <TouchableWithoutFeedback onPress=onPressIcon>
         <Icon
           icon=rightIcon

@@ -18,6 +18,7 @@ import AvatarScreen from './Avatar';
 import TabBarScreen from './TabBar';
 import MessageScreen from './Message';
 import SelectScreen from './Select';
+import MentionTextInputScreen from './MentionTextInput';
 import darkKnightTheme from 'rn-hero-design/src/themes/dark-knight';
 
 const store = createStore(state => state, { __theme: 'dark-knight' });
@@ -111,6 +112,12 @@ export default {
     screen: SelectScreen,
     defaultNavigationOptions: {
       title: 'Select',
+    },
+  },
+  MentionTextInput: {
+    screen: MentionTextInputScreen,
+    defaultNavigationOptions: {
+      title: 'MentionTextInput',
     },
   },
   LoginScreen: {
