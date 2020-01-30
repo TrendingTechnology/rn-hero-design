@@ -157,7 +157,7 @@ let delay = func => setTimeout(func, 0);
 let not = value => !value;
 
 [@react.component]
-let make = (~value, ~onChange, ~onChangeText, ~theme=Hero_Theme.default) => {
+let make = (~value, ~onChange, ~theme=Hero_Theme.default) => {
   let valueText = React.useRef("");
   let mentions = React.useRef([||]);
   let affectedMentions = React.useRef({selected: [||], unselected: [||]});
@@ -200,10 +200,11 @@ let make = (~value, ~onChange, ~onChangeText, ~theme=Hero_Theme.default) => {
                affectedMentions.selected |> Js.Array.includes(index) |> not
              );
         Js.log("FORCE ONCHANGE");
-        Js.log(restMentions->Belt.Array.map(nameGet));
-        Js.log(parseMessage(event##nativeEvent##text, restMentions));
+        let parsedMessage: message =
+          parseMessage(event##nativeEvent##text, restMentions);
+        onChange(parsedMessage);
         /* Js.log(affectedMentions); */
-        /* Js.log(removedMentions->Belt.Array.map(nameGet)); */
+        /* Js.log(restMentions->Belt.Array.map(nameGet)); */
         ();
       };
     });
