@@ -17,6 +17,7 @@ let make =
       ~onChange=noop,
       ~onChangeText=noop,
       ~onSelectionChange=noop,
+      ~onKeyPress=noop,
       ~onFocus=noop,
       ~onBlur=noop,
       ~onPressIcon=noop,
@@ -79,6 +80,7 @@ let make =
         onChange
         onChangeText
         onSelectionChange
+        onKeyPress
         onFocus=handleFocus
         onBlur=handleBlur
         editable={!disabled}
