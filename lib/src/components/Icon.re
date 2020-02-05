@@ -40,8 +40,9 @@ external moreVertical: string = "default";
 external calendarOutline: string = "default";
 [@bs.module "../icons/phone-outline"]
 external phoneOutline: string = "default";
-[@bs.module "../icons/face-id"]
-external faceId: string = "default";
+[@bs.module "../icons/face-id"] external faceId: string = "default";
+[@bs.module "../icons/single-left-outline"]
+external singleLeftOutline: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -62,15 +63,24 @@ let xmlFromIcon = icon =>
   | "piggy-bank-outline" => Some(piggyBankOutline)
   | "target-outline" => Some(targetOutline)
   | "single-right-outline" => Some(singleRightOutline)
+  | "single-left-outline" => Some(singleLeftOutline)
   | "more-vertical" => Some(moreVertical)
   | "phone-outline" => Some(phoneOutline)
   | "face-id" => Some(faceId)
   | _ => None
   };
 
+let emptyStyle = ReactNative.Style.style();
+
 [@react.component]
 let make =
-    (~icon, ~size=24.0, ~color=?, ~wrapperStyle, ~theme=Hero_Theme.default) => {
+    (
+      ~icon,
+      ~size=24.0,
+      ~color=?,
+      ~wrapperStyle=emptyStyle,
+      ~theme=Hero_Theme.default,
+    ) => {
   let iconColor =
     color->Belt.Option.getWithDefault @@ getColorProperty @@  theme##icon##icon;
 
