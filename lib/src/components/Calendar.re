@@ -113,15 +113,18 @@ let make =
 
   <View style=theme##calendar##wrapper>
     <View style=theme##calendar##header>
-      <TouchableOpacity onPress=noop style=theme##calendar##headerButton>
-        <Icon icon="single-right-outline" size=20.0 />
+      <TouchableOpacity
+        onPress=onPressPrev style=theme##calendar##headerButton>
+        <Icon icon="single-left-outline" size=20.0 />
       </TouchableOpacity>
-      <TouchableOpacity onPress=noop style=theme##calendar##headerButton>
+      <TouchableOpacity
+        onPress=onPressTitle style=theme##calendar##headerButton>
         <Text style=theme##calendar##headerTitle>
           {currentView->formatTitleString->React.string}
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity onPress=noop style=theme##calendar##headerButton>
+      <TouchableOpacity
+        onPress=onPressNext style=theme##calendar##headerButton>
         <Icon icon="single-right-outline" size=20.0 />
       </TouchableOpacity>
     </View>
@@ -141,7 +144,10 @@ let make =
        |> React.array}
       {daysOfPreviousMonth
        |> Array.map(date =>
-            <View key={toDateString(date)} style=theme##calendar##day>
+            <TouchableOpacity
+              key={toDateString(date)}
+              onPress={_ => onChange(date)}
+              style=theme##calendar##day>
               <Text
                 style={StyleSheet.flatten([|
                   theme##calendar##dayText,
@@ -149,12 +155,15 @@ let make =
                 |])}>
                 {date->getDate->int_of_float->string_of_int->React.string}
               </Text>
-            </View>
+            </TouchableOpacity>
           )
        |> React.array}
       {daysOfCurrentMonth
        |> Array.map(date =>
-            <View key={toDateString(date)} style=theme##calendar##day>
+            <TouchableOpacity
+              key={toDateString(date)}
+              onPress={_ => onChange(date)}
+              style=theme##calendar##day>
               <View
                 style={
                   eqDate(value, date)
@@ -171,12 +180,15 @@ let make =
                 |])}>
                 {date->getDate->int_of_float->string_of_int->React.string}
               </Text>
-            </View>
+            </TouchableOpacity>
           )
        |> React.array}
       {daysOfNextMonth
        |> Array.map(date =>
-            <View key={toDateString(date)} style=theme##calendar##day>
+            <TouchableOpacity
+              key={toDateString(date)}
+              onPress={_ => onChange(date)}
+              style=theme##calendar##day>
               <Text
                 style={StyleSheet.flatten([|
                   theme##calendar##dayText,
@@ -184,7 +196,7 @@ let make =
                 |])}>
                 {date->getDate->int_of_float->string_of_int->React.string}
               </Text>
-            </View>
+            </TouchableOpacity>
           )
        |> React.array}
     </View>
