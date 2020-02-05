@@ -1,49 +1,78 @@
 open ReactNative.Style;
 open Hero_Variables;
 
-let _GLOBAL_BACKGROUND_COLOR = _BACKGROUND_COLOR;
-let _BORDER_RADIUS = _SMALL_SIZE;
+let _HEADER_PADDING = _SMALL_SIZE;
+let _HEADER_BUTTON_PADDING = _SMALL_SIZE;
+let _HEADER_TITLE_FONT_SIZE = _HEADER_4;
+let _DAY_TEXT_FONT_SIZE = _HEADER_4;
+let _DAY_TEXT_LINE_HEIGHT = _HEADER_4;
+let _DAY_TEXT_COLOR = _TEXT_COLOR;
+let _DAY_PADDING = _SMALL_SIZE;
+let _DAY_HEIGHT = _DAY_TEXT_LINE_HEIGHT +. _DAY_PADDING *. 2.0;
+let _DAY_NAME_FONT_SIZE = _HEADER_5;
+let _DAY_NAME_COLOR = _MUTED_TEXT_COLOR;
+let _SELECTED_DAY_BACKGROUND_COLOR = _PRIMARY_COLOR;
+let _SELECTED_DAY_TEXT_COLOR = _WHITE;
+let _BLURRED_DAY_TEXT_COLOR = _MUTED_TEXT_COLOR;
+let _CURRENT_DAY_TEXT_COLOR = _PRIMARY_COLOR;
 
 let styles: Js.t('a) = {
   "wrapper": style(),
-  "navigator":
+  "header":
     style(
       ~flexDirection=`row,
-      ~justifyContent=`spaceBetween,
       ~alignItems=`center,
-      ~paddingHorizontal=_SMALL_SIZE->dp,
-      ~paddingVertical=_MEDIUM_SIZE->dp,
+      ~justifyContent=`spaceBetween,
+      ~paddingVertical=_HEADER_PADDING->dp,
       (),
     ),
-  "dayContainer": style(~flexDirection=`row, ~flexWrap=`wrap, ()),
+  "headerButton": style(~padding=_HEADER_BUTTON_PADDING->dp, ()),
+  "headerTitle":
+    style(
+      ~fontFamily=?_FONT_FAMILY,
+      ~fontSize=_HEADER_TITLE_FONT_SIZE,
+      ~fontWeight=`_500,
+      (),
+    ),
+  "monthView": style(~flexDirection=`row, ~flexWrap=`wrap, ()),
   "day":
     style(
       ~flexDirection=`row,
-      ~flexBasis=100.0->(/.)(7.0)->pct,
+      ~flexBasis=(100.0 /. 7.0)->pct,
       ~justifyContent=`center,
-      ~paddingVertical=_SMALL_SIZE->dp,
+      ~alignItems=`center,
+      ~height=_DAY_HEIGHT->dp,
+      ~borderBottomColor="red",
       (),
     ),
   "dayText":
     style(
-      ~fontSize=_HEADER_4,
+      ~lineHeight=_DAY_TEXT_LINE_HEIGHT,
       ~fontFamily=?_FONT_FAMILY,
-      ~color=_MUTED_TEXT_COLOR,
+      ~fontSize=_DAY_TEXT_FONT_SIZE,
+      ~fontWeight=`_400,
+      ~color=_DAY_TEXT_COLOR,
       (),
     ),
-  "currentDayText": style(~color=_TEXT_COLOR, ()),
+  "dayName":
+    style(
+      ~fontSize=_DAY_NAME_FONT_SIZE,
+      ~fontWeight=`_500,
+      ~color=_DAY_NAME_COLOR,
+      (),
+    ),
   "selectedDay":
     style(
       ~position=`absolute,
-      ~alignSelf=`center,
-      ~width=(_MEDIUM_SIZE *. 2.0)->dp,
-      ~height=(_MEDIUM_SIZE *. 2.0)->dp,
-      ~backgroundColor=_PRIMARY_COLOR,
-      ~borderRadius=_MEDIUM_SIZE,
+      ~width=_DAY_HEIGHT->dp,
+      ~height=_DAY_HEIGHT->dp,
+      ~backgroundColor=_SELECTED_DAY_BACKGROUND_COLOR,
+      ~borderRadius=_DAY_HEIGHT /. 2.0,
       (),
     ),
-  "dayLabel":
-    style(~fontSize=_HEADER_5, ~fontWeight=`_600, ~color=_TEXT_COLOR, ()),
+  "selectedDayText": style(~color=_SELECTED_DAY_TEXT_COLOR, ()),
+  "blurredDayText": style(~color=_BLURRED_DAY_TEXT_COLOR, ()),
+  "currentDayText": style(~color=_CURRENT_DAY_TEXT_COLOR, ()),
 };
 
 let default: Js.t('a) = ReactNative.StyleSheet.create(styles);

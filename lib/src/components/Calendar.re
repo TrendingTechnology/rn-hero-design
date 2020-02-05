@@ -8,49 +8,29 @@ let _DAYS_OF_WEEK = [|"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"|];
 
 let monthOfInt =
   fun
-  | 0 => "Jan"
-  | 1 => "Feb"
-  | 2 => "Mar"
-  | 3 => "Apr"
+  | 0 => "January"
+  | 1 => "February"
+  | 2 => "March"
+  | 3 => "April"
   | 4 => "May"
-  | 5 => "Jun"
-  | 6 => "Jul"
-  | 7 => "Aug"
-  | 8 => "Sep"
-  | 9 => "Oct"
-  | 10 => "Nov"
-  | 11 => "Dec"
+  | 5 => "June"
+  | 6 => "July"
+  | 7 => "August"
+  | 8 => "September"
+  | 9 => "October"
+  | 10 => "November"
+  | 11 => "December"
   | _ => "";
 
-let getFirstDateOfMonth = date =>
+let formatTitleString = date =>
   Js.Date.(
-    makeWithYMD(
-      ~year=getFullYear(date),
-      ~month=getMonth(date),
-      ~date=1.0,
-      (),
-    )
+    date->getMonth->int_of_float->monthOfInt
+    ++ " "
+    ++ date->getFullYear->int_of_float->string_of_int
   );
 
-let getLastDateOfMonth = date =>
-  Js.Date.(
-    makeWithYMD(
-      ~year=getFullYear(date),
-      ~month=getMonth(date) +. 1.0,
-      ~date=0.0,
-      (),
-    )
-  );
-
-let getLastDateOfPreviousMonth = date =>
-  Js.Date.(
-    makeWithYMD(
-      ~year=getFullYear(date),
-      ~month=getMonth(date),
-      ~date=0.0,
-      (),
-    )
-  );
+let eqDate = (date1, date2) =>
+  Js.Date.(toDateString(date1) === toDateString(date2));
 
 [@react.component]
 let make =
@@ -58,93 +38,152 @@ let make =
       ~value=Js.Date.make(),
       ~onChange=noop,
       ~currentView=Js.Date.make(),
-      ~onChangeView=noop,
+      ~onPressPrev=noop,
+      ~onPressNext=noop,
+      ~onPressTitle=noop,
       ~theme=Hero_Theme.default,
     ) => {
   open Js.Date;
 
+  let currentYear = getFullYear(currentView);
+  let currentMonth = getMonth(currentView);
+  let now = Js.Date.make();
+
+  /* 0 -> 6 */
   let firstDayOfMonth =
-    getFirstDateOfMonth(currentView)->getDay->int_of_float;
+    makeWithYMD(~year=currentYear, ~month=currentMonth, ~date=1.0, ())
+    ->getDay
+    ->int_of_float;
 
-  let lastDayOfMonth = getLastDateOfMonth(currentView)->getDay->int_of_float;
+  /* 0 -> 6 */
+  let lastDayOfMonth =
+    makeWithYMD(~year=currentYear, ~month=currentMonth +. 1.0, ~date=0.0, ())
+    ->getDay
+    ->int_of_float;
 
+  /* 29, 30, 31 */
   let lastDateOfMonth =
-    getLastDateOfMonth(currentView)->getDate->int_of_float;
+    makeWithYMD(~year=currentYear, ~month=currentMonth +. 1.0, ~date=0.0, ())
+    ->getDate
+    ->int_of_float;
 
+  /* 29, 30, 31 */
   let lastDateOfPreviousMonth =
-    getLastDateOfPreviousMonth(currentView)->getDate->int_of_float;
+    makeWithYMD(~year=currentYear, ~month=currentMonth, ~date=0.0, ())
+    ->getDate
+    ->int_of_float;
 
   let daysOfPreviousMonth =
     Array.init(
       firstDayOfMonth,
       index => {
         let reversedIndex = firstDayOfMonth - index - 1;
-        lastDateOfPreviousMonth->(-)(reversedIndex)->string_of_int;
+        lastDateOfPreviousMonth
+        ->(-)(reversedIndex)
+        ->float_of_int
+        ->makeWithYMD(
+            ~year=currentYear,
+            ~month=currentMonth -. 1.0,
+            ~date=_,
+            (),
+          );
       },
     );
 
   let daysOfCurrentMonth =
-    Array.init(lastDateOfMonth, index => index->(+)(1)->string_of_int);
+    Array.init(lastDateOfMonth, index =>
+      index
+      ->(+)(1)
+      ->float_of_int
+      ->makeWithYMD(~year=currentYear, ~month=currentMonth, ~date=_, ())
+    );
 
   let daysOfNextMonth =
-    Array.init(6 - lastDayOfMonth, index => index->(+)(1)->string_of_int);
+    Array.init(6 - lastDayOfMonth, index =>
+      index
+      ->(+)(1)
+      ->float_of_int
+      ->makeWithYMD(
+          ~year=currentYear,
+          ~month=currentMonth +. 1.0,
+          ~date=_,
+          (),
+        )
+    );
 
   <View style=theme##calendar##wrapper>
-    <View style=theme##calendar##navigator>
-      <Icon icon="single-right-outline" size=20.0 />
-      <Text>
-        {getFullYear(currentView)->int_of_float->string_of_int->React.string}
-        " "->React.string
-        {getMonth(currentView)->int_of_float->monthOfInt->React.string}
-      </Text>
-      <Icon icon="single-right-outline" size=20.0 />
+    <View style=theme##calendar##header>
+      <TouchableOpacity onPress=noop style=theme##calendar##headerButton>
+        <Icon icon="single-right-outline" size=20.0 />
+      </TouchableOpacity>
+      <TouchableOpacity onPress=noop style=theme##calendar##headerButton>
+        <Text style=theme##calendar##headerTitle>
+          {currentView->formatTitleString->React.string}
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity onPress=noop style=theme##calendar##headerButton>
+        <Icon icon="single-right-outline" size=20.0 />
+      </TouchableOpacity>
     </View>
-    <View style=theme##calendar##dayContainer>
+    <View style=theme##calendar##monthView>
       {_DAYS_OF_WEEK
-       |> Array.map(day =>
-            <View style=theme##calendar##day>
+       |> Array.map(dayName =>
+            <View key=dayName style=theme##calendar##day>
               <Text
                 style={StyleSheet.flatten([|
                   theme##calendar##dayText,
-                  theme##calendar##dayLabel,
+                  theme##calendar##dayName,
                 |])}>
-                day->React.string
+                dayName->React.string
               </Text>
             </View>
           )
        |> React.array}
       {daysOfPreviousMonth
        |> Array.map(date =>
-            <View style=theme##calendar##day>
-              <Text style=theme##calendar##dayText> date->React.string </Text>
+            <View key={toDateString(date)} style=theme##calendar##day>
+              <Text
+                style={StyleSheet.flatten([|
+                  theme##calendar##dayText,
+                  theme##calendar##blurredDayText,
+                |])}>
+                {date->getDate->int_of_float->string_of_int->React.string}
+              </Text>
             </View>
           )
        |> React.array}
       {daysOfCurrentMonth
        |> Array.map(date =>
-            <View style=theme##calendar##day>
+            <View key={toDateString(date)} style=theme##calendar##day>
               <View
-                style={StyleSheet.flatten([|
-                  getDate(value)->int_of_float->string_of_int->(===)(date)
-                  && getMonth(value)->(===)(getMonth(currentView))
-                  && getFullYear(value)->(===)(getFullYear(currentView))
-                    ? theme##calendar##selectedDay : emptyStyle,
-                |])}
+                style={
+                  eqDate(value, date)
+                    ? theme##calendar##selectedDay : emptyStyle
+                }
               />
               <Text
                 style={StyleSheet.flatten([|
                   theme##calendar##dayText,
-                  theme##calendar##currentDayText,
+                  eqDate(now, date)
+                    ? theme##calendar##currentDayText : emptyStyle,
+                  eqDate(value, date)
+                    ? theme##calendar##selectedDayText : emptyStyle,
                 |])}>
-                date->React.string
+                {date->getDate->int_of_float->string_of_int->React.string}
               </Text>
             </View>
           )
        |> React.array}
       {daysOfNextMonth
        |> Array.map(date =>
-            <View style=theme##calendar##day>
-              <Text style=theme##calendar##dayText> date->React.string </Text>
+            <View key={toDateString(date)} style=theme##calendar##day>
+              <Text
+                style={StyleSheet.flatten([|
+                  theme##calendar##dayText,
+                  theme##calendar##blurredDayText,
+                |])}>
+                {date->getDate->int_of_float->string_of_int->React.string}
+              </Text>
             </View>
           )
        |> React.array}
