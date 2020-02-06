@@ -13,5 +13,6 @@ let default = {
   "card": Legacy_Card.default,
   "container": Legacy_Container.default,
   "message": Legacy_Message.default,
+  "select": Legacy_Select.default,
   "calendar": Legacy_Calendar.default,
 };

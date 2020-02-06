@@ -17,6 +17,7 @@ let _SELECTED_DAY_BACKGROUND_COLOR = _PRIMARY_COLOR;
 let _SELECTED_DAY_TEXT_COLOR = _WHITE;
 let _BLURRED_DAY_TEXT_COLOR = _MUTED_TEXT_COLOR;
 let _CURRENT_DAY_TEXT_COLOR = _PRIMARY_COLOR;
+let _HIDDEN_DAY_BACKGROUND_COLOR = _GREY_5;
 
 let styles: Js.t('a) = {
   "wrapper": style(),
@@ -51,7 +52,6 @@ let styles: Js.t('a) = {
       ~justifyContent=`center,
       ~alignItems=`center,
       ~height=_DAY_HEIGHT->dp,
-      ~borderBottomColor="red",
       (),
     ),
   "dayText":
@@ -99,6 +99,7 @@ let styles: Js.t('a) = {
       ~borderRadius=2.0,
       (),
     ),
+  "hiddenDay": style(~backgroundColor=_HIDDEN_DAY_BACKGROUND_COLOR, ()),
 };
 
 let default: Js.t('a) = ReactNative.StyleSheet.create(styles);

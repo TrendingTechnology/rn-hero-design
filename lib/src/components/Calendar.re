@@ -256,7 +256,13 @@ let make =
                 </TouchableOpacity>
               )
             ->Belt.Option.getWithDefault(
-                <View key={index->string_of_int} style=theme##calendar##day />,
+                <View
+                  key={index->string_of_int}
+                  style={StyleSheet.flatten([|
+                    theme##calendar##day,
+                    theme##calendar##hiddenDay,
+                  |])}
+                />,
               )
           )
        |> React.array}
@@ -288,7 +294,13 @@ let make =
                 </TouchableOpacity>
               )
             ->Belt.Option.getWithDefault(
-                <View key={index->string_of_int} style=theme##calendar##day />,
+                <View
+                  key={index->string_of_int}
+                  style={StyleSheet.flatten([|
+                    theme##calendar##day,
+                    theme##calendar##hiddenDay,
+                  |])}
+                />,
               )
           )
        |> React.array}
@@ -311,7 +323,13 @@ let make =
                 </TouchableOpacity>
               )
             ->Belt.Option.getWithDefault(
-                <View key={index->string_of_int} style=theme##calendar##day />,
+                <View
+                  key={index->string_of_int}
+                  style={StyleSheet.flatten([|
+                    theme##calendar##day,
+                    theme##calendar##hiddenDay,
+                  |])}
+                />,
               )
           )
        |> React.array}

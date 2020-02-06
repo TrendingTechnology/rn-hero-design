@@ -182,7 +182,6 @@ Object {
     },
     "day": Object {
       "alignItems": "center",
-      "borderBottomColor": "red",
       "flexBasis": "14.285714285714286%",
       "flexDirection": "row",
       "height": 32.5,
@@ -219,6 +218,9 @@ Object {
       "fontFamily": "Proxima Nova",
       "fontSize": 16.25,
       "fontWeight": "500",
+    },
+    "hiddenDay": Object {
+      "backgroundColor": "#f5f6f8",
     },
     "mark": Object {
       "borderRadius": 2,
