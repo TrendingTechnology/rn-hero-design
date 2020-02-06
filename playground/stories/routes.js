@@ -17,6 +17,8 @@ import SwitchScreen from './Switch';
 import AvatarScreen from './Avatar';
 import TabBarScreen from './TabBar';
 import MessageScreen from './Message';
+import SelectScreen from './Select';
+import CalendarScreen from './Calendar';
 import darkKnightTheme from 'rn-hero-design/src/themes/dark-knight';
 
 const store = createStore(state => state, { __theme: 'dark-knight' });
@@ -104,6 +106,18 @@ export default {
     screen: MessageScreen,
     defaultNavigationOptions: {
       title: 'Message',
+    },
+  },
+  Select: {
+    screen: SelectScreen,
+    defaultNavigationOptions: {
+      title: 'Select',
+    },
+  },
+  Calendar: {
+    screen: CalendarScreen,
+    defaultNavigationOptions: {
+      title: 'Calendar',
     },
   },
   LoginScreen: {
