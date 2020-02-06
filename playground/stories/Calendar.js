@@ -7,14 +7,18 @@ import {
 } from 'rn-hero-design';
 
 const CalendarScreen = ({ theme }) => {
-  const [value, setValue] = React.useState(new Date('2020-02-01'));
-  const [currentView, setCurrentView] = React.useState(new Date('2020-02-01'));
+  const minDate = new Date(2020, 0, 28);
+  const maxDate = new Date(2020, 2, 20);
+  const [value, setValue] = React.useState(new Date(2020, 1, 1));
+  const [currentView, setCurrentView] = React.useState(new Date(2020, 1, 1));
   const [showDatePicker, setShowDatePicker] = React.useState(false);
 
   return (
     <>
       <Container fluid>
         <Calendar
+          minDate={minDate}
+          maxDate={maxDate}
           value={value}
           currentView={currentView}
           onChange={date => {
@@ -34,11 +38,11 @@ const CalendarScreen = ({ theme }) => {
           onPressTitle={() => setShowDatePicker(true)}
           markedDates={[
             {
-              date: new Date('2020-01-30'),
+              date: new Date(2020, 0, 30),
               colors: [theme.variables.FOCUS_BLUE_1],
             },
             {
-              date: new Date('2020-02-02'),
+              date: new Date(2020, 1, 2),
               colors: [
                 theme.variables.FOCUS_BLUE_1,
                 theme.variables.RED,
@@ -47,27 +51,27 @@ const CalendarScreen = ({ theme }) => {
               ],
             },
             {
-              date: new Date('2020-02-03'),
+              date: new Date(2020, 1, 3),
               colors: [],
             },
             {
-              date: new Date('2020-02-04'),
+              date: new Date(2020, 1, 4),
               colors: [theme.variables.FOCUS_BLUE_1],
             },
             {
-              date: new Date('2020-02-05'),
+              date: new Date(2020, 1, 5),
               colors: [theme.variables.FOCUS_BLUE_1],
             },
             {
-              date: new Date('2020-02-06'),
+              date: new Date(2020, 1, 6),
               colors: [theme.variables.FOCUS_BLUE_1],
             },
             {
-              date: new Date('2020-02-11'),
+              date: new Date(2020, 1, 11),
               colors: [theme.variables.FOCUS_BLUE_1],
             },
             {
-              date: new Date('2020-02-10'),
+              date: new Date(2020, 1, 10),
               colors: [theme.variables.FOCUS_BLUE_1],
             },
           ]}

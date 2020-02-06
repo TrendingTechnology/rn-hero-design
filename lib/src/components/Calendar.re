@@ -4,6 +4,8 @@ let emptyStyle = Style.style();
 
 let noop = _ => ();
 
+[@bs.get] external getColorProperty: Style.t => Color.t = "color";
+
 let _DAYS_OF_WEEK = [|"Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"|];
 
 let monthOfInt =
@@ -57,6 +59,8 @@ let make =
       ~onPressTitle=noop,
       ~theme=Hero_Theme.default,
       ~markedDates: markedDates=[||],
+      ~minDate: option(Js.Date.t)=?,
+      ~maxDate: option(Js.Date.t)=?,
     ) => {
   open Js.Date;
 
@@ -88,6 +92,16 @@ let make =
     ->getDate
     ->int_of_float;
 
+  let getValidDay = date => {
+    switch (minDate, maxDate) {
+    | (None, None) => Some(date)
+    | (Some(minDate), None) => date >= minDate ? Some(date) : None
+    | (None, Some(maxDate)) => date <= maxDate ? Some(date) : None
+    | (Some(minDate), Some(maxDate)) =>
+      date >= minDate && date <= maxDate ? Some(date) : None
+    };
+  };
+
   let daysOfPreviousMonth =
     Array.init(
       firstDayOfMonth,
@@ -101,7 +115,8 @@ let make =
             ~month=currentMonth -. 1.0,
             ~date=_,
             (),
-          );
+          )
+        ->getValidDay;
       },
     );
 
@@ -111,6 +126,7 @@ let make =
       ->(+)(1)
       ->float_of_int
       ->makeWithYMD(~year=currentYear, ~month=currentMonth, ~date=_, ())
+      ->getValidDay
     );
 
   let daysOfNextMonth =
@@ -124,6 +140,7 @@ let make =
           ~date=_,
           (),
         )
+      ->getValidDay
     );
 
   let parsedMarkedDates =
@@ -146,7 +163,9 @@ let make =
       },
     );
 
-  let renderMarks = date =>
+  let renderMarks = date => {
+    let isSelected = eqDate(value, date);
+
     switch (parsedMarkedDates->Js.Dict.get(toDateString(date))) {
     | Some(colors) =>
       <View style=theme##calendar##markedDay>
@@ -157,6 +176,13 @@ let make =
                style={StyleSheet.flatten([|
                  theme##calendar##mark,
                  Style.style(~backgroundColor=color, ()),
+                 isSelected
+                   ? Style.style(
+                       ~backgroundColor=
+                         getColorProperty(theme##calendar##selectedDayText),
+                       (),
+                     )
+                   : emptyStyle,
                |])}
              />
            )
@@ -164,23 +190,36 @@ let make =
       </View>
     | None => React.null
     };
+  };
+
+  let showPrevButton =
+    daysOfCurrentMonth->Belt.Array.getUnsafe(0)->Belt.Option.isSome;
+
+  let showNextButton =
+    daysOfCurrentMonth
+    ->Belt.Array.getUnsafe(Array.length(daysOfCurrentMonth) - 1)
+    ->Belt.Option.isSome;
 
   <View style=theme##calendar##wrapper>
     <View style=theme##calendar##header>
-      <TouchableOpacity
-        onPress=onPressPrev style=theme##calendar##headerButton>
-        <Icon icon="single-left-outline" size=20.0 />
-      </TouchableOpacity>
+      {showPrevButton
+         ? <TouchableOpacity
+             onPress=onPressPrev style=theme##calendar##headerButton>
+             <Icon icon="single-left-outline" size=20.0 />
+           </TouchableOpacity>
+         : <View style=theme##calendar##headerButton />}
       <TouchableOpacity
         onPress=onPressTitle style=theme##calendar##headerButton>
         <Text style=theme##calendar##headerTitle>
           {currentView->formatTitleString->React.string}
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity
-        onPress=onPressNext style=theme##calendar##headerButton>
-        <Icon icon="single-right-outline" size=20.0 />
-      </TouchableOpacity>
+      {showNextButton
+         ? <TouchableOpacity
+             onPress=onPressNext style=theme##calendar##headerButton>
+             <Icon icon="single-right-outline" size=20.0 />
+           </TouchableOpacity>
+         : <View style=theme##calendar##headerButton />}
     </View>
     <View style=theme##calendar##monthView>
       {_DAYS_OF_WEEK
@@ -199,63 +238,81 @@ let make =
           )
        |> React.array}
       {daysOfPreviousMonth
-       |> Array.map(date =>
-            <TouchableOpacity
-              key={toDateString(date)}
-              onPress={_ => onChange(date)}
-              style=theme##calendar##day>
-              {renderMarks(date)}
-              <Text
-                style={StyleSheet.flatten([|
-                  theme##calendar##dayText,
-                  theme##calendar##blurredDayText,
-                |])}>
-                {date->getDate->formatString->React.string}
-              </Text>
-            </TouchableOpacity>
+       |> Array.mapi((index, optionDate) =>
+            optionDate
+            ->Belt.Option.map(date =>
+                <TouchableOpacity
+                  key={toDateString(date)}
+                  onPress={_ => onChange(date)}
+                  style=theme##calendar##day>
+                  {renderMarks(date)}
+                  <Text
+                    style={StyleSheet.flatten([|
+                      theme##calendar##dayText,
+                      theme##calendar##blurredDayText,
+                    |])}>
+                    {date->getDate->formatString->React.string}
+                  </Text>
+                </TouchableOpacity>
+              )
+            ->Belt.Option.getWithDefault(
+                <View key={index->string_of_int} style=theme##calendar##day />,
+              )
           )
        |> React.array}
       {daysOfCurrentMonth
-       |> Array.map(date =>
-            <TouchableOpacity
-              key={toDateString(date)}
-              onPress={_ => onChange(date)}
-              style=theme##calendar##day>
-              <View
-                style={
-                  eqDate(value, date)
-                    ? theme##calendar##selectedDay : emptyStyle
-                }
-              />
-              {renderMarks(date)}
-              <Text
-                style={StyleSheet.flatten([|
-                  theme##calendar##dayText,
-                  eqDate(now, date)
-                    ? theme##calendar##currentDayText : emptyStyle,
-                  eqDate(value, date)
-                    ? theme##calendar##selectedDayText : emptyStyle,
-                |])}>
-                {date->getDate->formatString->React.string}
-              </Text>
-            </TouchableOpacity>
+       |> Array.mapi((index, optionDate) =>
+            optionDate
+            ->Belt.Option.map(date =>
+                <TouchableOpacity
+                  key={toDateString(date)}
+                  onPress={_ => onChange(date)}
+                  style=theme##calendar##day>
+                  <View
+                    style={
+                      eqDate(value, date)
+                        ? theme##calendar##selectedDay : emptyStyle
+                    }
+                  />
+                  {renderMarks(date)}
+                  <Text
+                    style={StyleSheet.flatten([|
+                      theme##calendar##dayText,
+                      eqDate(now, date)
+                        ? theme##calendar##currentDayText : emptyStyle,
+                      eqDate(value, date)
+                        ? theme##calendar##selectedDayText : emptyStyle,
+                    |])}>
+                    {date->getDate->formatString->React.string}
+                  </Text>
+                </TouchableOpacity>
+              )
+            ->Belt.Option.getWithDefault(
+                <View key={index->string_of_int} style=theme##calendar##day />,
+              )
           )
        |> React.array}
       {daysOfNextMonth
-       |> Array.map(date =>
-            <TouchableOpacity
-              key={toDateString(date)}
-              onPress={_ => onChange(date)}
-              style=theme##calendar##day>
-              {renderMarks(date)}
-              <Text
-                style={StyleSheet.flatten([|
-                  theme##calendar##dayText,
-                  theme##calendar##blurredDayText,
-                |])}>
-                {date->getDate->formatString->React.string}
-              </Text>
-            </TouchableOpacity>
+       |> Array.mapi((index, optionDate) =>
+            optionDate
+            ->Belt.Option.map(date =>
+                <TouchableOpacity
+                  key={toDateString(date)}
+                  onPress={_ => onChange(date)}
+                  style=theme##calendar##day>
+                  {renderMarks(date)}
+                  <Text
+                    style={StyleSheet.flatten([|
+                      theme##calendar##dayText,
+                      theme##calendar##blurredDayText,
+                    |])}>
+                    {date->getDate->formatString->React.string}
+                  </Text>
+                </TouchableOpacity>
+              )
+            ->Belt.Option.getWithDefault(
+                <View key={index->string_of_int} style=theme##calendar##day />,
+              )
           )
        |> React.array}
     </View>

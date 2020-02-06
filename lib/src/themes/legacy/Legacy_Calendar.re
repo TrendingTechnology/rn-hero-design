@@ -3,6 +3,7 @@ open Legacy_Variables;
 
 let _HEADER_PADDING = _SMALL_SIZE;
 let _HEADER_BUTTON_PADDING = _SMALL_SIZE;
+let _HEADER_BUTTON_HEIGHT = 20.0 +. _HEADER_BUTTON_PADDING *. 2.0;
 let _HEADER_TITLE_FONT_SIZE = _HEADER_4;
 let _DAY_TEXT_FONT_SIZE = _HEADER_4;
 let _DAY_TEXT_LINE_HEIGHT = _HEADER_4;
@@ -27,7 +28,14 @@ let styles: Js.t('a) = {
       ~paddingVertical=_HEADER_PADDING->dp,
       (),
     ),
-  "headerButton": style(~padding=_HEADER_BUTTON_PADDING->dp, ()),
+  "headerButton":
+    style(
+      ~justifyContent=`center,
+      ~height=_HEADER_BUTTON_HEIGHT->dp,
+      ~minWidth=_HEADER_BUTTON_HEIGHT->dp,
+      ~paddingHorizontal=_HEADER_BUTTON_PADDING->dp,
+      (),
+    ),
   "headerTitle":
     style(
       ~fontFamily=?_FONT_FAMILY,
