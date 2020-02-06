@@ -1,7 +1,12 @@
 import React from 'react';
-import { Calendar, DateTimePicker, Container } from 'rn-hero-design';
+import {
+  Calendar,
+  DateTimePicker,
+  Container,
+  injectTheme,
+} from 'rn-hero-design';
 
-const CalendarScreen = () => {
+const CalendarScreen = ({ theme }) => {
   const [value, setValue] = React.useState(new Date('2020-02-01'));
   const [currentView, setCurrentView] = React.useState(new Date('2020-02-01'));
   const [showDatePicker, setShowDatePicker] = React.useState(false);
@@ -27,6 +32,45 @@ const CalendarScreen = () => {
             setCurrentView(newDate);
           }}
           onPressTitle={() => setShowDatePicker(true)}
+          markedDates={[
+            {
+              date: new Date('2020-01-30'),
+              colors: [theme.variables.FOCUS_BLUE_1],
+            },
+            {
+              date: new Date('2020-02-02'),
+              colors: [
+                theme.variables.FOCUS_BLUE_1,
+                theme.variables.RED,
+                theme.variables.ORANGE,
+                theme.variables.GREEN,
+              ],
+            },
+            {
+              date: new Date('2020-02-03'),
+              colors: [],
+            },
+            {
+              date: new Date('2020-02-04'),
+              colors: [theme.variables.FOCUS_BLUE_1],
+            },
+            {
+              date: new Date('2020-02-05'),
+              colors: [theme.variables.FOCUS_BLUE_1],
+            },
+            {
+              date: new Date('2020-02-06'),
+              colors: [theme.variables.FOCUS_BLUE_1],
+            },
+            {
+              date: new Date('2020-02-11'),
+              colors: [theme.variables.FOCUS_BLUE_1],
+            },
+            {
+              date: new Date('2020-02-10'),
+              colors: [theme.variables.FOCUS_BLUE_1],
+            },
+          ]}
         />
       </Container>
 
@@ -40,4 +84,4 @@ const CalendarScreen = () => {
   );
 };
 
-export default CalendarScreen;
+export default injectTheme(CalendarScreen);

@@ -22,15 +22,29 @@ let monthOfInt =
   | 11 => "December"
   | _ => "";
 
+let formatString = float_ => float_->int_of_float->string_of_int;
+
 let formatTitleString = date =>
   Js.Date.(
     date->getMonth->int_of_float->monthOfInt
     ++ " "
-    ++ date->getFullYear->int_of_float->string_of_int
+    ++ date->getFullYear->formatString
   );
 
 let eqDate = (date1, date2) =>
   Js.Date.(toDateString(date1) === toDateString(date2));
+
+type color = string;
+
+[@bs.deriving abstract]
+type markedDate = {
+  date: Js.Date.t,
+  colors: array(color),
+};
+
+type markedDates = array(markedDate);
+
+type parsedMarkedDates = Js.Dict.t(array(color));
 
 [@react.component]
 let make =
@@ -42,6 +56,7 @@ let make =
       ~onPressNext=noop,
       ~onPressTitle=noop,
       ~theme=Hero_Theme.default,
+      ~markedDates: markedDates=[||],
     ) => {
   open Js.Date;
 
@@ -111,6 +126,45 @@ let make =
         )
     );
 
+  let parsedMarkedDates =
+    markedDates->Belt.Array.reduce(
+      Js.Dict.empty(),
+      (parsedMarkedDates, mark) => {
+        let markedDateString = Js.Date.toDateString(dateGet(mark));
+
+        switch (parsedMarkedDates->Js.Dict.get(markedDateString)) {
+        | None =>
+          parsedMarkedDates->Js.Dict.set(markedDateString, colorsGet(mark));
+          parsedMarkedDates;
+        | Some(colors) =>
+          parsedMarkedDates->Js.Dict.set(
+            markedDateString,
+            Array.concat([colors, colorsGet(mark)]),
+          );
+          parsedMarkedDates;
+        };
+      },
+    );
+
+  let renderMarks = date =>
+    switch (parsedMarkedDates->Js.Dict.get(toDateString(date))) {
+    | Some(colors) =>
+      <View style=theme##calendar##markedDay>
+        {colors
+         ->Belt.Array.map(color =>
+             <View
+               key=color
+               style={StyleSheet.flatten([|
+                 theme##calendar##mark,
+                 Style.style(~backgroundColor=color, ()),
+               |])}
+             />
+           )
+         ->React.array}
+      </View>
+    | None => React.null
+    };
+
   <View style=theme##calendar##wrapper>
     <View style=theme##calendar##header>
       <TouchableOpacity
@@ -136,6 +190,8 @@ let make =
                 style={StyleSheet.flatten([|
                   theme##calendar##dayText,
                   theme##calendar##dayName,
+                  dayName === "Sun"
+                    ? theme##calendar##dayNameSunday : emptyStyle,
                 |])}>
                 dayName->React.string
               </Text>
@@ -148,12 +204,13 @@ let make =
               key={toDateString(date)}
               onPress={_ => onChange(date)}
               style=theme##calendar##day>
+              {renderMarks(date)}
               <Text
                 style={StyleSheet.flatten([|
                   theme##calendar##dayText,
                   theme##calendar##blurredDayText,
                 |])}>
-                {date->getDate->int_of_float->string_of_int->React.string}
+                {date->getDate->formatString->React.string}
               </Text>
             </TouchableOpacity>
           )
@@ -170,6 +227,7 @@ let make =
                     ? theme##calendar##selectedDay : emptyStyle
                 }
               />
+              {renderMarks(date)}
               <Text
                 style={StyleSheet.flatten([|
                   theme##calendar##dayText,
@@ -178,7 +236,7 @@ let make =
                   eqDate(value, date)
                     ? theme##calendar##selectedDayText : emptyStyle,
                 |])}>
-                {date->getDate->int_of_float->string_of_int->React.string}
+                {date->getDate->formatString->React.string}
               </Text>
             </TouchableOpacity>
           )
@@ -189,12 +247,13 @@ let make =
               key={toDateString(date)}
               onPress={_ => onChange(date)}
               style=theme##calendar##day>
+              {renderMarks(date)}
               <Text
                 style={StyleSheet.flatten([|
                   theme##calendar##dayText,
                   theme##calendar##blurredDayText,
                 |])}>
-                {date->getDate->int_of_float->string_of_int->React.string}
+                {date->getDate->formatString->React.string}
               </Text>
             </TouchableOpacity>
           )
