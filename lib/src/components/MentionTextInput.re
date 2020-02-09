@@ -1,5 +1,7 @@
 module RN = ReactNative;
 
+[@bs.val] external setTimeout: (unit => unit, int) => unit = "setTimeout";
+
 [@bs.deriving abstract]
 type mention = {
   mid: string,
@@ -11,12 +13,13 @@ type mentions = array(mention);
 
 [@bs.deriving abstract]
 type textBlock = {
-  text: string,
   id: option(string),
+  text: string,
 };
 
 type message = array(textBlock);
 
+/* TODO: review later */
 let rec parseMessage: (string, mentions) => message =
   (message, mentions) => {
     let indexOfFirstMention = String.index_opt(message, '@');
@@ -69,6 +72,9 @@ let rec parseMessage: (string, mentions) => message =
     };
   };
 
+/*
+ * Extract all mentioned users in message, in order
+ */
 let getMentionsFromMessage: message => mentions =
   message => {
     let startOffset = ref(0);
@@ -80,21 +86,20 @@ let getMentionsFromMessage: message => mentions =
         let text = textBlock->textGet;
         let textLength = text->String.length;
         let endOffset = startOffset^ + textLength;
-
         let result =
-          if (id->Belt.Option.isSome) {
+          switch (id) {
+          | Some(id) =>
             Belt.Array.concat(
               mentions,
               [|
                 mention(
-                  ~mid=id->Belt.Option.getExn,
+                  ~mid=id,
                   ~name=text,
-                  ~offset=(startOffset^, endOffset + 1) // so tricky
+                  ~offset=(startOffset^, endOffset + 1) /* include the space after */
                 ),
               |],
-            );
-          } else {
-            mentions;
+            )
+          | None => mentions
           };
 
         startOffset := endOffset;
@@ -109,6 +114,9 @@ type affectedMentionIndexes = {
   unselected: array(int),
 };
 
+/*
+ * Get the indexes of mentions, of which offsets may change when the selection changes
+ */
 let getAffectedMentionIndexes = (selection, mentions) => {
   let init: affectedMentionIndexes = {selected: [||], unselected: [||]};
 
@@ -116,17 +124,15 @@ let getAffectedMentionIndexes = (selection, mentions) => {
     init,
     (indexes, mention, index) => {
       let offset = mention->offsetGet;
+      let {selected, unselected} = indexes;
       let isUnselected = fst(offset) >= snd(selection);
       let isSelected =
         fst(offset) < snd(selection) && snd(offset) > fst(selection);
 
       if (isSelected) {
-        {...indexes, selected: Array.append(indexes.selected, [|index|])};
+        {...indexes, selected: Array.append(selected, [|index|])};
       } else if (isUnselected) {
-        {
-          ...indexes,
-          unselected: Array.append(indexes.unselected, [|index|]),
-        };
+        {...indexes, unselected: Array.append(unselected, [|index|])};
       } else {
         indexes;
       };
@@ -134,38 +140,35 @@ let getAffectedMentionIndexes = (selection, mentions) => {
   );
 };
 
-[@bs.val] external setTimeout: (unit => unit, int) => unit = "setTimeout";
-let delay = func => setTimeout(func, 0);
-
 let _ACTIVATOR = "@";
 
 [@react.component]
 let make =
     (
-      ~value,
+      ~value: message,
       ~onChange,
       ~suggestionData,
-      ~renderSuggestionItem,
       ~renderSuggestionList,
       ~theme=Hero_Theme.default,
     ) => {
+  open React.Ref;
+
   let valueText = React.useRef("");
   let mentions = React.useRef([||]);
-  let affectedMentions = React.useRef({selected: [||], unselected: [||]});
+
   let latestKey = React.useRef("");
   let latestPosition = React.useRef(0);
   let searchPosition = React.useRef(0);
+  let affectedMentions = React.useRef({selected: [||], unselected: [||]});
+
   let (showSuggestions, setShowSuggestions) = React.useState(() => false);
   let (searchValue, setSearchValue) = React.useState(() => "");
 
   React.useEffect1(
     () => {
-      open React.Ref;
-      setCurrent(
-        valueText,
-        value->Belt.Array.map(textGet)->Js.Array.joinWith("", _),
-      );
-      setCurrent(mentions, getMentionsFromMessage(value));
+      open Js.Array;
+      setCurrent(valueText, value |> map(textGet) |> joinWith(""));
+      setCurrent(mentions, value |> getMentionsFromMessage);
       None;
     },
     [|value|],
@@ -173,33 +176,71 @@ let make =
 
   let handleSelectionChange =
     React.useCallback(event => {
-      open React.Ref;
-      Js.log("HANDLE SELECTION");
       let selection = event##nativeEvent##selection;
       let selectionRange = (selection##start, selection##_end);
-
       let setAffectedMentions = () =>
         setCurrent(
           affectedMentions,
-          getAffectedMentionIndexes(selectionRange, current(mentions)),
+          getAffectedMentionIndexes(selectionRange, current(mentions)), /* TODO: latest mentions, is it right? */
         );
       setCurrent(latestPosition, selection##start);
-      setTimeout(setAffectedMentions, 5);
+      setTimeout(setAffectedMentions, 5); /* when users press a key, selection change will be triggered first and we don't want that */
     });
 
   let handleKeyPress =
     React.useCallback(event => {
-      Js.log("HANDLE KEY PRESS");
       let key = event##nativeEvent##key;
-      React.Ref.setCurrent(latestKey, key);
+      setCurrent(latestKey, key);
     });
+
+  let handleMentionRemove = text => {
+    let mentions = current(mentions);
+    let selectedMentions = current(affectedMentions).selected;
+
+    if (Array.length(selectedMentions) > 0) {
+      let restMentions =
+        mentions
+        |> Js.Array.filteri((_, index) =>
+             selectedMentions |> Js.Array.includes(index) |> (!)
+           );
+      let parsedMessage = parseMessage(text, restMentions);
+      onChange(parsedMessage);
+    };
+  };
+
+  let handleMentionOffsetChange = text => {
+    let valueText = current(valueText);
+    let mentions = current(mentions);
+    let unselectedMentions = current(affectedMentions).unselected;
+    let lenDiff = String.(length(text) - length(valueText));
+
+    unselectedMentions->Belt.Array.reduce(
+      mentions,
+      (mentions, index) => {
+        let unselectedMention = mentions[index];
+
+        Belt.Array.setUnsafe(
+          mentions,
+          index,
+          mention(
+            ~mid=midGet(unselectedMention),
+            ~name=nameGet(unselectedMention),
+            ~offset=(
+              unselectedMention->offsetGet->fst->(+)(lenDiff),
+              unselectedMention->offsetGet->snd->(+)(lenDiff),
+            ),
+          ),
+        );
+
+        mentions;
+      },
+    );
+  };
 
   let handleChangeText =
     React.useCallback(text =>
       setTimeout(
         () => {
-          open React.Ref;
-
           Js.log("HANDLE CHANGE TEXT");
           let valueText_ = React.Ref.current(valueText);
           let mentions_ = React.Ref.current(mentions);
@@ -209,20 +250,8 @@ let make =
 
           React.Ref.setCurrent(valueText, text);
 
-          if (Array.length(affectedMentions.selected) > 0) {
-            let restMentions =
-              mentions_
-              |> Js.Array.filteri((mention, index) =>
-                   affectedMentions.selected
-                   |> Js.Array.includes(index)
-                   |> (!)
-                 );
-            Js.log("FORCE ONCHANGE");
-            let parsedMessage: message = parseMessage(text, restMentions);
-            onChange(parsedMessage);
-            /* Js.log(affectedMentions); */
-            /* Js.log(restMentions->Belt.Array.map(nameGet)); */
-          };
+          /* TODO: if remove, do we still need to update offset? */
+          handleMentionRemove(text);
 
           let updatedMentions =
             unselectedMentionIndexes->Belt.Array.reduce(
@@ -277,7 +306,6 @@ let make =
     );
 
   let handleSuggestionPress = (mid, name) => {
-    open React.Ref;
     let valueText_ = current(valueText);
     let affectedMentions_ = current(affectedMentions);
     let mentions_ = current(mentions);
