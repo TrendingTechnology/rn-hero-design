@@ -141,6 +141,7 @@ let getAffectedMentionIndexes = (selection, mentions) => {
 };
 
 let _ACTIVATOR = "@";
+let _SPACES = [|"undefined", " ", "\n"|];
 
 [@react.component]
 let make =
@@ -178,13 +179,22 @@ let make =
     React.useCallback(event => {
       let selection = event##nativeEvent##selection;
       let selectionRange = (selection##start, selection##_end);
-      let setAffectedMentions = () =>
-        setCurrent(
-          affectedMentions,
-          getAffectedMentionIndexes(selectionRange, current(mentions)), /* TODO: latest mentions, is it right? */
-        );
       setCurrent(latestPosition, selection##start);
-      setTimeout(setAffectedMentions, 5); /* when users press a key, selection change will be triggered first and we don't want that */
+      setTimeout(
+        () => {
+          Js.log("SELECT CHANGE");
+          Js.log(selectionRange);
+          Js.log(current(mentions));
+          Js.log(
+            getAffectedMentionIndexes(selectionRange, current(mentions)),
+          );
+          setCurrent(
+            affectedMentions,
+            getAffectedMentionIndexes(selectionRange, current(mentions)),
+          );
+        },
+        10,
+      ); /* when users press a key, selection change will be triggered first and we don't want that */
     });
 
   let handleKeyPress =
@@ -193,124 +203,91 @@ let make =
       setCurrent(latestKey, key);
     });
 
-  let handleMentionRemove = text => {
-    let mentions = current(mentions);
-    let selectedMentions = current(affectedMentions).selected;
-
-    if (Array.length(selectedMentions) > 0) {
-      let restMentions =
-        mentions
-        |> Js.Array.filteri((_, index) =>
-             selectedMentions |> Js.Array.includes(index) |> (!)
-           );
-      let parsedMessage = parseMessage(text, restMentions);
-      onChange(parsedMessage);
-    };
-  };
-
-  let handleMentionOffsetChange = text => {
-    let valueText = current(valueText);
-    let mentions = current(mentions);
-    let unselectedMentions = current(affectedMentions).unselected;
-    let lenDiff = String.(length(text) - length(valueText));
-
-    unselectedMentions->Belt.Array.reduce(
-      mentions,
-      (mentions, index) => {
-        let unselectedMention = mentions[index];
-
-        Belt.Array.setUnsafe(
-          mentions,
-          index,
-          mention(
-            ~mid=midGet(unselectedMention),
-            ~name=nameGet(unselectedMention),
-            ~offset=(
-              unselectedMention->offsetGet->fst->(+)(lenDiff),
-              unselectedMention->offsetGet->snd->(+)(lenDiff),
-            ),
-          ),
-        );
-
-        mentions;
-      },
-    );
-  };
-
   let handleChangeText =
     React.useCallback(text =>
       setTimeout(
-        () => {
-          Js.log("HANDLE CHANGE TEXT");
-          let valueText_ = React.Ref.current(valueText);
-          let mentions_ = React.Ref.current(mentions);
-          let affectedMentions = React.Ref.current(affectedMentions);
-          let diff = String.length(text) - String.length(valueText_);
-          let unselectedMentionIndexes = affectedMentions.unselected;
+        () =>
+          {
+            let mentions_ = current(mentions);
+            let affectedMentions_ = current(affectedMentions);
 
-          React.Ref.setCurrent(valueText, text);
+            setCurrent(valueText, text);
 
-          /* TODO: if remove, do we still need to update offset? */
-          handleMentionRemove(text);
-
-          let updatedMentions =
-            unselectedMentionIndexes->Belt.Array.reduce(
-              mentions_,
-              (updatedMentions, index) => {
-                let currentMention = updatedMentions[index];
-                Belt.Array.setUnsafe(
-                  updatedMentions,
-                  index,
-                  mention(
-                    ~mid=midGet(currentMention),
-                    ~name=nameGet(currentMention),
-                    ~offset=(
-                      currentMention->offsetGet->fst + diff,
-                      currentMention->offsetGet->snd + diff,
-                    ),
-                  ),
-                );
-                updatedMentions;
-              },
-            );
-
-          /* Js.log(mentions_); */
-          /* Js.log(updatedMentions); */
-
-          React.Ref.setCurrent(mentions, updatedMentions);
-
-          /* handle showing suggestions */
-          let latestKey_ = React.Ref.current(latestKey);
-          let latestPosition_ = React.Ref.current(latestPosition);
-          let previousChar =
-            text->Js.String.get(latestPosition_ - 2)->Js.String.make;
-
-          if (!showSuggestions) {
-            if (latestKey_ === _ACTIVATOR
-                && previousChar->Js.Array.includes([|"undefined", " ", "\n"|])) {
-              setShowSuggestions(_ => true);
-              setCurrent(searchPosition, latestPosition_);
+            /* remove mentions */
+            if (Array.length(affectedMentions_.selected) > 0) {
+              let restMentions =
+                mentions_
+                |> Js.Array.filteri((_, index) =>
+                     affectedMentions_.selected
+                     |> Js.Array.includes(index)
+                     |> (!)
+                   );
+              let parsedMessage = parseMessage(text, restMentions);
+              onChange(parsedMessage);
             };
-          } else {
-            let searchValue =
-              Js.String.substring(
-                ~from=current(searchPosition),
-                ~to_=latestPosition_,
-                text,
-              );
-            setSearchValue(_ => searchValue);
-          };
-        },
+
+            /* update mention offset */
+            Js.log("TEXT CHANGE");
+            Js.log(mentions_);
+            Js.log(affectedMentions_);
+            let valueText_ = current(valueText);
+            let lenDiff = String.(length(text) - length(valueText_));
+            let updatedMentions =
+              affectedMentions_.unselected
+              ->Belt.Array.reduce(
+                  mentions_,
+                  (mentions, index) => {
+                    let unselectedMention = mentions[index];
+
+                    Belt.Array.setUnsafe(
+                      mentions,
+                      index,
+                      mention(
+                        ~mid=unselectedMention->midGet,
+                        ~name=unselectedMention->nameGet,
+                        ~offset=(
+                          unselectedMention->offsetGet->fst->(+)(lenDiff),
+                          unselectedMention->offsetGet->snd->(+)(lenDiff),
+                        ),
+                      ),
+                    );
+
+                    mentions;
+                  },
+                );
+
+            setCurrent(mentions, updatedMentions);
+          },
+          /* show suggestions */
+          /* let latestKey_ = current(latestKey); */
+          /* let latestPosition_ = current(latestPosition); */
+          /* let searchPosition_ = current(searchPosition); */
+          /* let previousChar = Js.String.(text->get(latestPosition_ - 2)->make); */
+          /* if (!showSuggestions) { */
+          /*   if (latestKey_ === _ACTIVATOR */
+          /*       && previousChar->Js.Array.includes(_SPACES)) { */
+          /*     setShowSuggestions(_ => true); */
+          /*     setCurrent(searchPosition, latestPosition_); */
+          /*   }; */
+          /* } else { */
+          /*   let searchValue = */
+          /*     Js.String.substring( */
+          /*       ~from=searchPosition_, */
+          /*       ~to_=latestPosition_, */
+          /*       text, */
+          /*     ); */
+          /*   setSearchValue(_ => searchValue); */
+          /* }; */
         4,
       )
     );
 
   let handleSuggestionPress = (mid, name) => {
     let valueText_ = current(valueText);
-    let affectedMentions_ = current(affectedMentions);
     let mentions_ = current(mentions);
+    let affectedMentions_ = current(affectedMentions);
 
-    let temp =
+    let insertPos =
       affectedMentions_.unselected
       ->Belt.Array.get(0)
       ->Belt.Option.getWithDefault(Array.length(mentions_));
@@ -321,19 +298,18 @@ let make =
       ++ " "
       ++ Js.String.substringToEnd(~from=current(searchPosition), valueText_);
 
-    let temp2 =
+    let _ =
       Js.Array.spliceInPlace(
-        ~pos=temp,
+        ~pos=insertPos,
         ~remove=0,
         ~add=[|mention(~mid, ~name="@" ++ name, ~offset=((-1), (-1)))|],
         mentions_,
       );
 
-    Js.log(mentions_);
-
     let parsedMessage: message = parseMessage(updatedValueText, mentions_);
+
+    setShowSuggestions(_ => false);
     onChange(parsedMessage);
-    ();
   };
 
   <RN.View style=theme##mentionTextInput##wrapper>
