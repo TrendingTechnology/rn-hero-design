@@ -36,6 +36,8 @@ let formatTitleString = date =>
 let eqDate = (date1, date2) =>
   Js.Date.(toDateString(date1) === toDateString(date2));
 
+let hasVisibleDate = dates => dates |> Js.Array.some(Belt.Option.isSome);
+
 type color = string;
 
 [@bs.deriving abstract]
@@ -68,29 +70,27 @@ let make =
   let currentMonth = getMonth(currentView);
   let now = Js.Date.make();
 
-  /* 0 -> 6 */
-  let firstDayOfMonth =
-    makeWithYMD(~year=currentYear, ~month=currentMonth, ~date=1.0, ())
-    ->getDay
-    ->int_of_float;
+  let firstDateOfMonth =
+    makeWithYMD(~year=currentYear, ~month=currentMonth, ~date=1.0, ());
 
-  /* 0 -> 6 */
-  let lastDayOfMonth =
-    makeWithYMD(~year=currentYear, ~month=currentMonth +. 1.0, ~date=0.0, ())
-    ->getDay
-    ->int_of_float;
-
-  /* 29, 30, 31 */
   let lastDateOfMonth =
-    makeWithYMD(~year=currentYear, ~month=currentMonth +. 1.0, ~date=0.0, ())
-    ->getDate
-    ->int_of_float;
+    makeWithYMD(~year=currentYear, ~month=currentMonth +. 1.0, ~date=0.0, ());
+
+  let lastDateOfPreviousMonth =
+    makeWithYMD(~year=currentYear, ~month=currentMonth, ~date=0.0, ());
+
+  /* 0 -> 6 */
+  let firstDayOfMonth = firstDateOfMonth->getDay->int_of_float;
+
+  /* 0 -> 6 */
+  let lastDayOfMonth = lastDateOfMonth->getDay->int_of_float;
 
   /* 29, 30, 31 */
-  let lastDateOfPreviousMonth =
-    makeWithYMD(~year=currentYear, ~month=currentMonth, ~date=0.0, ())
-    ->getDate
-    ->int_of_float;
+  let lastDateNumberOfMonth = lastDateOfMonth->getDate->int_of_float;
+
+  /* 29, 30, 31 */
+  let lastDateNumberOfPreviousMonth =
+    lastDateOfPreviousMonth->getDate->int_of_float;
 
   let getValidDay = date => {
     switch (minDate, maxDate) {
@@ -107,7 +107,7 @@ let make =
       firstDayOfMonth,
       index => {
         let reversedIndex = firstDayOfMonth - index - 1;
-        lastDateOfPreviousMonth
+        lastDateNumberOfPreviousMonth
         ->(-)(reversedIndex)
         ->float_of_int
         ->makeWithYMD(
@@ -121,7 +121,7 @@ let make =
     );
 
   let daysOfCurrentMonth =
-    Array.init(lastDateOfMonth, index =>
+    Array.init(lastDateNumberOfMonth, index =>
       index
       ->(+)(1)
       ->float_of_int
@@ -193,12 +193,18 @@ let make =
   };
 
   let showPrevButton =
-    daysOfCurrentMonth->Belt.Array.getUnsafe(0)->Belt.Option.isSome;
+    switch (minDate) {
+    | None => true
+    | Some(minDate) =>
+      daysOfPreviousMonth->hasVisibleDate || minDate < firstDateOfMonth
+    };
 
   let showNextButton =
-    daysOfCurrentMonth
-    ->Belt.Array.getUnsafe(Array.length(daysOfCurrentMonth) - 1)
-    ->Belt.Option.isSome;
+    switch (maxDate) {
+    | None => true
+    | Some(maxDate) =>
+      daysOfNextMonth->hasVisibleDate || maxDate > lastDateOfMonth
+    };
 
   <View style=theme##calendar##wrapper>
     <View style=theme##calendar##header>

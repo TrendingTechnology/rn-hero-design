@@ -7,7 +7,7 @@ import {
 } from 'rn-hero-design';
 
 const CalendarScreen = ({ theme }) => {
-  const minDate = new Date(2020, 0, 28);
+  const minDate = new Date(2020, 0, 31);
   const maxDate = new Date(2020, 2, 20);
   const [value, setValue] = React.useState(new Date(2020, 1, 1));
   const [currentView, setCurrentView] = React.useState(new Date(2020, 1, 1));
