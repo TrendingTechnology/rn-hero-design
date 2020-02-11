@@ -19,58 +19,41 @@ type textBlock = {
 
 type message = array(textBlock);
 
-/* TODO: review later */
-/*rename to serialize*/
-let rec parseMessage: (string, mentions) => message =
-  (message, mentions) => {
-    let indexOfFirstMention = String.index_opt(message, '@');
-    let mentionsLength = Array.length(mentions);
-    let hasAnyMention =
-      Belt.Option.isSome(indexOfFirstMention) && mentionsLength > 0;
-
-    if (hasAnyMention) {
-      let indexOfFirstMention = Belt.Option.getExn(indexOfFirstMention);
-      let headMessage =
-        Js.String.substring(~from=0, ~to_=indexOfFirstMention, message);
-      let tailMessage =
-        Js.String.substringToEnd(~from=indexOfFirstMention, message);
-      let indexOfMatchedMention =
-        mentions->Belt.Array.getIndexBy(mention =>
-          mention->nameGet->Js.String.startsWith(tailMessage)
-        );
-
-      switch (indexOfMatchedMention) {
-      | Some(index) =>
-        let matchedMention = mentions[index];
-        let restMessage =
-          Js.String.substringToEnd(
-            ~from=matchedMention->nameGet->String.length,
-            tailMessage,
-          );
-        let restMentions = Js.Array.filteri((_, i) => i !== index, mentions);
-
-        Array.concat([
-          [|textBlock(~text=headMessage, ~id=None)|],
-          [|
-            textBlock(
-              ~text=nameGet(matchedMention),
-              ~id=Some(midGet(matchedMention)),
+let rec deserialize = (~startIndex=0, text, mentions) =>
+  if (mentions->Array.length->(<=)(0)) {
+    [|
+      textBlock(
+        ~text=Js.String.substringToEnd(~from=startIndex, text),
+        ~id=None,
+      ),
+    |];
+  } else {
+    let head = Belt.Array.slice(mentions, ~offset=0, ~len=1);
+    let tail = Belt.Array.sliceToEnd(mentions, 1);
+    let mention = head[0];
+    Array.append(
+      [|
+        textBlock(
+          ~text=
+            Js.String.substring(
+              ~from=startIndex,
+              ~to_=mention->offsetGet->fst,
+              text,
             ),
-          |],
-          parseMessage(restMessage, restMentions),
-        ]);
-      | None =>
-        Array.concat([
-          [|textBlock(~text=headMessage ++ "@", ~id=None)|],
-          parseMessage(
-            tailMessage->Js.String.substringToEnd(~from=1),
-            mentions,
-          ),
-        ])
-      };
-    } else {
-      [|textBlock(~text=message, ~id=None)|];
-    };
+          ~id=None,
+        ),
+        textBlock(
+          ~text=
+            Js.String.substring(
+              ~from=mention->offsetGet->fst,
+              ~to_=mention->offsetGet->snd->(-)(1),
+              text,
+            ),
+          ~id=Some(mention->midGet),
+        ),
+      |],
+      deserialize(~startIndex=mention->offsetGet->snd->(-)(1), text, tail),
+    );
   };
 
 /*
@@ -118,29 +101,6 @@ type affectedMentionIndexes = {
 /*
  * Get the indexes of mentions, of which offsets may change when the selection changes
  */
-/* let getAffectedMentionIndexes = (selection, mentions) => { */
-/*   let init: affectedMentionIndexes = {selected: [||], unselected: [||]}; */
-
-/*   mentions->Belt.Array.reduceWithIndex( */
-/*     init, */
-/*     (indexes, mention, index) => { */
-/*       let offset = mention->offsetGet; */
-/*       let {selected, unselected} = indexes; */
-/*       let isUnselected = fst(offset) >= snd(selection); */
-/*       let isSelected = */
-/*         fst(offset) < snd(selection) && snd(offset) > fst(selection); */
-
-/*       if (isSelected) { */
-/*         {...indexes, selected: Array.append(selected, [|index|])}; */
-/*       } else if (isUnselected) { */
-/*         {...indexes, unselected: Array.append(unselected, [|index|])}; */
-/*       } else { */
-/*         indexes; */
-/*       }; */
-/*     }, */
-/*   ); */
-/* }; */
-
 let getAffectedMentionIndexes = (~selection, mentions) =>
   mentions->Belt.Array.reduceWithIndex(
     ([||], [||]),
@@ -169,7 +129,6 @@ let make =
     (
       ~value: message,
       ~onChange,
-      ~suggestionData,
       ~renderSuggestionList,
       ~theme=Hero_Theme.default,
     ) => {
@@ -206,7 +165,7 @@ let make =
     [|value|],
   );
 
-  let onChange = () => {
+  let handleChange = () => {
     let eventKey = eventKey^;
     let eventText = eventText^;
     let eventSelection = eventSelection^;
@@ -219,17 +178,46 @@ let make =
 
     | (Some(key), Some(text), Some(selection)) =>
       let previousSelection_ = current(previousSelection);
-      Js.log(key);
-      Js.log(text);
-      Js.log(previousSelection_);
-      let mentions = getMentionsFromMessage(value);
+      let mentions_ = current(mentions);
+      let valueText_ = current(valueText);
       let (selectedMentionIndexes, unselectedMentionIndexes) =
-        getAffectedMentionIndexes(~selection=previousSelection_, mentions);
-      Js.log("=======");
-      Js.log(selectedMentionIndexes);
-      Js.log(unselectedMentionIndexes);
+        getAffectedMentionIndexes(~selection=previousSelection_, mentions_);
 
-      setRenderCount(renderCount => renderCount + 1);
+      let lenDiff = Js.String.(length(text) - length(valueText_));
+
+      /* update offset */
+      /* modify mentions_ */
+      unselectedMentionIndexes
+      |> Js.Array.forEach(index => {
+           let unselectedMention = mentions_[index];
+           mentions_->Array.set(
+             index,
+             mention(
+               ~mid=unselectedMention->midGet,
+               ~name=unselectedMention->nameGet,
+               ~offset=(
+                 unselectedMention->offsetGet->fst->(+)(lenDiff),
+                 unselectedMention->offsetGet->snd->(+)(lenDiff),
+               ),
+             ),
+           );
+         });
+
+      /* remove selected mentions */
+      let restMentions =
+        if (Array.length(selectedMentionIndexes) > 0) {
+          mentions_
+          |> Js.Array.filteri((_, index) =>
+               selectedMentionIndexes |> Js.Array.includes(index) |> (!)
+             );
+        } else {
+          mentions_;
+        };
+
+      onChange(deserialize(text, restMentions));
+
+      /* setRenderCount(renderCount => renderCount + 1); */
+
       setCurrent(previousSelection, selection);
       ();
 
@@ -239,43 +227,21 @@ let make =
 
   let handleSelectionChange =
     React.useCallback(event => {
-      /* Js.log("SELECTION CHANGE"); */
       let selection = event##nativeEvent##selection;
       eventSelection := Some((selection##start, selection##_end));
-      onChange();
-      /* setCurrent(previousSelection, (selection##start, selection##_end)); */
-      /* let selectionRange = (selection##start, selection##_end); */
-      /* setCurrent(latestPosition, selection##start); */
-      /* setTimeout( */
-      /*   () => { */
-      /*     Js.log("SELECT CHANGE"); */
-      /*     Js.log(selectionRange); */
-      /*     Js.log(current(mentions)); */
-      /*     Js.log( */
-      /*       getAffectedMentionIndexes(selectionRange, current(mentions)), */
-      /*     ); */
-      /*     setCurrent( */
-      /*       affectedMentions, */
-      /*       getAffectedMentionIndexes(selectionRange, current(mentions)), */
-      /*     ); */
-      /*   }, */
-      /*   10, */
-      /* ); [> when users press a key, selection change will be triggered first and we don't want that <] */
-      ();
+      handleChange();
     });
 
   let handleKeyPress =
     React.useCallback(event => {
       eventKey := Some(event##nativeEvent##key);
-      onChange();
+      handleChange();
     });
 
   let handleChangeText =
     React.useCallback(text => {
-      /* Js.log("CHANGE TEXT"); */
-
       eventText := Some(text);
-      onChange();
+      handleChange();
 
       /* valueText := text; */
       /* setTimeout( */

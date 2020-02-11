@@ -19,7 +19,7 @@ import {
 
 const sampleValue = [
   {
-    text: 'Thanks ',
+    text: 'Test ',
   },
   {
     text: '@Gia Toan',
@@ -34,13 +34,6 @@ const sampleValue = [
   },
   {
     text: ' and ',
-  },
-  {
-    text: '@Gia Toan',
-    id: 1,
-  },
-  {
-    text: ' for implementing such a great component',
   },
 ];
 
