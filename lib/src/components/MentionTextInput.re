@@ -112,33 +112,43 @@ let serialize: (string, mentions) => message =
        );
   };
 
-type affectedMentionIndexes = {
-  selected: array(int),
-  unselected: array(int),
-};
+type selection = (int, int);
 
-/*
- * Get the indexes of mentions, of which offsets may change when the selection changes
- */
-let getAffectedMentionIndexes = (~selection, mentions) =>
-  mentions->Belt.Array.reduceWithIndex(
-    ([||], [||]),
-    (affectedIndexes, mention, index) => {
-      let offset = mention->offsetGet;
-      let isSelected =
-        fst(offset) < snd(selection) && snd(offset) > fst(selection);
-      let isUnselected = fst(offset) >= snd(selection);
-      let (selectedIndexes, unselectedIndexes) = affectedIndexes;
+type affectedMentionIndexes = (array(int), array(int));
 
-      if (isSelected) {
-        (Array.append(selectedIndexes, [|index|]), unselectedIndexes);
-      } else if (isUnselected) {
-        (selectedIndexes, Array.append(unselectedIndexes, [|index|]));
-      } else {
-        affectedIndexes;
-      };
-    },
-  );
+let getAffectedMentionIndexes:
+  (~selection: selection, mentions) => affectedMentionIndexes =
+  (~selection, mentions) => {
+    Js.Array.(
+      mentions
+      |> reducei(
+           (affectedIndexes, mention, index) => {
+             let offset = mention->offsetGet;
+             let (startOffset, endOffset) = offset;
+             let (startSel, endSel) = selection;
+             let (selectedIndexes, unselectedIndexes) = affectedIndexes;
+
+             let isSelected = startOffset < endSel && endOffset > startSel;
+             let isUnselected = startOffset >= endSel;
+
+             if (isSelected) {
+               (
+                 index->castArray->concat(selectedIndexes),
+                 unselectedIndexes,
+               );
+             } else if (isUnselected) {
+               (
+                 selectedIndexes,
+                 index->castArray->concat(unselectedIndexes),
+               );
+             } else {
+               affectedIndexes;
+             };
+           },
+           ([||], [||]),
+         )
+    );
+  };
 
 let _ACTIVATOR = "@";
 let _SPACES = [|"undefined", " ", "\n"|];
