@@ -1,96 +1,115 @@
 module RN = ReactNative;
 
-[@bs.val] external setTimeout: (unit => unit, int) => unit = "setTimeout";
+let castArray: 't => array('t) = value => [|value|];
+
+let arrayInsertAt = (~pos, ~value, array_) =>
+  Js.Array.(
+    value
+    ->castArray
+    ->concat(slice(~start=0, ~end_=pos, array_))
+    ->concat(slice(~start=pos, ~end_=length(array_), array_), _)
+  );
+
+let stringInsertAt = (~pos, ~value, string_) =>
+  Js.String.(
+    value
+    ->concat(substring(~from=0, ~to_=pos, string_))
+    ->concat(substringToEnd(~from=pos, string_), _)
+  );
+
+[@bs.deriving abstract]
+type textBlock = {
+  ref: option(string),
+  text: string,
+};
+
+type message = array(textBlock);
 
 [@bs.deriving abstract]
 type mention = {
-  mid: string,
+  id: string,
   name: string,
   offset: (int, int),
 };
 
 type mentions = array(mention);
 
-[@bs.deriving abstract]
-type textBlock = {
-  id: option(string),
-  text: string,
-};
+let deserialize: message => (string, mentions) =
+  message => {
+    open Js.Array;
 
-type message = array(textBlock);
+    let text = message |> map(textGet) |> joinWith("");
+    let startOffset = ref(0);
+    let mentions =
+      message
+      |> reduce(
+           (mentions, textBlock) => {
+             let ref = textBlock->refGet;
+             let text = textBlock->textGet;
+             let textLength = text->String.length;
+             let endOffset = startOffset^ + textLength;
+             let result =
+               switch (ref) {
+               | None => mentions
+               | Some(ref) =>
+                 mention(
+                   ~id=ref,
+                   ~name=text,
+                   ~offset=(startOffset^, endOffset + 1) /* include the char after */
+                 )
+                 ->castArray
+                 ->concat(mentions)
+               };
 
-let rec deserialize = (~startIndex=0, text, mentions) =>
-  if (mentions->Array.length->(<=)(0)) {
-    [|
-      textBlock(
-        ~text=Js.String.substringToEnd(~from=startIndex, text),
-        ~id=None,
-      ),
-    |];
-  } else {
-    let head = Belt.Array.slice(mentions, ~offset=0, ~len=1);
-    let tail = Belt.Array.sliceToEnd(mentions, 1);
-    let mention = head[0];
-    Array.append(
-      [|
-        textBlock(
-          ~text=
-            Js.String.substring(
-              ~from=startIndex,
-              ~to_=mention->offsetGet->fst,
-              text,
-            ),
-          ~id=None,
-        ),
-        textBlock(
-          ~text=
-            Js.String.substring(
-              ~from=mention->offsetGet->fst,
-              ~to_=mention->offsetGet->snd->(-)(1),
-              text,
-            ),
-          ~id=Some(mention->midGet),
-        ),
-      |],
-      deserialize(~startIndex=mention->offsetGet->snd->(-)(1), text, tail),
-    );
+             startOffset := endOffset;
+
+             result;
+           },
+           [||],
+         );
+
+    (text, mentions);
   };
 
-/*
- * Extract all mentioned users in message, in order
- */
-let getMentionsFromMessage: message => mentions =
-  message => {
-    let startOffset = ref(0);
+let serialize: (string, mentions) => message =
+  (text, mentions) => {
+    open Js.String;
 
-    message->Belt.Array.reduce(
-      [||],
-      (mentions, textBlock) => {
-        let id = textBlock->idGet;
-        let text = textBlock->textGet;
-        let textLength = text->String.length;
-        let endOffset = startOffset^ + textLength;
-        let result =
-          switch (id) {
-          | Some(id) =>
-            Belt.Array.concat(
-              mentions,
-              [|
-                mention(
-                  ~mid=id,
-                  ~name=text,
-                  ~offset=(startOffset^, endOffset + 1) /* include the space after */
-                ),
-              |],
-            )
-          | None => mentions
-          };
+    let startIndex = ref(0);
 
-        startOffset := endOffset;
+    mentions
+    |> Js.Array.reduce(
+         (message, mention) => {
+           let id = mention->idGet;
+           let (startOffset, endOffset) = mention->offsetGet;
+           let result =
+             [|
+               textBlock(
+                 ~ref=None,
+                 ~text=text |> substring(~from=startIndex^, ~to_=startOffset),
+               ),
+               textBlock(
+                 ~ref=Some(id),
+                 ~text=
+                   text |> substring(~from=startOffset, ~to_=endOffset - 1),
+               ),
+             |]
+             ->Js.Array.concat(message);
 
-        result;
-      },
-    );
+           startIndex := endOffset - 1;
+
+           result;
+         },
+         [||],
+       )
+    |> Js.Array.concat(
+         castArray(
+           textBlock(
+             ~ref=None,
+             ~text=text |> substringToEnd(~from=startIndex^),
+           ),
+         ),
+       );
   };
 
 type affectedMentionIndexes = {
@@ -139,7 +158,7 @@ let make =
 
   /* let latestKey = React.useRef(""); */
   /* let latestPosition = React.useRef(0); */
-  /* let searchPosition = React.useRef(0); */
+  let searchPosition = React.useRef(0);
   /* let affectedMentions = React.useRef({selected: [||], unselected: [||]}); */
 
   let (showSuggestions, setShowSuggestions) = React.useState(() => false);
@@ -155,11 +174,9 @@ let make =
 
   React.useEffect1(
     () => {
-      /*only calculate when value change*/
-
-      open Js.Array;
-      setCurrent(valueText, value |> map(textGet) |> joinWith(""));
-      setCurrent(mentions, value |> getMentionsFromMessage);
+      let (valueText_, mentions_) = deserialize(value);
+      setCurrent(valueText, valueText_);
+      setCurrent(mentions, mentions_);
       None;
     },
     [|value|],
@@ -193,7 +210,7 @@ let make =
            mentions_->Array.set(
              index,
              mention(
-               ~mid=unselectedMention->midGet,
+               ~id=unselectedMention->idGet,
                ~name=unselectedMention->nameGet,
                ~offset=(
                  unselectedMention->offsetGet->fst->(+)(lenDiff),
@@ -214,7 +231,29 @@ let make =
           mentions_;
         };
 
-      onChange(deserialize(text, restMentions));
+      /*show suggestions*/
+      if (!showSuggestions) {
+        let position = selection->fst;
+        let previousChar = Js.String.get(text, position - 2);
+        let canShowSuggestion =
+          position < 2 || previousChar === " " || previousChar === "\n";
+
+        if (key === _ACTIVATOR && canShowSuggestion) {
+          setShowSuggestions(_ => true);
+          setCurrent(searchPosition, position);
+        };
+      } else {
+        let searchPosition_ = current(searchPosition);
+        let searchValue =
+          Js.String.substring(
+            ~from=searchPosition_,
+            ~to_=selection->fst,
+            text,
+          );
+        setSearchValue(_ => searchValue);
+      };
+
+      onChange(serialize(text, restMentions));
 
       /* setRenderCount(renderCount => renderCount + 1); */
 
@@ -277,7 +316,7 @@ let make =
       /*               mentions, */
       /*               index, */
       /*               mention( */
-      /*                 ~mid=unselectedMention->midGet, */
+      /*                 ~id=unselectedMention->idGet, */
       /*                 ~name=unselectedMention->nameGet, */
       /*                 ~offset=( */
       /*                   unselectedMention->offsetGet->fst->(+)(lenDiff), */
@@ -315,7 +354,7 @@ let make =
       ();
     });
 
-  let handleSuggestionPress = (mid, name) => {
+  let handleSuggestionPress = (id, name) => {
     /* let valueText_ = current(valueText); */
     /* let mentions_ = current(mentions); */
     /* let affectedMentions_ = current(affectedMentions); */
@@ -332,7 +371,7 @@ let make =
     /*   Js.Array.spliceInPlace( */
     /*     ~pos=insertPos, */
     /*     ~remove=0, */
-    /*     ~add=[|mention(~mid, ~name="@" ++ name, ~offset=((-1), (-1)))|], */
+    /*     ~add=[|mention(~id, ~name="@" ++ name, ~offset=((-1), (-1)))|], */
     /*     mentions_, */
     /*   ); */
     /* let parsedMessage: message = parseMessage(updatedValueText, mentions_); */
@@ -349,7 +388,7 @@ let make =
       <RN.Text style={theme##mentionTextInput##text}>
         {value
          ->Belt.Array.mapWithIndex((index, textBlock) => {
-             switch (textBlock->idGet) {
+             switch (textBlock->refGet) {
              | Some(_) =>
                <RN.Text
                  key={string_of_int(index)}

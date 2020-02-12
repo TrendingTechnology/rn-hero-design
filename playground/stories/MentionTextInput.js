@@ -23,14 +23,14 @@ const sampleValue = [
   },
   {
     text: '@Gia Toan',
-    id: 1,
+    ref: 1,
   },
   {
     text: ' and ',
   },
   {
     text: '@Gia Toan',
-    id: 1,
+    ref: 1,
   },
   {
     text: ' and ',
