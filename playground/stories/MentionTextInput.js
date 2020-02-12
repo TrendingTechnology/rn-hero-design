@@ -23,14 +23,21 @@ const sampleValue = [
   },
   {
     text: '@Gia Toan',
-    ref: 1,
+    ref: '1',
   },
   {
     text: ' and ',
   },
   {
-    text: '@Gia Toan',
-    ref: 1,
+    text: '@Khanh',
+    ref: '2',
+  },
+  {
+    text: ' and ',
+  },
+  {
+    text: '@Bim',
+    ref: '3',
   },
   {
     text: ' and ',
@@ -90,12 +97,12 @@ const MentionTextInputScreen = ({ theme }) => {
                 keyboardShouldPersistTaps="handled"
                 keyboardDismissMode="on-drag"
                 data={[
-                  { id: 1, name: 'Gia Toan', job: 'Frontend developer' },
-                  { id: 2, name: 'Huy Vo', job: 'Frontend developer' },
-                  { id: 3, name: 'Tuan Mai', job: 'Frontend developer' },
-                  { id: 4, name: 'Kien Tran', job: 'Frontend developer' },
-                  { id: 5, name: 'Nam Vo', job: 'Frontend developer' },
-                  { id: 6, name: 'Tuan Mai', job: 'Frontend developer' },
+                  { id: '1', name: 'Gia Toan', job: 'Frontend developer' },
+                  { id: '2', name: 'Huy Vo', job: 'Frontend developer' },
+                  { id: '3', name: 'Tuan Mai', job: 'Frontend developer' },
+                  { id: '4', name: 'Kien Tran', job: 'Frontend developer' },
+                  { id: '5', name: 'Nam Vo', job: 'Frontend developer' },
+                  { id: '6', name: 'Tuan Mai', job: 'Frontend developer' },
                 ].filter(({ name }) =>
                   name.toLowerCase().includes(searchValue.toLowerCase()),
                 )}

@@ -29,7 +29,7 @@ type message = array(textBlock);
 type mention = {
   id: string,
   name: string,
-  offset: (int, int),
+  mutable offset: (int, int),
 };
 
 type mentions = array(mention);
@@ -150,9 +150,6 @@ let getAffectedMentionIndexes:
     );
   };
 
-let _ACTIVATOR = "@";
-let _SPACES = [|"undefined", " ", "\n"|];
-
 [@react.component]
 let make =
     (
@@ -165,28 +162,23 @@ let make =
 
   let valueText = React.useRef("");
   let mentions = React.useRef([||]);
-
-  /* let latestKey = React.useRef(""); */
-  /* let latestPosition = React.useRef(0); */
   let searchPosition = React.useRef(0);
-  /* let affectedMentions = React.useRef({selected: [||], unselected: [||]}); */
+  let previousSelection = React.useRef((0, 0));
 
   let (showSuggestions, setShowSuggestions) = React.useState(() => false);
   let (searchValue, setSearchValue) = React.useState(() => "");
 
-  let eventText = ref(None);
   let eventKey = ref(None);
+  let eventText = ref(None);
   let eventSelection = ref(None);
-  let previousSelection = React.useRef((0, 0));
-
-  /* HACK!!!, consider using value if performance is ok */
-  let (_renderCount, setRenderCount) = React.useState(() => 0);
 
   React.useEffect1(
     () => {
       let (valueText_, mentions_) = deserialize(value);
+
       setCurrent(valueText, valueText_);
       setCurrent(mentions, mentions_);
+
       None;
     },
     [|value|],
@@ -199,76 +191,65 @@ let make =
 
     switch (eventKey, eventText, eventSelection) {
     | (None, None, Some(selection)) =>
-      Js.log("ONLY SELECTION CHANGE LOL!!!");
-      setCurrent(previousSelection, selection);
-    /* setRenderCount(renderCount => renderCount + 1); */
+      setCurrent(previousSelection, selection)
 
     | (Some(key), Some(text), Some(selection)) =>
-      let previousSelection_ = current(previousSelection);
-      let mentions_ = current(mentions);
       let valueText_ = current(valueText);
-      let (selectedMentionIndexes, unselectedMentionIndexes) =
+      let mentions_ = current(mentions);
+      let previousSelection_ = current(previousSelection);
+
+      let currentPos = fst(selection);
+      let textDiff = Js.String.(length(text) - length(valueText_));
+      let (selectedIndexes, unselectedIndexes) =
         getAffectedMentionIndexes(~selection=previousSelection_, mentions_);
 
-      let lenDiff = Js.String.(length(text) - length(valueText_));
+      /* shift offsets, mutate mentions */
+      Js.Array.(
+        unselectedIndexes
+        |> forEach(index => {
+             let unselectedMention = mentions_[index];
+             let (startOffset, endOffset) = unselectedMention->offsetGet;
 
-      /* update offset */
-      /* modify mentions_ */
-      unselectedMentionIndexes
-      |> Js.Array.forEach(index => {
-           let unselectedMention = mentions_[index];
-           mentions_->Array.set(
-             index,
-             mention(
-               ~id=unselectedMention->idGet,
-               ~name=unselectedMention->nameGet,
-               ~offset=(
-                 unselectedMention->offsetGet->fst->(+)(lenDiff),
-                 unselectedMention->offsetGet->snd->(+)(lenDiff),
-               ),
-             ),
-           );
-         });
+             unselectedMention->offsetSet((
+               startOffset + textDiff,
+               endOffset + textDiff,
+             ));
+           })
+      );
 
-      /* remove selected mentions */
-      let restMentions =
-        if (Array.length(selectedMentionIndexes) > 0) {
-          mentions_
-          |> Js.Array.filteri((_, index) =>
-               selectedMentionIndexes |> Js.Array.includes(index) |> (!)
-             );
-        } else {
-          mentions_;
-        };
+      /* remove selected, mutate mentions */
+      Js.Array.(
+        selectedIndexes
+        |> reverseInPlace
+        |> forEach(index => {
+             let _ =
+               mentions_ |> spliceInPlace(~pos=index, ~remove=1, ~add=[||]);
+             ();
+           })
+      );
 
-      /*show suggestions*/
       if (!showSuggestions) {
-        let position = selection->fst;
-        let previousChar = Js.String.get(text, position - 2);
-        let canShowSuggestion =
-          position < 2 || previousChar === " " || previousChar === "\n";
-
-        if (key === _ACTIVATOR && canShowSuggestion) {
+        if (key === "@") {
+          setSearchValue(_ => "");
           setShowSuggestions(_ => true);
-          setCurrent(searchPosition, position);
+          setCurrent(searchPosition, currentPos);
         };
-      } else {
-        let searchPosition_ = current(searchPosition);
-        let searchValue =
-          Js.String.substring(
-            ~from=searchPosition_,
-            ~to_=selection->fst,
-            text,
-          );
-        setSearchValue(_ => searchValue);
       };
 
-      onChange(serialize(text, restMentions));
+      if (showSuggestions) {
+        if (key === " " || key === "Enter") {
+          setShowSuggestions(_ => false);
+        } else {
+          let searchPosition_ = current(searchPosition);
+          let searchValue =
+            Js.String.substring(~from=searchPosition_, ~to_=currentPos, text);
 
-      /* setRenderCount(renderCount => renderCount + 1); */
+          setSearchValue(_ => searchValue);
+        };
+      };
 
+      onChange(serialize(text, mentions_));
       setCurrent(previousSelection, selection);
-      ();
 
     | _ => ()
     };
@@ -283,7 +264,8 @@ let make =
 
   let handleKeyPress =
     React.useCallback(event => {
-      eventKey := Some(event##nativeEvent##key);
+      let key = event##nativeEvent##key;
+      eventKey := Some(key);
       handleChange();
     });
 
@@ -291,127 +273,76 @@ let make =
     React.useCallback(text => {
       eventText := Some(text);
       handleChange();
-
-      /* valueText := text; */
-      /* setTimeout( */
-      /*   () => { */
-      /*     let mentions_ = current(mentions); */
-      /*     let affectedMentions_ = current(affectedMentions); */
-      /*     setCurrent(valueText, text); */
-      /*     [> remove mentions <] */
-      /*     if (Array.length(affectedMentions_.selected) > 0) { */
-      /*       let restMentions = */
-      /*         mentions_ */
-      /*         |> Js.Array.filteri((_, index) => */
-      /*              affectedMentions_.selected */
-      /*              |> Js.Array.includes(index) */
-      /*              |> (!) */
-      /*            ); */
-      /*       let parsedMessage = parseMessage(text, restMentions); */
-      /*       onChange(parsedMessage); */
-      /*     }; */
-      /*     [> update mention offset <] */
-      /*     Js.log("TEXT CHANGE"); */
-      /*     Js.log(mentions_); */
-      /*     Js.log(affectedMentions_); */
-      /*     let valueText_ = current(valueText); */
-      /*     let lenDiff = String.(length(text) - length(valueText_)); */
-      /*     let updatedMentions = */
-      /*       affectedMentions_.unselected */
-      /*       ->Belt.Array.reduce( */
-      /*           mentions_, */
-      /*           (mentions, index) => { */
-      /*             let unselectedMention = mentions[index]; */
-      /*             Belt.Array.setUnsafe( */
-      /*               mentions, */
-      /*               index, */
-      /*               mention( */
-      /*                 ~id=unselectedMention->idGet, */
-      /*                 ~name=unselectedMention->nameGet, */
-      /*                 ~offset=( */
-      /*                   unselectedMention->offsetGet->fst->(+)(lenDiff), */
-      /*                   unselectedMention->offsetGet->snd->(+)(lenDiff), */
-      /*                 ), */
-      /*               ), */
-      /*             ); */
-      /*             mentions; */
-      /*           }, */
-      /*         ); */
-      /*     setCurrent(mentions, updatedMentions); */
-      /*   }, */
-      /* show suggestions */
-      /* let latestKey_ = current(latestKey); */
-      /* let latestPosition_ = current(latestPosition); */
-      /* let searchPosition_ = current(searchPosition); */
-      /* let previousChar = Js.String.(text->get(latestPosition_ - 2)->make); */
-      /* if (!showSuggestions) { */
-      /*   if (latestKey_ === _ACTIVATOR */
-      /*       && previousChar->Js.Array.includes(_SPACES)) { */
-      /*     setShowSuggestions(_ => true); */
-      /*     setCurrent(searchPosition, latestPosition_); */
-      /*   }; */
-      /* } else { */
-      /*   let searchValue = */
-      /*     Js.String.substring( */
-      /*       ~from=searchPosition_, */
-      /*       ~to_=latestPosition_, */
-      /*       text, */
-      /*     ); */
-      /*   setSearchValue(_ => searchValue); */
-      /* }; */
-      /* 4, */
-      /* ) */
-      ();
     });
 
   let handleSuggestionPress = (id, name) => {
-    /* let valueText_ = current(valueText); */
-    /* let mentions_ = current(mentions); */
-    /* let affectedMentions_ = current(affectedMentions); */
-    /* let insertPos = */
-    /*   affectedMentions_.unselected */
-    /*   ->Belt.Array.get(0) */
-    /*   ->Belt.Option.getWithDefault(Array.length(mentions_)); */
-    /* let updatedValueText = */
-    /*   Js.String.substring(~from=0, ~to_=current(searchPosition), valueText_) */
-    /*   ++ name */
-    /*   ++ " " */
-    /*   ++ Js.String.substringToEnd(~from=current(searchPosition), valueText_); */
-    /* let _ = */
-    /*   Js.Array.spliceInPlace( */
-    /*     ~pos=insertPos, */
-    /*     ~remove=0, */
-    /*     ~add=[|mention(~id, ~name="@" ++ name, ~offset=((-1), (-1)))|], */
-    /*     mentions_, */
-    /*   ); */
-    /* let parsedMessage: message = parseMessage(updatedValueText, mentions_); */
-    /* setShowSuggestions(_ => false); */
-    /* onChange(parsedMessage); */
+    let valueText_ = current(valueText);
+    let mentions_ = current(mentions);
+    let searchPosition_ = current(searchPosition);
+    let previousSelection_ = current(previousSelection);
+
+    let insertText = name ++ " ";
+    let textDiff = Js.String.length(insertText);
+    let (_, unselectedIndexes) =
+      getAffectedMentionIndexes(~selection=previousSelection_, mentions_);
+    let insertPos =
+      unselectedIndexes
+      ->Belt.Array.get(0)
+      ->Belt.Option.getWithDefault(Js.Array.length(mentions_));
+    let newMention =
+      mention(
+        ~id,
+        ~name="@" ++ name,
+        ~offset=(searchPosition_ - 1, searchPosition_ + textDiff),
+      );
+
+    /* shift offsets, mutate mentions */
+    Js.Array.(
+      unselectedIndexes
+      |> forEach(index => {
+           let unselectedMention = mentions_[index];
+           let (startOffset, endOffset) = unselectedMention->offsetGet;
+
+           unselectedMention->offsetSet((
+             startOffset + textDiff,
+             endOffset + textDiff,
+           ));
+         })
+    );
+
+    let valueText_ =
+      stringInsertAt(~pos=searchPosition_, ~value=insertText, valueText_);
+
+    let mentions_ =
+      arrayInsertAt(~pos=insertPos, ~value=newMention, mentions_);
+
+    onChange(serialize(valueText_, mentions_));
+    setShowSuggestions(_ => false);
   };
 
   <RN.View style=theme##mentionTextInput##wrapper>
     <TextInput
+      multiline=true
       onChangeText=handleChangeText
       onKeyPress=handleKeyPress
-      multiline=true
       onSelectionChange=handleSelectionChange>
       <RN.Text style={theme##mentionTextInput##text}>
         {value
-         ->Belt.Array.mapWithIndex((index, textBlock) => {
-             switch (textBlock->refGet) {
-             | Some(_) =>
-               <RN.Text
-                 key={string_of_int(index)}
-                 style={theme##mentionTextInput##highlightText}>
-                 {textBlock->textGet->React.string}
-               </RN.Text>
-             | None =>
-               <RN.Text key={string_of_int(index)}>
-                 {textBlock->textGet->React.string}
-               </RN.Text>
-             }
-           })
-         ->React.array}
+         |> Js.Array.mapi((textBlock, index) => {
+              switch (textBlock->refGet) {
+              | Some(_) =>
+                <RN.Text
+                  key={index->string_of_int}
+                  style={theme##mentionTextInput##highlightText}>
+                  {textBlock->textGet->React.string}
+                </RN.Text>
+              | None =>
+                <RN.Text key={index->string_of_int}>
+                  {textBlock->textGet->React.string}
+                </RN.Text>
+              }
+            })
+         |> React.array}
       </RN.Text>
     </TextInput>
     {showSuggestions
