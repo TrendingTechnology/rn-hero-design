@@ -79,6 +79,25 @@ Object {
       "height": 48.75,
       "width": 48.75,
     },
+    "smallImage": Object {
+      "borderRadius": 12.1875,
+      "height": 24.375,
+      "width": 24.375,
+    },
+    "smallTitle": Object {
+      "fontSize": 12.1875,
+      "fontWeight": "400",
+    },
+    "smallTitleWrapper": Object {
+      "borderRadius": 12.1875,
+      "borderWidth": 1,
+      "height": 24.375,
+      "width": 24.375,
+    },
+    "smallWrapper": Object {
+      "height": 24.375,
+      "width": 24.375,
+    },
     "title": Object {
       "color": "#003580",
       "fontFamily": "Proxima Nova",
@@ -321,6 +340,30 @@ Object {
       "paddingVertical": 16.25,
     },
   },
+  "mentionTextInput": Object {
+    "highlightText": Object {
+      "backgroundColor": "#b5eeff",
+      "borderRadius": 2,
+    },
+    "suggestionWrapper": Object {
+      "backgroundColor": "#fcfcfc",
+      "borderRadius": 4,
+      "marginTop": -41.8625,
+      "shadowColor": "#000000",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.4,
+      "shadowRadius": 4,
+    },
+    "text": Object {
+      "color": "#000000",
+      "fontFamily": "Proxima Nova",
+      "fontSize": 16.25,
+    },
+    "wrapper": Object {},
+  },
   "message": Object {
     "content": Object {
       "fontFamily": "Proxima Nova",
@@ -547,6 +590,7 @@ Object {
     "INFO_COLOR": "#1dbeee",
     "INVERTED_TEXT_COLOR": "#fcfcfc",
     "LARGE_SIZE": 24.375,
+    "LIGHT_PRIMARY_COLOR": "#b5eeff",
     "LINK_TEXT_COLOR": "#1dbeee",
     "MAGENTA": "#ee1d84",
     "MEDIUM_SIZE": 16.25,
