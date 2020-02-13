@@ -258,6 +258,13 @@ let make =
         };
       };
 
+      /*
+       * due to async setState, shifting offsets may be incorrect if user types super fast.
+       * Setting refs to keep them up to date to prevent this bug
+       */
+      setCurrent(valueText, text);
+      setCurrent(mentions, mentions_);
+
       onChange(serialize(text, mentions_));
       setCurrent(previousSelection, selection);
 
@@ -342,6 +349,7 @@ let make =
       placeholder
       rightIcon
       multiline=true
+      autoCorrect=true
       onKeyPress=handleKeyPress
       onChangeText=handleChangeText
       onSelectionChange=handleSelectionChange>
