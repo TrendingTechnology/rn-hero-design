@@ -51,7 +51,7 @@ const AppNavigator = createStackNavigator(
     ...routes,
   },
   {
-    initialRouteName: 'MentionTextInput',
+    initialRouteName: 'Home',
   },
 );
 

@@ -10,11 +10,11 @@ let arrayInsertAt = (~pos, ~value, array_) =>
     ->concat(slice(~start=pos, ~end_=length(array_), array_), _)
   );
 
-let stringInsertAt = (~pos, ~value, string_) =>
+let stringReplace = (~from, ~to_, ~value, string_) =>
   Js.String.(
     value
-    ->concat(substring(~from=0, ~to_=pos, string_))
-    ->concat(substringToEnd(~from=pos, string_), _)
+    ->concat(substring(~from=0, ~to_=from, string_))
+    ->concat(substringToEnd(~from=to_, string_), _)
   );
 
 [@bs.deriving abstract]
@@ -160,6 +160,7 @@ let make =
       ~value: message,
       ~onChange: message => unit,
       ~renderSuggestionList,
+      ~rightIcon,
       ~theme=Hero_Theme.default,
     ) => {
   open React.Ref;
@@ -272,6 +273,7 @@ let make =
 
     let insertText = name ++ " ";
     let textDiff = Js.String.length(insertText);
+    let currentPosition = fst(previousSelection_);
     let (_, unselectedIndexes) =
       getAffectedMentionIndexes(~selection=previousSelection_, mentions_);
     let insertPos =
@@ -300,8 +302,9 @@ let make =
     );
 
     let valueText_ =
-      stringInsertAt(
-        ~pos=searchStartPosition_,
+      stringReplace(
+        ~from=searchStartPosition_,
+        ~to_=currentPosition,
         ~value=insertText,
         valueText_,
       );
@@ -337,6 +340,7 @@ let make =
     <TextInput
       testID
       placeholder
+      rightIcon
       multiline=true
       onKeyPress=handleKeyPress
       onChangeText=handleChangeText

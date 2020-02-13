@@ -1,6 +1,6 @@
 open ReactNative;
 
-let isEmptyString = str => String.length(str) == 0;
+let isEmpty = str => String.length(str) == 0;
 
 let emptyStyle = Style.style();
 
@@ -38,6 +38,19 @@ let make =
       ~theme=Hero_Theme.default,
     ) => {
   let (focused, setFocused) = React.useState(() => false);
+  let placeholder =
+    switch (placeholder, focused) {
+    | ("", true) => ""
+    | ("", false) => label
+    | _ => placeholder
+    };
+  let label =
+    switch (value, focused) {
+    | (_, true) => label
+    | (Some(value), _) when !isEmpty(value) => label
+    | _ => ""
+    };
+
   let handleFocus =
     React.useCallback2(
       _ => {
@@ -47,6 +60,7 @@ let make =
       },
       (onFocus, setFocused),
     );
+
   let handleBlur =
     React.useCallback2(
       _ => {
@@ -63,22 +77,22 @@ let make =
       style={StyleSheet.flatten([|
         theme##textInput##label,
         focused ? theme##textInput##activeLabel : emptyStyle,
-        !isEmptyString(error) ? theme##textInput##errorLabel : emptyStyle,
+        !isEmpty(error) ? theme##textInput##errorLabel : emptyStyle,
         labelStyle,
       |])}>
-      (focused || !isEmptyString(Belt.Option.getWithDefault(value, "")) ? label : "")->React.string
+      label->React.string
     </Text>
     <View
       style={StyleSheet.flatten([|
         theme##textInput##textInput,
         focused ? theme##textInput##activeTextInput : emptyStyle,
-        !isEmptyString(error) ? theme##textInput##errorTextInput : emptyStyle,
+        !isEmpty(error) ? theme##textInput##errorTextInput : emptyStyle,
         inputStyle,
       |])}>
       <RNTextInput
         testID
-        placeholder={focused ? "" : label}
-        value=?value
+        placeholder
+        ?value
         onChange
         onChangeText
         onSelectionChange
@@ -96,6 +110,7 @@ let make =
             theme##textInput##baseTextInput,
             inputStyle,
             disabled ? theme##textInput##disabledBaseTextInput : emptyStyle,
+            isEmpty(placeholder) ? emptyStyle : theme##textInput##placeholder,
           |])
           ->getColorProperty
         }
@@ -119,8 +134,7 @@ let make =
             StyleSheet.flatten([|
               theme##textInput##icon,
               focused ? theme##textInput##activeIcon : emptyStyle,
-              !isEmptyString(error)
-                ? theme##textInput##errorIcon : emptyStyle,
+              !isEmpty(error) ? theme##textInput##errorIcon : emptyStyle,
               iconStyle,
             |])
             ->getColorProperty
