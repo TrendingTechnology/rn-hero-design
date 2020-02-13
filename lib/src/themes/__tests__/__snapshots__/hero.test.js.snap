@@ -173,6 +173,83 @@ Object {
       "paddingHorizontal": 16.25,
     },
   },
+  "calendar": Object {
+    "blurredDayText": Object {
+      "color": "#a3a6ac",
+    },
+    "currentDayText": Object {
+      "color": "#1dbeee",
+    },
+    "day": Object {
+      "alignItems": "center",
+      "flexBasis": "14.285714285714286%",
+      "flexDirection": "row",
+      "height": 32.5,
+      "justifyContent": "center",
+    },
+    "dayName": Object {
+      "color": "#a3a6ac",
+      "fontSize": 13.487499999999999,
+      "fontWeight": "500",
+    },
+    "dayNameSunday": Object {
+      "color": "#de350b",
+    },
+    "dayText": Object {
+      "color": "#000000",
+      "fontFamily": "Proxima Nova",
+      "fontSize": 16.25,
+      "fontWeight": "400",
+      "lineHeight": 16.25,
+    },
+    "header": Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "justifyContent": "space-between",
+      "paddingVertical": 8.125,
+    },
+    "headerButton": Object {
+      "height": 36.25,
+      "justifyContent": "center",
+      "minWidth": 36.25,
+      "paddingHorizontal": 8.125,
+    },
+    "headerTitle": Object {
+      "fontFamily": "Proxima Nova",
+      "fontSize": 16.25,
+      "fontWeight": "500",
+    },
+    "hiddenDay": Object {
+      "backgroundColor": "#f5f6f8",
+    },
+    "mark": Object {
+      "borderRadius": 2,
+      "height": 4,
+      "marginHorizontal": 1,
+      "width": 4,
+    },
+    "markedDay": Object {
+      "bottom": 4.0625,
+      "flexDirection": "row",
+      "position": "absolute",
+    },
+    "monthView": Object {
+      "flexDirection": "row",
+      "flexWrap": "wrap",
+    },
+    "selectedDay": Object {
+      "backgroundColor": "#1dbeee",
+      "borderRadius": 16.25,
+      "height": 32.5,
+      "position": "absolute",
+      "width": 32.5,
+    },
+    "selectedDayText": Object {
+      "color": "#fcfcfc",
+      "fontWeight": "500",
+    },
+    "wrapper": Object {},
+  },
   "card": Object {
     "card": Object {
       "backgroundColor": "#fcfcfc",
@@ -300,7 +377,7 @@ Object {
       "justifyContent": "flex-end",
     },
     "dialog": Object {
-      "backgroundColor": "white",
+      "backgroundColor": "#fcfcfc",
       "borderRadius": 2,
       "elevation": 10,
       "maxHeight": "70%",

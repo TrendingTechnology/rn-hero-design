@@ -19,6 +19,7 @@ import TabBarScreen from './TabBar';
 import MessageScreen from './Message';
 import SelectScreen from './Select';
 import MentionTextInputScreen from './MentionTextInput';
+import CalendarScreen from './Calendar';
 import darkKnightTheme from 'rn-hero-design/src/themes/dark-knight';
 
 const store = createStore(state => state, { __theme: 'dark-knight' });
@@ -118,6 +119,12 @@ export default {
     screen: MentionTextInputScreen,
     defaultNavigationOptions: {
       title: 'MentionTextInput',
+    },
+  },
+  Calendar: {
+    screen: CalendarScreen,
+    defaultNavigationOptions: {
+      title: 'Calendar',
     },
   },
   LoginScreen: {
