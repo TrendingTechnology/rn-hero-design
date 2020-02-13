@@ -538,6 +538,7 @@ Object {
     "icon": Object {
       "color": "#a3a6ac",
       "height": 48.75,
+      "marginLeft": 8.125,
     },
     "label": Object {
       "color": "#a3a6ac",
@@ -546,6 +547,9 @@ Object {
       "fontWeight": "500",
       "height": 13.487499999999999,
       "lineHeight": 13.487499999999999,
+    },
+    "placeholder": Object {
+      "color": "#a3a6ac",
     },
     "textInput": Object {
       "alignItems": "center",

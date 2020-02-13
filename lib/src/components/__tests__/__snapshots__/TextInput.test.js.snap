@@ -238,6 +238,7 @@ exports[`TextInput renders correctly 3`] = `
           "display": "flex",
           "height": 48.75,
           "justifyContent": "center",
+          "marginLeft": 8.125,
           "width": 20,
         }
       }
@@ -356,6 +357,7 @@ exports[`TextInput renders correctly 4`] = `
           "display": "flex",
           "height": 48.75,
           "justifyContent": "center",
+          "marginLeft": 8.125,
           "width": 20,
         }
       }
@@ -474,6 +476,7 @@ exports[`TextInput renders correctly 5`] = `
           "display": "flex",
           "height": 48.75,
           "justifyContent": "center",
+          "marginLeft": 8.125,
           "width": 20,
         }
       }
