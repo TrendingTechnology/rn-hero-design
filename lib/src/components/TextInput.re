@@ -38,13 +38,13 @@ let make =
       ~theme=Hero_Theme.default,
     ) => {
   let (focused, setFocused) = React.useState(() => false);
-  let placeholder =
+  let placeholder_ =
     switch (placeholder, focused) {
     | ("", true) => ""
     | ("", false) => label
     | _ => placeholder
     };
-  let label =
+  let label_ =
     switch (value, focused) {
     | (_, true) => label
     | (Some(value), _) when !isEmpty(value) => label
@@ -80,7 +80,7 @@ let make =
         !isEmpty(error) ? theme##textInput##errorLabel : emptyStyle,
         labelStyle,
       |])}>
-      label->React.string
+      label_->React.string
     </Text>
     <View
       style={StyleSheet.flatten([|
@@ -91,7 +91,7 @@ let make =
       |])}>
       <RNTextInput
         testID
-        placeholder
+        placeholder=placeholder_
         ?value
         onChange
         onChangeText
