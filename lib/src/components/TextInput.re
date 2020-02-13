@@ -13,6 +13,7 @@ let make =
     (
       ~testID="",
       ~label="",
+      ~placeholder="",
       ~value=?,
       ~onChange=noop,
       ~onChangeText=noop,
@@ -25,6 +26,7 @@ let make =
       ~disabled=false,
       ~error="",
       ~autoFocus=false,
+      ~autoCorrect=false,
       ~secureTextEntry=false,
       ~multiline=false,
       ~wrapperStyle=emptyStyle,
@@ -85,6 +87,7 @@ let make =
         onBlur=handleBlur
         editable={!disabled}
         autoFocus
+        autoCorrect
         secureTextEntry
         multiline
         scrollEnabled=false

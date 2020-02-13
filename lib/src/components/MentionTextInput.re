@@ -150,11 +150,15 @@ let getAffectedMentionIndexes:
     );
   };
 
+let _TRIGGER = "@";
+
 [@react.component]
 let make =
     (
+      ~testID,
+      ~placeholder,
       ~value: message,
-      ~onChange,
+      ~onChange: message => unit,
       ~renderSuggestionList,
       ~theme=Hero_Theme.default,
     ) => {
@@ -162,7 +166,7 @@ let make =
 
   let valueText = React.useRef("");
   let mentions = React.useRef([||]);
-  let searchPosition = React.useRef(0);
+  let searchStartPosition = React.useRef(0);
   let previousSelection = React.useRef((0, 0));
 
   let (showSuggestions, setShowSuggestions) = React.useState(() => false);
@@ -191,14 +195,15 @@ let make =
 
     switch (eventKey, eventText, eventSelection) {
     | (None, None, Some(selection)) =>
-      setCurrent(previousSelection, selection)
+      setShowSuggestions(_ => false);
+      setCurrent(previousSelection, selection);
 
     | (Some(key), Some(text), Some(selection)) =>
       let valueText_ = current(valueText);
       let mentions_ = current(mentions);
       let previousSelection_ = current(previousSelection);
 
-      let currentPos = fst(selection);
+      let currentPosition = fst(selection);
       let textDiff = Js.String.(length(text) - length(valueText_));
       let (selectedIndexes, unselectedIndexes) =
         getAffectedMentionIndexes(~selection=previousSelection_, mentions_);
@@ -229,21 +234,25 @@ let make =
       );
 
       if (!showSuggestions) {
-        if (key === "@") {
+        if (key === _TRIGGER) {
           setSearchValue(_ => "");
           setShowSuggestions(_ => true);
-          setCurrent(searchPosition, currentPos);
+          setCurrent(searchStartPosition, currentPosition);
         };
       };
 
       if (showSuggestions) {
-        if (key === " " || key === "Enter") {
+        let searchStartPosition_ = current(searchStartPosition);
+        let searchValue =
+          Js.String.substring(
+            ~from=searchStartPosition_,
+            ~to_=currentPosition,
+            text,
+          );
+
+        if (key === " " || key === "Enter" || searchValue === "") {
           setShowSuggestions(_ => false);
         } else {
-          let searchPosition_ = current(searchPosition);
-          let searchValue =
-            Js.String.substring(~from=searchPosition_, ~to_=currentPos, text);
-
           setSearchValue(_ => searchValue);
         };
       };
@@ -253,6 +262,55 @@ let make =
 
     | _ => ()
     };
+  };
+
+  let handleSuggestionPress = (id, name) => {
+    let valueText_ = current(valueText);
+    let mentions_ = current(mentions);
+    let searchStartPosition_ = current(searchStartPosition);
+    let previousSelection_ = current(previousSelection);
+
+    let insertText = name ++ " ";
+    let textDiff = Js.String.length(insertText);
+    let (_, unselectedIndexes) =
+      getAffectedMentionIndexes(~selection=previousSelection_, mentions_);
+    let insertPos =
+      unselectedIndexes
+      ->Belt.Array.get(0)
+      ->Belt.Option.getWithDefault(Js.Array.length(mentions_));
+    let newMention =
+      mention(
+        ~id,
+        ~name=_TRIGGER ++ name,
+        ~offset=(searchStartPosition_ - 1, searchStartPosition_ + textDiff) /* offset includes the @ and the space after */
+      );
+
+    /* shift offsets, mutate mentions */
+    Js.Array.(
+      unselectedIndexes
+      |> forEach(index => {
+           let unselectedMention = mentions_[index];
+           let (startOffset, endOffset) = unselectedMention->offsetGet;
+
+           unselectedMention->offsetSet((
+             startOffset + textDiff,
+             endOffset + textDiff,
+           ));
+         })
+    );
+
+    let valueText_ =
+      stringInsertAt(
+        ~pos=searchStartPosition_,
+        ~value=insertText,
+        valueText_,
+      );
+
+    let mentions_ =
+      arrayInsertAt(~pos=insertPos, ~value=newMention, mentions_);
+
+    onChange(serialize(valueText_, mentions_));
+    setShowSuggestions(_ => false);
   };
 
   let handleSelectionChange =
@@ -275,56 +333,13 @@ let make =
       handleChange();
     });
 
-  let handleSuggestionPress = (id, name) => {
-    let valueText_ = current(valueText);
-    let mentions_ = current(mentions);
-    let searchPosition_ = current(searchPosition);
-    let previousSelection_ = current(previousSelection);
-
-    let insertText = name ++ " ";
-    let textDiff = Js.String.length(insertText);
-    let (_, unselectedIndexes) =
-      getAffectedMentionIndexes(~selection=previousSelection_, mentions_);
-    let insertPos =
-      unselectedIndexes
-      ->Belt.Array.get(0)
-      ->Belt.Option.getWithDefault(Js.Array.length(mentions_));
-    let newMention =
-      mention(
-        ~id,
-        ~name="@" ++ name,
-        ~offset=(searchPosition_ - 1, searchPosition_ + textDiff),
-      );
-
-    /* shift offsets, mutate mentions */
-    Js.Array.(
-      unselectedIndexes
-      |> forEach(index => {
-           let unselectedMention = mentions_[index];
-           let (startOffset, endOffset) = unselectedMention->offsetGet;
-
-           unselectedMention->offsetSet((
-             startOffset + textDiff,
-             endOffset + textDiff,
-           ));
-         })
-    );
-
-    let valueText_ =
-      stringInsertAt(~pos=searchPosition_, ~value=insertText, valueText_);
-
-    let mentions_ =
-      arrayInsertAt(~pos=insertPos, ~value=newMention, mentions_);
-
-    onChange(serialize(valueText_, mentions_));
-    setShowSuggestions(_ => false);
-  };
-
   <RN.View style=theme##mentionTextInput##wrapper>
     <TextInput
+      testID
+      placeholder
       multiline=true
-      onChangeText=handleChangeText
       onKeyPress=handleKeyPress
+      onChangeText=handleChangeText
       onSelectionChange=handleSelectionChange>
       <RN.Text style={theme##mentionTextInput##text}>
         {value
@@ -353,4 +368,4 @@ let make =
   </RN.View>;
 };
 
-let default = make;
+let default = Helpers.injectTheme(make);
