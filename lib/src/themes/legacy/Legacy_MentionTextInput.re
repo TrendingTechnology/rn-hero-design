@@ -27,6 +27,7 @@ let styles: Js.t('a) = {
       ~shadowOffset=offset(~height=2.0, ~width=0.0),
       ~shadowOpacity=0.4,
       ~shadowRadius=4.0,
+      ~elevation=10.0,
       (),
     ),
 };
