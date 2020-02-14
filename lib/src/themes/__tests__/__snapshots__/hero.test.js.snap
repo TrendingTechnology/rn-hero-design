@@ -348,6 +348,7 @@ Object {
     "suggestionWrapper": Object {
       "backgroundColor": "#fcfcfc",
       "borderRadius": 4,
+      "elevation": 10,
       "marginTop": -41.8625,
       "shadowColor": "#000000",
       "shadowOffset": Object {
