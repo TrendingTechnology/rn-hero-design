@@ -104,7 +104,8 @@ const SuggestionList = injectTheme(({ searchValue, onSelect, theme }) => {
         style={{
           alignItems: 'center',
           justifyContent: 'center',
-          paddingVertical: theme.variables.MEDIUM_SIZE,
+          height: theme.variables.LARGE_SIZE + theme.variables.SMALL_SIZE * 2,
+          paddingVertical: 0,
         }}
       >
         <Text size="h5" weight="500" color={theme.variables.MUTED_TEXT_COLOR}>
