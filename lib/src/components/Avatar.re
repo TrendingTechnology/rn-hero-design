@@ -26,10 +26,17 @@ let getStylesBySize: (option(string), Js.t('a)) => stylesBySize =
       "title": styles##largeTitle,
       "image": styles##largeImage,
     };
+    let smallSizeStyles = {
+      "wrapper": styles##smallWrapper,
+      "titleWrapper": styles##smallTitleWrapper,
+      "title": styles##smallTitle,
+      "image": styles##smallImage,
+    };
     size->Belt.Option.mapWithDefault(
       mediumSizeStyles,
       fun
       | "large" => largeSizeStyles
+      | "small" => smallSizeStyles
       | _ => mediumSizeStyles,
     );
   };

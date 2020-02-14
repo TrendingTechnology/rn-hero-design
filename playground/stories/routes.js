@@ -18,6 +18,7 @@ import AvatarScreen from './Avatar';
 import TabBarScreen from './TabBar';
 import MessageScreen from './Message';
 import SelectScreen from './Select';
+import MentionTextInputScreen from './MentionTextInput';
 import CalendarScreen from './Calendar';
 import darkKnightTheme from 'rn-hero-design/src/themes/dark-knight';
 
@@ -112,6 +113,12 @@ export default {
     screen: SelectScreen,
     defaultNavigationOptions: {
       title: 'Select',
+    },
+  },
+  MentionTextInput: {
+    screen: MentionTextInputScreen,
+    defaultNavigationOptions: {
+      title: 'MentionTextInput',
     },
   },
   Calendar: {

@@ -15,6 +15,11 @@ let _WRAPPER_LARGE_RADIUS = _WRAPPER_LARGE_SIZE /. 2.0;
 let _TITLE_LARGE_FONT_SIZE = _HEADER_2 *. 2.0;
 let _TITLE_LARGE_FONT_WEIGHT = `_200;
 
+let _WRAPPER_SMALL_SIZE = _LARGE_SIZE *. 1.0;
+let _WRAPPER_SMALL_RADIUS = _WRAPPER_SMALL_SIZE /. 2.0;
+let _TITLE_SMALL_FONT_SIZE = _HEADER_2 /. 2.0;
+let _TITLE_SMALL_FONT_WEIGHT = `_400;
+
 let styles: Js.t('a) = {
   "wrapper": style(),
   "titleWrapper":
@@ -83,6 +88,34 @@ let styles: Js.t('a) = {
       ~width=_WRAPPER_LARGE_SIZE->dp,
       ~height=_WRAPPER_LARGE_SIZE->dp,
       ~borderRadius=_WRAPPER_LARGE_RADIUS,
+      (),
+    ),
+
+  "smallWrapper":
+    style(
+      ~width=_WRAPPER_SMALL_SIZE->dp,
+      ~height=_WRAPPER_SMALL_SIZE->dp,
+      (),
+    ),
+  "smallTitleWrapper":
+    style(
+      ~width=_WRAPPER_SMALL_SIZE->dp,
+      ~height=_WRAPPER_SMALL_SIZE->dp,
+      ~borderWidth=1.0,
+      ~borderRadius=_WRAPPER_SMALL_RADIUS,
+      (),
+    ),
+  "smallTitle":
+    style(
+      ~fontSize=_TITLE_SMALL_FONT_SIZE,
+      ~fontWeight=_TITLE_SMALL_FONT_WEIGHT,
+      (),
+    ),
+  "smallImage":
+    style(
+      ~width=_WRAPPER_SMALL_SIZE->dp,
+      ~height=_WRAPPER_SMALL_SIZE->dp,
+      ~borderRadius=_WRAPPER_SMALL_RADIUS,
       (),
     ),
 };

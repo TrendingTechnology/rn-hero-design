@@ -4,11 +4,13 @@ open Legacy_Variables;
 let _WRAPPER_MARGIN_VERTICAL = _MEDIUM_SIZE;
 let _LABEL_FONT_SIZE = _HEADER_5;
 let _LABEL_COLOR = _MUTED_TEXT_COLOR;
+let _PLACEHOLDER_COLOR = _MUTED_TEXT_COLOR;
 let _INPUT_FONT_SIZE = _HEADER_4;
 let _INPUT_PADDING_VERTICAL = _MEDIUM_SIZE;
 let _INPUT_HEIGHT = _INPUT_FONT_SIZE +. _INPUT_PADDING_VERTICAL *. 2.0;
 let _INPUT_BORDER_COLOR = _BORDER_COLOR;
 let _INPUT_COLOR = _TEXT_COLOR;
+let _ICON_MARGIN = _SMALL_SIZE;
 let _ICON_COLOR = _MUTED_TEXT_COLOR;
 let _ERROR_FONT_SIZE = _HEADER_5;
 let _ERROR_MARGIN_VERTICAL = _SMALL_SIZE;
@@ -27,6 +29,7 @@ let styles: Js.t('a) = {
       ~color=_LABEL_COLOR,
       (),
     ),
+  "placeholder": style(~color=_PLACEHOLDER_COLOR, ()),
   "textInput":
     style(
       ~flexDirection=`row,
@@ -46,7 +49,13 @@ let styles: Js.t('a) = {
       ~color=_INPUT_COLOR,
       (),
     ),
-  "icon": style(~height=_INPUT_HEIGHT->dp, ~color=_ICON_COLOR, ()),
+  "icon":
+    style(
+      ~height=_INPUT_HEIGHT->dp,
+      ~marginLeft=_ICON_MARGIN->dp,
+      ~color=_ICON_COLOR,
+      (),
+    ),
   "errorMessage":
     style(
       ~height=_ERROR_FONT_SIZE->dp,

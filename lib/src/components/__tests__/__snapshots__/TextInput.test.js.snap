@@ -34,6 +34,7 @@ exports[`TextInput renders correctly 1`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoCorrect={false}
       autoFocus={false}
       editable={true}
       multiline={false}
@@ -41,6 +42,8 @@ exports[`TextInput renders correctly 1`] = `
       onChange={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
       placeholder=""
       placeholderTextColor="#000000"
       rejectResponderTermination={true}
@@ -114,6 +117,7 @@ exports[`TextInput renders correctly 2`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoCorrect={false}
       autoFocus={false}
       editable={true}
       multiline={false}
@@ -121,6 +125,8 @@ exports[`TextInput renders correctly 2`] = `
       onChange={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
       placeholder="Email"
       placeholderTextColor="#000000"
       rejectResponderTermination={true}
@@ -194,6 +200,7 @@ exports[`TextInput renders correctly 3`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoCorrect={false}
       autoFocus={false}
       editable={true}
       multiline={false}
@@ -201,6 +208,8 @@ exports[`TextInput renders correctly 3`] = `
       onChange={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
       placeholder="Email"
       placeholderTextColor="#000000"
       rejectResponderTermination={true}
@@ -229,6 +238,7 @@ exports[`TextInput renders correctly 3`] = `
           "display": "flex",
           "height": 48.75,
           "justifyContent": "center",
+          "marginLeft": 8.125,
           "width": 20,
         }
       }
@@ -309,6 +319,7 @@ exports[`TextInput renders correctly 4`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoCorrect={false}
       autoFocus={false}
       editable={false}
       multiline={false}
@@ -316,6 +327,8 @@ exports[`TextInput renders correctly 4`] = `
       onChange={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
       placeholder="Email"
       placeholderTextColor="#a3a6ac"
       rejectResponderTermination={true}
@@ -344,6 +357,7 @@ exports[`TextInput renders correctly 4`] = `
           "display": "flex",
           "height": 48.75,
           "justifyContent": "center",
+          "marginLeft": 8.125,
           "width": 20,
         }
       }
@@ -424,6 +438,7 @@ exports[`TextInput renders correctly 5`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoCorrect={false}
       autoFocus={false}
       editable={false}
       multiline={false}
@@ -431,6 +446,8 @@ exports[`TextInput renders correctly 5`] = `
       onChange={[Function]}
       onChangeText={[Function]}
       onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
       placeholder="Email"
       placeholderTextColor="#a3a6ac"
       rejectResponderTermination={true}
@@ -459,6 +476,7 @@ exports[`TextInput renders correctly 5`] = `
           "display": "flex",
           "height": 48.75,
           "justifyContent": "center",
+          "marginLeft": 8.125,
           "width": 20,
         }
       }
