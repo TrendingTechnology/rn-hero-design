@@ -1,6 +1,6 @@
 open ReactNative;
 
-let isEmptyString = str => String.length(str) == 0;
+let isEmpty = str => String.length(str) == 0;
 
 let emptyStyle = Style.style();
 
@@ -13,9 +13,12 @@ let make =
     (
       ~testID="",
       ~label="",
-      ~value="",
+      ~placeholder="",
+      ~value=?,
       ~onChange=noop,
       ~onChangeText=noop,
+      ~onSelectionChange=noop,
+      ~onKeyPress=noop,
       ~onFocus=noop,
       ~onBlur=noop,
       ~onPressIcon=noop,
@@ -23,6 +26,7 @@ let make =
       ~disabled=false,
       ~error="",
       ~autoFocus=false,
+      ~autoCorrect=false,
       ~secureTextEntry=false,
       ~multiline=false,
       ~wrapperStyle=emptyStyle,
@@ -30,9 +34,23 @@ let make =
       ~inputStyle=emptyStyle,
       ~iconStyle=emptyStyle,
       ~errorStyle=emptyStyle,
+      ~children=React.null,
       ~theme=Hero_Theme.default,
     ) => {
   let (focused, setFocused) = React.useState(() => false);
+  let placeholder_ =
+    switch (placeholder, focused) {
+    | ("", true) => ""
+    | ("", false) => label
+    | _ => placeholder
+    };
+  let label_ =
+    switch (value, focused) {
+    | (_, true) => label
+    | (Some(value), _) when !isEmpty(value) => label
+    | _ => ""
+    };
+
   let handleFocus =
     React.useCallback2(
       _ => {
@@ -42,6 +60,7 @@ let make =
       },
       (onFocus, setFocused),
     );
+
   let handleBlur =
     React.useCallback2(
       _ => {
@@ -58,28 +77,31 @@ let make =
       style={StyleSheet.flatten([|
         theme##textInput##label,
         focused ? theme##textInput##activeLabel : emptyStyle,
-        !isEmptyString(error) ? theme##textInput##errorLabel : emptyStyle,
+        !isEmpty(error) ? theme##textInput##errorLabel : emptyStyle,
         labelStyle,
       |])}>
-      (focused || !isEmptyString(value) ? label : "")->React.string
+      label_->React.string
     </Text>
     <View
       style={StyleSheet.flatten([|
         theme##textInput##textInput,
         focused ? theme##textInput##activeTextInput : emptyStyle,
-        !isEmptyString(error) ? theme##textInput##errorTextInput : emptyStyle,
+        !isEmpty(error) ? theme##textInput##errorTextInput : emptyStyle,
         inputStyle,
       |])}>
-      <ReactNative.TextInput
-        testID=testID
-        placeholder={focused ? "" : label}
-        value
+      <RNTextInput
+        testID
+        placeholder=placeholder_
+        ?value
         onChange
         onChangeText
+        onSelectionChange
+        onKeyPress
         onFocus=handleFocus
         onBlur=handleBlur
         editable={!disabled}
         autoFocus
+        autoCorrect
         secureTextEntry
         multiline
         scrollEnabled=false
@@ -88,6 +110,7 @@ let make =
             theme##textInput##baseTextInput,
             inputStyle,
             disabled ? theme##textInput##disabledBaseTextInput : emptyStyle,
+            isEmpty(placeholder) ? emptyStyle : theme##textInput##placeholder,
           |])
           ->getColorProperty
         }
@@ -100,8 +123,9 @@ let make =
             ? Style.style(~color=inputStyle->getColorProperty, ())
             : emptyStyle,
           disabled ? theme##textInput##disabledBaseTextInput : emptyStyle,
-        |])}
-      />
+        |])}>
+        children
+      </RNTextInput>
       <TouchableWithoutFeedback onPress=onPressIcon>
         <Icon
           icon=rightIcon
@@ -110,8 +134,7 @@ let make =
             StyleSheet.flatten([|
               theme##textInput##icon,
               focused ? theme##textInput##activeIcon : emptyStyle,
-              !isEmptyString(error)
-                ? theme##textInput##errorIcon : emptyStyle,
+              !isEmpty(error) ? theme##textInput##errorIcon : emptyStyle,
               iconStyle,
             |])
             ->getColorProperty
