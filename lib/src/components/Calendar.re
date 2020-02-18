@@ -53,6 +53,7 @@ type parsedMarkedDates = Js.Dict.t(array(color));
 [@react.component]
 let make =
     (
+      ~testID="",
       ~value=Js.Date.make(),
       ~onChange=noop,
       ~currentView=Js.Date.make(),
@@ -210,7 +211,9 @@ let make =
     <View style=theme##calendar##header>
       {showPrevButton
          ? <TouchableOpacity
-             onPress=onPressPrev style=theme##calendar##headerButton>
+             testID={testID ++ "_prev-button"}
+             onPress=onPressPrev
+             style=theme##calendar##headerButton>
              <Icon icon="single-left-outline" size=20.0 />
            </TouchableOpacity>
          : <View style=theme##calendar##headerButton />}
@@ -222,7 +225,9 @@ let make =
       </TouchableOpacity>
       {showNextButton
          ? <TouchableOpacity
-             onPress=onPressNext style=theme##calendar##headerButton>
+             testID={testID ++ "_next-button"}
+             onPress=onPressNext
+             style=theme##calendar##headerButton>
              <Icon icon="single-right-outline" size=20.0 />
            </TouchableOpacity>
          : <View style=theme##calendar##headerButton />}
