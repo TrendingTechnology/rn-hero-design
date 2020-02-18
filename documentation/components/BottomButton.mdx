@@ -3,8 +3,8 @@ name: BottomButton
 menu: Components
 ---
 
-import { Props } from 'docz'
-import { BottomButton } from 'rn-hero-design'
+import { BottomButton } from 'rn-hero-design';
+import { Props } from 'gatsby-theme-docz/src/components/Props';
 
 # BottomButton
 
@@ -12,5 +12,8 @@ This button should be used when you need a button which always be at the bottom 
 
 ## Properties
 
-<Props of={BottomButton} />
+<Props props_={{
+  name: { type: 'string', required: true, defaultValue: { value: 'ahihi' }, description: '123' },
+  age: { type: 'string', required: true, defaultValue: { value: 'ahihi' }, description: '123' },
+}} />
 
