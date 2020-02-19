@@ -1,7 +1,6 @@
 <p align="center">
   <img width="300" src="./ss1.png">
   <img width="300" src="./ss2.png">
-  <img width="300" src="./ss3.png">
 </p>
 
 <h1 align="center">React Native Hero Design</h1>
