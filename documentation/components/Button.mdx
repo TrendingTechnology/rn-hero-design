@@ -3,7 +3,8 @@ name: Button
 menu: Components
 ---
 
-import { Playground, Props } from 'docz'
+import { Playground } from 'docz'
+import { Props } from 'gatsby-theme-docz/src/components/Props';
 import { Button } from 'rn-hero-design'
 import { RED } from 'rn-hero-design/src/themes/hero/variables';
 import { IPhoneX } from './DeviceFrame'
@@ -61,5 +62,15 @@ import { IPhoneX } from './DeviceFrame'
 
 ## Properties
 
-<Props of={Button} />
+<Props props_={{
+  text: { type: 'String', required: true, description: 'Display text on button' },
+  onPress: { type: 'event => void', required: true },
+  loading: { type: 'Boolean', required: false, defaultValue: { value: 'false' } },
+  disabled: { type: 'Boolean', required: false, defaultValue: { value: 'false' } },
+  variant: { type: '"filled" | "outlined"', required: false },
+  wrapperStyle: { type: 'Object', required: false },
+  textStyle: { type: 'Object', required: false },
+  theme: { type: 'Object', required: false, description: 'The theme object contains style of all components. Can be injected by `injectTheme` HOC' },
+}} />
+
 

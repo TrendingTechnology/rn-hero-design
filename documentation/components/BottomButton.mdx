@@ -3,8 +3,8 @@ name: BottomButton
 menu: Components
 ---
 
-import { BottomButton } from 'rn-hero-design';
 import { Props } from 'gatsby-theme-docz/src/components/Props';
+import { BottomButton } from 'rn-hero-design';
 
 # BottomButton
 
@@ -13,7 +13,14 @@ This button should be used when you need a button which always be at the bottom 
 ## Properties
 
 <Props props_={{
-  name: { type: 'string', required: true, defaultValue: { value: 'ahihi' }, description: '123' },
-  age: { type: 'string', required: true, defaultValue: { value: 'ahihi' }, description: '123' },
+  text: { type: 'String', required: true, description: 'Display text on button' },
+  onPress: { type: 'event => void', required: true },
+  loading: { type: 'Boolean', required: false, defaultValue: { value: 'false' } },
+  disabled: { type: 'Boolean', required: false, defaultValue: { value: 'false' } },
+  forceInset: { type: '"always" | "never"', required: false },
+  wrapperStyle: { type: 'Object', required: false },
+  buttonStyle: { type: 'Object', required: false },
+  textStyle: { type: 'Object', required: false },
+  theme: { type: 'Object', required: false, description: 'The theme object contains style of all components. Can be injected by `injectTheme` HOC' },
 }} />
 
