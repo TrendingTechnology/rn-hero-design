@@ -14,6 +14,7 @@ let make =
       ~testID="",
       ~label="",
       ~placeholder="",
+      ~keyboardType,
       ~value=?,
       ~onChange=noop,
       ~onChangeText=noop,
@@ -92,6 +93,7 @@ let make =
       <RNTextInput
         testID
         placeholder=placeholder_
+        keyboardType
         ?value
         onChange
         onChangeText

@@ -1,6 +1,6 @@
 <p align="center">
-  <img width="300" src="./screenshot_light.png">
-  <img width="300" src="./screenshot_dark.png">
+  <img width="300" src="./ss1.png">
+  <img width="300" src="./ss2.png">
 </p>
 
 <h1 align="center">React Native Hero Design</h1>
@@ -12,22 +12,37 @@
   <img src="https://img.shields.io/badge/yarn-1.10.1-blue">
 </p>
 
+## Installation
+
+Via `yarn`
+```
+yarn add rn-hero-design
+```
+It also require peer dependencies like `react` and `react-native`. Please follow the yarn install instruction for the right versions.
+
+## Usage
+
+The components and helpers are exported via named module.
+```
+import { Button, injectTheme } from 'rn-hero-design'
+```
+For more details, view the [documentation](http://mobile.hero-design.surge.sh)
+
+## Playground app
+
+Checkout the playground app [here](https://exp.host/@toan2406/rn-hero-design), which contains the list of components, their sample usages and common layouts.
+
 ## Development
 
-- Add your components and themes to `lib` folder
-- Create your stories in `playground` folder
 - Start the playground bundler
 ```
 yarn dev
 ```
-- Deploy the playground to expo
+- Build the lib
 ```
-yarn playground:publish
+yarn lib:watch
 ```
-
-## Documentation
-
-- Start dev server
+- Start the documentation server
 ```
 yarn doc:dev
 ```

@@ -347,6 +347,7 @@ let make =
     <TextInput
       testID
       placeholder
+      keyboardType=`default
       rightIcon
       multiline=true
       autoCorrect=true
