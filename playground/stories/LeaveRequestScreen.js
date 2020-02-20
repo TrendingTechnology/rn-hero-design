@@ -14,6 +14,7 @@ import { FOCUS_BLUE_1, WHITE } from 'rn-hero-design/src/themes/hero/variables';
 const noop = () => {};
 
 const LeaveRequestScreen = ({ theme }) => {
+  const today = new Date();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [changingField, setChangingField] = useState(null);
@@ -29,7 +30,7 @@ const LeaveRequestScreen = ({ theme }) => {
       onChange: setEndDate,
     },
     null: {
-      value: null,
+      value: today,
       onChange: noop,
     },
   };
