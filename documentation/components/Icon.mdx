@@ -5,15 +5,53 @@ menu: Components
 
 import { Playground } from 'docz'
 import { Icon } from 'rn-hero-design'
+import IconList from './IconList'
 
 # Icon
+
+<IconList
+  icons={[
+    'email',
+    'eye',
+    'eye-invisible',
+    'ok-circle',
+    'calendar',
+    'more-vertical',
+  ]} 
+/>
+<IconList
+  icons={[
+    'email-outline',
+    'eye-outline',
+    'eye-invisible-outline',
+    'cancel-outline',
+    'clock-circle-outline',
+    'comment-outline',
+    'plus-circle-outline',
+    'plus-outline',
+    'piggy-bank-outline',
+    'target-outline',
+    'single-right-outline',
+    'single-left-outline',
+    'calendar-outline',
+    'phone-outline',
+    'face-id',
+  ]} 
+/>
 
 ## Basic usage
 
 <Playground>
-  <Icon icon="email-outline" />
   <Icon icon="email" />
 </Playground>
 
 ## Properties
+
+<Props props_={{
+  icon: { type: 'String', required: true },
+  size: { type: 'Number', required: false, defaultValue: { value: '24' } },
+  color: { type: 'String', required: false },
+  wrapperStyle: { type: 'Object', required: false },
+  theme: { type: 'Object', required: false, description: 'The theme object contains style of all components. Can be injected by `injectTheme` HOC' },
+}} />
 
