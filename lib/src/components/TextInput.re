@@ -6,6 +6,23 @@ let emptyStyle = Style.style();
 
 let noop = _ => ();
 
+[@bs.deriving jsConverter]
+type keyboardType = [
+  | `default
+  | [@bs.as "number-pad"] `numberPad
+  | [@bs.as "decimal-pad"] `decimalPad
+  | `numeric
+  | [@bs.as "email-address"] `emailAddress
+  | [@bs.as "phone-pad"] `phonePad
+  | [@bs.as "ascii-capable"] `asciiCapable
+  | [@bs.as "numbers-and-punctuation"] `numbersAndPunctuation
+  | `url
+  | [@bs.as "name-phone-pad"] `namePhonePad
+  | `twitter
+  | [@bs.as "web-search"] `webSearch
+  | [@bs.as "visible-password"] `visiblePassword
+];
+
 [@bs.get] external getColorProperty: Style.t => Color.t = "color";
 
 [@react.component]
@@ -14,7 +31,7 @@ let make =
       ~testID="",
       ~label="",
       ~placeholder="",
-      ~keyboardType,
+      ~keyboardType: option(string)=?,
       ~value=?,
       ~onChange=noop,
       ~onChangeText=noop,
@@ -51,6 +68,10 @@ let make =
     | (Some(value), _) when !isEmpty(value) => label
     | _ => ""
     };
+  let keyboardType_ =
+    keyboardType
+    ->Belt.Option.flatMap(keyboardTypeFromJs)
+    ->Belt.Option.getWithDefault(`default);
 
   let handleFocus =
     React.useCallback2(
@@ -93,7 +114,7 @@ let make =
       <RNTextInput
         testID
         placeholder=placeholder_
-        keyboardType
+        keyboardType=keyboardType_
         ?value
         onChange
         onChangeText
