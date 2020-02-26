@@ -312,6 +312,7 @@ Object {
   "listItem": Object {
     "contentWrapper": Object {
       "alignItems": "center",
+      "flex": 1,
       "flexDirection": "row",
     },
     "subtitle": Object {
@@ -320,6 +321,10 @@ Object {
       "fontSize": 13.487499999999999,
       "fontWeight": "500",
       "lineHeight": 18.882499999999997,
+    },
+    "textWrapper": Object {
+      "flex": 1,
+      "flexDirection": "row",
     },
     "title": Object {
       "color": "#000000",

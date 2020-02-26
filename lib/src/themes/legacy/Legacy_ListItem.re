@@ -48,7 +48,9 @@ let styles: Js.t('a) = {
       ~color=_SUBTITLE_COLOR,
       (),
     ),
-  "contentWrapper": style(~flexDirection=`row, ~alignItems=`center, ()),
+  "contentWrapper":
+    style(~flex=1.0, ~flexDirection=`row, ~alignItems=`center, ()),
+  "textWrapper": style(~flex=1.0, ~flexDirection=`row, ()),
 };
 
 let default: Js.t('a) = ReactNative.StyleSheet.create(styles);

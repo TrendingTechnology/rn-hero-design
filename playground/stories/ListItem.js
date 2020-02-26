@@ -13,7 +13,7 @@ const ListItemScreen = () => (
     <ListItem title="Huy Vo" subtitle="Bug creator" />
     <ListItem
       title="Huy Vo"
-      subtitle="Bug creator"
+      subtitle="The world as we have created it is a process of our thinking. It cannot be changed without changing our thinking."
       leftElement={
         <Avatar uri="https://avatars0.githubusercontent.com/u/17645203?s=400&v=4" />
       }
