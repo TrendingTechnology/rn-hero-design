@@ -35,25 +35,27 @@ let make =
     ?onPress>
     <View style={theme##listItem##contentWrapper}>
       {leftElement ||= React.null}
-      <View>
-        <Text
-          style={StyleSheet.flatten([|
-            theme##listItem##title,
-            titleStyle ||= emptyStyle,
-          |])}>
-          title
-        </Text>
-        {switch (subtitle) {
-         | None => React.null
-         | Some(subtitle) =>
-           <Text
-             style={StyleSheet.flatten([|
-               theme##listItem##subtitle,
-               subtitleStyle ||= emptyStyle,
-             |])}>
-             subtitle
-           </Text>
-         }}
+      <View style={theme##listItem##textWrapper}>
+        <View>
+          <Text
+            style={StyleSheet.flatten([|
+              theme##listItem##title,
+              titleStyle ||= emptyStyle,
+            |])}>
+            title
+          </Text>
+          {switch (subtitle) {
+           | None => React.null
+           | Some(subtitle) =>
+             <Text
+               style={StyleSheet.flatten([|
+                 theme##listItem##subtitle,
+                 subtitleStyle ||= emptyStyle,
+               |])}>
+               subtitle
+             </Text>
+           }}
+        </View>
       </View>
     </View>
     {rightElement ||= React.null}
@@ -61,4 +63,3 @@ let make =
 };
 
 let default = Helpers.injectTheme(make);
-

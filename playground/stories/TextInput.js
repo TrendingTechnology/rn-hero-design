@@ -21,6 +21,7 @@ const TextInputScreen = () => (
       />
 
       <TextInput
+        keyboardType="numeric"
         label="Password"
         value="123456"
         rightIcon="eye-outline"
@@ -29,6 +30,7 @@ const TextInputScreen = () => (
       />
 
       <TextInput
+        keyboardType="numeric"
         label="Confirm password"
         value="12345"
         rightIcon="eye-outline"
