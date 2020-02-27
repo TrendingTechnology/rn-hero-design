@@ -346,6 +346,9 @@ Object {
     },
   },
   "mentionTextInput": Object {
+    "disabledText": Object {
+      "color": "#a3a6ac",
+    },
     "highlightText": Object {
       "backgroundColor": "#b5eeff",
       "borderRadius": 2,
