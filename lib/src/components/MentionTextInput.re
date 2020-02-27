@@ -164,6 +164,7 @@ let make =
       ~renderSuggestionList,
       ~rightIcon,
       ~disabled,
+      ~autoFocus,
       ~theme=Hero_Theme.default,
     ) => {
   open React.Ref;
@@ -353,6 +354,7 @@ let make =
       keyboardType="default"
       rightIcon
       disabled
+      autoFocus
       multiline=true
       autoCorrect=true
       onKeyPress=handleKeyPress

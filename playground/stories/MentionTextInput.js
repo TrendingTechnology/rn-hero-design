@@ -79,6 +79,7 @@ const MentionTextInputScreen = ({ theme }) => {
             placeholder="Has someone brightened up your day? Type @ to give them a Shout Out!"
             rightIcon="comment-outline"
             value={value}
+            autoFocus
             onChange={value => setValue(value)}
             renderSuggestionList={(searchValue, onSelect) => (
               <SuggestionList searchValue={searchValue} onSelect={onSelect} />
