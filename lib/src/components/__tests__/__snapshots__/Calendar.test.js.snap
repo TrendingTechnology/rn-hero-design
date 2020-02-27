@@ -1,0 +1,3083 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Calendar Snapshot renders correctly 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingVertical": 8.125,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "height": 36.25,
+              "justifyContent": "center",
+              "minWidth": 36.25,
+              "paddingHorizontal": 8.125,
+            }
+          }
+        />
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "height": 36.25,
+              "justifyContent": "center",
+              "minWidth": 36.25,
+              "paddingHorizontal": 8.125,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "500",
+              }
+            }
+          >
+            January 2020
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "height": 36.25,
+              "justifyContent": "center",
+              "minWidth": 36.25,
+              "paddingHorizontal": 8.125,
+            }
+          }
+          testID="_next-button"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "height": 20,
+                "justifyContent": "center",
+                "width": 20,
+              }
+            }
+          >
+            <View
+              override={
+                Object {
+                  "fill": "#000000",
+                  "height": 20,
+                  "stroke": "#000000",
+                  "width": 20,
+                }
+              }
+              xml="
+<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+<svg width=\\"1024px\\" height=\\"1024px\\" viewBox=\\"0 0 1024 1024\\" version=\\"1.1\\" xmlns=\\"http://www.w3.org/2000/svg\\" xmlns:xlink=\\"http://www.w3.org/1999/xlink\\">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>single-right</title>
+    <desc>Created with Sketch.</desc>
+    <g id=\\"single-right\\" stroke=\\"none\\" stroke-width=\\"1\\" fill-rule=\\"evenodd\\">
+        <path d=\\"M699.141847,512.053535 L248.544156,61.4558441 C234.485281,47.3969696 234.485281,24.6030304 248.544156,10.5441559 C262.60303,-3.51471863 285.39697,-3.51471863 299.455844,10.5441559 L774.044605,485.132916 C788.862441,499.950753 788.887722,523.967405 774.101114,538.816404 L301.509379,1013.4022 C287.480133,1027.49064 264.686244,1027.53862 250.597803,1013.50938 C236.509363,999.480133 236.461375,976.686244 250.490621,962.597803 L699.141847,512.053535 Z\\" id=\\"Path-15\\" fill-rule=\\"nonzero\\"></path>
+    </g>
+</svg>
+"
+            />
+          </View>
+        </TouchableOpacity>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#de350b",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Sun
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Mon
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Tue
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Wed
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Thu
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Fri
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Sat
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            31
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            1
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Calendar Snapshot renders correctly 2`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingVertical": 8.125,
+          }
+        }
+      >
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "height": 36.25,
+              "justifyContent": "center",
+              "minWidth": 36.25,
+              "paddingHorizontal": 8.125,
+            }
+          }
+          testID="_prev-button"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "height": 20,
+                "justifyContent": "center",
+                "width": 20,
+              }
+            }
+          >
+            <View
+              override={
+                Object {
+                  "fill": "#000000",
+                  "height": 20,
+                  "stroke": "#000000",
+                  "width": 20,
+                }
+              }
+              xml="
+<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+<svg width=\\"1024px\\" height=\\"1024px\\" viewBox=\\"0 0 1024 1024\\" version=\\"1.1\\" xmlns=\\"http://www.w3.org/2000/svg\\" xmlns:xlink=\\"http://www.w3.org/1999/xlink\\">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>single--left</title>
+    <desc>Created with Sketch.</desc>
+    <g id=\\"single--left\\" stroke=\\"none\\" stroke-width=\\"1\\" fill-rule=\\"evenodd\\">
+        <path d=\\"M699.141847,512.053535 L248.544156,61.4558441 C234.485281,47.3969696 234.485281,24.6030304 248.544156,10.5441559 C262.60303,-3.51471863 285.39697,-3.51471863 299.455844,10.5441559 L774.044605,485.132916 C788.862441,499.950753 788.887722,523.967405 774.101114,538.816404 L301.509379,1013.4022 C287.480133,1027.49064 264.686244,1027.53862 250.597803,1013.50938 C236.509363,999.480133 236.461375,976.686244 250.490621,962.597803 L699.141847,512.053535 Z\\" id=\\"Path-15\\" fill-rule=\\"nonzero\\" transform=\\"translate(511.587274, 512.000000) scale(-1, 1) translate(-511.587274, -512.000000) \\"></path>
+    </g>
+</svg>
+"
+            />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "height": 36.25,
+              "justifyContent": "center",
+              "minWidth": 36.25,
+              "paddingHorizontal": 8.125,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "500",
+              }
+            }
+          >
+            February 2020
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "height": 36.25,
+              "justifyContent": "center",
+              "minWidth": 36.25,
+              "paddingHorizontal": 8.125,
+            }
+          }
+          testID="_next-button"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "height": 20,
+                "justifyContent": "center",
+                "width": 20,
+              }
+            }
+          >
+            <View
+              override={
+                Object {
+                  "fill": "#000000",
+                  "height": 20,
+                  "stroke": "#000000",
+                  "width": 20,
+                }
+              }
+              xml="
+<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+<svg width=\\"1024px\\" height=\\"1024px\\" viewBox=\\"0 0 1024 1024\\" version=\\"1.1\\" xmlns=\\"http://www.w3.org/2000/svg\\" xmlns:xlink=\\"http://www.w3.org/1999/xlink\\">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>single-right</title>
+    <desc>Created with Sketch.</desc>
+    <g id=\\"single-right\\" stroke=\\"none\\" stroke-width=\\"1\\" fill-rule=\\"evenodd\\">
+        <path d=\\"M699.141847,512.053535 L248.544156,61.4558441 C234.485281,47.3969696 234.485281,24.6030304 248.544156,10.5441559 C262.60303,-3.51471863 285.39697,-3.51471863 299.455844,10.5441559 L774.044605,485.132916 C788.862441,499.950753 788.887722,523.967405 774.101114,538.816404 L301.509379,1013.4022 C287.480133,1027.49064 264.686244,1027.53862 250.597803,1013.50938 C236.509363,999.480133 236.461375,976.686244 250.490621,962.597803 L699.141847,512.053535 Z\\" id=\\"Path-15\\" fill-rule=\\"nonzero\\"></path>
+    </g>
+</svg>
+"
+            />
+          </View>
+        </TouchableOpacity>
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#de350b",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Sun
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Mon
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Tue
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Wed
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Thu
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Fri
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Sat
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            31
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={
+              Object {
+                "backgroundColor": "#1dbeee",
+                "borderRadius": 16.25,
+                "height": 32.5,
+                "position": "absolute",
+                "width": 32.5,
+              }
+            }
+          />
+          <Text
+            style={
+              Object {
+                "color": "#fcfcfc",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            1
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            2
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            3
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            4
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            5
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            6
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            7
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            8
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            9
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            10
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            11
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            12
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            13
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            14
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            15
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            16
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            17
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            18
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            19
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            20
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            21
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            22
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            23
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            24
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            25
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            26
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#1dbeee",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            27
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            28
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            29
+          </Text>
+        </TouchableOpacity>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Calendar Snapshot renders correctly 3`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "flexDirection": "row",
+            "justifyContent": "space-between",
+            "paddingVertical": 8.125,
+          }
+        }
+      >
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "height": 36.25,
+              "justifyContent": "center",
+              "minWidth": 36.25,
+              "paddingHorizontal": 8.125,
+            }
+          }
+          testID="_prev-button"
+        >
+          <View
+            style={
+              Object {
+                "alignItems": "center",
+                "display": "flex",
+                "height": 20,
+                "justifyContent": "center",
+                "width": 20,
+              }
+            }
+          >
+            <View
+              override={
+                Object {
+                  "fill": "#000000",
+                  "height": 20,
+                  "stroke": "#000000",
+                  "width": 20,
+                }
+              }
+              xml="
+<?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
+<svg width=\\"1024px\\" height=\\"1024px\\" viewBox=\\"0 0 1024 1024\\" version=\\"1.1\\" xmlns=\\"http://www.w3.org/2000/svg\\" xmlns:xlink=\\"http://www.w3.org/1999/xlink\\">
+    <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
+    <title>single--left</title>
+    <desc>Created with Sketch.</desc>
+    <g id=\\"single--left\\" stroke=\\"none\\" stroke-width=\\"1\\" fill-rule=\\"evenodd\\">
+        <path d=\\"M699.141847,512.053535 L248.544156,61.4558441 C234.485281,47.3969696 234.485281,24.6030304 248.544156,10.5441559 C262.60303,-3.51471863 285.39697,-3.51471863 299.455844,10.5441559 L774.044605,485.132916 C788.862441,499.950753 788.887722,523.967405 774.101114,538.816404 L301.509379,1013.4022 C287.480133,1027.49064 264.686244,1027.53862 250.597803,1013.50938 C236.509363,999.480133 236.461375,976.686244 250.490621,962.597803 L699.141847,512.053535 Z\\" id=\\"Path-15\\" fill-rule=\\"nonzero\\" transform=\\"translate(511.587274, 512.000000) scale(-1, 1) translate(-511.587274, -512.000000) \\"></path>
+    </g>
+</svg>
+"
+            />
+          </View>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "height": 36.25,
+              "justifyContent": "center",
+              "minWidth": 36.25,
+              "paddingHorizontal": 8.125,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "500",
+              }
+            }
+          >
+            March 2020
+          </Text>
+        </TouchableOpacity>
+        <View
+          style={
+            Object {
+              "height": 36.25,
+              "justifyContent": "center",
+              "minWidth": 36.25,
+              "paddingHorizontal": 8.125,
+            }
+          }
+        />
+      </View>
+      <View
+        style={
+          Object {
+            "flexDirection": "row",
+            "flexWrap": "wrap",
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#de350b",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Sun
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Mon
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Tue
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Wed
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Thu
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Fri
+          </Text>
+        </View>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 13.487499999999999,
+                "fontWeight": "500",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            Sat
+          </Text>
+        </View>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            1
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            2
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            3
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            4
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            5
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            6
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            7
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            8
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            9
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            10
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            11
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            12
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            13
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            14
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            15
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            16
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            17
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            18
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            19
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity
+          activeOpacity={0.2}
+          style={
+            Object {
+              "alignItems": "center",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <View
+            style={Object {}}
+          />
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "fontWeight": "400",
+                "lineHeight": 16.25,
+              }
+            }
+          >
+            20
+          </Text>
+        </TouchableOpacity>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#f5f6f8",
+              "flexBasis": "14.285714285714286%",
+              "flexDirection": "row",
+              "height": 32.5,
+              "justifyContent": "center",
+            }
+          }
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
