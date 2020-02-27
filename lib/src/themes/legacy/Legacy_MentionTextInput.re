@@ -16,6 +16,7 @@ let styles: Js.t('a) = {
       ~color=_TEXT_COLOR,
       (),
     ),
+  "disabledText": style(~color=_DISABLED_TEXT_COLOR, ()),
   "highlightText":
     style(~backgroundColor=_HIGHLIGHT_TEXT_COLOR, ~borderRadius=2.0, ()),
   "suggestionWrapper":

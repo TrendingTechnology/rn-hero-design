@@ -1,0 +1,63 @@
+---
+name: Avatar
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Props } from 'gatsby-theme-docz/src/components/Props';
+import { Avatar } from 'rn-hero-design'
+import { IPhoneX } from './DeviceFrame'
+
+# Avatar
+
+## Basic usage
+
+<Playground>
+  <IPhoneX screenStyle={{ padding: 16, paddingTop: 48 }}>
+    <Avatar
+      size="small"
+      title="HV"
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+    <Avatar
+      size="medium"
+      title="HV"
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+    <Avatar
+      size="large"
+      title="HV"
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+    <Avatar
+      size="small"
+      title="HV"
+      source="https://avatars0.githubusercontent.com/u/17645203?s=400&v=4"
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+    <Avatar
+      size="medium"
+      title="HV"
+      source="https://avatars0.githubusercontent.com/u/17645203?s=400&v=4"
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+    <Avatar
+      size="large"
+      title="HV"
+      source="https://avatars0.githubusercontent.com/u/17645203?s=400&v=4"
+      wrapperStyle={{ marginBottom: 16 }}
+    />
+  </IPhoneX>
+</Playground>
+
+## Properties
+
+<Props props_={{
+  source: { type: 'String', required: false },
+  size: { type: '"small" | "medium" | "large"', required: false },
+  title: { type: 'String', required: false, defaultValue: { value: '""' } },
+  wrapperStyle: { type: 'Object', required: false },
+  titleStyle: { type: 'Object', required: false },
+  theme: { type: 'Object', required: false, description: 'The theme object contains style of all components. Can be injected by `injectTheme` HOC' },
+}} />
+

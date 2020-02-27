@@ -1,0 +1,85 @@
+---
+name: Calendar
+menu: Components
+---
+
+import { Playground } from 'docz'
+import { Props } from 'gatsby-theme-docz/src/components/Props';
+import { Calendar } from 'rn-hero-design'
+import { FOCUS_BLUE_1, RED, ORANGE, GREEN } from 'rn-hero-design/src/themes/hero/variables';
+import { IPhoneX } from './DeviceFrame'
+
+# Calendar
+
+## Basic usage
+
+<Playground>
+  <IPhoneX screenStyle={{ padding: 16, paddingTop: 48 }}>
+    <Calendar
+      minDate={new Date(2020, 0, 31)}
+      maxDate={new Date(2020, 2, 20)}
+      value={new Date(2020, 1, 1)}
+      currentView={new Date(2020, 1, 1)}
+      onChange={() => {}}
+      onPressPrev={() => {}}
+      onPressNext={() => {}}
+      onPressTitle={() => {}}
+      markedDates={[
+        {
+          date: new Date(2020, 0, 30),
+          colors: [FOCUS_BLUE_1],
+        },
+        {
+          date: new Date(2020, 1, 2),
+          colors: [
+            FOCUS_BLUE_1,
+            RED,
+            ORANGE,
+            GREEN,
+          ],
+        },
+        {
+          date: new Date(2020, 1, 3),
+          colors: [],
+        },
+        {
+          date: new Date(2020, 1, 4),
+          colors: [FOCUS_BLUE_1],
+        },
+        {
+          date: new Date(2020, 1, 5),
+          colors: [FOCUS_BLUE_1],
+        },
+        {
+          date: new Date(2020, 1, 6),
+          colors: [FOCUS_BLUE_1],
+        },
+        {
+          date: new Date(2020, 1, 11),
+          colors: [FOCUS_BLUE_1],
+        },
+        {
+          date: new Date(2020, 1, 10),
+          colors: [FOCUS_BLUE_1],
+        },
+      ]}
+    />
+  </IPhoneX>
+</Playground>
+
+## Properties
+
+<Props props_={{
+  testID: { type: 'String', required: false },
+  value: { type: 'DateObject', required: true, defaultValue: { value: 'new Date()' } },
+  minDate: { type: 'DateObject', required: false },
+  maxDate: { type: 'DateObject', required: false },
+  currentView: { type: 'DateObject', required: true, defaultValue: { value: 'new Date()' } },
+  onChange: { type: 'DateObject => void', required: true },
+  onPressPrev: { type: 'void => void', required: true },
+  onPressNext: { type: 'void => void', required: true },
+  onPressTitle: { type: 'void => void', required: false },
+  markedDates: { type: 'Array', required: false },
+  theme: { type: 'Object', required: false, description: 'The theme object contains style of all components. Can be injected by `injectTheme` HOC' },
+}} />
+

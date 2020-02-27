@@ -3,12 +3,19 @@ name: DateTimePicker
 menu: Components
 ---
 
-import { Props } from 'docz'
+import { Props } from 'gatsby-theme-docz/src/components/Props';
 import { DateTimePicker } from 'rn-hero-design'
 
 # DateTimePicker
 
 ## Properties
 
-<Props of={DateTimePicker} />
+<Props props_={{
+  show: { type: 'Boolean', required: false, defaultValue: { value: 'false' } },
+  mode: { type: '"date" | "datetime"', required: false, defaultValue: { value: '"date"' } },
+  value: { type: 'DateObject', required: false, defaultValue: { value: 'new Date()' } },
+  onChange: { type: 'DateObject => void', required: false },
+  onDismiss: { type: 'void => void', required: false },
+  theme: { type: 'Object', required: false, description: 'The theme object contains style of all components. Can be injected by `injectTheme` HOC' },
+}} />
 
