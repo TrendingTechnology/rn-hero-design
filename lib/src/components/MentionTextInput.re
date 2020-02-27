@@ -1,5 +1,7 @@
 module RN = ReactNative;
 
+let emptyStyle = RN.Style.style();
+
 let castArray: 't => array('t) = value => [|value|];
 
 let arrayInsertAt = (~pos, ~value, array_) =>
@@ -161,6 +163,7 @@ let make =
       ~onChange: message => unit,
       ~renderSuggestionList,
       ~rightIcon,
+      ~disabled,
       ~theme=Hero_Theme.default,
     ) => {
   open React.Ref;
@@ -349,12 +352,17 @@ let make =
       placeholder
       keyboardType="default"
       rightIcon
+      disabled
       multiline=true
       autoCorrect=true
       onKeyPress=handleKeyPress
       onChangeText=handleChangeText
       onSelectionChange=handleSelectionChange>
-      <RN.Text style={theme##mentionTextInput##text}>
+      <RN.Text
+        style={RN.StyleSheet.flatten([|
+          theme##mentionTextInput##text,
+          disabled ? theme##mentionTextInput##disabledText : emptyStyle,
+        |])}>
         {value
          |> Js.Array.mapi((textBlock, index) => {
               switch (textBlock->refGet) {
