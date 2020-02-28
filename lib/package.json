@@ -1,6 +1,6 @@
 {
   "name": "rn-hero-design",
-  "version": "2.2.5",
+  "version": "2.2.6",
   "description": "",
   "main": "lib.js",
   "scripts": {
@@ -16,6 +16,7 @@
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/preset-flow": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
+    "@testing-library/react-native": "^5.0.3",
     "babel-plugin-inline-import": "^3.0.0",
     "bs-platform": "^7.0.0",
     "jest": "^24.9.0",

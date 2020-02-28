@@ -1682,6 +1682,14 @@
   dependencies:
     defer-to-connect "^1.0.1"
 
+"@testing-library/react-native@^5.0.3":
+  version "5.0.3"
+  resolved "https://registry.npmjs.org/@testing-library/react-native/-/react-native-5.0.3.tgz#8821dcf7fe7364bc7f427d853cd96e4407d88a4f"
+  integrity sha512-lQH7vUgwESfagFw4BlKsfpX7Rv/m7h2NYfubY0aoQromSwI1slCxrhwZws8gABTXweob/DyLATsOamHsWdwDnA==
+  dependencies:
+    pretty-format "^24.9.0"
+    wait-for-expect "^3.0.0"
+
 "@theme-ui/typography@^0.2.5":
   version "0.2.46"
   resolved "https://registry.npmjs.org/@theme-ui/typography/-/typography-0.2.46.tgz#24e20989450a35eb715967b99cbfd8fa4291ba17"
@@ -16311,6 +16319,11 @@ w3c-hr-time@^1.0.1:
   integrity sha1-gqwr/2PZUOqeMYmlimViX+3xkEU=
   dependencies:
     browser-process-hrtime "^0.1.2"
+
+wait-for-expect@^3.0.0:
+  version "3.0.2"
+  resolved "https://registry.npmjs.org/wait-for-expect/-/wait-for-expect-3.0.2.tgz#d2f14b2f7b778c9b82144109c8fa89ceaadaa463"
+  integrity sha512-cfS1+DZxuav1aBYbaO/kE06EOS8yRw7qOFoD3XtjTkYvCvh3zUvNST8DXK/nPaeqIzIv3P3kL3lRJn8iwOiSag==
 
 wait-on@^3.3.0:
   version "3.3.0"

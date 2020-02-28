@@ -1,0 +1,251 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MentionTextInput Snapshot renders correctly 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 16.25,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#a3a6ac",
+              "fontFamily": "Proxima Nova",
+              "fontSize": 13.487499999999999,
+              "fontWeight": "500",
+              "height": 13.487499999999999,
+              "lineHeight": 13.487499999999999,
+            }
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "borderBottomColor": "#d9dbdf",
+              "borderBottomWidth": 0.8,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TextInput
+            allowFontScaling={true}
+            autoCorrect={true}
+            autoFocus={false}
+            editable={true}
+            keyboardType="default"
+            multiline={true}
+            placeholder=""
+            placeholderTextColor="#000000"
+            rejectResponderTermination={true}
+            scrollEnabled={false}
+            secureTextEntry={false}
+            style={
+              Object {
+                "color": "#000000",
+                "flex": 1,
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "paddingBottom": 16.25,
+                "paddingTop": 16.25,
+                "textAlignVertical": "center",
+              }
+            }
+            testID=""
+            underlineColorAndroid="transparent"
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#000000",
+                  "fontFamily": "Proxima Nova",
+                  "fontSize": 16.25,
+                }
+              }
+            >
+              <Text>
+                Hello, 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "backgroundColor": "#b5eeff",
+                    "borderRadius": 2,
+                  }
+                }
+              >
+                @Gia Toan
+              </Text>
+            </Text>
+          </TextInput>
+          <TouchableWithoutFeedback />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#fe56aa",
+              "fontFamily": "Proxima Nova",
+              "fontSize": 13.487499999999999,
+              "fontWeight": "500",
+              "height": 13.487499999999999,
+              "lineHeight": 13.487499999999999,
+              "marginTop": 8.125,
+            }
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`MentionTextInput Snapshot renders correctly 2`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={Object {}}
+    >
+      <View
+        style={
+          Object {
+            "marginBottom": 16.25,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#a3a6ac",
+              "fontFamily": "Proxima Nova",
+              "fontSize": 13.487499999999999,
+              "fontWeight": "500",
+              "height": 13.487499999999999,
+              "lineHeight": 13.487499999999999,
+            }
+          }
+        >
+          
+        </Text>
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "borderBottomColor": "#d9dbdf",
+              "borderBottomWidth": 0.8,
+              "flexDirection": "row",
+            }
+          }
+        >
+          <TextInput
+            allowFontScaling={true}
+            autoCorrect={true}
+            autoFocus={false}
+            editable={false}
+            keyboardType="default"
+            multiline={true}
+            placeholder=""
+            placeholderTextColor="#a3a6ac"
+            rejectResponderTermination={true}
+            scrollEnabled={false}
+            secureTextEntry={false}
+            style={
+              Object {
+                "color": "#a3a6ac",
+                "flex": 1,
+                "fontFamily": "Proxima Nova",
+                "fontSize": 16.25,
+                "paddingBottom": 16.25,
+                "paddingTop": 16.25,
+                "textAlignVertical": "center",
+              }
+            }
+            testID=""
+            underlineColorAndroid="transparent"
+          >
+            <Text
+              style={
+                Object {
+                  "color": "#a3a6ac",
+                  "fontFamily": "Proxima Nova",
+                  "fontSize": 16.25,
+                }
+              }
+            >
+              <Text>
+                Hello, 
+              </Text>
+              <Text
+                style={
+                  Object {
+                    "backgroundColor": "#b5eeff",
+                    "borderRadius": 2,
+                  }
+                }
+              >
+                @Gia Toan
+              </Text>
+            </Text>
+          </TextInput>
+          <TouchableWithoutFeedback />
+        </View>
+        <Text
+          style={
+            Object {
+              "color": "#fe56aa",
+              "fontFamily": "Proxima Nova",
+              "fontSize": 13.487499999999999,
+              "fontWeight": "500",
+              "height": 13.487499999999999,
+              "lineHeight": 13.487499999999999,
+              "marginTop": 8.125,
+            }
+          }
+        >
+          
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
