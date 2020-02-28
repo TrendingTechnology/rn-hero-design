@@ -384,7 +384,7 @@ Object {
       "color": "#fcfcfc",
     },
     "errorWrapper": Object {
-      "backgroundColor": "#de350b",
+      "backgroundColor": "#fe56aa",
     },
     "infoContent": Object {
       "color": "#fcfcfc",
@@ -399,10 +399,10 @@ Object {
       "backgroundColor": "#01b39c",
     },
     "warningContent": Object {
-      "color": "#000000",
+      "color": "#fcfcfc",
     },
     "warningWrapper": Object {
-      "backgroundColor": "#fadb14",
+      "backgroundColor": "#ffa234",
     },
     "wrapper": Object {
       "left": 0,
@@ -527,13 +527,13 @@ Object {
       "color": "#a3a6ac",
     },
     "errorIcon": Object {
-      "color": "#de350b",
+      "color": "#fe56aa",
     },
     "errorLabel": Object {
-      "color": "#de350b",
+      "color": "#fe56aa",
     },
     "errorMessage": Object {
-      "color": "#de350b",
+      "color": "#fe56aa",
       "fontFamily": "Proxima Nova",
       "fontSize": 13.487499999999999,
       "fontWeight": "500",
@@ -542,7 +542,7 @@ Object {
       "marginTop": 8.125,
     },
     "errorTextInput": Object {
-      "borderBottomColor": "#de350b",
+      "borderBottomColor": "#fe56aa",
     },
     "icon": Object {
       "color": "#a3a6ac",
@@ -579,11 +579,11 @@ Object {
     "BLACK": "#000000",
     "BLUE": "#1dbeee",
     "BORDER_COLOR": "#d9dbdf",
-    "DANGER_COLOR": "#de350b",
+    "DANGER_COLOR": "#fe56aa",
     "DARK_PRIMARY_COLOR": "#003580",
     "DISABLED_BACKGROUND_COLOR": "#d9dbdf",
     "DISABLED_TEXT_COLOR": "#a3a6ac",
-    "ERROR_COLOR": "#de350b",
+    "ERROR_COLOR": "#fe56aa",
     "FOCUS_BLUE_1": "#003580",
     "FOCUS_BLUE_2": "#40679f",
     "FOCUS_BLUE_3": "#5d7ead",
@@ -609,12 +609,13 @@ Object {
     "MEDIUM_SIZE": 16.25,
     "MUTED_TEXT_COLOR": "#a3a6ac",
     "ORANGE": "#ffa234",
+    "PINK": "#fe56aa",
     "PRIMARY_COLOR": "#1dbeee",
     "RED": "#de350b",
     "SMALL_SIZE": 8.125,
     "SUCCESS_COLOR": "#01b39c",
     "TEXT_COLOR": "#000000",
-    "WARNING_COLOR": "#fadb14",
+    "WARNING_COLOR": "#ffa234",
     "WHITE": "#fcfcfc",
     "YELLOW": "#fadb14",
   },

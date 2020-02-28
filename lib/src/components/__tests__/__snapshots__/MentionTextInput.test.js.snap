@@ -107,7 +107,7 @@ exports[`MentionTextInput Snapshot renders correctly 1`] = `
         <Text
           style={
             Object {
-              "color": "#de350b",
+              "color": "#fe56aa",
               "fontFamily": "Proxima Nova",
               "fontSize": 13.487499999999999,
               "fontWeight": "500",
@@ -232,7 +232,7 @@ exports[`MentionTextInput Snapshot renders correctly 2`] = `
         <Text
           style={
             Object {
-              "color": "#de350b",
+              "color": "#fe56aa",
               "fontFamily": "Proxima Nova",
               "fontSize": 13.487499999999999,
               "fontWeight": "500",

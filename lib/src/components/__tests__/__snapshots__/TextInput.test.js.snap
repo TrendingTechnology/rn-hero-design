@@ -72,7 +72,7 @@ exports[`TextInput renders correctly 1`] = `
   <Text
     style={
       Object {
-        "color": "#de350b",
+        "color": "#fe56aa",
         "fontFamily": "Proxima Nova",
         "fontSize": 13.487499999999999,
         "fontWeight": "500",
@@ -159,7 +159,7 @@ exports[`TextInput renders correctly 2`] = `
   <Text
     style={
       Object {
-        "color": "#de350b",
+        "color": "#fe56aa",
         "fontFamily": "Proxima Nova",
         "fontSize": 13.487499999999999,
         "fontWeight": "500",
@@ -283,7 +283,7 @@ exports[`TextInput renders correctly 3`] = `
   <Text
     style={
       Object {
-        "color": "#de350b",
+        "color": "#fe56aa",
         "fontFamily": "Proxima Nova",
         "fontSize": 13.487499999999999,
         "fontWeight": "500",
@@ -407,7 +407,7 @@ exports[`TextInput renders correctly 4`] = `
   <Text
     style={
       Object {
-        "color": "#de350b",
+        "color": "#fe56aa",
         "fontFamily": "Proxima Nova",
         "fontSize": 13.487499999999999,
         "fontWeight": "500",
@@ -433,7 +433,7 @@ exports[`TextInput renders correctly 5`] = `
   <Text
     style={
       Object {
-        "color": "#de350b",
+        "color": "#fe56aa",
         "fontFamily": "Proxima Nova",
         "fontSize": 13.487499999999999,
         "fontWeight": "500",
@@ -448,7 +448,7 @@ exports[`TextInput renders correctly 5`] = `
     style={
       Object {
         "alignItems": "center",
-        "borderBottomColor": "#de350b",
+        "borderBottomColor": "#fe56aa",
         "borderBottomWidth": 0.8,
         "flexDirection": "row",
       }
@@ -506,9 +506,9 @@ exports[`TextInput renders correctly 5`] = `
         <View
           override={
             Object {
-              "fill": "#de350b",
+              "fill": "#fe56aa",
               "height": 20,
-              "stroke": "#de350b",
+              "stroke": "#fe56aa",
               "width": 20,
             }
           }
@@ -531,7 +531,7 @@ exports[`TextInput renders correctly 5`] = `
   <Text
     style={
       Object {
-        "color": "#de350b",
+        "color": "#fe56aa",
         "fontFamily": "Proxima Nova",
         "fontSize": 13.487499999999999,
         "fontWeight": "500",
