@@ -13,6 +13,7 @@ let _BACKGROUND_BLUE_3 = "#e6f7ff";
 let _RED = "#de350b";
 let _ORANGE = "#ffa234";
 let _MAGENTA = "#ee1d84";
+let _PINK = "#fe56aa";
 let _YELLOW = "#fadb14";
 let _GREEN = "#01b39c";
 
@@ -36,7 +37,7 @@ let _DARK_PRIMARY_COLOR = _FOCUS_BLUE_1;
 let _LIGHT_PRIMARY_COLOR = _BACKGROUND_BLUE_2;
 let _DANGER_COLOR = _MAGENTA; /* DEPRECATED */
 let _ERROR_COLOR = _MAGENTA;
-let _WARNING_COLOR = _YELLOW;
+let _WARNING_COLOR = _ORANGE;
 let _SUCCESS_COLOR = _GREEN;
 let _INFO_COLOR = _BLUE;
 
@@ -71,6 +72,7 @@ let default = {
   "RED": _RED,
   "ORANGE": _ORANGE,
   "MAGENTA": _MAGENTA,
+  "PINK": _PINK,
   "YELLOW": _YELLOW,
   "GREEN": _GREEN,
 
