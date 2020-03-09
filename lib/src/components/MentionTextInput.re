@@ -324,28 +324,31 @@ let make =
       arrayInsertAt(~pos=insertPos, ~value=newMention, mentions_);
 
     onChange(serialize(valueText_, mentions_));
-    setShowSuggestions(_ => false);
+    /*
+     * in Samsung, selectionChange is triggered AFTER the next render, which
+     * causes eventSelection is set before eventKey and eventSelection. This
+     * leads to the bug of suggestion list is hidden immediately after showing.
+     * Call setShowSuggestions reactively will prevent this bug.
+     */
+    /* setShowSuggestions(_ => false); */
   };
 
-  let handleSelectionChange =
-    React.useCallback(event => {
-      let selection = event##nativeEvent##selection;
-      eventSelection := Some((selection##start, selection##_end));
-      handleChange();
-    });
+  let handleSelectionChange = event => {
+    let selection = event##nativeEvent##selection;
+    eventSelection := Some((selection##start, selection##_end));
+    handleChange();
+  };
 
-  let handleKeyPress =
-    React.useCallback(event => {
-      let key = event##nativeEvent##key;
-      eventKey := Some(key);
-      handleChange();
-    });
+  let handleKeyPress = event => {
+    let key = event##nativeEvent##key;
+    eventKey := Some(key);
+    handleChange();
+  };
 
-  let handleChangeText =
-    React.useCallback(text => {
-      eventText := Some(text);
-      handleChange();
-    });
+  let handleChangeText = text => {
+    eventText := Some(text);
+    handleChange();
+  };
 
   <RN.View style=theme##mentionTextInput##wrapper>
     <TextInput
