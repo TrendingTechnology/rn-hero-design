@@ -1,11 +1,22 @@
 import React from 'react';
-import {
-  ReTabBar,
-  ReText,
-  Container,
-  injectTheme,
-  ReIcon,
-} from 'rn-hero-design';
+import { ActivityIndicator } from 'react-native';
+import { ReTabBar, Text, Container, injectTheme, ReIcon } from 'rn-hero-design';
+
+const LazyView = ({ content }) => {
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 3000);
+  });
+
+  return (
+    <Container>
+      {isLoading ? <ActivityIndicator size="large" /> : <Text>{content}</Text>}
+    </Container>
+  );
+};
 
 const TabBarScreen = ({ theme }) => {
   let [selectedIndex, setSelectedIndex] = React.useState(0);
@@ -18,7 +29,7 @@ const TabBarScreen = ({ theme }) => {
     >
       <ReTabBar.Tab
         title={
-          <ReText
+          <Text
             weight="600"
             color={
               selectedIndex === 0
@@ -27,16 +38,14 @@ const TabBarScreen = ({ theme }) => {
             }
           >
             Tab 1
-          </ReText>
+          </Text>
         }
       >
-        <Container>
-          <ReText>Nhìn cũng ok</ReText>
-        </Container>
+        <LazyView content="Nhìn cũng ok" />
       </ReTabBar.Tab>
       <ReTabBar.Tab
         title={
-          <ReText
+          <Text
             weight="600"
             color={
               selectedIndex === 1
@@ -45,12 +54,10 @@ const TabBarScreen = ({ theme }) => {
             }
           >
             Tab 2
-          </ReText>
+          </Text>
         }
       >
-        <Container>
-          <ReText>Nhìn cũng được</ReText>
-        </Container>
+        <LazyView content="Nhìn cũng được" />
       </ReTabBar.Tab>
       <ReTabBar.Tab
         title={
@@ -65,9 +72,7 @@ const TabBarScreen = ({ theme }) => {
           />
         }
       >
-        <Container>
-          <ReText>Nhìn cũng tạm</ReText>
-        </Container>
+        <LazyView content="Nhìn cũng tạm" />
       </ReTabBar.Tab>
     </ReTabBar>
   );

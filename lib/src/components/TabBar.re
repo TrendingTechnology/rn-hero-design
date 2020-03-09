@@ -38,11 +38,14 @@ let make =
       ~contentStyle=emptyStyle,
       ~theme=Hero_Theme.default,
     ) => {
-  let children = children->toArray;
+  let tabs = children->toArray;
+
+  let (contents, setContents) =
+    React.useState(_ => Array.(make(length(tabs), React.null)));
 
   let titles: array(React.element) =
-    children
-    ->Belt.Array.map(child => getTabProps(child)##title)
+    tabs
+    ->Belt.Array.map(tab => getTabProps(tab)##title)
     ->Belt.Array.mapWithIndex((index, title) => {
         let title = title->Belt.Option.getWithDefault(React.null);
         <TouchableOpacity
@@ -57,16 +60,27 @@ let make =
         </TouchableOpacity>;
       });
 
-  let contents: array(React.element) =
-    children
-    ->Belt.Array.map(child => getTabProps(child)##children)
-    ->Belt.Array.mapWithIndex((index, child) => {
-        let child = child->Belt.Option.getWithDefault(React.null);
-        switch (index) {
-        | index when index == selectedIndex => child
-        | _ => React.null
-        };
+  React.useEffect1(
+    () => {
+      let selectedContent =
+        tabs
+        ->Belt.Array.map(tab =>
+            getTabProps(tab)##children
+            ->Belt.Option.getWithDefault(React.null)
+          )
+        ->Belt.Array.get(selectedIndex)
+        ->Belt.Option.getWithDefault(React.null);
+
+      setContents(contents => {
+        let contents = Array.copy(contents);
+        contents[selectedIndex] = selectedContent;
+        contents;
       });
+
+      None;
+    },
+    [|selectedIndex|],
+  );
 
   <View style={StyleSheet.flatten([|theme##tabBar##wrapper, wrapperStyle|])}>
     <View style={StyleSheet.flatten([|theme##tabBar##navigator|])}>
@@ -74,7 +88,19 @@ let make =
     </View>
     <View
       style={StyleSheet.flatten([|theme##tabBar##content, contentStyle|])}>
-      contents->ReasonReact.array
+      {contents
+       ->Belt.Array.mapWithIndex((index, content) =>
+           <View
+             key={string_of_int(index)}
+             style={Style.style(
+               ~display=index == selectedIndex ? `flex : `none,
+               ~flex=1.0,
+               (),
+             )}>
+             content
+           </View>
+         )
+       ->ReasonReact.array}
     </View>
   </View>;
 };

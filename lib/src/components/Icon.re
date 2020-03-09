@@ -43,6 +43,7 @@ external phoneOutline: string = "default";
 [@bs.module "../icons/face-id"] external faceId: string = "default";
 [@bs.module "../icons/single-left-outline"]
 external singleLeftOutline: string = "default";
+[@bs.module "../icons/arrow-down"] external arrowDown: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -67,6 +68,7 @@ let xmlFromIcon = icon =>
   | "more-vertical" => Some(moreVertical)
   | "phone-outline" => Some(phoneOutline)
   | "face-id" => Some(faceId)
+  | "arrow-down" => Some(arrowDown)
   | _ => None
   };
 
