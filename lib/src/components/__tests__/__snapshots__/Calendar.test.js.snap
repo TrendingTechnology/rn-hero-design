@@ -2479,7 +2479,7 @@ exports[`Calendar Snapshot renders correctly 3`] = `
           <Text
             style={
               Object {
-                "color": "#1dbeee",
+                "color": "#000000",
                 "fontFamily": "Proxima Nova",
                 "fontSize": 16.25,
                 "fontWeight": "400",
@@ -2566,7 +2566,7 @@ exports[`Calendar Snapshot renders correctly 3`] = `
           <Text
             style={
               Object {
-                "color": "#000000",
+                "color": "#1dbeee",
                 "fontFamily": "Proxima Nova",
                 "fontSize": 16.25,
                 "fontWeight": "400",
