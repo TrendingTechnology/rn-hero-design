@@ -1,5 +1,13 @@
 open ReactNative;
 
+let isEmptyString = string_ => String.length(string_) == 0;
+
+let getFirstOptionValue = options =>
+  switch (options->Belt.Array.get(0)) {
+  | None => ""
+  | Some(option_) => option_##value
+  };
+
 type option_ = {
   .
   "label": string,
@@ -10,16 +18,19 @@ let noop = _ => ();
 
 module SelectIOS = {
   [@react.component]
-  let make = (~options, ~show, ~value, ~onChange, ~onDismiss, ~theme) => {
+  let make = (~options, ~show, ~value: string, ~onChange, ~onDismiss, ~theme) => {
     let (pickedValue, setPickedValue) = React.useState(() => value);
     let handleChange =
-      React.useCallback1(
+      React.useCallback2(
         _ => {
-          onChange(pickedValue);
+          onChange(
+            isEmptyString(pickedValue)
+              ? getFirstOptionValue(options) : pickedValue,
+          );
           onDismiss();
           ();
         },
-        [|pickedValue|],
+        (pickedValue, options),
       );
     let handleDismiss =
       React.useCallback(_ => {
