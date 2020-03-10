@@ -2,3 +2,19 @@
 name: Select
 menu: Components
 ---
+
+import { Props } from 'gatsby-theme-docz/src/components/Props';
+
+# Select
+
+## Properties
+
+<Props props_={{
+  options: { type: 'Array({ label: String, value: String })', required: false, defaultValue: { value: '[]' } },
+  show: { type: 'Boolean', required: false, defaultValue: { value: 'false' } },
+  value: { type: 'String', required: true },
+  onChange: { type: 'String => void', required: false },
+  onDismiss: { type: 'void => void', required: false },
+  theme: { type: 'Object', required: false, description: 'The theme object contains style of all components. Can be injected by `injectTheme` HOC' },
+}} />
+
