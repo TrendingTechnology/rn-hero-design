@@ -26,7 +26,7 @@ let (|?) = (x, y) =>
 [@react.component]
 let make =
     (
-      ~testID="",
+      ~testID,
       ~children,
       ~size=?,
       ~weight=?,
