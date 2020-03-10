@@ -26,6 +26,7 @@ let (|?) = (x, y) =>
 [@react.component]
 let make =
     (
+      ~testID="",
       ~children,
       ~size=?,
       ~weight=?,
@@ -34,6 +35,7 @@ let make =
       ~theme=Hero_Theme.default,
     ) =>
   <ReactNative.Text
+    testID
     style={StyleSheet.flatten([|
       theme##text##text,
       Belt.Option.mapWithDefault(size, emptyStyle, size =>
