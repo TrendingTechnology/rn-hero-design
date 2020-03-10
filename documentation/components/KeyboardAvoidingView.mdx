@@ -4,10 +4,17 @@ menu: Components
 ---
 
 import { KeyboardAvoidingView } from 'rn-hero-design'
+import { Props } from 'gatsby-theme-docz/src/components/Props';
 
 # KeyboardAvoidingView
 
 KeyboardAvoidingView will be aware of the header of `react-navigation`
 
 ## Properties
+
+<Props props_={{
+  children: { type: 'Element', required: true },
+  withNavigation: { type: 'Boolean', required: false },
+  style: { type: 'Object', required: false },
+}} />
 
