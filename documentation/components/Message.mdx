@@ -2,3 +2,18 @@
 name: Message
 menu: Components
 ---
+
+import { Props } from 'gatsby-theme-docz/src/components/Props';
+
+# Message
+
+## Properties
+
+<Props props_={{
+  variant: { type: '"error" | "warning" | "success" | "info"', required: true },
+  content: { type: 'String', required: true },
+  wrapperStyle: { type: 'Object', required: false },
+  contentStyle: { type: 'Object', required: false },
+  theme: { type: 'Object', required: false, description: 'The theme object contains style of all components. Can be injected by `injectTheme` HOC' },
+}} />
+

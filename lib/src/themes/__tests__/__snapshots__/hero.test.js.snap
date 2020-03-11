@@ -99,12 +99,12 @@ Object {
       "width": 24.375,
     },
     "title": Object {
-      "color": "#003580",
+      "color": "#1dbeee",
       "fontFamily": "Proxima Nova",
     },
     "titleWrapper": Object {
       "alignItems": "center",
-      "borderColor": "#003580",
+      "borderColor": "#1dbeee",
       "justifyContent": "center",
       "left": 0,
       "position": "absolute",
@@ -201,7 +201,7 @@ Object {
     },
     "day": Object {
       "alignItems": "center",
-      "flexBasis": "14.285714285714286%",
+      "flexBasis": "14%",
       "flexDirection": "row",
       "height": 32.5,
       "justifyContent": "center",
@@ -255,6 +255,7 @@ Object {
     "monthView": Object {
       "flexDirection": "row",
       "flexWrap": "wrap",
+      "justifyContent": "center",
     },
     "selectedDay": Object {
       "backgroundColor": "#1dbeee",
