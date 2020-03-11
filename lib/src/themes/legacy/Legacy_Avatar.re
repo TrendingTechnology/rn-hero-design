@@ -1,8 +1,8 @@
 open ReactNative.Style;
 open Legacy_Variables;
 
-let _WRAPPER_BORDER_COLOR = _DARK_PRIMARY_COLOR;
-let _TITLE_COLOR = _DARK_PRIMARY_COLOR;
+let _WRAPPER_BORDER_COLOR = _PRIMARY_COLOR;
+let _TITLE_COLOR = _PRIMARY_COLOR;
 
 /* This will fit the ListItem */
 let _WRAPPER_MEDIUM_SIZE = _LARGE_SIZE *. 2.0;

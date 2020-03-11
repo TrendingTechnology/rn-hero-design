@@ -44,11 +44,12 @@ let styles: Js.t('a) = {
       ~fontWeight=`_500,
       (),
     ),
-  "monthView": style(~flexDirection=`row, ~flexWrap=`wrap, ()),
+  "monthView":
+    style(~flexDirection=`row, ~flexWrap=`wrap, ~justifyContent=`center, ()),
   "day":
     style(
       ~flexDirection=`row,
-      ~flexBasis=(100.0 /. 7.0)->pct,
+      ~flexBasis=(100.0 /. 7.0)->Js.Math.floor_float->pct,
       ~justifyContent=`center,
       ~alignItems=`center,
       ~height=_DAY_HEIGHT->dp,
