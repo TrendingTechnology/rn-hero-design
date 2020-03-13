@@ -2,3 +2,16 @@
 name: Switch
 menu: Components
 ---
+
+import { Props } from 'gatsby-theme-docz/src/components/Props';
+
+# Switch
+
+## Properties
+
+<Props props_={{
+  value: { type: 'Boolean', required: true },
+  onValueChange: { type: 'Boolean => void', required: true },
+  theme: { type: 'Object', required: false, description: 'The theme object contains style of all components. Can be injected by `injectTheme` HOC' },
+}} />
+

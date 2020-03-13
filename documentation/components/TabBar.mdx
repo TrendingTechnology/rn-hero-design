@@ -2,3 +2,28 @@
 name: TabBar
 menu: Components
 ---
+
+import { Props } from 'gatsby-theme-docz/src/components/Props';
+
+# TabBar
+
+## Properties
+
+<Props props_={{
+  selectedIndex: { type: 'Integer', required: true, defaultValue: { value: '0' } },
+  onSelect: { type: 'Integer => void', required: true },
+  wrapperStyle: { type: 'Object', required: false },
+  tabStyle: { type: 'Object', required: false },
+  contentStyle: { type: 'Object', required: false },
+  theme: { type: 'Object', required: false, description: 'The theme object contains style of all components. Can be injected by `injectTheme` HOC' },
+}} />
+
+# TabBar.Tab
+
+## Properties
+
+<Props props_={{
+  title: { type: 'Element', required: true },
+  children: { type: 'Element', required: true },
+}} />
+

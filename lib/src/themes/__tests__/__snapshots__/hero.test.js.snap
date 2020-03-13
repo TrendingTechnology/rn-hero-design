@@ -538,9 +538,9 @@ Object {
       "fontFamily": "Proxima Nova",
       "fontSize": 13.487499999999999,
       "fontWeight": "500",
-      "height": 13.487499999999999,
       "lineHeight": 13.487499999999999,
       "marginTop": 8.125,
+      "minHeight": 13.487499999999999,
     },
     "errorTextInput": Object {
       "borderBottomColor": "#fe56aa",
