@@ -76,9 +76,9 @@ exports[`TextInput renders correctly 1`] = `
         "fontFamily": "Proxima Nova",
         "fontSize": 13.487499999999999,
         "fontWeight": "500",
-        "height": 13.487499999999999,
         "lineHeight": 13.487499999999999,
         "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
       }
     }
   >
@@ -163,9 +163,9 @@ exports[`TextInput renders correctly 2`] = `
         "fontFamily": "Proxima Nova",
         "fontSize": 13.487499999999999,
         "fontWeight": "500",
-        "height": 13.487499999999999,
         "lineHeight": 13.487499999999999,
         "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
       }
     }
   >
@@ -287,9 +287,9 @@ exports[`TextInput renders correctly 3`] = `
         "fontFamily": "Proxima Nova",
         "fontSize": 13.487499999999999,
         "fontWeight": "500",
-        "height": 13.487499999999999,
         "lineHeight": 13.487499999999999,
         "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
       }
     }
   >
@@ -411,9 +411,9 @@ exports[`TextInput renders correctly 4`] = `
         "fontFamily": "Proxima Nova",
         "fontSize": 13.487499999999999,
         "fontWeight": "500",
-        "height": 13.487499999999999,
         "lineHeight": 13.487499999999999,
         "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
       }
     }
   >
@@ -535,9 +535,9 @@ exports[`TextInput renders correctly 5`] = `
         "fontFamily": "Proxima Nova",
         "fontSize": 13.487499999999999,
         "fontWeight": "500",
-        "height": 13.487499999999999,
         "lineHeight": 13.487499999999999,
         "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
       }
     }
   >

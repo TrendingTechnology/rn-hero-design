@@ -58,7 +58,7 @@ let styles: Js.t('a) = {
     ),
   "errorMessage":
     style(
-      ~height=_ERROR_FONT_SIZE->dp,
+      ~minHeight=_ERROR_FONT_SIZE->dp,
       ~lineHeight=_ERROR_FONT_SIZE,
       ~marginTop=_ERROR_MARGIN_VERTICAL->dp,
       ~fontFamily=?_FONT_FAMILY,
