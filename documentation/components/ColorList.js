@@ -12,15 +12,15 @@ const IconList = ({ colors = [] }) => (
           alignItems: 'center',
           justifyContent: 'center',
           flexDirection: 'column',
-          width: 80,
+          width: 120,
           height: 80,
           margin: 12,
         }}
       >
         <div
           style={{
-            width: 50,
-            height: 50,
+            width: 48,
+            height: 48,
             borderRadius: 4,
             background: code,
           }}
@@ -28,7 +28,7 @@ const IconList = ({ colors = [] }) => (
         <Text
           size="h5"
           style={{
-            width: 80,
+            width: 120,
             marginTop: 16,
             textAlign: 'center',
             whiteSpace: 'nowrap',
