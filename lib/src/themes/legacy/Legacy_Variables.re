@@ -17,6 +17,17 @@ let _PINK = "#fe56aa";
 let _YELLOW = "#fadb14";
 let _GREEN = "#01b39c";
 
+let _DARK_RED = "#a92200";
+let _SOFT_RED = "#ffe3db";
+let _DARK_GREEN = "#006e60";
+let _SOFT_GREEN = "#cefff9";
+let _DARK_ORANGE = "#e36e00";
+let _SOFT_ORANGE = "#fff6eb";
+let _DARK_PINK = "#b83f79";
+let _SOFT_PINK = "#fff3f9";
+let _DARK_YELLOW = "#ceb200";
+let _SOFT_YELLOW = "#ffffdf";
+
 let _BLACK = "#000000";
 let _GREY_1 = "#2b2b2b";
 let _GREY_2 = "#71767c";
@@ -75,6 +86,17 @@ let default = {
   "PINK": _PINK,
   "YELLOW": _YELLOW,
   "GREEN": _GREEN,
+
+  "DARK_RED": _DARK_RED,
+  "SOFT_RED": _SOFT_RED,
+  "DARK_GREEN": _DARK_GREEN,
+  "SOFT_GREEN": _SOFT_GREEN,
+  "DARK_ORANGE": _DARK_ORANGE,
+  "SOFT_ORANGE": _SOFT_ORANGE,
+  "DARK_PINK": _DARK_PINK,
+  "SOFT_PINK": _SOFT_PINK,
+  "DARK_YELLOW": _DARK_YELLOW,
+  "SOFT_YELLOW": _SOFT_YELLOW,
 
   "BLACK": _BLACK,
   "GREY_1": _GREY_1,
