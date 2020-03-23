@@ -19,6 +19,9 @@ let styles: Js.t('a) = {
   "disabledText": style(~color=_DISABLED_TEXT_COLOR, ()),
   "highlightText":
     style(~backgroundColor=_HIGHLIGHT_TEXT_COLOR, ~borderRadius=2.0, ()),
+  "boldText": style(~fontWeight=`bold, ()),
+  "italicText": style(~fontStyle=`italic, ()),
+  "underlineText": style(~textDecorationLine=`underline, ()),
   "suggestionWrapper":
     style(
       ~marginTop=_SUGGESTION_WRAPPER_MARGIN->dp,

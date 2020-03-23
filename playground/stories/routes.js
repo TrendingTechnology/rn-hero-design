@@ -19,6 +19,7 @@ import TabBarScreen from './TabBar';
 import MessageScreen from './Message';
 import SelectScreen from './Select';
 import MentionTextInputScreen from './MentionTextInput';
+import RichTextInputScreen from './RichTextInput';
 import CalendarScreen from './Calendar';
 import darkKnightTheme from 'rn-hero-design/src/themes/dark-knight';
 
@@ -119,6 +120,12 @@ export default {
     screen: MentionTextInputScreen,
     defaultNavigationOptions: {
       title: 'MentionTextInput',
+    },
+  },
+  RichTextInput: {
+    screen: RichTextInputScreen,
+    defaultNavigationOptions: {
+      title: 'RichTextInput',
     },
   },
   Calendar: {
