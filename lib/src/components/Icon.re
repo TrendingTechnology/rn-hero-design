@@ -44,6 +44,9 @@ external phoneOutline: string = "default";
 [@bs.module "../icons/single-left-outline"]
 external singleLeftOutline: string = "default";
 [@bs.module "../icons/arrow-down"] external arrowDown: string = "default";
+[@bs.module "../icons/camera-outline"]
+external cameraOutline: string = "default";
+[@bs.module "../icons/paperclip"] external paperclip: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -69,6 +72,8 @@ let xmlFromIcon = icon =>
   | "phone-outline" => Some(phoneOutline)
   | "face-id" => Some(faceId)
   | "arrow-down" => Some(arrowDown)
+  | "camera-outline" => Some(cameraOutline)
+  | "paperclip" => Some(paperclip)
   | _ => None
   };
 
