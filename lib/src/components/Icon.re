@@ -47,6 +47,7 @@ external singleLeftOutline: string = "default";
 [@bs.module "../icons/camera-outline"]
 external cameraOutline: string = "default";
 [@bs.module "../icons/paperclip"] external paperclip: string = "default";
+[@bs.module "../icons/image-outline"] external imageOutline: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -74,6 +75,7 @@ let xmlFromIcon = icon =>
   | "arrow-down" => Some(arrowDown)
   | "camera-outline" => Some(cameraOutline)
   | "paperclip" => Some(paperclip)
+  | "image-outline" => Some(imageOutline)
   | _ => None
   };
 

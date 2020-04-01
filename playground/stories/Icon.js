@@ -58,6 +58,7 @@ const IconScreen = () => (
       <Icon icon="arrow-down" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon icon="camera-outline" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon icon="paperclip" size={24} wrapperStyle={styles.iconWrapper} />
+      <Icon icon="image-outline" size={24} wrapperStyle={styles.iconWrapper} />
     </Container>
   </>
 );
