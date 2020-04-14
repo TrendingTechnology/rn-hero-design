@@ -48,6 +48,9 @@ external singleLeftOutline: string = "default";
 external cameraOutline: string = "default";
 [@bs.module "../icons/paperclip"] external paperclip: string = "default";
 [@bs.module "../icons/image-outline"] external imageOutline: string = "default";
+[@bs.module "../icons/file-outline"] external fileOutline: string = "default";
+[@bs.module "../icons/warning-circle-outline"] external warningCircleOutline: string = "default";
+[@bs.module "../icons/warning-circle"] external warningCircle: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -76,6 +79,9 @@ let xmlFromIcon = icon =>
   | "camera-outline" => Some(cameraOutline)
   | "paperclip" => Some(paperclip)
   | "image-outline" => Some(imageOutline)
+  | "file-outline" => Some(fileOutline)
+  | "warning-circle-outline" => Some(warningCircleOutline)
+  | "warning-circle" => Some(warningCircle)
   | _ => None
   };
 

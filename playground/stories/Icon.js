@@ -11,6 +11,7 @@ const IconScreen = () => (
       <Icon icon="ok-circle" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon icon="calendar" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon icon="more-vertical" size={24} wrapperStyle={styles.iconWrapper} />
+      <Icon icon="warning-circle" size={24} wrapperStyle={styles.iconWrapper} />
     </Container>
     <Container direction="row" style={styles.container}>
       <Icon icon="email-outline" size={24} wrapperStyle={styles.iconWrapper} />
@@ -59,6 +60,12 @@ const IconScreen = () => (
       <Icon icon="camera-outline" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon icon="paperclip" size={24} wrapperStyle={styles.iconWrapper} />
       <Icon icon="image-outline" size={24} wrapperStyle={styles.iconWrapper} />
+      <Icon icon="file-outline" size={24} wrapperStyle={styles.iconWrapper} />
+      <Icon
+        icon="warning-circle-outline"
+        size={24}
+        wrapperStyle={styles.iconWrapper}
+      />
     </Container>
   </>
 );
