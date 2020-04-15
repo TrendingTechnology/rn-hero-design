@@ -20,6 +20,7 @@ import MessageScreen from './Message';
 import SelectScreen from './Select';
 import MentionTextInputScreen from './MentionTextInput';
 import CalendarScreen from './Calendar';
+import RadioScreen from './Radio';
 import darkKnightTheme from 'rn-hero-design/src/themes/dark-knight';
 
 const store = createStore(state => state, { __theme: 'dark-knight' });
@@ -125,6 +126,12 @@ export default {
     screen: CalendarScreen,
     defaultNavigationOptions: {
       title: 'Calendar',
+    },
+  },
+  Radio: {
+    screen: RadioScreen,
+    defaultNavigationOptions: {
+      title: 'Radio',
     },
   },
   LoginScreen: {
