@@ -51,6 +51,8 @@ external cameraOutline: string = "default";
 [@bs.module "../icons/file-outline"] external fileOutline: string = "default";
 [@bs.module "../icons/warning-circle-outline"] external warningCircleOutline: string = "default";
 [@bs.module "../icons/warning-circle"] external warningCircle: string = "default";
+[@bs.module "../icons/radio-active"] external radioActive: string = "default";
+[@bs.module "../icons/radio-inactive"] external radioInactive: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -82,6 +84,8 @@ let xmlFromIcon = icon =>
   | "file-outline" => Some(fileOutline)
   | "warning-circle-outline" => Some(warningCircleOutline)
   | "warning-circle" => Some(warningCircle)
+  | "radio-active" => Some(radioActive)
+  | "radio-inactive" => Some(radioInactive)
   | _ => None
   };
 

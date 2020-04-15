@@ -413,6 +413,25 @@ Object {
       "top": 0,
     },
   },
+  "radio": Object {
+    "activeIcon": Object {
+      "color": "#1dbeee",
+    },
+    "inactiveIcon": Object {
+      "color": "#d9dbdf",
+    },
+    "label": Object {
+      "fontFamily": "Proxima Nova",
+      "fontSize": 16.25,
+      "marginLeft": 8.125,
+    },
+    "wrapper": Object {
+      "alignItems": "center",
+      "flexDirection": "row",
+      "marginBottom": 16.25,
+      "paddingVertical": 8.125,
+    },
+  },
   "select": Object {
     "action": Object {
       "height": 45.9875,
