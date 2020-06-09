@@ -14,7 +14,7 @@ let make = (~children, ~style=?, ~withNavigation=?) => {
   let topInset = RNSafeAreaView.getInset(`top, Helpers.isLandscape()->Some);
   <RNKeyboardAvoidingView
     ?style
-    behavior=`padding
+    behavior={isIOS ? `padding : `height}
     keyboardVerticalOffset={
       switch (withNavigation, isIOS) {
       | (Some(true), true) => _HEADER_HEIGHT +. topInset -. _STATUSBAR_HEIGHT
