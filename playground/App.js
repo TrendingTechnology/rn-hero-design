@@ -13,7 +13,7 @@ import { createStackNavigator } from 'react-navigation-stack';
 import * as Font from 'expo-font';
 import routes from './stories/routes';
 
-const menuData = Object.keys(routes).map(route => ({
+const menuData = Object.keys(routes).map((route) => ({
   title: routes[route].defaultNavigationOptions.title || route,
   route,
 }));
@@ -28,7 +28,7 @@ const HomeScreen = ({ navigation }) => (
           onPress={() => navigation.navigate(item.route)}
         />
       )}
-      keyExtractor={item => item.title}
+      keyExtractor={(item) => item.title}
     />
   </View>
 );
@@ -72,7 +72,7 @@ const styles = StyleSheet.create({
 
 const AppContainer = createAppContainer(AppNavigator);
 
-const store = createStore(state => state, { __theme: undefined });
+const store = createStore((state) => state, { __theme: undefined });
 
 export default () => {
   const [fontLoaded, setFontLoaded] = useState(false);
