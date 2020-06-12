@@ -7,8 +7,12 @@
   "workspaces": {
     "packages": [
       "lib",
-      "playground"
+      "playground",
+      "documentation"
     ]
+  },
+  "resolutions": {
+    "react": "16.9.0"
   },
   "scripts": {
     "test": "cd lib && yarn test",
