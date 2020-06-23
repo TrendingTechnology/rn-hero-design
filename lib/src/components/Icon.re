@@ -47,12 +47,22 @@ external singleLeftOutline: string = "default";
 [@bs.module "../icons/camera-outline"]
 external cameraOutline: string = "default";
 [@bs.module "../icons/paperclip"] external paperclip: string = "default";
-[@bs.module "../icons/image-outline"] external imageOutline: string = "default";
+[@bs.module "../icons/image-outline"]
+external imageOutline: string = "default";
 [@bs.module "../icons/file-outline"] external fileOutline: string = "default";
-[@bs.module "../icons/warning-circle-outline"] external warningCircleOutline: string = "default";
-[@bs.module "../icons/warning-circle"] external warningCircle: string = "default";
+[@bs.module "../icons/warning-circle-outline"]
+external warningCircleOutline: string = "default";
+[@bs.module "../icons/warning-circle"]
+external warningCircle: string = "default";
 [@bs.module "../icons/radio-active"] external radioActive: string = "default";
-[@bs.module "../icons/radio-inactive"] external radioInactive: string = "default";
+[@bs.module "../icons/radio-inactive"]
+external radioInactive: string = "default";
+
+[@bs.module "../icons/format_bold"] external formatBold: string = "default";
+[@bs.module "../icons/format_italic"]
+external formatItalic: string = "default";
+[@bs.module "../icons/format_underlined"]
+external formatUnderlined: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -86,6 +96,9 @@ let xmlFromIcon = icon =>
   | "warning-circle" => Some(warningCircle)
   | "radio-active" => Some(radioActive)
   | "radio-inactive" => Some(radioInactive)
+  | "format_bold" => Some(formatBold)
+  | "format_italic" => Some(formatItalic)
+  | "format_underlined" => Some(formatUnderlined)
   | _ => None
   };
 
