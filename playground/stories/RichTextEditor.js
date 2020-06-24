@@ -35,11 +35,11 @@ const getAcronym = string => string.match(/\b\w/g).join('');
 const RichTextEditorScreen = () => (
   <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
     <RichTextEditor
-      placeholder="Enter something..."
+      placeholder="What's on your mind..."
       initialValue={[
         {
           type: 'paragraph',
-          children: [{ text: 'Cool vai' }],
+          children: [{ text: '' }],
         },
       ]}
       onChange={() => {}}
@@ -64,11 +64,11 @@ const SuggestionList = injectTheme(({ searchValue, onSelect, theme }) => {
           justifyContent: 'center',
           height: theme.variables.LARGE_SIZE + theme.variables.SMALL_SIZE * 2,
           paddingVertical: 0,
+          borderTopWidth: StyleSheet.hairlineWidth,
+          borderTopColor: theme.variables.BORDER_COLOR,
         }}
       >
-        <Text size="h5" weight="500" color={theme.variables.MUTED_TEXT_COLOR}>
-          No result
-        </Text>
+        <Text weight="500">No result 😕</Text>
       </Container>
     );
   }
@@ -97,6 +97,8 @@ const SuggestionItem = injectTheme(({ name, job, avatar, onPress, theme }) => (
       style={{
         alignItems: 'center',
         paddingVertical: theme.variables.SMALL_SIZE,
+        borderTopWidth: StyleSheet.hairlineWidth,
+        borderTopColor: theme.variables.BORDER_COLOR,
       }}
     >
       <Avatar
@@ -105,14 +107,10 @@ const SuggestionItem = injectTheme(({ name, job, avatar, onPress, theme }) => (
         source={avatar}
         wrapperStyle={{ marginRight: theme.variables.MEDIUM_SIZE }}
       />
-      <Text
-        size="h5"
-        weight="500"
-        style={{ marginRight: theme.variables.MEDIUM_SIZE }}
-      >
+      <Text weight="500" style={{ marginRight: theme.variables.MEDIUM_SIZE }}>
         {name}
       </Text>
-      <Text size="h5" weight="500" color={theme.variables.MUTED_TEXT_COLOR}>
+      <Text weight="500" color={theme.variables.MUTED_TEXT_COLOR}>
         {job}
       </Text>
     </Container>

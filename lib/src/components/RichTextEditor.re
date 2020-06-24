@@ -28,7 +28,8 @@ module WebView = {
       ~ref: React.Ref.t(Js.Null.t(element))=?,
       ~originWhitelist: array(string),
       ~source: {. "html": string},
-      ~onMessage: event => unit
+      ~onMessage: event => unit,
+      ~style: Style.t
     ) =>
     React.element =
     "WebView";
@@ -135,28 +136,31 @@ let make =
       originWhitelist=[|"*"|]
       source={"html": html}
       onMessage
+      style=theme##richTextEditor##webview
     />
-    {isEmptyString(mentionSearch)
-       ? React.null
-       : renderSuggestionList(
-           mentionSearch,
-           (id, name) => {
-             let meta = Js.Dict.empty();
-             Js.Dict.set(meta, "target", mentionTarget);
+    <View style=theme##richTextEditor##suggestionList>
+      {isEmptyString(mentionSearch)
+         ? React.null
+         : renderSuggestionList(
+             mentionSearch,
+             (id, name) => {
+               let meta = Js.Dict.empty();
+               Js.Dict.set(meta, "target", mentionTarget);
 
-             let data = Js.Dict.empty();
-             Js.Dict.set(data, "id", Js.Json.string(id));
-             Js.Dict.set(data, "name", Js.Json.string(name));
-             Js.Dict.set(data, "meta", Js.Json.object_(meta));
+               let data = Js.Dict.empty();
+               Js.Dict.set(data, "id", Js.Json.string(id));
+               Js.Dict.set(data, "name", Js.Json.string(name));
+               Js.Dict.set(data, "meta", Js.Json.object_(meta));
 
-             postMessageToWebview(
-               WebView.message(
-                 ~type_="@hero-editor/webview/mention-apply",
-                 ~data=Js.Json.object_(data),
-               ),
-             );
-           },
-         )}
+               postMessageToWebview(
+                 WebView.message(
+                   ~type_="@hero-editor/webview/mention-apply",
+                   ~data=Js.Json.object_(data),
+                 ),
+               );
+             },
+           )}
+    </View>
     <View style=theme##richTextEditor##toolbar>
       <TouchableOpacity
         onPress={_ => {
