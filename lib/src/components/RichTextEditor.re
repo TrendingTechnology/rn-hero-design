@@ -197,6 +197,26 @@ let make =
         <Icon icon="format_underlined" />
       </TouchableOpacity>
       <View style=theme##richTextEditor##separator />
+      <TouchableOpacity
+        onPress={_ => {
+          postMessageToWebview({
+            "type": "@hero-editor/webview/bulleted-list",
+            "data": Js.Json.null,
+          })
+        }}
+        style=theme##richTextEditor##toolbarButton>
+        <Icon icon="format_list_bulleted" />
+      </TouchableOpacity>
+      <TouchableOpacity
+        onPress={_ => {
+          postMessageToWebview({
+            "type": "@hero-editor/webview/numbered-list",
+            "data": Js.Json.null,
+          })
+        }}
+        style=theme##richTextEditor##toolbarButton>
+        <Icon icon="format_list_numbered" />
+      </TouchableOpacity>
     </View>
   </View>;
 };

@@ -63,6 +63,10 @@ external radioInactive: string = "default";
 external formatItalic: string = "default";
 [@bs.module "../icons/format_underlined"]
 external formatUnderlined: string = "default";
+[@bs.module "../icons/format_list_bulleted"]
+external formatListBulleted: string = "default";
+[@bs.module "../icons/format_list_numbered"]
+external formatListNumbered: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -99,6 +103,8 @@ let xmlFromIcon = icon =>
   | "format_bold" => Some(formatBold)
   | "format_italic" => Some(formatItalic)
   | "format_underlined" => Some(formatUnderlined)
+  | "format_list_numbered" => Some(formatListNumbered)
+  | "format_list_bulleted" => Some(formatListBulleted)
   | _ => None
   };
 
