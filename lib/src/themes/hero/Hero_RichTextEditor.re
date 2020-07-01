@@ -7,11 +7,19 @@ let _TOOLBAR_BUTTON_SIZE = _LARGE_SIZE +. _SMALL_SIZE *. 2.0;
 let _SEPARATOR_HEIGHT = _MEDIUM_SIZE;
 let _SEPARATOR_MARGIN = _MEDIUM_SIZE;
 let _SEPARATOR_COLOR = _BORDER_COLOR;
+let _EDITOR_FONT_SIZE = _HEADER_4;
+let _EDITOR_PADDING = _MEDIUM_SIZE;
 
 let styles: Js.t('a) = {
   "wrapper": style(~flex=1.0, ~flexDirection=`column, ()),
   "webview": style(~flex=1.0, ()),
   "suggestionList": style(~flex=1.0, ()),
+  "editor":
+    style(
+      ~padding=_EDITOR_PADDING->dp,
+      ~fontSize=_EDITOR_FONT_SIZE,
+      (),
+    ),
   "toolbar":
     style(
       ~flexDirection=`row,

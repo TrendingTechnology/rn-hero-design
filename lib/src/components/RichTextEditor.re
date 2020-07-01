@@ -2,6 +2,9 @@ open ReactNative;
 
 let isEmptyString = string_ => String.length(string_) == 0;
 
+[@bs.get] external getPaddingProperty: Style.t => Style.size = "padding";
+[@bs.get] external getFontSizeProperty: Style.t => float = "fontSize";
+
 module WebView = {
   type element;
 
@@ -17,6 +20,15 @@ module WebView = {
   [@bs.send]
   external injectJavaScript: (element, string) => unit = "injectJavaScript";
 
+  let requestFocus = element => {
+    injectJavaScript(
+      element,
+      {j|
+      window.document.getElementsByClassName('hero-editor--editable')[0].focus();
+      |j},
+    );
+  };
+
   let postMessage = (element, message) => {
     let message = message->Js.Json.stringifyAny->Belt.Option.getExn;
     injectJavaScript(element, {j|window.postMessage($message, '*');|j});
@@ -30,6 +42,7 @@ module WebView = {
       ~source: {. "html": string},
       ~onMessage: event => unit,
       ~hideKeyboardAccessoryView: bool=?,
+      ~keyboardDisplayRequiresUserAction: bool=?,
       ~style: Style.t=?
     ) =>
     React.element =
@@ -54,12 +67,16 @@ let make =
   open React.Ref;
 
   let webview = React.useRef(Js.Null.empty);
+  let (showToolbar, setShowToolbar) = React.useState(() => false);
   let (mentionSearch, setMentionSearch) = React.useState(() => "");
   let (mentionTarget, setMentionTarget) = React.useState(() => Js.Json.null);
 
   let html =
     React.useMemo0(() => {
       let initialValue = initialValue->Js.Json.stringify;
+
+      let padding = theme##richTextEditor##editor->getPaddingProperty;
+      let fontSize = theme##richTextEditor##editor->getFontSizeProperty;
 
       {j|
       <!DOCTYPE html>
@@ -78,7 +95,12 @@ let make =
           <script>
             window.__editorConfigs = {
               placeholder: "$placeholder",
-              initialValue: $initialValue
+              initialValue: $initialValue,
+              autoFocus: true,
+              style: {
+                padding: $padding,
+                fontSize: $fontSize
+              }
             };
             $heroEditorApp
           </script>
@@ -105,7 +127,8 @@ let make =
         ->Option.flatMap(Json.decodeString)
         ->Option.getExn;
 
-      if (messageType === "@hero-editor/webview/mention-search") {
+      switch (messageType) {
+      | "@hero-editor/webview/mention-search" =>
         let search =
           message
           ->Dict.get("data")
@@ -123,8 +146,9 @@ let make =
 
         setMentionSearch(_ => search);
         setMentionTarget(_ => target);
-      } else {
-        ();
+      | "@hero-editor/webview/editor-focus" => setShowToolbar(_ => true)
+      | "@hero-editor/webview/editor-blur" => setShowToolbar(_ => false)
+      | _ => ()
       };
     });
 
@@ -138,6 +162,7 @@ let make =
       source={"html": html}
       onMessage
       hideKeyboardAccessoryView=true
+      keyboardDisplayRequiresUserAction=false
       style=theme##richTextEditor##webview
     />
     {isEmptyString(mentionSearch)
@@ -163,61 +188,63 @@ let make =
               },
             )}
          </View>}
-    <View style=theme##richTextEditor##toolbar>
-      <TouchableOpacity
-        onPress={_ => {
-          postMessageToWebview(
-            WebView.message(
-              ~type_="@hero-editor/webview/bold",
-              ~data=Js.Json.null,
-            ),
-          )
-        }}
-        style=theme##richTextEditor##toolbarButton>
-        <Icon icon="format_bold" />
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={_ => {
-          postMessageToWebview({
-            "type": "@hero-editor/webview/italic",
-            "data": Js.Json.null,
-          })
-        }}
-        style=theme##richTextEditor##toolbarButton>
-        <Icon icon="format_italic" />
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={_ => {
-          postMessageToWebview({
-            "type": "@hero-editor/webview/underline",
-            "data": Js.Json.null,
-          })
-        }}
-        style=theme##richTextEditor##toolbarButton>
-        <Icon icon="format_underlined" />
-      </TouchableOpacity>
-      <View style=theme##richTextEditor##separator />
-      <TouchableOpacity
-        onPress={_ => {
-          postMessageToWebview({
-            "type": "@hero-editor/webview/bulleted-list",
-            "data": Js.Json.null,
-          })
-        }}
-        style=theme##richTextEditor##toolbarButton>
-        <Icon icon="format_list_bulleted" />
-      </TouchableOpacity>
-      <TouchableOpacity
-        onPress={_ => {
-          postMessageToWebview({
-            "type": "@hero-editor/webview/numbered-list",
-            "data": Js.Json.null,
-          })
-        }}
-        style=theme##richTextEditor##toolbarButton>
-        <Icon icon="format_list_numbered" />
-      </TouchableOpacity>
-    </View>
+    {showToolbar
+       ? <View style=theme##richTextEditor##toolbar>
+           <TouchableOpacity
+             onPress={_ => {
+               postMessageToWebview(
+                 WebView.message(
+                   ~type_="@hero-editor/webview/bold",
+                   ~data=Js.Json.null,
+                 ),
+               )
+             }}
+             style=theme##richTextEditor##toolbarButton>
+             <Icon icon="format_bold" />
+           </TouchableOpacity>
+           <TouchableOpacity
+             onPress={_ => {
+               postMessageToWebview({
+                 "type": "@hero-editor/webview/italic",
+                 "data": Js.Json.null,
+               })
+             }}
+             style=theme##richTextEditor##toolbarButton>
+             <Icon icon="format_italic" />
+           </TouchableOpacity>
+           <TouchableOpacity
+             onPress={_ => {
+               postMessageToWebview({
+                 "type": "@hero-editor/webview/underline",
+                 "data": Js.Json.null,
+               })
+             }}
+             style=theme##richTextEditor##toolbarButton>
+             <Icon icon="format_underlined" />
+           </TouchableOpacity>
+           <View style=theme##richTextEditor##separator />
+           <TouchableOpacity
+             onPress={_ => {
+               postMessageToWebview({
+                 "type": "@hero-editor/webview/bulleted-list",
+                 "data": Js.Json.null,
+               })
+             }}
+             style=theme##richTextEditor##toolbarButton>
+             <Icon icon="format_list_bulleted" />
+           </TouchableOpacity>
+           <TouchableOpacity
+             onPress={_ => {
+               postMessageToWebview({
+                 "type": "@hero-editor/webview/numbered-list",
+                 "data": Js.Json.null,
+               })
+             }}
+             style=theme##richTextEditor##toolbarButton>
+             <Icon icon="format_list_numbered" />
+           </TouchableOpacity>
+         </View>
+       : React.null}
   </View>;
 };
 
