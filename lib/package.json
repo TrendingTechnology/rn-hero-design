@@ -39,7 +39,7 @@
     "react-redux": "^5.1.2"
   },
   "dependencies": {
-    "hero-editor": "git+ssh://git@github.com:Thinkei/hero-editor.git#master",
+    "hero-editor": "^1.1.1",
     "react-native-safe-area-view": "0.14.8"
   }
 }

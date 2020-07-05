@@ -49,6 +49,16 @@ module WebView = {
     "WebView";
 };
 
+module ToolbarButton = {
+  [@react.component]
+  let make = (~icon, ~onPress, ~theme=Hero_Theme.default) =>
+    <TouchableOpacity onPress style=theme##richTextEditor##toolbarButton>
+      <Icon icon />
+    </TouchableOpacity>;
+
+  let make = Helpers.injectTheme(make);
+};
+
 [@bs.module "./heroEditorApp"] external heroEditorApp: string = "default";
 
 let defaultValue =
@@ -190,7 +200,8 @@ let make =
          </View>}
     {showToolbar
        ? <View style=theme##richTextEditor##toolbar>
-           <TouchableOpacity
+           <ToolbarButton
+             icon="format_bold"
              onPress={_ => {
                postMessageToWebview(
                  WebView.message(
@@ -199,54 +210,47 @@ let make =
                  ),
                )
              }}
-             style=theme##richTextEditor##toolbarButton>
-             <Icon icon="format_bold" />
-           </TouchableOpacity>
-           <TouchableOpacity
+           />
+           <ToolbarButton
+             icon="format_italic"
              onPress={_ => {
                postMessageToWebview({
                  "type": "@hero-editor/webview/italic",
                  "data": Js.Json.null,
                })
              }}
-             style=theme##richTextEditor##toolbarButton>
-             <Icon icon="format_italic" />
-           </TouchableOpacity>
-           <TouchableOpacity
+           />
+           <ToolbarButton
+             icon="format_underlined"
              onPress={_ => {
                postMessageToWebview({
                  "type": "@hero-editor/webview/underline",
                  "data": Js.Json.null,
                })
              }}
-             style=theme##richTextEditor##toolbarButton>
-             <Icon icon="format_underlined" />
-           </TouchableOpacity>
+           />
            <View style=theme##richTextEditor##separator />
-           <TouchableOpacity
+           <ToolbarButton
+             icon="format_list_bulleted"
              onPress={_ => {
                postMessageToWebview({
                  "type": "@hero-editor/webview/bulleted-list",
                  "data": Js.Json.null,
                })
              }}
-             style=theme##richTextEditor##toolbarButton>
-             <Icon icon="format_list_bulleted" />
-           </TouchableOpacity>
-           <TouchableOpacity
+           />
+           <ToolbarButton
+             icon="format_list_numbered"
              onPress={_ => {
                postMessageToWebview({
                  "type": "@hero-editor/webview/numbered-list",
                  "data": Js.Json.null,
                })
              }}
-             style=theme##richTextEditor##toolbarButton>
-             <Icon icon="format_list_numbered" />
-           </TouchableOpacity>
+           />
          </View>
        : React.null}
   </View>;
 };
 
-/* let default = Helpers.injectTheme(make); */
-let default = make;
+let default = Helpers.injectTheme(make);
