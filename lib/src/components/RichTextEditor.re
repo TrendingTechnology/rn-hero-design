@@ -66,11 +66,14 @@ let defaultValue =
     {| [{ "type": "paragraph", "children": [{ "text": "" }] }] |},
   );
 
+let noop = _ => ();
+
 [@react.component]
 let make =
     (
       ~placeholder: string="",
       ~initialValue: Js.Json.t=defaultValue,
+      ~onChange=noop,
       ~renderSuggestionList,
       ~theme=Hero_Theme.default,
     ) => {
@@ -158,6 +161,15 @@ let make =
         setMentionTarget(_ => target);
       | "@hero-editor/webview/editor-focus" => setShowToolbar(_ => true)
       | "@hero-editor/webview/editor-blur" => setShowToolbar(_ => false)
+      | "@hero-editor/webview/editor-change" =>
+        let value: Json.t =
+          message
+          ->Dict.get("data")
+          ->Option.flatMap(Json.decodeObject)
+          ->Option.flatMap(data => Dict.get(data, "value"))
+          ->Option.getExn;
+
+        onChange(value);
       | _ => ()
       };
     });

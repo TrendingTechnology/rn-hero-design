@@ -42,7 +42,7 @@ const RichTextEditorScreen = () => (
           children: [{ text: '' }],
         },
       ]}
-      onChange={() => {}}
+      onChange={value => console.log(value)}
       renderSuggestionList={(searchValue, onSelect) => (
         <SuggestionList searchValue={searchValue} onSelect={onSelect} />
       )}
