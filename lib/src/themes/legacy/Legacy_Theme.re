@@ -17,4 +17,5 @@ let default = {
   "mentionTextInput": Legacy_MentionTextInput.default,
   "calendar": Legacy_Calendar.default,
   "radio": Legacy_Radio.default,
+  "richTextEditor": Legacy_RichTextEditor.default,
 };

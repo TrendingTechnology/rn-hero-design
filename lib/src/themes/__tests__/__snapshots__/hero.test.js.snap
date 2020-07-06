@@ -432,6 +432,42 @@ Object {
       "paddingVertical": 8.125,
     },
   },
+  "richTextEditor": Object {
+    "editor": Object {
+      "fontSize": 16.25,
+      "padding": 16.25,
+    },
+    "separator": Object {
+      "borderRightColor": "#d9dbdf",
+      "borderRightWidth": 1,
+      "height": 16.25,
+      "marginHorizontal": 16.25,
+      "width": 0,
+    },
+    "suggestionList": Object {
+      "flex": 1,
+    },
+    "toolbar": Object {
+      "alignItems": "center",
+      "backgroundColor": "#f5f6f8",
+      "borderTopColor": "#d9dbdf",
+      "borderTopWidth": 0.5,
+      "flexDirection": "row",
+    },
+    "toolbarButton": Object {
+      "alignItems": "center",
+      "height": 40.625,
+      "justifyContent": "center",
+      "width": 40.625,
+    },
+    "webview": Object {
+      "flex": 1,
+    },
+    "wrapper": Object {
+      "flex": 1,
+      "flexDirection": "column",
+    },
+  },
   "select": Object {
     "action": Object {
       "height": 45.9875,

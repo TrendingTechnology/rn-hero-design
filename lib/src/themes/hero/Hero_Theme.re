@@ -17,4 +17,5 @@ let default = {
   "mentionTextInput": Hero_MentionTextInput.default,
   "calendar": Hero_Calendar.default,
   "radio": Hero_Radio.default,
+  "richTextEditor": Hero_RichTextEditor.default,
 };
