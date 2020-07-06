@@ -1,6 +1,6 @@
 {
   "name": "rn-hero-design",
-  "version": "2.3.2",
+  "version": "2.4.0",
   "description": "",
   "main": "lib.js",
   "scripts": {
@@ -35,9 +35,11 @@
     "react": "16.9.0",
     "react-native": "0.60.5",
     "react-native-svg": "~9.9.2",
+    "react-native-webview": "^10.3.1",
     "react-redux": "^5.1.2"
   },
   "dependencies": {
+    "hero-editor": "^1.1.2",
     "react-native-safe-area-view": "0.14.8"
   }
 }
