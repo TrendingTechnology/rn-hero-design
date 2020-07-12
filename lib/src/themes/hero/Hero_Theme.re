@@ -18,4 +18,5 @@ let default = {
   "calendar": Hero_Calendar.default,
   "radio": Hero_Radio.default,
   "richTextEditor": Hero_RichTextEditor.default,
+  "buttonGroup": Hero_ButtonGroup.default,
 };
