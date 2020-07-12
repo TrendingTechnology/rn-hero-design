@@ -8,6 +8,8 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         'react-native-safe-area-view':
           '@rn-hero-design/documentation/mocks/react-native-safe-area-view',
         'react-redux': '@rn-hero-design/documentation/mocks/react-redux',
+        'react-native-webview':
+          '@rn-hero-design/documentation/mocks/react-native-webview',
       },
     },
   });

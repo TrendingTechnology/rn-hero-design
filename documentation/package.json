@@ -21,6 +21,7 @@
     "rn-hero-design": "*"
   },
   "devDependencies": {
+    "@babel/helper-validator-identifier": "^7.10.4",
     "surge": "^0.21.3"
   }
 }
