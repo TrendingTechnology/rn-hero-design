@@ -192,6 +192,49 @@ Object {
       "paddingHorizontal": 16.25,
     },
   },
+  "buttonGroup": Object {
+    "activeButton": Object {
+      "backgroundColor": "#003580",
+      "borderColor": "#003580",
+    },
+    "activeText": Object {
+      "color": "#fcfcfc",
+    },
+    "button": Object {
+      "alignItems": "center",
+      "borderRadius": 8.125,
+      "borderWidth": 0.5,
+      "display": "flex",
+      "height": 48.75,
+      "justifyContent": "center",
+      "margin": 8.125,
+      "minWidth": 48.75,
+      "paddingHorizontal": 16.25,
+    },
+    "group": Object {
+      "display": "flex",
+      "flexDirection": "row",
+      "flexWrap": "wrap",
+      "justifyContent": "space-between",
+      "margin": -8.125,
+    },
+    "inactiveButton": Object {
+      "backgroundColor": "transparent",
+      "borderColor": "#a3a6ac",
+    },
+    "inactiveText": Object {
+      "color": "#a3a6ac",
+    },
+    "text": Object {
+      "fontFamily": "Proxima Nova",
+      "fontSize": 16.25,
+      "lineHeight": 16.25,
+    },
+    "wrapper": Object {
+      "display": "flex",
+      "flexGrow": 1,
+    },
+  },
   "calendar": Object {
     "blurredDayText": Object {
       "color": "#a3a6ac",

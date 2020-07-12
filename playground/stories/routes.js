@@ -22,6 +22,7 @@ import MentionTextInputScreen from './MentionTextInput';
 import CalendarScreen from './Calendar';
 import RadioScreen from './Radio';
 import RichTextEditorScreen from './RichTextEditor';
+import ButtonGroupScreen from './ButtonGroup';
 import darkKnightTheme from 'rn-hero-design/src/themes/dark-knight';
 
 const store = createStore(state => state, { __theme: 'dark-knight' });
@@ -139,6 +140,12 @@ export default {
     screen: RichTextEditorScreen,
     defaultNavigationOptions: {
       title: 'RichTextEditor',
+    },
+  },
+  ButtonGroup: {
+    screen: ButtonGroupScreen,
+    defaultNavigationOptions: {
+      title: 'ButtonGroup',
     },
   },
   LoginScreen: {
