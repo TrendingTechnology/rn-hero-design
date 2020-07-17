@@ -11,15 +11,10 @@ let _EDITOR_FONT_SIZE = _HEADER_4;
 let _EDITOR_PADDING = _MEDIUM_SIZE;
 
 let styles: Js.t('a) = {
-  "wrapper": style(~flex=1.0, ~flexDirection=`column, ()),
-  "webview": style(~flex=1.0, ()),
-  "suggestionList": style(~flex=1.0, ()),
+  "webview": style(~flex=1.0, ~borderColor="#eee", ~borderWidth=1.0, ()),
   "editor":
-    style(
-      ~padding=_EDITOR_PADDING->dp,
-      ~fontSize=_EDITOR_FONT_SIZE,
-      (),
-    ),
+    style(~padding=_EDITOR_PADDING->dp, ~fontSize=_EDITOR_FONT_SIZE, ()),
+  "suggestionList": style(),
   "toolbar":
     style(
       ~flexDirection=`row,

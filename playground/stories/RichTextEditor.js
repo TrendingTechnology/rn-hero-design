@@ -1,13 +1,22 @@
 import React from 'react';
-import { FlatList, TouchableOpacity, StyleSheet } from 'react-native';
+import {
+  View,
+  ScrollView,
+  FlatList,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
 import {
   Text,
   Container,
   Avatar,
   RichTextEditor,
+  ListItem,
+  TextInput,
   KeyboardAvoidingView,
   injectTheme,
 } from 'rn-hero-design';
+import heroTheme from 'rn-hero-design/src/themes/hero/Hero_Variables.bs';
 
 const suggestionData = [
   { id: '1', name: 'Tuan Mai', job: 'Team leader' },
@@ -28,25 +37,63 @@ const suggestionData = [
   },
 ];
 
+const noop = () => {};
+
 const isEmpty = array => array.length === 0;
 
 const getAcronym = string => string.match(/\b\w/g).join('');
 
-const RichTextEditorScreen = () => (
+const RichTextEditorScreen = ({ theme }) => (
   <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
-    <RichTextEditor
-      placeholder="What's on your mind..."
-      initialValue={[
-        {
-          type: 'paragraph',
-          children: [{ text: '' }],
-        },
-      ]}
-      onChange={value => console.log(value)}
-      renderSuggestionList={(searchValue, onSelect) => (
+    <ScrollView contentContainerStyle={styles.container}>
+      <ListItem
+        title="Toan Nguyen"
+        leftElement={
+          <Avatar
+            size="small"
+            title="TN"
+            wrapperStyle={{ marginRight: theme.variables.MEDIUM_SIZE }}
+          />
+        }
+        wrapperStyle={{
+          minHeight: 0,
+          paddingVertical: 0,
+          paddingHorizontal: 0,
+          borderBottomWidth: 0,
+        }}
+      />
+
+      <TouchableOpacity onPress={noop}>
+        <View pointerEvents="none">
+          <TextInput
+            rightIcon="eye-outline"
+            value="Share to everyone"
+            onChangeText={noop}
+            errorStyle={{ display: 'none' }}
+          />
+        </View>
+      </TouchableOpacity>
+
+      <RichTextEditor
+        name="test"
+        placeholder="What's on your mind..."
+        initialValue={[
+          {
+            type: 'paragraph',
+            children: [{ text: '' }],
+          },
+        ]}
+        onChange={value => console.log(value)}
+      />
+    </ScrollView>
+
+    <RichTextEditor.MentionList
+      name="test"
+      render={(searchValue, onSelect) => (
         <SuggestionList searchValue={searchValue} onSelect={onSelect} />
       )}
     />
+    <RichTextEditor.Toolbar name="test" />
   </KeyboardAvoidingView>
 );
 
@@ -121,6 +168,22 @@ const styles = StyleSheet.create({
   keyboardAvoidingView: {
     flex: 1,
   },
+  container: {
+    flex: 1,
+    padding: 16,
+    backgroundColor: '#ccc',
+  },
 });
 
-export default RichTextEditorScreen;
+RichTextEditorScreen.navigationOptions = {
+  title: 'New Announcement',
+  headerStyle: {
+    backgroundColor: heroTheme.FOCUS_BLUE_1,
+    borderBottomWidth: 0,
+  },
+  headerTitleStyle: {
+    color: heroTheme.WHITE,
+  },
+};
+
+export default injectTheme(RichTextEditorScreen);
