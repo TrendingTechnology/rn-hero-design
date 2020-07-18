@@ -5,6 +5,17 @@ open ReactNative;
 [@bs.get] external getPaddingProperty: Style.t => Style.size = "padding";
 [@bs.get] external getFontSizeProperty: Style.t => float = "fontSize";
 
+type editorSizes = {
+  width: float,
+  height: float,
+};
+
+let getSize = (dict, size) =>
+  dict
+  ->Js.Dict.get(size)
+  ->Belt.Option.flatMap(Js.Json.decodeNumber)
+  ->Belt.Option.getExn;
+
 let emitter = RichTextEditor__Event.emitter;
 
 let noop = _ => ();
@@ -33,6 +44,7 @@ let make =
   let normalizeEventName = event => {j|$name/$event|j};
 
   let webview = React.useRef(Js.Null.empty);
+  let (editorHeight, setEditorHeight) = React.useState(_ => None);
 
   let postMessageToWebview = message =>
     webview->current->Js.Null.getUnsafe->RNWebView.postMessage(message);
@@ -145,6 +157,20 @@ let make =
 
         onChange(value);
 
+      | "@hero-editor/webview/editor-resize" =>
+        let sizes: editorSizes =
+          messageData
+          ->Option.flatMap(Json.decodeObject)
+          ->Option.map(data =>
+              {
+                width: getSize(data, "width"),
+                height: getSize(data, "height"),
+              }
+            )
+          ->Option.getExn;
+
+        setEditorHeight(_ => Some(sizes.height->Style.dp));
+
       | _ => ()
       };
     });
@@ -157,7 +183,10 @@ let make =
     hideKeyboardAccessoryView=true
     keyboardDisplayRequiresUserAction=false
     scrollEnabled=false
-    style=theme##richTextEditor##webview
+    style={StyleSheet.flatten([|
+      theme##richTextEditor##webview,
+      Style.style(~height=?editorHeight, ()),
+    |])}
   />;
 };
 

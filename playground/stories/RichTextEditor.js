@@ -3,6 +3,7 @@ import {
   View,
   ScrollView,
   FlatList,
+  Image,
   TouchableOpacity,
   StyleSheet,
 } from 'react-native';
@@ -84,6 +85,15 @@ const RichTextEditorScreen = ({ theme }) => (
           },
         ]}
         onChange={value => console.log(value)}
+      />
+
+      <Image
+        source={{
+          uri:
+            'https://i0.wp.com/nintendosoup.com/wp-content/uploads/2020/01/AnimalCrossingNewHorizons.jpg',
+        }}
+        resizeMode="cover"
+        style={{ height: 300, borderRadius: 8 }}
       />
     </ScrollView>
 
@@ -169,9 +179,8 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   container: {
-    flex: 1,
     padding: 16,
-    backgroundColor: '#ccc',
+    // backgroundColor: '#ccc',
   },
 });
 

@@ -39,7 +39,7 @@
     "react-redux": "^5.1.2"
   },
   "dependencies": {
-    "hero-editor": "^1.2.0",
+    "hero-editor": "^1.3.0",
     "react-native-safe-area-view": "0.14.8"
   }
 }

@@ -9,9 +9,10 @@ let _SEPARATOR_MARGIN = _MEDIUM_SIZE;
 let _SEPARATOR_COLOR = _BORDER_COLOR;
 let _EDITOR_FONT_SIZE = _HEADER_4;
 let _EDITOR_PADDING = _MEDIUM_SIZE;
+let _EDITOR_MARGIN = _MEDIUM_SIZE;
 
 let styles: Js.t('a) = {
-  "webview": style(~flex=1.0, ~borderColor="#eee", ~borderWidth=1.0, ()),
+  "webview": style(~marginBottom=_EDITOR_MARGIN->dp, ()),
   "editor":
     style(~padding=_EDITOR_PADDING->dp, ~fontSize=_EDITOR_FONT_SIZE, ()),
   "suggestionList": style(),
