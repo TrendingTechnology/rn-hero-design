@@ -5,7 +5,7 @@ open ReactNative;
 [@bs.get] external getPaddingProperty: Style.t => Style.size = "padding";
 [@bs.get] external getFontSizeProperty: Style.t => float = "fontSize";
 
-type editorSizes = {
+type editorLayout = {
   width: float,
   height: float,
 };
@@ -34,6 +34,7 @@ let make =
       ~placeholder: string="",
       ~initialValue: Js.Json.t=defaultValue,
       ~onChange=noop,
+      ~onCursorChange=noop,
       ~theme=Hero_Theme.default,
     ) => {
   open React.Ref;
@@ -44,7 +45,7 @@ let make =
   let normalizeEventName = event => {j|$name/$event|j};
 
   let webview = React.useRef(Js.Null.empty);
-  let (editorHeight, setEditorHeight) = React.useState(_ => None);
+  let (webviewHeight, setWebviewHeight) = React.useState(_ => None);
 
   let postMessageToWebview = message =>
     webview->current->Js.Null.getUnsafe->RNWebView.postMessage(message);
@@ -157,8 +158,11 @@ let make =
 
         onChange(value);
 
-      | "@hero-editor/webview/editor-resize" =>
-        let sizes: editorSizes =
+      | "@hero-editor/webview/cursor-change" =>
+        onCursorChange(messageData->Option.getExn)
+
+      | "@hero-editor/webview/editor-layout" =>
+        let editorLayout: editorLayout =
           messageData
           ->Option.flatMap(Json.decodeObject)
           ->Option.map(data =>
@@ -169,7 +173,7 @@ let make =
             )
           ->Option.getExn;
 
-        setEditorHeight(_ => Some(sizes.height->Style.dp));
+        setWebviewHeight(_ => Some(editorLayout.height->Style.dp));
 
       | _ => ()
       };
@@ -185,7 +189,7 @@ let make =
     scrollEnabled=false
     style={StyleSheet.flatten([|
       theme##richTextEditor##webview,
-      Style.style(~height=?editorHeight, ()),
+      Style.style(~height=?webviewHeight, ()),
     |])}
   />;
 };

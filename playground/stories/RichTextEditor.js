@@ -44,68 +44,123 @@ const isEmpty = array => array.length === 0;
 
 const getAcronym = string => string.match(/\b\w/g).join('');
 
-const RichTextEditorScreen = ({ theme }) => (
-  <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
-    <ScrollView contentContainerStyle={styles.container}>
-      <ListItem
-        title="Toan Nguyen"
-        leftElement={
-          <Avatar
-            size="small"
-            title="TN"
-            wrapperStyle={{ marginRight: theme.variables.MEDIUM_SIZE }}
-          />
-        }
-        wrapperStyle={{
-          minHeight: 0,
-          paddingVertical: 0,
-          paddingHorizontal: 0,
-          borderBottomWidth: 0,
-        }}
-      />
+const RichTextEditorScreen = ({ theme }) => {
+  const scrollView = React.useRef(null);
+  const editorLayout = React.useRef(null);
+  const scrollLayout = React.useRef(null);
+  const contentOffset = React.useRef({ x: 0, y: 0 });
 
-      <TouchableOpacity onPress={noop}>
-        <View pointerEvents="none">
-          <TextInput
-            rightIcon="eye-outline"
-            value="Share to everyone"
-            onChangeText={noop}
-            errorStyle={{ display: 'none' }}
+  return (
+    <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
+      <ScrollView
+        ref={scrollView}
+        scrollEventThrottle={100}
+        onScroll={event => {
+          contentOffset.current = event.nativeEvent.contentOffset;
+        }}
+        onLayout={event => {
+          scrollLayout.current = event.nativeEvent.layout;
+        }}
+        contentContainerStyle={styles.container}
+      >
+        <ListItem
+          title="Toan Nguyen"
+          leftElement={
+            <Avatar
+              size="small"
+              title="TN"
+              wrapperStyle={{ marginRight: theme.variables.MEDIUM_SIZE }}
+            />
+          }
+          wrapperStyle={{
+            minHeight: 0,
+            paddingVertical: 0,
+            paddingHorizontal: 0,
+            borderBottomWidth: 0,
+          }}
+        />
+
+        <TouchableOpacity onPress={noop}>
+          <View pointerEvents="none">
+            <TextInput
+              rightIcon="eye-outline"
+              value="Share to everyone"
+              onChangeText={noop}
+              errorStyle={{ display: 'none' }}
+            />
+          </View>
+        </TouchableOpacity>
+
+        <View
+          onLayout={event => {
+            editorLayout.current = event.nativeEvent.layout;
+          }}
+        >
+          <RichTextEditor
+            name="test"
+            placeholder="What's on your mind..."
+            initialValue={[
+              {
+                type: 'paragraph',
+                children: [{ text: '' }],
+              },
+            ]}
+            onChange={() => {}}
+            onCursorChange={({ position }) => {
+              const editorLayout = editorLayout.current;
+              const scrollLayout = scrollLayout.current;
+              const contentOffset = contentOffset.current;
+
+              if (editorLayout && scrollLayout) {
+                const scrollTop = contentOffset.y;
+                const scrollBottom = scrollTop + scrollLayout.height;
+                const cursorTop = editorLayout.y + position.top;
+
+                if (cursorTop < scrollTop || cursorTop > scrollBottom) {
+                  scrollView.current.scrollTo({
+                    x: 0,
+                    y: cursorTop,
+                    animated: true,
+                  });
+                }
+              }
+            }}
           />
         </View>
-      </TouchableOpacity>
 
-      <RichTextEditor
+        <Image
+          source={{
+            uri:
+              'https://www.nintendo.com/content/dam/noa/en_US/games/switch/p/pokemon-cafe-mix-switch/pokemon-cafe-mix-switch-hero.jpg',
+          }}
+          resizeMode="cover"
+          style={{
+            height: 300,
+            marginBottom: theme.variables.MEDIUM_SIZE,
+            borderRadius: theme.variables.SMALL_SIZE,
+          }}
+        />
+
+        <Image
+          source={{
+            uri:
+              'https://www.nintendo.com/content/dam/noa/en_US/games/switch/s/super-mario-maker-2-switch/super-mario-maker-2-switch-hero.jpg',
+          }}
+          resizeMode="cover"
+          style={{ height: 300, borderRadius: theme.variables.SMALL_SIZE }}
+        />
+      </ScrollView>
+
+      <RichTextEditor.MentionList
         name="test"
-        placeholder="What's on your mind..."
-        initialValue={[
-          {
-            type: 'paragraph',
-            children: [{ text: '' }],
-          },
-        ]}
-        onChange={value => console.log(value)}
+        render={(searchValue, onSelect) => (
+          <SuggestionList searchValue={searchValue} onSelect={onSelect} />
+        )}
       />
-
-      <Image
-        source={{
-          uri:
-            'https://i0.wp.com/nintendosoup.com/wp-content/uploads/2020/01/AnimalCrossingNewHorizons.jpg',
-        }}
-        resizeMode="cover"
-        style={{ height: 300, borderRadius: 8 }}
-      />
-    </ScrollView>
-
-    <RichTextEditor.MentionList
-      name="test"
-      render={(searchValue, onSelect) => (
-        <SuggestionList searchValue={searchValue} onSelect={onSelect} />
-      )}
-    />
-    <RichTextEditor.Toolbar name="test" />
-  </KeyboardAvoidingView>
-);
+      <RichTextEditor.Toolbar name="test" />
+    </KeyboardAvoidingView>
+  );
+};
 
 const SuggestionList = injectTheme(({ searchValue, onSelect, theme }) => {
   const searchResult = suggestionData.filter(({ name }) =>
