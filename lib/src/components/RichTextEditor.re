@@ -101,6 +101,46 @@ let make =
         )
       );
 
+    let removeItalicListener =
+      Events.on'(emitter, normalizeEventName("italic"), _ =>
+        postMessageToWebview(
+          RNWebView.message(
+            ~type_="@hero-editor/webview/italic",
+            ~data=Json.null,
+          ),
+        )
+      );
+
+    let removeUnderlineListener =
+      Events.on'(emitter, normalizeEventName("underline"), _ =>
+        postMessageToWebview(
+          RNWebView.message(
+            ~type_="@hero-editor/webview/underline",
+            ~data=Json.null,
+          ),
+        )
+      );
+
+    let removeBulletedListListener =
+      Events.on'(emitter, normalizeEventName("bulleted-list"), _ =>
+        postMessageToWebview(
+          RNWebView.message(
+            ~type_="@hero-editor/webview/bulleted-list",
+            ~data=Json.null,
+          ),
+        )
+      );
+
+    let removeNumberedListListener =
+      Events.on'(emitter, normalizeEventName("numbered-list"), _ =>
+        postMessageToWebview(
+          RNWebView.message(
+            ~type_="@hero-editor/webview/numbered-list",
+            ~data=Json.null,
+          ),
+        )
+      );
+
     let removeMentionApplyListener =
       Events.on'(emitter, normalizeEventName("mention-apply"), data =>
         postMessageToWebview(
@@ -114,6 +154,10 @@ let make =
     Some(
       () => {
         removeBoldListener();
+        removeItalicListener();
+        removeUnderlineListener();
+        removeBulletedListListener();
+        removeNumberedListListener();
         removeMentionApplyListener();
       },
     );

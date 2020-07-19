@@ -107,14 +107,14 @@ const RichTextEditorScreen = ({ theme }) => {
             ]}
             onChange={() => {}}
             onCursorChange={({ position }) => {
-              const editorLayout = editorLayout.current;
-              const scrollLayout = scrollLayout.current;
-              const contentOffset = contentOffset.current;
+              let editorLayout_ = editorLayout.current;
+              const scrollLayout_ = scrollLayout.current;
+              const contentOffset_ = contentOffset.current;
 
-              if (editorLayout && scrollLayout) {
-                const scrollTop = contentOffset.y;
-                const scrollBottom = scrollTop + scrollLayout.height;
-                const cursorTop = editorLayout.y + position.top;
+              if (editorLayout_ && scrollLayout_) {
+                const scrollTop = contentOffset_.y;
+                const scrollBottom = scrollTop + scrollLayout_.height;
+                const cursorTop = editorLayout_.y + position.top;
 
                 if (cursorTop < scrollTop || cursorTop > scrollBottom) {
                   scrollView.current.scrollTo({
