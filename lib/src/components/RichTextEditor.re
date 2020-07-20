@@ -21,8 +21,6 @@ let emitter = RichTextEditor__Event.emitter;
 
 let noop = _ => ();
 
-let isEmptyString = string_ => String.length(string_) == 0;
-
 let defaultValue =
   Js.Json.parseExn(
     {| [{ "type": "paragraph", "children": [{ "text": "" }] }] |},
@@ -148,7 +146,7 @@ let make =
         postMessageToWebview(
           RNWebView.message(
             ~type_="@hero-editor/webview/mention-apply",
-            ~data=data->Option.getExn,
+            ~data=Option.getExn(data),
           ),
         )
       );

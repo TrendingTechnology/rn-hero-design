@@ -1,8 +1,8 @@
 open ReactNative;
 
-let isEmptyString = string_ => String.length(string_) == 0;
-
 let emitter = RichTextEditor__Event.emitter;
+
+let isEmptyString = string_ => String.length(string_) == 0;
 
 [@react.component]
 let make = (~name: string, ~render, ~theme=Hero_Theme.default) => {
@@ -10,10 +10,10 @@ let make = (~name: string, ~render, ~theme=Hero_Theme.default) => {
   module Json = Js.Json;
   module Dict = Js.Dict;
 
-  let normalizeEventName = event => {j|$name/$event|j};
-
   let (search, setSearch) = React.useState(() => "");
   let (target, setTarget) = React.useState(() => Json.null);
+
+  let normalizeEventName = event => {j|$name/$event|j};
 
   React.useEffect0(() => {
     let removeMentionSearchListener =

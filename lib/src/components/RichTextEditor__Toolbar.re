@@ -14,9 +14,9 @@ module ToolbarButton = {
 
 [@react.component]
 let make = (~name: string, ~theme=Hero_Theme.default) => {
-  let normalizeEventName = event => {j|$name/$event|j};
-
   let (show, setShow) = React.useState(() => false);
+
+  let normalizeEventName = event => {j|$name/$event|j};
 
   React.useEffect0(() => {
     let removeFocusListener =
