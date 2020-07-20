@@ -1,93 +1,58 @@
 open ReactNative;
 
-let isEmptyString = string_ => String.length(string_) == 0;
+[@bs.module "./heroEditorApp"] external heroEditorApp: string = "default";
 
 [@bs.get] external getPaddingProperty: Style.t => Style.size = "padding";
+
 [@bs.get] external getFontSizeProperty: Style.t => float = "fontSize";
 
-module WebView = {
-  type element;
-
-  [@bs.deriving abstract]
-  type message('a) = {
-    [@bs.as "type"]
-    type_: string,
-    data: 'a,
-  };
-
-  type event = {. "nativeEvent": {. "data": string}};
-
-  [@bs.send]
-  external injectJavaScript: (element, string) => unit = "injectJavaScript";
-
-  let requestFocus = element => {
-    injectJavaScript(
-      element,
-      {j|
-      window.document.getElementsByClassName('hero-editor--editable')[0].focus();
-      |j},
-    );
-  };
-
-  let postMessage = (element, message) => {
-    let message = message->Js.Json.stringifyAny->Belt.Option.getExn;
-    injectJavaScript(element, {j|window.postMessage($message, '*');|j});
-  };
-
-  [@react.component] [@bs.module "react-native-webview"]
-  external make:
-    (
-      ~ref: React.Ref.t(Js.Null.t(element))=?,
-      ~originWhitelist: array(string),
-      ~source: {. "html": string},
-      ~onMessage: event => unit,
-      ~hideKeyboardAccessoryView: bool=?,
-      ~keyboardDisplayRequiresUserAction: bool=?,
-      ~style: Style.t=?
-    ) =>
-    React.element =
-    "WebView";
+type editorLayout = {
+  width: float,
+  height: float,
 };
 
-module ToolbarButton = {
-  [@react.component]
-  let make = (~icon, ~onPress, ~theme=Hero_Theme.default) =>
-    <TouchableOpacity onPress style=theme##richTextEditor##toolbarButton>
-      <Icon icon />
-    </TouchableOpacity>;
+let getSize = (dict, size) =>
+  dict
+  ->Js.Dict.get(size)
+  ->Belt.Option.flatMap(Js.Json.decodeNumber)
+  ->Belt.Option.getExn;
 
-  let make = Helpers.injectTheme(make);
-};
+let emitter = RichTextEditor__Event.emitter;
 
-[@bs.module "./heroEditorApp"] external heroEditorApp: string = "default";
+let noop = _ => ();
 
 let defaultValue =
   Js.Json.parseExn(
     {| [{ "type": "paragraph", "children": [{ "text": "" }] }] |},
   );
 
-let noop = _ => ();
-
 [@react.component]
 let make =
     (
+      ~name: string,
       ~placeholder: string="",
       ~initialValue: Js.Json.t=defaultValue,
       ~onChange=noop,
-      ~renderSuggestionList,
+      ~onCursorChange=noop,
       ~theme=Hero_Theme.default,
     ) => {
   open React.Ref;
 
+  module Option = Belt.Option;
+  module Json = Js.Json;
+  module Dict = Js.Dict;
+
   let webview = React.useRef(Js.Null.empty);
-  let (showToolbar, setShowToolbar) = React.useState(() => false);
-  let (mentionSearch, setMentionSearch) = React.useState(() => "");
-  let (mentionTarget, setMentionTarget) = React.useState(() => Js.Json.null);
+  let (webviewHeight, setWebviewHeight) = React.useState(_ => None);
+
+  let normalizeEventName = event => {j|$name/$event|j};
+
+  let postMessageToWebview = message =>
+    webview->current->Js.Null.getUnsafe->RNWebView.postMessage(message);
 
   let html =
     React.useMemo0(() => {
-      let initialValue = initialValue->Js.Json.stringify;
-
+      let initialValue = initialValue->Json.stringify;
       let padding = theme##richTextEditor##editor->getPaddingProperty;
       let fontSize = theme##richTextEditor##editor->getFontSizeProperty;
 
@@ -111,7 +76,10 @@ let make =
               initialValue: $initialValue,
               autoFocus: true,
               style: {
-                padding: $padding,
+                minHeight: 80,
+                padding: 0,
+                paddingTop: $padding,
+                paddingBottom: $padding,
                 fontSize: $fontSize
               }
             };
@@ -122,12 +90,83 @@ let make =
       |j};
     });
 
+  /* Forward events from Toolbar and MentionList to webview */
+  React.useEffect0(() => {
+    let removeBoldListener =
+      Events.on'(emitter, normalizeEventName("bold"), _ =>
+        postMessageToWebview(
+          RNWebView.message(
+            ~type_="@hero-editor/webview/bold",
+            ~data=Json.null,
+          ),
+        )
+      );
+
+    let removeItalicListener =
+      Events.on'(emitter, normalizeEventName("italic"), _ =>
+        postMessageToWebview(
+          RNWebView.message(
+            ~type_="@hero-editor/webview/italic",
+            ~data=Json.null,
+          ),
+        )
+      );
+
+    let removeUnderlineListener =
+      Events.on'(emitter, normalizeEventName("underline"), _ =>
+        postMessageToWebview(
+          RNWebView.message(
+            ~type_="@hero-editor/webview/underline",
+            ~data=Json.null,
+          ),
+        )
+      );
+
+    let removeBulletedListListener =
+      Events.on'(emitter, normalizeEventName("bulleted-list"), _ =>
+        postMessageToWebview(
+          RNWebView.message(
+            ~type_="@hero-editor/webview/bulleted-list",
+            ~data=Json.null,
+          ),
+        )
+      );
+
+    let removeNumberedListListener =
+      Events.on'(emitter, normalizeEventName("numbered-list"), _ =>
+        postMessageToWebview(
+          RNWebView.message(
+            ~type_="@hero-editor/webview/numbered-list",
+            ~data=Json.null,
+          ),
+        )
+      );
+
+    let removeMentionApplyListener =
+      Events.on'(emitter, normalizeEventName("mention-apply"), data =>
+        postMessageToWebview(
+          RNWebView.message(
+            ~type_="@hero-editor/webview/mention-apply",
+            ~data=Option.getExn(data),
+          ),
+        )
+      );
+
+    Some(
+      () => {
+        removeBoldListener();
+        removeItalicListener();
+        removeUnderlineListener();
+        removeBulletedListListener();
+        removeNumberedListListener();
+        removeMentionApplyListener();
+      },
+    );
+  });
+
+  /* Handle events from webview */
   let onMessage =
     React.useCallback0(event => {
-      module Option = Belt.Option;
-      module Json = Js.Json;
-      module Dict = Js.Dict;
-
       let message =
         event##nativeEvent##data
         ->Json.parseExn
@@ -140,129 +179,82 @@ let make =
         ->Option.flatMap(Json.decodeString)
         ->Option.getExn;
 
+      let messageData =
+        message
+        ->Dict.get("data")
+        ->Option.getExn;
+
       switch (messageType) {
+      | "@hero-editor/webview/editor-focus" =>
+        Events.emit(emitter, normalizeEventName("editor-focus"), None)
+
+      | "@hero-editor/webview/editor-blur" =>
+        Events.emit(emitter, normalizeEventName("editor-blur"), None)
+
       | "@hero-editor/webview/mention-search" =>
-        let search =
-          message
-          ->Dict.get("data")
-          ->Option.flatMap(Json.decodeObject)
-          ->Option.flatMap(data => Dict.get(data, "search"))
-          ->Option.flatMap(Json.decodeString)
-          ->Option.getExn;
+        Events.emit(
+          emitter,
+          normalizeEventName("mention-search"),
+          Some(messageData),
+        )
 
-        let target =
-          message
-          ->Dict.get("data")
-          ->Option.flatMap(Json.decodeObject)
-          ->Option.flatMap(data => Dict.get(data, "target"))
-          ->Option.getExn;
-
-        setMentionSearch(_ => search);
-        setMentionTarget(_ => target);
-      | "@hero-editor/webview/editor-focus" => setShowToolbar(_ => true)
-      | "@hero-editor/webview/editor-blur" => setShowToolbar(_ => false)
       | "@hero-editor/webview/editor-change" =>
         let value: Json.t =
-          message
-          ->Dict.get("data")
-          ->Option.flatMap(Json.decodeObject)
+          messageData
+          ->Json.decodeObject
           ->Option.flatMap(data => Dict.get(data, "value"))
           ->Option.getExn;
 
         onChange(value);
+
+      | "@hero-editor/webview/cursor-change" =>
+        onCursorChange(messageData)
+
+      | "@hero-editor/webview/editor-layout" =>
+        let editorLayout =
+          messageData
+          ->Json.decodeObject
+          ->Option.map(data =>
+              {
+                width: getSize(data, "width"),
+                height: getSize(data, "height"),
+              }
+            )
+          ->Option.getExn;
+
+        setWebviewHeight(_ => Some(editorLayout.height->Style.dp));
+
       | _ => ()
       };
     });
 
-  let postMessageToWebview = message =>
-    webview->current->Js.Null.getUnsafe->WebView.postMessage(message);
-
-  <View style=theme##richTextEditor##wrapper>
-    <WebView
-      ref=webview
-      originWhitelist=[|"*"|]
-      source={"html": html}
-      onMessage
-      hideKeyboardAccessoryView=true
-      keyboardDisplayRequiresUserAction=false
-      style=theme##richTextEditor##webview
-    />
-    {isEmptyString(mentionSearch)
-       ? React.null
-       : <View style=theme##richTextEditor##suggestionList>
-           {renderSuggestionList(
-              mentionSearch,
-              (id, name) => {
-                let meta = Js.Dict.empty();
-                Js.Dict.set(meta, "target", mentionTarget);
-
-                let data = Js.Dict.empty();
-                Js.Dict.set(data, "id", Js.Json.string(id));
-                Js.Dict.set(data, "name", Js.Json.string(name));
-                Js.Dict.set(data, "meta", Js.Json.object_(meta));
-
-                postMessageToWebview(
-                  WebView.message(
-                    ~type_="@hero-editor/webview/mention-apply",
-                    ~data=Js.Json.object_(data),
-                  ),
-                );
-              },
-            )}
-         </View>}
-    {showToolbar
-       ? <View style=theme##richTextEditor##toolbar>
-           <ToolbarButton
-             icon="format_bold"
-             onPress={_ => {
-               postMessageToWebview(
-                 WebView.message(
-                   ~type_="@hero-editor/webview/bold",
-                   ~data=Js.Json.null,
-                 ),
-               )
-             }}
-           />
-           <ToolbarButton
-             icon="format_italic"
-             onPress={_ => {
-               postMessageToWebview({
-                 "type": "@hero-editor/webview/italic",
-                 "data": Js.Json.null,
-               })
-             }}
-           />
-           <ToolbarButton
-             icon="format_underlined"
-             onPress={_ => {
-               postMessageToWebview({
-                 "type": "@hero-editor/webview/underline",
-                 "data": Js.Json.null,
-               })
-             }}
-           />
-           <View style=theme##richTextEditor##separator />
-           <ToolbarButton
-             icon="format_list_bulleted"
-             onPress={_ => {
-               postMessageToWebview({
-                 "type": "@hero-editor/webview/bulleted-list",
-                 "data": Js.Json.null,
-               })
-             }}
-           />
-           <ToolbarButton
-             icon="format_list_numbered"
-             onPress={_ => {
-               postMessageToWebview({
-                 "type": "@hero-editor/webview/numbered-list",
-                 "data": Js.Json.null,
-               })
-             }}
-           />
-         </View>
-       : React.null}
-  </View>;
+  <RNWebView
+    ref=webview
+    originWhitelist=[|"*"|]
+    source={"html": html}
+    onMessage
+    scrollEnabled=false
+    hideKeyboardAccessoryView=true
+    keyboardDisplayRequiresUserAction=false
+    style={StyleSheet.flatten([|
+      theme##richTextEditor##webview,
+      Style.style(~height=?webviewHeight, ()),
+    |])}
+  />;
 };
+
+[@bs.set]
+external setToolbarSubComponent:
+  (React.component('props1), React.component('props2)) => unit =
+  "Toolbar";
+
+[@bs.set]
+external setMentionListSubComponent:
+  (React.component('props1), React.component('props2)) => unit =
+  "MentionList";
+
+setToolbarSubComponent(make, RichTextEditor__Toolbar.make);
+
+setMentionListSubComponent(make, RichTextEditor__MentionList.make);
 
 let default = Helpers.injectTheme(make);

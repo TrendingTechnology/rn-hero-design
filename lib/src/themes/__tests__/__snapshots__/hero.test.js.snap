@@ -487,9 +487,7 @@ Object {
       "marginHorizontal": 16.25,
       "width": 0,
     },
-    "suggestionList": Object {
-      "flex": 1,
-    },
+    "suggestionList": Object {},
     "toolbar": Object {
       "alignItems": "center",
       "backgroundColor": "#f5f6f8",
@@ -504,11 +502,7 @@ Object {
       "width": 40.625,
     },
     "webview": Object {
-      "flex": 1,
-    },
-    "wrapper": Object {
-      "flex": 1,
-      "flexDirection": "column",
+      "marginBottom": 16.25,
     },
   },
   "select": Object {
