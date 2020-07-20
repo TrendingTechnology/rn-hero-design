@@ -76,6 +76,7 @@ let make =
               initialValue: $initialValue,
               autoFocus: true,
               style: {
+                minHeight: 80,
                 padding: 0,
                 paddingTop: $padding,
                 paddingBottom: $padding,

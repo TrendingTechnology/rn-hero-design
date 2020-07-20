@@ -19,25 +19,6 @@ import {
 } from 'rn-hero-design';
 import heroTheme from 'rn-hero-design/src/themes/hero/Hero_Variables.bs';
 
-const suggestionData = [
-  { id: '1', name: 'Tuan Mai', job: 'Team leader' },
-  {
-    id: '2',
-    name: 'Huy Vo',
-    job: 'Bug creator',
-    avatar: 'https://avatars0.githubusercontent.com/u/17645203?s=400&v=4',
-  },
-  { id: '3', name: 'Gia Toan', job: 'Mobile developer' },
-  { id: '4', name: 'Kien Tran', job: 'Mobile developer' },
-  { id: '5', name: 'Hieu Pham', job: 'Web developer' },
-  {
-    id: '6',
-    name: 'ReasonML',
-    job: 'Functional language',
-    avatar: 'https://avatars3.githubusercontent.com/u/20414525?s=400&v=4',
-  },
-];
-
 const noop = () => {};
 
 const isEmpty = array => array.length === 0;
@@ -51,7 +32,7 @@ const RichTextEditorScreen = ({ theme }) => {
   const contentOffset = React.useRef({ x: 0, y: 0 });
 
   return (
-    <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
+    <KeyboardAvoidingView withNavigation style={{ flex: 1 }}>
       <ScrollView
         ref={scrollView}
         scrollEventThrottle={100}
@@ -61,7 +42,7 @@ const RichTextEditorScreen = ({ theme }) => {
         onLayout={event => {
           scrollLayout.current = event.nativeEvent.layout;
         }}
-        contentContainerStyle={styles.container}
+        contentContainerStyle={{ padding: theme.variables.MEDIUM_SIZE }}
       >
         <ListItem
           title="Toan Nguyen"
@@ -98,16 +79,16 @@ const RichTextEditorScreen = ({ theme }) => {
         >
           <RichTextEditor
             name="test"
-            placeholder="What's on your mind..."
+            placeholder="Has someone brightened up your day? Type @ to give them a Shout Out!"
             initialValue={[
               {
                 type: 'paragraph',
                 children: [{ text: '' }],
               },
             ]}
-            onChange={() => {}}
+            onChange={noop}
             onCursorChange={({ position }) => {
-              let editorLayout_ = editorLayout.current;
+              const editorLayout_ = editorLayout.current;
               const scrollLayout_ = scrollLayout.current;
               const contentOffset_ = contentOffset.current;
 
@@ -129,10 +110,7 @@ const RichTextEditorScreen = ({ theme }) => {
         </View>
 
         <Image
-          source={{
-            uri:
-              'https://www.nintendo.com/content/dam/noa/en_US/games/switch/p/pokemon-cafe-mix-switch/pokemon-cafe-mix-switch-hero.jpg',
-          }}
+          source={{ uri: attachment1 }}
           resizeMode="cover"
           style={{
             height: 300,
@@ -142,12 +120,12 @@ const RichTextEditorScreen = ({ theme }) => {
         />
 
         <Image
-          source={{
-            uri:
-              'https://www.nintendo.com/content/dam/noa/en_US/games/switch/s/super-mario-maker-2-switch/super-mario-maker-2-switch-hero.jpg',
-          }}
+          source={{ uri: attachment2 }}
           resizeMode="cover"
-          style={{ height: 300, borderRadius: theme.variables.SMALL_SIZE }}
+          style={{
+            height: 300,
+            borderRadius: theme.variables.SMALL_SIZE,
+          }}
         />
       </ScrollView>
 
@@ -157,6 +135,7 @@ const RichTextEditorScreen = ({ theme }) => {
           <SuggestionList searchValue={searchValue} onSelect={onSelect} />
         )}
       />
+
       <RichTextEditor.Toolbar name="test" />
     </KeyboardAvoidingView>
   );
@@ -229,15 +208,30 @@ const SuggestionItem = injectTheme(({ name, job, avatar, onPress, theme }) => (
   </TouchableOpacity>
 ));
 
-const styles = StyleSheet.create({
-  keyboardAvoidingView: {
-    flex: 1,
+const suggestionData = [
+  { id: '1', name: 'Tuan Mai', job: 'Team leader' },
+  {
+    id: '2',
+    name: 'Huy Vo',
+    job: 'Bug creator',
+    avatar: 'https://avatars0.githubusercontent.com/u/17645203?s=400&v=4',
   },
-  container: {
-    padding: 16,
-    // backgroundColor: '#ccc',
+  { id: '3', name: 'Gia Toan', job: 'Mobile developer' },
+  { id: '4', name: 'Kien Tran', job: 'Mobile developer' },
+  { id: '5', name: 'Hieu Pham', job: 'Web developer' },
+  {
+    id: '6',
+    name: 'ReasonML',
+    job: 'Functional language',
+    avatar: 'https://avatars3.githubusercontent.com/u/20414525?s=400&v=4',
   },
-});
+];
+
+const attachment1 =
+  'https://www.nintendo.com/content/dam/noa/en_US/games/switch/s/super-mario-maker-2-switch/super-mario-maker-2-switch-hero.jpg';
+
+const attachment2 =
+  'https://www.nintendo.com/content/dam/noa/en_US/games/switch/n/new-super-mario-bros-u-deluxe-switch/new-super-mario-bros-u-deluxe-switch-hero.jpg';
 
 RichTextEditorScreen.navigationOptions = {
   title: 'New Announcement',
