@@ -3,6 +3,7 @@ open ReactNative;
 [@bs.module "./heroEditorApp"] external heroEditorApp: string = "default";
 
 [@bs.get] external getPaddingProperty: Style.t => Style.size = "padding";
+
 [@bs.get] external getFontSizeProperty: Style.t => float = "fontSize";
 
 type editorLayout = {
@@ -38,14 +39,15 @@ let make =
       ~theme=Hero_Theme.default,
     ) => {
   open React.Ref;
+
   module Option = Belt.Option;
   module Json = Js.Json;
   module Dict = Js.Dict;
 
-  let normalizeEventName = event => {j|$name/$event|j};
-
   let webview = React.useRef(Js.Null.empty);
   let (webviewHeight, setWebviewHeight) = React.useState(_ => None);
+
+  let normalizeEventName = event => {j|$name/$event|j};
 
   let postMessageToWebview = message =>
     webview->current->Js.Null.getUnsafe->RNWebView.postMessage(message);
@@ -53,7 +55,6 @@ let make =
   let html =
     React.useMemo0(() => {
       let initialValue = initialValue->Json.stringify;
-
       let padding = theme##richTextEditor##editor->getPaddingProperty;
       let fontSize = theme##richTextEditor##editor->getFontSizeProperty;
 
@@ -90,6 +91,7 @@ let make =
       |j};
     });
 
+  /* Forward events from Toolbar and MentionList to webview */
   React.useEffect0(() => {
     let removeBoldListener =
       Events.on'(emitter, normalizeEventName("bold"), _ =>
@@ -163,6 +165,7 @@ let make =
     );
   });
 
+  /* Handle events from webview */
   let onMessage =
     React.useCallback0(event => {
       let message =
@@ -177,7 +180,10 @@ let make =
         ->Option.flatMap(Json.decodeString)
         ->Option.getExn;
 
-      let messageData = message->Dict.get("data");
+      let messageData =
+        message
+        ->Dict.get("data")
+        ->Option.getExn;
 
       switch (messageType) {
       | "@hero-editor/webview/editor-focus" =>
@@ -190,25 +196,25 @@ let make =
         Events.emit(
           emitter,
           normalizeEventName("mention-search"),
-          messageData,
+          Some(messageData),
         )
 
       | "@hero-editor/webview/editor-change" =>
         let value: Json.t =
           messageData
-          ->Option.flatMap(Json.decodeObject)
+          ->Json.decodeObject
           ->Option.flatMap(data => Dict.get(data, "value"))
           ->Option.getExn;
 
         onChange(value);
 
       | "@hero-editor/webview/cursor-change" =>
-        onCursorChange(messageData->Option.getExn)
+        onCursorChange(messageData)
 
       | "@hero-editor/webview/editor-layout" =>
-        let editorLayout: editorLayout =
+        let editorLayout =
           messageData
-          ->Option.flatMap(Json.decodeObject)
+          ->Json.decodeObject
           ->Option.map(data =>
               {
                 width: getSize(data, "width"),
@@ -228,9 +234,9 @@ let make =
     originWhitelist=[|"*"|]
     source={"html": html}
     onMessage
+    scrollEnabled=false
     hideKeyboardAccessoryView=true
     keyboardDisplayRequiresUserAction=false
-    scrollEnabled=false
     style={StyleSheet.flatten([|
       theme##richTextEditor##webview,
       Style.style(~height=?webviewHeight, ()),
@@ -249,6 +255,7 @@ external setMentionListSubComponent:
   "MentionList";
 
 setToolbarSubComponent(make, RichTextEditor__Toolbar.make);
+
 setMentionListSubComponent(make, RichTextEditor__MentionList.make);
 
 let default = Helpers.injectTheme(make);
