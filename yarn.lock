@@ -7761,10 +7761,10 @@ header-case@^1.0.0:
     no-case "^2.2.0"
     upper-case "^1.1.3"
 
-hero-editor@^1.1.2:
-  version "1.1.2"
-  resolved "https://registry.npmjs.org/hero-editor/-/hero-editor-1.1.2.tgz#bf3f45d1bc61dadc06ee9bca657fb2fb62885132"
-  integrity sha512-VwKffoN6X2+IXpvgCFXf9Gt2whd7y5dfGpePn2k7aFCJReBDSxx80icJcRUIxxYyolxEhzKCj9fH/YCyfTm5Vw==
+hero-editor@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.npmjs.org/hero-editor/-/hero-editor-1.4.0.tgz#7594331411e9439321b6e3a1e9d21609e793545a"
+  integrity sha512-FvQJomp+KoxcB09fYQYDZn/kpgaBopgTIBwNfLstYqqU1E8tqXRsK82m7PipxFgXbYtC+PoTA2OLwLMKH54pNA==
   dependencies:
     is-url "^1.2.4"
     slate "^0.58.3"
