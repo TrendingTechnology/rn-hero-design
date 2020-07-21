@@ -21,6 +21,8 @@ let emitter = RichTextEditor__Event.emitter;
 
 let noop = _ => ();
 
+let emptyStyle = Style.style();
+
 let defaultValue =
   Js.Json.parseExn(
     {| [{ "type": "paragraph", "children": [{ "text": "" }] }] |},
@@ -34,6 +36,7 @@ let make =
       ~initialValue: Js.Json.t=defaultValue,
       ~onChange=noop,
       ~onCursorChange=noop,
+      ~style=emptyStyle,
       ~theme=Hero_Theme.default,
     ) => {
   open React.Ref;
@@ -76,7 +79,6 @@ let make =
               initialValue: $initialValue,
               autoFocus: true,
               style: {
-                minHeight: 80,
                 padding: 0,
                 paddingTop: $padding,
                 paddingBottom: $padding,
@@ -222,7 +224,9 @@ let make =
             )
           ->Option.getExn;
 
-        setWebviewHeight(_ => Some(editorLayout.height->Style.dp));
+        if (editorLayout.height > 120.0) {
+          setWebviewHeight(_ => Some(editorLayout.height->Style.dp));
+        };
 
       | _ => ()
       };
@@ -239,6 +243,7 @@ let make =
     style={StyleSheet.flatten([|
       theme##richTextEditor##webview,
       Style.style(~height=?webviewHeight, ()),
+      style,
     |])}
   />;
 };

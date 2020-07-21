@@ -10,9 +10,18 @@ let _SEPARATOR_COLOR = _BORDER_COLOR;
 let _EDITOR_FONT_SIZE = _HEADER_4;
 let _EDITOR_PADDING = _MEDIUM_SIZE;
 let _EDITOR_MARGIN = _MEDIUM_SIZE;
+let _EDITOR_BORDER_COLOR = _BORDER_COLOR;
 
 let styles: Js.t('a) = {
-  "webview": style(~marginBottom=_EDITOR_MARGIN->dp, ()),
+  "webview":
+    style(
+      ~minHeight=120.0->dp,
+      ~marginBottom=_EDITOR_MARGIN->dp,
+      ~borderBottomWidth=0.8,
+      ~borderBottomColor=_EDITOR_BORDER_COLOR,
+      ~backgroundColor="transparent",
+      (),
+    ),
   "editor":
     style(~padding=_EDITOR_PADDING->dp, ~fontSize=_EDITOR_FONT_SIZE, ()),
   "suggestionList": style(),
