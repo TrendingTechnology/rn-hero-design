@@ -1,14 +1,14 @@
 open ReactNative.Style;
 open Hero_Variables;
 
+let _WRAPPER_MARGIN_VERTICAL = _MEDIUM_SIZE;
 let _TEXT_FONT_SIZE = _HEADER_4;
 let _TEXT_COLOR = Hero_Variables._TEXT_COLOR;
 let _HIGHLIGHT_TEXT_COLOR = _LIGHT_PRIMARY_COLOR;
-let _SUGGESTION_WRAPPER_MARGIN =
-  -. (_MEDIUM_SIZE +. _SMALL_SIZE +. _HEADER_5 +. 4.0);
+let _SUGGESTION_WRAPPER_MARGIN = (-4.0);
 
 let styles: Js.t('a) = {
-  "wrapper": style(),
+  "wrapper": style(~marginBottom=_WRAPPER_MARGIN_VERTICAL->dp, ()),
   "text":
     style(
       ~fontFamily=?_FONT_FAMILY,

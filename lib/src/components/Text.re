@@ -17,6 +17,9 @@ type weight = [
   | `normal
 ];
 
+[@bs.deriving jsConverter]
+type ellipsizeMode = [ | `clip | `head | `middle | `tail];
+
 let (|?) = (x, y) =>
   switch (x) {
   | Some(x) => x
@@ -26,16 +29,24 @@ let (|?) = (x, y) =>
 [@react.component]
 let make =
     (
-      ~testID,
+      ~testID: string=?,
       ~children,
       ~size=?,
       ~weight=?,
       ~color=?,
+      ~ellipsizeMode=?,
+      ~numberOfLines: int=?,
       ~style=?,
       ~theme=Hero_Theme.default,
     ) =>
   <ReactNative.Text
     testID
+    ellipsizeMode={
+      ellipsizeMode
+      ->Belt.Option.flatMap(ellipsizeModeFromJs)
+      ->Belt.Option.getWithDefault(`tail)
+    }
+    numberOfLines
     style={StyleSheet.flatten([|
       theme##text##text,
       Belt.Option.mapWithDefault(size, emptyStyle, size =>

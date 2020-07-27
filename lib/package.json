@@ -1,6 +1,6 @@
 {
   "name": "rn-hero-design",
-  "version": "2.6.1",
+  "version": "2.7.0",
   "description": "",
   "main": "lib.js",
   "scripts": {
@@ -39,7 +39,7 @@
     "react-redux": "^5.1.2"
   },
   "dependencies": {
-    "hero-editor": "^1.4.0",
+    "hero-editor": "^1.5.0",
     "react-native-safe-area-view": "0.14.8"
   }
 }

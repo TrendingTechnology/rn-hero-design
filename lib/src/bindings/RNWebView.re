@@ -26,12 +26,31 @@ let postMessage = (element, message) => {
   injectJavaScript(element, {j|window.postMessage($message, '*');|j});
 };
 
+module Source = {
+  type t;
+
+  [@bs.obj]
+  external uri:
+    (
+      ~uri: string=?,
+      ~method: string=?,
+      ~headers: Js.t('a)=?,
+      ~body: string=?,
+      unit
+    ) =>
+    t =
+    "";
+
+  [@bs.obj]
+  external html: (~html: string=?, ~baseUrl: string=?, unit) => t = "";
+};
+
 [@react.component] [@bs.module "react-native-webview"]
 external make:
   (
     ~ref: React.Ref.t(Js.Null.t(element))=?,
     ~originWhitelist: array(string),
-    ~source: {. "html": string},
+    ~source: Source.t,
     ~onMessage: event => unit,
     ~hideKeyboardAccessoryView: bool=?,
     ~keyboardDisplayRequiresUserAction: bool=?,

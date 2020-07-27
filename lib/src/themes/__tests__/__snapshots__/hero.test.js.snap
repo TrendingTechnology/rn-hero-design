@@ -401,7 +401,7 @@ Object {
       "backgroundColor": "#fcfcfc",
       "borderRadius": 4,
       "elevation": 10,
-      "marginTop": -41.8625,
+      "marginTop": -4,
       "shadowColor": "#000000",
       "shadowOffset": Object {
         "height": 2,
@@ -415,7 +415,9 @@ Object {
       "fontFamily": "Proxima Nova",
       "fontSize": 16.25,
     },
-    "wrapper": Object {},
+    "wrapper": Object {
+      "marginBottom": 16.25,
+    },
   },
   "message": Object {
     "content": Object {
@@ -503,10 +505,12 @@ Object {
     },
     "webview": Object {
       "backgroundColor": "transparent",
+      "minHeight": 120,
+    },
+    "wrapper": Object {
       "borderBottomColor": "#d9dbdf",
       "borderBottomWidth": 0.8,
       "marginBottom": 16.25,
-      "minHeight": 120,
     },
   },
   "select": Object {
