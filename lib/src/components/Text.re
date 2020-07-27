@@ -36,6 +36,7 @@ let make =
       ~color=?,
       ~ellipsizeMode=?,
       ~numberOfLines: int=?,
+      ~onPress: unit => unit=?,
       ~style=?,
       ~theme=Hero_Theme.default,
     ) =>
@@ -47,6 +48,7 @@ let make =
       ->Belt.Option.getWithDefault(`tail)
     }
     numberOfLines
+    onPress
     style={StyleSheet.flatten([|
       theme##text##text,
       Belt.Option.mapWithDefault(size, emptyStyle, size =>
