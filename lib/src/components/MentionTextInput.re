@@ -362,7 +362,9 @@ let make =
       autoCorrect=true
       onKeyPress=handleKeyPress
       onChangeText=handleChangeText
-      onSelectionChange=handleSelectionChange>
+      onSelectionChange=handleSelectionChange
+      errorStyle=RN.Style.(style(~display=`none, ()))
+      wrapperStyle=RN.Style.(style(~marginBottom=0.0->dp, ()))>
       <RN.Text
         style={RN.StyleSheet.flatten([|
           theme##mentionTextInput##text,
