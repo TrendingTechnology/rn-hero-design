@@ -6,6 +6,8 @@ open ReactNative;
 
 [@bs.get] external getFontSizeProperty: Style.t => float = "fontSize";
 
+let isAndroid = Helpers.Platform.isAndroid;
+
 type editorLayout = {
   width: float,
   height: float,
@@ -37,6 +39,7 @@ let make =
       ~onChange=noop,
       ~onCursorChange=noop,
       ~style=emptyStyle,
+      ~wrapperStyle=emptyStyle,
       ~theme=Hero_Theme.default,
     ) => {
   open React.Ref;
@@ -77,6 +80,7 @@ let make =
             window.__editorConfigs = {
               placeholder: "$placeholder",
               initialValue: $initialValue,
+              isAndroid: $isAndroid,
               autoFocus: true,
               style: {
                 padding: 0,
@@ -232,20 +236,26 @@ let make =
       };
     });
 
-  <RNWebView
-    ref=webview
-    originWhitelist=[|"*"|]
-    source={"html": html}
-    onMessage
-    scrollEnabled=false
-    hideKeyboardAccessoryView=true
-    keyboardDisplayRequiresUserAction=false
+  <View
     style={StyleSheet.flatten([|
-      theme##richTextEditor##webview,
-      Style.style(~height=?webviewHeight, ()),
-      style,
-    |])}
-  />;
+      theme##richTextEditor##wrapper,
+      wrapperStyle,
+    |])}>
+    <RNWebView
+      ref=webview
+      originWhitelist=[|"*"|]
+      source={RNWebView.Source.html(~html, ())}
+      onMessage
+      scrollEnabled=false
+      hideKeyboardAccessoryView=true
+      keyboardDisplayRequiresUserAction=false
+      style={StyleSheet.flatten([|
+        theme##richTextEditor##webview,
+        Style.style(~height=?webviewHeight, ()),
+        style,
+      |])}
+    />
+  </View>;
 };
 
 [@bs.set]

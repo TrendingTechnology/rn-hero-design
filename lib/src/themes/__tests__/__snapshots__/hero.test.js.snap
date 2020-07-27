@@ -503,10 +503,12 @@ Object {
     },
     "webview": Object {
       "backgroundColor": "transparent",
+      "minHeight": 120,
+    },
+    "wrapper": Object {
       "borderBottomColor": "#d9dbdf",
       "borderBottomWidth": 0.8,
       "marginBottom": 16.25,
-      "minHeight": 120,
     },
   },
   "select": Object {

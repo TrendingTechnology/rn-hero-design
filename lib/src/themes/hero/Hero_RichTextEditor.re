@@ -13,15 +13,14 @@ let _EDITOR_MARGIN = _MEDIUM_SIZE;
 let _EDITOR_BORDER_COLOR = _BORDER_COLOR;
 
 let styles: Js.t('a) = {
-  "webview":
+  "wrapper":
     style(
-      ~minHeight=120.0->dp,
       ~marginBottom=_EDITOR_MARGIN->dp,
       ~borderBottomWidth=0.8,
       ~borderBottomColor=_EDITOR_BORDER_COLOR,
-      ~backgroundColor="transparent",
       (),
     ),
+  "webview": style(~minHeight=120.0->dp, ~backgroundColor="transparent", ()),
   "editor":
     style(~padding=_EDITOR_PADDING->dp, ~fontSize=_EDITOR_FONT_SIZE, ()),
   "suggestionList": style(),
