@@ -42,11 +42,7 @@ let make =
     ) =>
   <ReactNative.Text
     testID
-    ellipsizeMode={
-      ellipsizeMode
-      ->Belt.Option.flatMap(ellipsizeModeFromJs)
-      ->Belt.Option.getWithDefault(`tail)
-    }
+    ellipsizeMode=?{ellipsizeMode->Belt.Option.flatMap(ellipsizeModeFromJs)}
     numberOfLines
     onPress
     style={StyleSheet.flatten([|

@@ -14,6 +14,8 @@ type listener = arguments => unit;
 
 [@bs.send] external emit: (t, eventName, arguments) => unit = "emit";
 
+[@bs.send] external setMaxListeners: (t, int) => t = "setMaxListeners";
+
 let on' = (emitter, eventName, listener) => {
   on(emitter, eventName, listener);
   () => off(emitter, eventName, listener);
