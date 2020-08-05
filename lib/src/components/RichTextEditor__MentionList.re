@@ -48,13 +48,10 @@ let make = (~name: string, ~render, ~theme=Hero_Theme.default) => {
         {render(
            search,
            (id, name) => {
-             let meta = Dict.empty();
-             Dict.set(meta, "target", target);
-
              let data = Dict.empty();
              Dict.set(data, "id", Json.string(id));
              Dict.set(data, "name", Json.string(name));
-             Dict.set(data, "meta", Json.object_(meta));
+             Dict.set(data, "target", target);
 
              Events.emit(
                emitter,
