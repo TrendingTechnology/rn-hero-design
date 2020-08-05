@@ -9,7 +9,8 @@
     "web": "expo start --web",
     "eject": "expo eject",
     "publish": "expo publish",
-    "postinstall": "expo-yarn-workspaces postinstall"
+    "postinstall": "expo-yarn-workspaces postinstall",
+    "build:android": "expo build:android -t apk"
   },
   "dependencies": {
     "expo": "^35.0.0",
