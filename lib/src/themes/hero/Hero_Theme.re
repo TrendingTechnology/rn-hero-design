@@ -19,4 +19,5 @@ let default = {
   "radio": Hero_Radio.default,
   "richTextEditor": Hero_RichTextEditor.default,
   "buttonGroup": Hero_ButtonGroup.default,
+  "errorScreen": Hero_ErrorScreen.default,
 };
