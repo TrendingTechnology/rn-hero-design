@@ -23,6 +23,7 @@ import CalendarScreen from './Calendar';
 import RadioScreen from './Radio';
 import RichTextEditorScreen from './RichTextEditor';
 import ButtonGroupScreen from './ButtonGroup';
+import ErrorScreen from './ErrorScreen';
 import ProfileScreen from './ProfileScreen';
 import darkKnightTheme from 'rn-hero-design/src/themes/dark-knight';
 
@@ -147,6 +148,12 @@ export default {
     screen: ButtonGroupScreen,
     defaultNavigationOptions: {
       title: 'ButtonGroup',
+    },
+  },
+  ErrorScreen: {
+    screen: ErrorScreen,
+    defaultNavigationOptions: {
+      title: 'ErrorScreen',
     },
   },
   ProfileScreen: {

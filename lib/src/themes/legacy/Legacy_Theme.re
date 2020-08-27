@@ -19,4 +19,5 @@ let default = {
   "radio": Legacy_Radio.default,
   "richTextEditor": Legacy_RichTextEditor.default,
   "buttonGroup": Legacy_ButtonGroup.default,
+  "errorScreen": Legacy_ErrorScreen.default,
 };
