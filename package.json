@@ -4,13 +4,6 @@
   "description": "",
   "main": "index.js",
   "private": true,
-  "workspaces": {
-    "packages": [
-      "lib",
-      "documentation",
-      "playground"
-    ]
-  },
   "scripts": {
     "lib": "yarn workspace rn-hero-design",
     "playground": "yarn workspace @rn-hero-design/playground",

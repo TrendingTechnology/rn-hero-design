@@ -167,8 +167,6 @@ let make =
       ~autoFocus,
       ~theme=Hero_Theme.default,
     ) => {
-  open React.Ref;
-
   let valueText = React.useRef("");
   let mentions = React.useRef([||]);
   let searchStartPosition = React.useRef(0);
@@ -185,8 +183,8 @@ let make =
     () => {
       let (valueText_, mentions_) = deserialize(value);
 
-      setCurrent(valueText, valueText_);
-      setCurrent(mentions, mentions_);
+      valueText.current = valueText_;
+      mentions.current = mentions_;
 
       None;
     },
@@ -201,12 +199,12 @@ let make =
     switch (eventKey, eventText, eventSelection) {
     | (None, None, Some(selection)) =>
       setShowSuggestions(_ => false);
-      setCurrent(previousSelection, selection);
+      previousSelection.current = selection;
 
     | (Some(key), Some(text), Some(selection)) =>
-      let valueText_ = current(valueText);
-      let mentions_ = current(mentions);
-      let previousSelection_ = current(previousSelection);
+      let valueText_ = valueText.current;
+      let mentions_ = mentions.current;
+      let previousSelection_ = previousSelection.current;
 
       let currentPosition = fst(selection);
       let textDiff = Js.String.(length(text) - length(valueText_));
@@ -242,12 +240,12 @@ let make =
         if (key === _TRIGGER) {
           setSearchValue(_ => "");
           setShowSuggestions(_ => true);
-          setCurrent(searchStartPosition, currentPosition);
+          searchStartPosition.current = currentPosition;
         };
       };
 
       if (showSuggestions) {
-        let searchStartPosition_ = current(searchStartPosition);
+        let searchStartPosition_ = searchStartPosition.current;
         let searchValue =
           Js.String.substring(
             ~from=searchStartPosition_,
@@ -266,21 +264,21 @@ let make =
        * due to async setState, shifting offsets may be incorrect if user types super fast.
        * Setting refs to keep them up to date to prevent this bug
        */
-      setCurrent(valueText, text);
-      setCurrent(mentions, mentions_);
+      valueText.current = text;
+      mentions.current = mentions_;
 
       onChange(serialize(text, mentions_));
-      setCurrent(previousSelection, selection);
+      previousSelection.current = selection;
 
     | _ => ()
     };
   };
 
   let handleSuggestionPress = (id, name) => {
-    let valueText_ = current(valueText);
-    let mentions_ = current(mentions);
-    let searchStartPosition_ = current(searchStartPosition);
-    let previousSelection_ = current(previousSelection);
+    let valueText_ = valueText.current;
+    let mentions_ = mentions.current;
+    let searchStartPosition_ = searchStartPosition.current;
+    let previousSelection_ = previousSelection.current;
 
     let insertText = name ++ " ";
     let textDiff = Js.String.length(insertText);
@@ -333,14 +331,14 @@ let make =
     /* setShowSuggestions(_ => false); */
   };
 
-  let handleSelectionChange = event => {
-    let selection = event##nativeEvent##selection;
-    eventSelection := Some((selection##start, selection##_end));
+  let handleSelectionChange = (event: RN.TextInput.selectionChangeEvent) => {
+    let selection = event.nativeEvent.selection;
+    eventSelection := Some((selection.start, selection._end));
     handleChange();
   };
 
-  let handleKeyPress = event => {
-    let key = event##nativeEvent##key;
+  let handleKeyPress = (event: RN.TextInput.keyPressEvent) => {
+    let key = event.nativeEvent.key;
     eventKey := Some(key);
     handleChange();
   };
