@@ -38,17 +38,15 @@ module Source = {
       ~body: string=?,
       unit
     ) =>
-    t =
-    "";
+    t;
 
-  [@bs.obj]
-  external html: (~html: string=?, ~baseUrl: string=?, unit) => t = "";
+  [@bs.obj] external html: (~html: string=?, ~baseUrl: string=?, unit) => t;
 };
 
 [@react.component] [@bs.module "react-native-webview"]
 external make:
   (
-    ~ref: React.Ref.t(Js.Null.t(element))=?,
+    ~ref: React.ref(Js.Null.t(element))=?,
     ~originWhitelist: array(string),
     ~source: Source.t,
     ~onMessage: event => unit,
