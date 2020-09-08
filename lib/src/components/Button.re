@@ -62,7 +62,9 @@ let make =
     let make = (~children): React.element =>
       loading || disabled
         ? <View style> children </View>
-        : <TouchableOpacity onPress style> children </TouchableOpacity>;
+        : <TouchableOpacity activeOpacity=0.2 onPress style>
+            children
+          </TouchableOpacity>;
   };
 
   <Wrapper>
