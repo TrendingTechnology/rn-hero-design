@@ -55,15 +55,33 @@ const LoginScreen = ({ navigation }) => {
           <Button
             text="Log In"
             onPress={() => navigation.goBack()}
-            wrapperStyle={{ marginBottom: 16 }}
+            wrapperStyle={{ marginBottom: 28 }}
           />
 
           <Text
             size="h5"
             color={INVERTED_TEXT_COLOR}
-            style={{ marginBottom: 16, textAlign: 'center' }}
+            style={{ marginBottom: 24, textAlign: 'center' }}
           >
             Email me a magic login link
+          </Text>
+
+          <Text
+            size="h5"
+            color={INVERTED_TEXT_COLOR}
+            style={{ marginBottom: 24, textAlign: 'center' }}
+          >
+            Selected region:{' '}
+            <Text
+              size="h5"
+              weight="bold"
+              color={INVERTED_TEXT_COLOR}
+              style={{
+                textDecorationLine: 'underline',
+              }}
+            >
+              European Union (EU)
+            </Text>
           </Text>
         </View>
 

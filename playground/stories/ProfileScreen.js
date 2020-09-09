@@ -15,8 +15,7 @@ const ProfileScreen = ({ theme }) => (
     <Container
       style={{
         alignItems: 'center',
-        borderBottomWidth: 0.8,
-        borderBottomColor: theme.variables.BORDER_COLOR,
+        marginBottom: theme.variables.LARGE_SIZE,
       }}
     >
       <Avatar
@@ -24,33 +23,17 @@ const ProfileScreen = ({ theme }) => (
         title="TN"
         wrapperStyle={{ marginVertical: theme.variables.MEDIUM_SIZE }}
       />
-      <Text size="h1">Toan Nguyen</Text>
-      <Text size="h2" color={theme.variables.MUTED_TEXT_COLOR}>
+      <Text size="h1" style={{ marginBottom: theme.variables.SMALL_SIZE }}>
+        Toan Nguyen
+      </Text>
+      <Text size="h3" color={theme.variables.MUTED_TEXT_COLOR}>
         Software Engineer
       </Text>
-
-      <View
-        style={{
-          alignItems: 'center',
-          marginTop: theme.variables.LARGE_SIZE + theme.variables.MEDIUM_SIZE,
-          marginBottom: theme.variables.LARGE_SIZE,
-        }}
-      >
-        <Text color={theme.variables.MUTED_TEXT_COLOR}>
-          Sorry, Overview is not available at this time.
-        </Text>
-        <Text
-          color={theme.variables.PRIMARY_COLOR}
-          style={{ marginTop: theme.variables.SMALL_SIZE }}
-        >
-          Try again
-        </Text>
-      </View>
     </Container>
 
     <Container style={{ paddingTop: 0 }}>
       <ListItem
-        title="Personal Details"
+        title="Organisations"
         rightElement={
           <Icon
             icon="single-right-outline"
@@ -62,7 +45,7 @@ const ProfileScreen = ({ theme }) => (
         wrapperStyle={{ minHeight: 0, paddingHorizontal: 0 }}
       />
       <ListItem
-        title="Employment History"
+        title="My Profile"
         rightElement={
           <Icon
             icon="single-right-outline"
@@ -71,6 +54,54 @@ const ProfileScreen = ({ theme }) => (
           />
         }
         titleStyle={{ fontWeight: '400' }}
+        wrapperStyle={{ minHeight: 0, paddingHorizontal: 0 }}
+      />
+      <ListItem
+        title="Payment Summaries"
+        rightElement={
+          <Icon
+            icon="single-right-outline"
+            color={theme.variables.MUTED_TEXT_COLOR}
+            size={16}
+          />
+        }
+        titleStyle={{ fontWeight: '400' }}
+        wrapperStyle={{ minHeight: 0, paddingHorizontal: 0 }}
+      />
+      <ListItem
+        title="Settings"
+        rightElement={
+          <Icon
+            icon="single-right-outline"
+            color={theme.variables.MUTED_TEXT_COLOR}
+            size={16}
+          />
+        }
+        titleStyle={{ fontWeight: '400' }}
+        wrapperStyle={{ minHeight: 0, paddingHorizontal: 0 }}
+      />
+      <ListItem
+        title="Change Region"
+        rightElement={
+          <Icon
+            icon="single-right-outline"
+            color={theme.variables.MUTED_TEXT_COLOR}
+            size={16}
+          />
+        }
+        titleStyle={{ fontWeight: '400' }}
+        wrapperStyle={{ minHeight: 0, paddingHorizontal: 0 }}
+      />
+      <ListItem
+        title="Logout"
+        rightElement={
+          <Icon
+            icon="single-right-outline"
+            color={theme.variables.MUTED_TEXT_COLOR}
+            size={16}
+          />
+        }
+        titleStyle={{ fontWeight: '400', color: theme.variables.PRIMARY_COLOR }}
         wrapperStyle={{ minHeight: 0, paddingHorizontal: 0 }}
       />
     </Container>

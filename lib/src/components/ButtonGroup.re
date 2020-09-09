@@ -16,6 +16,10 @@ module Button = {
         ~active=false,
         ~width: option(Style.size)=?,
         ~wrapperStyle=emptyStyle,
+        ~activeButtonStyle=emptyStyle,
+        ~inactiveButtonStyle=emptyStyle,
+        ~activeTextStyle=emptyStyle,
+        ~inactiveTextStyle=emptyStyle,
         ~theme=Hero_Theme.default,
       ) => {
     let wrapperWidth =
@@ -32,19 +36,35 @@ module Button = {
       |])}>
       <TouchableOpacity
         onPress
-        style={StyleSheet.flatten([|
-          theme##buttonGroup##button,
-          active
-            ? theme##buttonGroup##activeButton
-            : theme##buttonGroup##inactiveButton,
-        |])}>
-        <Text
-          style={StyleSheet.flatten([|
-            theme##buttonGroup##text,
+        style=StyleSheet.(
+          flatten([|
+            theme##buttonGroup##button,
             active
-              ? theme##buttonGroup##activeText
-              : theme##buttonGroup##inactiveText,
-          |])}>
+              ? flatten([|
+                  theme##buttonGroup##activeButton,
+                  activeButtonStyle,
+                |])
+              : flatten([|
+                  theme##buttonGroup##inactiveButton,
+                  inactiveButtonStyle,
+                |]),
+          |])
+        )>
+        <Text
+          style=StyleSheet.(
+            flatten([|
+              theme##buttonGroup##text,
+              active
+                ? flatten([|
+                    theme##buttonGroup##activeText,
+                    activeTextStyle,
+                  |])
+                : flatten([|
+                    theme##buttonGroup##inactiveText,
+                    inactiveTextStyle,
+                  |]),
+            |])
+          )>
           text->React.string
         </Text>
       </TouchableOpacity>

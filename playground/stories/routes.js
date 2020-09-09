@@ -25,6 +25,7 @@ import RichTextEditorScreen from './RichTextEditor';
 import ButtonGroupScreen from './ButtonGroup';
 import ErrorScreen from './ErrorScreen';
 import ProfileScreen from './ProfileScreen';
+import RegionSelectScreen from './RegionSelectScreen';
 import darkKnightTheme from 'rn-hero-design/src/themes/dark-knight';
 
 const store = createStore(state => state, { __theme: 'dark-knight' });
@@ -160,6 +161,12 @@ export default {
     screen: ProfileScreen,
     defaultNavigationOptions: {
       title: 'Profile Screen',
+    },
+  },
+  RegionSelectScreen: {
+    screen: RegionSelectScreen,
+    defaultNavigationOptions: {
+      title: 'Region Select Screen',
     },
   },
   LoginScreen: {
