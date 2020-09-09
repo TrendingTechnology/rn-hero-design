@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert, ScrollView } from 'react-native';
-import { Button, ReButton, injectTheme } from 'rn-hero-design';
+import { Button, injectTheme } from 'rn-hero-design';
 
 const callback = () => Alert.alert('Button clicked!');
 
@@ -49,41 +49,9 @@ const ButtonScreen = ({ theme }) => (
       text="Custom Button"
       onPress={callback}
       wrapperStyle={{
-        marginBottom: theme.variables.MEDIUM_SIZE * 2,
+        marginBottom: theme.variables.MEDIUM_SIZE,
         backgroundColor: 'tomato',
-        borderRadius: 8,
-      }}
-    />
-
-    <ReButton
-      variant="filled"
-      text="ReasonML Button"
-      onPress={callback}
-      wrapperStyle={{
-        marginBottom: theme.variables.MEDIUM_SIZE,
-        backgroundColor: 'rgb(212, 67, 58)',
-      }}
-    />
-    <ReButton
-      variant="filled"
-      text="ReasonML Button"
-      onPress={callback}
-      loading
-      wrapperStyle={{
-        marginBottom: theme.variables.MEDIUM_SIZE,
-        backgroundColor: 'rgb(212, 67, 58)',
-      }}
-    />
-    <ReButton
-      variant="outlined"
-      text="ReasonML Button"
-      onPress={callback}
-      wrapperStyle={{
-        borderColor: 'rgb(212, 67, 58)',
-        marginBottom: theme.variables.MEDIUM_SIZE,
-      }}
-      textStyle={{
-        color: 'rgb(212, 67, 58)',
+        borderRadius: theme.variables.SMALL_SIZE,
       }}
     />
   </ScrollView>

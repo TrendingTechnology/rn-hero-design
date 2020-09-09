@@ -1,95 +1,65 @@
-import React, { useState, useEffect } from 'react';
-import {
-  View,
-  Text,
-  TouchableOpacity,
-  FlatList,
-  StyleSheet,
-} from 'react-native';
-import { Provider } from 'react-redux';
+import 'react-native-gesture-handler';
+import * as React from 'react';
 import { createStore } from 'redux';
-import { createAppContainer } from 'react-navigation';
-import { createStackNavigator } from 'react-navigation-stack';
-import * as Font from 'expo-font';
+import { Provider } from 'react-redux';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { View, FlatList } from 'react-native';
+import { ListItem, injectTheme } from 'rn-hero-design';
+
 import routes from './stories/routes';
 
-const menuData = Object.keys(routes).map(route => ({
-  title: routes[route].defaultNavigationOptions.title || route,
-  route,
+const menuData = Object.keys(routes).map((name) => ({
+  title: name,
+  screen: routes[name].screen,
 }));
 
 const HomeScreen = ({ navigation }) => (
-  <View style={styles.container}>
+  <View style={{ flex: 1 }}>
     <FlatList
       data={menuData}
       renderItem={({ item }) => (
         <ListItem
           title={item.title}
-          onPress={() => navigation.navigate(item.route)}
+          onPress={() => navigation.navigate(item.title)}
+          wrapperStyle={{ minHeight: 0 }}
         />
       )}
-      keyExtractor={item => item.title}
+      keyExtractor={(item) => item.title}
     />
   </View>
 );
 
-const ListItem = ({ title, onPress }) => (
-  <TouchableOpacity onPress={onPress} style={styles.item}>
-    <Text style={styles.itemText}>{title}</Text>
-  </TouchableOpacity>
-);
+const Stack = createStackNavigator();
 
-const AppNavigator = createStackNavigator(
-  {
-    Home: {
-      screen: HomeScreen,
-      navigationOptions: {
-        title: '👓 RN Hero Design',
-        headerBackTitle: null,
+const App = injectTheme(({ theme }) => {
+  const CustomTheme = React.useMemo(
+    () => ({
+      ...DefaultTheme,
+      colors: {
+        ...DefaultTheme.colors,
+        background: theme.variables.BACKGROUND_COLOR,
       },
-    },
-    ...routes,
-  },
-  {
-    initialRouteName: 'Home',
-  },
-);
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  item: {
-    padding: 16,
-    borderBottomColor: 'grey',
-    borderBottomWidth: StyleSheet.hairlineWidth,
-  },
-  itemText: {
-    fontSize: 16,
-    textAlign: 'center',
-  },
-});
-
-const AppContainer = createAppContainer(AppNavigator);
-
-const store = createStore(state => state, { __theme: undefined });
-
-export default () => {
-  const [fontLoaded, setFontLoaded] = useState(false);
-
-  useEffect(() => {
-    Font.loadAsync({
-      'Proxima Nova': require('./assets/fonts/ProximaNova-Regular.otf'),
-    }).then(() => {
-      setFontLoaded(true);
-    });
-  }, []);
-
-  if (!fontLoaded) return null;
+    }),
+    [theme.variables.BACKGROUND_COLOR],
+  );
 
   return (
-    <Provider store={store}>
-      <AppContainer />
-    </Provider>
+    <NavigationContainer theme={CustomTheme}>
+      <Stack.Navigator>
+        <Stack.Screen name="RN Hero Design" component={HomeScreen} />
+        {menuData.map(({ title, screen }) => (
+          <Stack.Screen key={title} name={title} component={screen} />
+        ))}
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-};
+});
+
+const store = createStore((state) => state, { __theme: undefined });
+
+export default () => (
+  <Provider store={store}>
+    <App />
+  </Provider>
+);

@@ -1,63 +1,50 @@
 import React from 'react';
 import { ScrollView } from 'react-native';
-import { Text, ReText } from 'rn-hero-design';
+import { Text, Container, injectTheme } from 'rn-hero-design';
 
-const TextScreen = () => (
+const TextScreen = ({ theme }) => (
   <ScrollView>
-    <Text size="h1" style={{ marginBottom: 16 }}>
-      🐔 The quick brown fox
-    </Text>
-    <Text size="h2" style={{ marginBottom: 16 }}>
-      🐔 The quick brown fox
-    </Text>
-    <Text size="h3" style={{ marginBottom: 16 }}>
-      🐔 The quick brown fox
-    </Text>
-    <Text style={{ marginBottom: 16 }}>🐔 The quick brown fox</Text>
-    <Text weight="500" style={{ marginBottom: 16 }}>
-      🐔 The quick brown fox
-    </Text>
-    <Text weight="600" style={{ marginBottom: 16 }}>
-      🐔 The quick brown fox
-    </Text>
-    <Text weight="700" style={{ marginBottom: 32 }}>
-      🐔 The quick brown fox
-    </Text>
+    <Container>
+      <Text size="h1" style={{ marginBottom: theme.variables.MEDIUM_SIZE }}>
+        Text size h1
+      </Text>
 
-    <ReText size={'h1'} style={{ marginBottom: 16 }}>
-      🐪 The quick brown fox
-    </ReText>
-    <ReText size={'h2'} style={{ marginBottom: 16 }}>
-      🐪 The quick brown fox
-    </ReText>
-    <ReText size={'h3'} style={{ marginBottom: 16 }}>
-      🐪 The quick brown fox
-    </ReText>
-    <ReText style={{ marginBottom: 16 }}>🐪 The quick brown fox</ReText>
-    <ReText weight={'500'} style={{ marginBottom: 16 }}>
-      🐪 The quick brown fox
-    </ReText>
-    <ReText weight={'600'} style={{ marginBottom: 16 }}>
-      🐪 The quick brown fox
-    </ReText>
-    <ReText weight={'700'} style={{ marginBottom: 32 }}>
-      🐪 The quick brown fox
-    </ReText>
+      <Text size="h2" style={{ marginBottom: theme.variables.MEDIUM_SIZE }}>
+        Text size h2
+      </Text>
 
-    <ReText
-      numberOfLines={1}
-      ellipsizeMode="middle"
-      style={{ marginBottom: 16 }}
-    >
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
-    </ReText>
+      <Text size="h3" style={{ marginBottom: theme.variables.MEDIUM_SIZE }}>
+        Text size h3
+      </Text>
+
+      <Text size="h4" style={{ marginBottom: theme.variables.MEDIUM_SIZE }}>
+        Text size h4
+      </Text>
+
+      <Text size="h5" style={{ marginBottom: theme.variables.MEDIUM_SIZE }}>
+        Text size h5
+      </Text>
+
+      <Text weight="500" style={{ marginBottom: theme.variables.MEDIUM_SIZE }}>
+        Text weight 500
+      </Text>
+
+      <Text weight="600" style={{ marginBottom: theme.variables.MEDIUM_SIZE }}>
+        Text weight 600
+      </Text>
+
+      <Text weight="700" style={{ marginBottom: theme.variables.MEDIUM_SIZE }}>
+        Text weight 700
+      </Text>
+
+      <Text
+        numberOfLines={1}
+        ellipsizeMode="middle"
+        style={{ marginBottom: theme.variables.MEDIUM_SIZE }}>
+        Long paragraph, supports numberOfLines and ellipsizeMode
+      </Text>
+    </Container>
   </ScrollView>
 );
 
-export default TextScreen;
+export default injectTheme(TextScreen);
