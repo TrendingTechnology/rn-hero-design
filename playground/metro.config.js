@@ -8,10 +8,9 @@
 const path = require('path');
 
 const libPath = path.resolve(`${__dirname}/../lib`);
+const rootPath = path.resolve(`${__dirname}/../node_modules`);
 
-const extraNodeModules = { lib: libPath };
-
-const watchFolders = [libPath];
+const watchFolders = [rootPath, libPath];
 
 module.exports = {
   transformer: {
@@ -20,14 +19,6 @@ module.exports = {
         experimentalImportSupport: false,
         inlineRequires: false,
       },
-    }),
-  },
-  resolver: {
-    extraNodeModules: new Proxy(extraNodeModules, {
-      get: (target, name) =>
-        name in target
-          ? target[name]
-          : path.join(process.cwd(), `node_modules/${name}`),
     }),
   },
   watchFolders,
