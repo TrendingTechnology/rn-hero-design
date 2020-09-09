@@ -12,6 +12,7 @@ import routes from './stories/routes';
 const menuData = Object.keys(routes).map((name) => ({
   title: name,
   screen: routes[name].screen,
+  options: routes[name].options,
 }));
 
 const HomeScreen = ({ navigation }) => (
@@ -48,8 +49,13 @@ const App = injectTheme(({ theme }) => {
     <NavigationContainer theme={CustomTheme}>
       <Stack.Navigator>
         <Stack.Screen name="RN Hero Design" component={HomeScreen} />
-        {menuData.map(({ title, screen }) => (
-          <Stack.Screen key={title} name={title} component={screen} />
+        {menuData.map(({ title, screen, options }) => (
+          <Stack.Screen
+            key={title}
+            name={title}
+            component={screen}
+            options={options}
+          />
         ))}
       </Stack.Navigator>
     </NavigationContainer>
