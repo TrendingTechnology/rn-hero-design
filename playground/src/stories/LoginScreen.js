@@ -25,7 +25,7 @@ const LoginScreen = ({ navigation, theme }) => {
           flex: 1,
           justifyContent: 'flex-end',
         }}>
-        <Container>
+        <Container style={{ paddingHorizontal: theme.variables.LARGE_SIZE }}>
           <Image
             source={require('../images/login_logo.png')}
             resizeMode="contain"

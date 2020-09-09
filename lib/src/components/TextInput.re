@@ -150,20 +150,22 @@ let make =
         children
       </ReactNative.TextInput>
       <TouchableWithoutFeedback onPress=onPressIcon>
-        <Icon
-          icon=rightIcon
-          size=20.0
-          color={
-            StyleSheet.flatten([|
-              theme##textInput##icon,
-              focused ? theme##textInput##activeIcon : emptyStyle,
-              !isEmpty(error) ? theme##textInput##errorIcon : emptyStyle,
-              iconStyle,
-            |])
-            ->getColorProperty
-          }
-          wrapperStyle={theme##textInput##icon}
-        />
+        <View>
+          <Icon
+            icon=rightIcon
+            size=20.0
+            color={
+              StyleSheet.flatten([|
+                theme##textInput##icon,
+                focused ? theme##textInput##activeIcon : emptyStyle,
+                !isEmpty(error) ? theme##textInput##errorIcon : emptyStyle,
+                iconStyle,
+              |])
+              ->getColorProperty
+            }
+            wrapperStyle={theme##textInput##icon}
+          />
+        </View>
       </TouchableWithoutFeedback>
     </View>
     <Text

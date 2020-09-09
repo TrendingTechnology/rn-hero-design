@@ -1,19 +1,20 @@
 import React from 'react';
-import { ScrollView, StyleSheet } from 'react-native';
+import { ScrollView } from 'react-native';
 import {
+  Text,
   TextInput,
   BottomButton,
-  Text,
   KeyboardAvoidingView,
-  ReTextInput,
+  injectTheme,
 } from 'rn-hero-design';
 
 const noop = () => {};
 
-const TextInputScreen = () => (
-  <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
-    <ScrollView contentContainerStyle={styles.container}>
-      <ReTextInput
+const TextInputScreen = ({ theme }) => (
+  <KeyboardAvoidingView withNavigation style={{ flex: 1 }}>
+    <ScrollView
+      contentContainerStyle={{ padding: theme.variables.MEDIUM_SIZE }}>
+      <TextInput
         label="Email"
         value="toan.nguyen@employmenthero.com"
         rightIcon="email-outline"
@@ -23,7 +24,7 @@ const TextInputScreen = () => (
       <TextInput
         keyboardType="numeric"
         label="Password"
-        value="123456"
+        value="12345678"
         rightIcon="eye-outline"
         onChangeText={noop}
         secureTextEntry
@@ -32,12 +33,11 @@ const TextInputScreen = () => (
       <TextInput
         keyboardType="numeric"
         label="Confirm password"
-        value="12345"
+        value="1234567"
         rightIcon="eye-outline"
         onChangeText={noop}
         secureTextEntry
         error="Password not matched"
-        wrapperStyle={{ marginBottom: 32 }}
       />
 
       <TextInput label="Region" value="Vietnam" disabled onChangeText={noop} />
@@ -49,13 +49,4 @@ const TextInputScreen = () => (
   </KeyboardAvoidingView>
 );
 
-const styles = StyleSheet.create({
-  keyboardAvoidingView: {
-    flex: 1,
-  },
-  container: {
-    padding: 16,
-  },
-});
-
-export default TextInputScreen;
+export default injectTheme(TextInputScreen);

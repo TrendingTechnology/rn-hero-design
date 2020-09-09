@@ -1,5 +1,6 @@
 import TextScreen from './Text';
 import ButtonScreen from './Button';
+import TextInputScreen from './TextInput';
 import LoginScreen from './LoginScreen';
 
 export default {
@@ -8,6 +9,9 @@ export default {
   },
   Button: {
     screen: ButtonScreen,
+  },
+  TextInput: {
+    screen: TextInputScreen,
   },
   LoginScreen: {
     screen: LoginScreen,
