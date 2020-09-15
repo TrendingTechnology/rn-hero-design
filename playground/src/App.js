@@ -10,7 +10,7 @@ import { ListItem, injectTheme } from 'rn-hero-design';
 import routes from './stories/routes';
 
 const menuData = Object.keys(routes).map((name) => ({
-  title: name,
+  name: name,
   screen: routes[name].screen,
   options: routes[name].options,
 }));
@@ -21,12 +21,12 @@ const HomeScreen = ({ navigation }) => (
       data={menuData}
       renderItem={({ item }) => (
         <ListItem
-          title={item.title}
-          onPress={() => navigation.navigate(item.title)}
+          title={item.name}
+          onPress={() => navigation.navigate(item.name)}
           wrapperStyle={{ minHeight: 0 }}
         />
       )}
-      keyExtractor={(item) => item.title}
+      keyExtractor={(item) => item.name}
     />
   </View>
 );
@@ -49,10 +49,10 @@ const App = injectTheme(({ theme }) => {
     <NavigationContainer theme={CustomTheme}>
       <Stack.Navigator>
         <Stack.Screen name="RN Hero Design" component={HomeScreen} />
-        {menuData.map(({ title, screen, options }) => (
+        {menuData.map(({ name, screen, options }) => (
           <Stack.Screen
-            key={title}
-            name={title}
+            key={name}
+            name={name}
             component={screen}
             options={options}
           />
