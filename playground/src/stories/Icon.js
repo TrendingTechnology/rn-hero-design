@@ -1,84 +1,66 @@
-import React from 'react';
-import { StyleSheet } from 'react-native';
-import { Icon, Container } from 'rn-hero-design';
+import React, { useMemo } from 'react';
+import { Icon, Container, injectTheme } from 'rn-hero-design';
 
-const IconScreen = () => (
-  <>
-    <Container direction="row" style={styles.container}>
-      <Icon icon="email" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="eye" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="eye-invisible" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="ok-circle" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="calendar" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="more-vertical" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="warning-circle" size={24} wrapperStyle={styles.iconWrapper} />
-    </Container>
-    <Container direction="row" style={styles.container}>
-      <Icon icon="email-outline" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="eye-outline" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon
-        icon="eye-invisible-outline"
-        size={24}
-        wrapperStyle={styles.iconWrapper}
-      />
-      <Icon icon="cancel-outline" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon
-        icon="clock-circle-outline"
-        size={24}
-        wrapperStyle={styles.iconWrapper}
-      />
-      <Icon
-        icon="comment-outline"
-        size={24}
-        wrapperStyle={styles.iconWrapper}
-      />
-      <Icon
-        icon="plus-circle-outline"
-        size={24}
-        wrapperStyle={styles.iconWrapper}
-      />
-      <Icon icon="plus-outline" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon
-        icon="piggy-bank-outline"
-        size={24}
-        wrapperStyle={styles.iconWrapper}
-      />
-      <Icon icon="target-outline" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon
-        icon="single-right-outline"
-        size={24}
-        wrapperStyle={styles.iconWrapper}
-      />
-      <Icon
-        icon="calendar-outline"
-        size={24}
-        wrapperStyle={styles.iconWrapper}
-      />
-      <Icon icon="phone-outline" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="face-id" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="arrow-down" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="camera-outline" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="paperclip" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="image-outline" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon icon="file-outline" size={24} wrapperStyle={styles.iconWrapper} />
-      <Icon
-        icon="warning-circle-outline"
-        size={24}
-        wrapperStyle={styles.iconWrapper}
-      />
-    </Container>
-  </>
-);
+const filledIcons = [
+  'email',
+  'eye',
+  'eye-invisible',
+  'ok-circle',
+  'calendar',
+  'more-vertical',
+  'warning-circle',
+  'radio-active',
+  'radio-inactive',
+];
 
-const styles = StyleSheet.create({
-  container: {
-    flexWrap: 'wrap',
-    paddingBottom: 0,
-  },
-  iconWrapper: {
-    width: 48,
-    height: 48,
-  },
-});
+const outlinedIcons = [
+  'email-outline',
+  'eye-outline',
+  'eye-invisible-outline',
+  'cancel-outline',
+  'clock-circle-outline',
+  'comment-outline',
+  'plus-circle-outline',
+  'plus-outline',
+  'piggy-bank-outline',
+  'target-outline',
+  'single-right-outline',
+  'single-left-outline',
+  'calendar-outline',
+  'phone-outline',
+  'face-id',
+  'arrow-down',
+  'camera-outline',
+  'paperclip',
+  'image-outline',
+  'file-outline',
+  'warning-circle-outline',
+];
 
-export default IconScreen;
+const IconScreen = ({ theme }) => {
+  const iconStyle = useMemo(
+    () => ({
+      width: theme.variables.LARGE_SIZE * 2,
+      height: theme.variables.LARGE_SIZE * 2,
+    }),
+    [theme],
+  );
+
+  return (
+    <>
+      <Container direction="row" style={{ flexWrap: 'wrap' }}>
+        {filledIcons.map((icon) => (
+          <Icon key={icon} icon={icon} size={24} wrapperStyle={iconStyle} />
+        ))}
+      </Container>
+
+      <Container direction="row" style={{ flexWrap: 'wrap' }}>
+        {outlinedIcons.map((icon) => (
+          <Icon key={icon} icon={icon} size={24} wrapperStyle={iconStyle} />
+        ))}
+      </Container>
+    </>
+  );
+};
+
+export default injectTheme(IconScreen);

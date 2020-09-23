@@ -20,7 +20,7 @@ let make = (~value=false, ~onValueChange=noop, ~theme=Hero_Theme.default) => {
         config(
           ~toValue=fromRawValue(offset),
           ~duration=200.0,
-          ~useNativeDriver=true,
+          ~useNativeDriver=false,
           (),
         );
       Animated.start(Animated.timing(animatedOffset, config), ());

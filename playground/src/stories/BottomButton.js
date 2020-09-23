@@ -1,6 +1,11 @@
 import React, { useState, useRef } from 'react';
-import { View, Switch, Text, TextInput, StyleSheet } from 'react-native';
-import { BottomButton, KeyboardAvoidingView, Container } from 'rn-hero-design';
+import { View, TextInput } from 'react-native';
+import {
+  BottomButton,
+  KeyboardAvoidingView,
+  Switch,
+  ListItem,
+} from 'rn-hero-design';
 import legacyTheme from 'rn-hero-design/src/themes/legacy/Legacy_Theme.bs';
 
 const noop = () => {};
@@ -11,29 +16,42 @@ const BottomButtonScreen = () => {
   const input = useRef(null);
 
   return (
-    <KeyboardAvoidingView withNavigation style={styles.keyboardAvoidingView}>
-      <Container fluid>
-        <View style={styles.configRow}>
-          <Text style={styles.configText}>Use legacy theme</Text>
-          <Switch
-            value={useLegacy}
-            onValueChange={value => setUseLegacy(value)}
-          />
-        </View>
+    <KeyboardAvoidingView withNavigation style={{ flex: 1 }}>
+      <View style={{ flex: 1 }}>
+        <ListItem
+          title="Use legacy theme"
+          rightElement={
+            <Switch
+              value={useLegacy}
+              onValueChange={(value) => setUseLegacy(value)}
+            />
+          }
+          wrapperStyle={{ minHeight: 0 }}
+        />
 
-        <View style={styles.configRow}>
-          <Text style={styles.configText}>Show keyboard</Text>
-          <Switch
-            value={showKeyboard}
-            onValueChange={value => {
-              value ? input.current.focus() : input.current.blur();
-              setShowKeyboard(value);
-            }}
-          />
-        </View>
+        <ListItem
+          title="Show keyboard"
+          rightElement={
+            <Switch
+              value={showKeyboard}
+              onValueChange={(value) => {
+                value ? input.current.focus() : input.current.blur();
+                setShowKeyboard(value);
+              }}
+            />
+          }
+          wrapperStyle={{ minHeight: 0 }}
+        />
 
-        <TextInput ref={input} style={styles.input} />
-      </Container>
+        <TextInput
+          ref={input}
+          style={{
+            width: 1,
+            height: 1,
+            opacity: 0,
+          }}
+        />
+      </View>
 
       <BottomButton
         text="Bottom Button"
@@ -43,25 +61,5 @@ const BottomButtonScreen = () => {
     </KeyboardAvoidingView>
   );
 };
-
-const styles = StyleSheet.create({
-  keyboardAvoidingView: {
-    flex: 1,
-  },
-  configRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    paddingBottom: 16,
-  },
-  configText: {
-    fontSize: 16,
-  },
-  input: {
-    width: 1,
-    height: 1,
-    opacity: 0,
-  },
-});
 
 export default BottomButtonScreen;
