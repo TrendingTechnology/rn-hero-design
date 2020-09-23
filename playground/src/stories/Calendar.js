@@ -21,7 +21,7 @@ const CalendarScreen = ({ theme }) => {
           maxDate={maxDate}
           value={value}
           currentView={currentView}
-          onChange={date => {
+          onChange={(date) => {
             setValue(date);
             setCurrentView(date);
           }}
@@ -81,7 +81,7 @@ const CalendarScreen = ({ theme }) => {
       <DateTimePicker
         show={showDatePicker}
         value={currentView}
-        onChange={date => setCurrentView(date)}
+        onChange={(date) => setCurrentView(date)}
         onDismiss={() => setShowDatePicker(false)}
       />
     </>
