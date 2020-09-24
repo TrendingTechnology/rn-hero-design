@@ -13,6 +13,7 @@
     "postinstall": "yarn link:react-native && yarn link:react-native-community"
   },
   "dependencies": {
+    "@react-native-community/datetimepicker": "3.0.1",
     "@react-native-community/masked-view": "^0.1.10",
     "@react-navigation/native": "^5.7.3",
     "@react-navigation/stack": "^5.9.0",

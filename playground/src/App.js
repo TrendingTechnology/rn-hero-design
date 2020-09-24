@@ -47,8 +47,12 @@ const App = injectTheme(({ theme }) => {
 
   return (
     <NavigationContainer theme={CustomTheme}>
-      <Stack.Navigator>
-        <Stack.Screen name="RN Hero Design" component={HomeScreen} />
+      <Stack.Navigator initialRouteName="DateTimePicker">
+        <Stack.Screen
+          name="Home"
+          component={HomeScreen}
+          options={{ title: 'RN Hero Design' }}
+        />
         {menuData.map(({ name, screen, options }) => (
           <Stack.Screen
             key={name}

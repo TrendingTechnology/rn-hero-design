@@ -19,6 +19,7 @@
     "lib:test": "yarn lib test",
     "playground:start": "yarn playground start",
     "playground:ios": "yarn playground ios",
+    "playground:android": "yarn playground android",
     "doc:dev": "yarn documentation dev",
     "doc:build": "yarn documentation build",
     "doc:serve": "yarn documentation serve",

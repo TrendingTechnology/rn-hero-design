@@ -1,14 +1,12 @@
 open ReactNative;
 
-type mode = [ | `date | `datetime];
-
 let noop = _ => ();
 
 module DateTimePickerIOS = {
   [@react.component]
   let make = (~show, ~mode, ~value, ~onChange, ~onDismiss, ~theme) => {
     let (pickedDate, setPickedDate) = React.useState(() => value);
-    let handleChange =
+    let handleSelect =
       React.useCallback1(
         _ => {
           onChange(pickedDate);
@@ -17,7 +15,7 @@ module DateTimePickerIOS = {
         },
         [|pickedDate|],
       );
-    let handleDismiss =
+    let handleCancel =
       React.useCallback(_ => {
         onDismiss();
         ();
@@ -27,11 +25,11 @@ module DateTimePickerIOS = {
         onDismiss();
         ();
       });
-    let handleDateChange =
-      React.useCallback(date => {
+    let handleChange =
+      (. _, date) => {
         setPickedDate(_ => date);
         ();
-      });
+      };
 
     React.useEffect2(
       _ => {
@@ -50,16 +48,17 @@ module DateTimePickerIOS = {
       React.null;
     } else {
       <RNSafeAreaView
-        forceInset={"bottom": "always"} style=theme##dateTimePicker##wrapper>
+        forceInset={"bottom": "always", "top": "never"}
+        style=theme##dateTimePicker##wrapper>
         <View style=theme##dateTimePicker##actions>
           <TouchableOpacity
-            onPress=handleDismiss style=theme##dateTimePicker##action>
+            onPress=handleCancel style=theme##dateTimePicker##action>
             <Text style=theme##dateTimePicker##actionText>
               "Cancel"->React.string
             </Text>
           </TouchableOpacity>
           <TouchableOpacity
-            onPress=handleChange style=theme##dateTimePicker##action>
+            onPress=handleSelect style=theme##dateTimePicker##action>
             <Text
               style={StyleSheet.flatten([|
                 theme##dateTimePicker##actionText,
@@ -69,7 +68,12 @@ module DateTimePickerIOS = {
             </Text>
           </TouchableOpacity>
         </View>
-        <DatePickerIOS mode date=pickedDate onDateChange=handleDateChange />
+        <RNCDateTimePicker
+          mode
+          display=`spinner
+          value=pickedDate
+          onChange=handleChange
+        />
       </RNSafeAreaView>;
     };
   };
@@ -122,14 +126,13 @@ module DateTimePickerAndroid = {
 let make =
     (
       ~show=false,
-      ~mode=`date,
       ~value: Js.Date.t=Js.Date.make(),
       ~onChange=noop,
       ~onDismiss=noop,
       ~theme=Hero_Theme.default,
     ) =>
   Helpers.Platform.isAndroid
-    ? <DateTimePickerAndroid show mode value onChange onDismiss />
-    : <DateTimePickerIOS show mode value onChange onDismiss theme />;
+    ? <DateTimePickerAndroid show mode=`date value onChange onDismiss />
+    : <DateTimePickerIOS show mode=`date value onChange onDismiss theme />;
 
 let default = Helpers.injectTheme(make);
