@@ -10,7 +10,8 @@
     "lint": "eslint .",
     "link:react-native": "ln -s ../../node_modules/react-native ./node_modules/react-native",
     "link:react-native-community": "ln -s ../../node_modules/@react-native-community ./node_modules/@react-native-community",
-    "postinstall": "yarn link:react-native && yarn link:react-native-community"
+    "link:jsc-android": "ln -s ../../node_modules/jsc-android ./node_modules/jsc-android",
+    "postinstall": "yarn link:react-native && yarn link:react-native-community && yarn link:jsc-android"
   },
   "dependencies": {
     "@react-native-community/datetimepicker": "3.0.1",
