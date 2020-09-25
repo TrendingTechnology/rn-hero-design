@@ -23,7 +23,7 @@ external make:
               ]
                 =?,
     ~value: Js.Date.t,
-    ~onChange: (. changeEvent, Js.Date.t) => unit
+    ~onChange: (. changeEvent, Js.Nullable.t(Js.Date.t)) => unit
   ) =>
   React.element =
   "default";

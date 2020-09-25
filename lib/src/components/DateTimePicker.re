@@ -6,30 +6,26 @@ module DateTimePickerIOS = {
   [@react.component]
   let make = (~show, ~mode, ~value, ~onChange, ~onDismiss, ~theme) => {
     let (pickedDate, setPickedDate) = React.useState(() => value);
+
     let handleSelect =
       React.useCallback1(
         _ => {
           onChange(pickedDate);
           onDismiss();
-          ();
         },
         [|pickedDate|],
       );
-    let handleCancel =
-      React.useCallback(_ => {
-        onDismiss();
-        ();
-      });
-    let handleKeyboardWillShow =
-      React.useCallback(_ => {
-        onDismiss();
-        ();
-      });
+
+    let handleCancel = React.useCallback(_ => onDismiss());
+
+    let handleKeyboardWillShow = React.useCallback(_ => onDismiss());
+
     let handleChange =
-      (. _, date) => {
-        setPickedDate(_ => date);
-        ();
-      };
+      (. _, date) =>
+        switch (Js.Nullable.toOption(date)) {
+        | Some(date) => setPickedDate(_ => date)
+        | None => ()
+        };
 
     React.useEffect2(
       _ => {
@@ -82,43 +78,21 @@ module DateTimePickerIOS = {
 module DateTimePickerAndroid = {
   [@react.component]
   let make = (~show, ~mode, ~value, ~onChange, ~onDismiss) => {
-    React.useEffect1(
-      () => {
-        if (show) {
-          if (mode === `date) {
-            let datePickerOptions =
-              DatePickerAndroid.options(
-                ~date=DatePickerAndroid.calendarDate(value),
-                (),
-              );
-
-            let _promise =
-              Js.Promise.(
-                DatePickerAndroid.open_(datePickerOptions)
-                |> then_((response: DatePickerAndroid.response) => {
-                     if (response.action === DatePickerAndroid.dateSetAction) {
-                       let newDate =
-                         Js.Date.makeWithYMD(
-                           ~year=response.year->float_of_int,
-                           ~month=response.month->float_of_int,
-                           ~date=response.day->float_of_int,
-                           (),
-                         );
-                       onChange(newDate);
-                     };
-                     onDismiss();
-                     resolve();
-                   })
-              );
-            ();
-          };
+    let handleChange =
+      (. _, date) => {
+        switch (Js.Nullable.toOption(date)) {
+        | Some(date) =>
+          onDismiss();
+          onChange(date);
+        | None => onDismiss()
         };
-        None;
-      },
-      [|show|],
-    );
+      };
 
-    React.null;
+    if (!show) {
+      React.null;
+    } else {
+      <RNCDateTimePicker mode display=`default value onChange=handleChange />;
+    };
   };
 };
 
