@@ -106,7 +106,9 @@ exports[`MentionTextInput Snapshot renders correctly 1`] = `
               </Text>
             </Text>
           </TextInput>
-          <TouchableWithoutFeedback />
+          <TouchableWithoutFeedback>
+            <View />
+          </TouchableWithoutFeedback>
         </View>
         <Text
           style={
@@ -236,7 +238,9 @@ exports[`MentionTextInput Snapshot renders correctly 2`] = `
               </Text>
             </Text>
           </TextInput>
-          <TouchableWithoutFeedback />
+          <TouchableWithoutFeedback>
+            <View />
+          </TouchableWithoutFeedback>
         </View>
         <Text
           style={

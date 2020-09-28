@@ -42,8 +42,6 @@ let make =
       ~wrapperStyle=emptyStyle,
       ~theme=Hero_Theme.default,
     ) => {
-  open React.Ref;
-
   module Option = Belt.Option;
   module Json = Js.Json;
   module Dict = Js.Dict;
@@ -54,7 +52,7 @@ let make =
   let normalizeEventName = event => {j|$name/$event|j};
 
   let postMessageToWebview = message =>
-    webview->current->Js.Null.getUnsafe->RNWebView.postMessage(message);
+    webview.current->Js.Null.getUnsafe->RNWebView.postMessage(message);
 
   let html =
     React.useMemo0(() => {

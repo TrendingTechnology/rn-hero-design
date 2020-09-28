@@ -1,3 +1,25 @@
-const { createMetroConfiguration } = require('expo-yarn-workspaces');
+/**
+ * Metro configuration for React Native
+ * https://github.com/facebook/react-native
+ *
+ * @format
+ */
 
-module.exports = createMetroConfiguration(__dirname);
+const path = require('path');
+
+const libPath = path.resolve(`${__dirname}/../lib`);
+const rootPath = path.resolve(`${__dirname}/../node_modules`);
+
+const watchFolders = [rootPath, libPath];
+
+module.exports = {
+  transformer: {
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: false,
+      },
+    }),
+  },
+  watchFolders,
+};

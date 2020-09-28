@@ -67,7 +67,9 @@ exports[`TextInput renders correctly 1`] = `
     />
     <TouchableWithoutFeedback
       onPress={[Function]}
-    />
+    >
+      <View />
+    </TouchableWithoutFeedback>
   </View>
   <Text
     style={
@@ -154,7 +156,9 @@ exports[`TextInput renders correctly 2`] = `
     />
     <TouchableWithoutFeedback
       onPress={[Function]}
-    />
+    >
+      <View />
+    </TouchableWithoutFeedback>
   </View>
   <Text
     style={
@@ -242,29 +246,30 @@ exports[`TextInput renders correctly 3`] = `
     <TouchableWithoutFeedback
       onPress={[Function]}
     >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "color": "#a3a6ac",
-            "display": "flex",
-            "height": 48.75,
-            "justifyContent": "center",
-            "marginLeft": 8.125,
-            "width": 20,
-          }
-        }
-      >
+      <View>
         <View
-          override={
+          style={
             Object {
-              "fill": "#a3a6ac",
-              "height": 20,
-              "stroke": "#a3a6ac",
+              "alignItems": "center",
+              "color": "#a3a6ac",
+              "display": "flex",
+              "height": 48.75,
+              "justifyContent": "center",
+              "marginLeft": 8.125,
               "width": 20,
             }
           }
-          xml="
+        >
+          <View
+            override={
+              Object {
+                "fill": "#a3a6ac",
+                "height": 20,
+                "stroke": "#a3a6ac",
+                "width": 20,
+              }
+            }
+            xml="
 <?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <svg width=\\"1024px\\" height=\\"1024px\\" viewBox=\\"0 0 1024 1024\\" version=\\"1.1\\" xmlns=\\"http://www.w3.org/2000/svg\\" xmlns:xlink=\\"http://www.w3.org/1999/xlink\\">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
@@ -276,7 +281,8 @@ exports[`TextInput renders correctly 3`] = `
     </g>
 </svg>
 "
-        />
+          />
+        </View>
       </View>
     </TouchableWithoutFeedback>
   </View>
@@ -366,29 +372,30 @@ exports[`TextInput renders correctly 4`] = `
     <TouchableWithoutFeedback
       onPress={[Function]}
     >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "color": "#a3a6ac",
-            "display": "flex",
-            "height": 48.75,
-            "justifyContent": "center",
-            "marginLeft": 8.125,
-            "width": 20,
-          }
-        }
-      >
+      <View>
         <View
-          override={
+          style={
             Object {
-              "fill": "#a3a6ac",
-              "height": 20,
-              "stroke": "#a3a6ac",
+              "alignItems": "center",
+              "color": "#a3a6ac",
+              "display": "flex",
+              "height": 48.75,
+              "justifyContent": "center",
+              "marginLeft": 8.125,
               "width": 20,
             }
           }
-          xml="
+        >
+          <View
+            override={
+              Object {
+                "fill": "#a3a6ac",
+                "height": 20,
+                "stroke": "#a3a6ac",
+                "width": 20,
+              }
+            }
+            xml="
 <?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <svg width=\\"1024px\\" height=\\"1024px\\" viewBox=\\"0 0 1024 1024\\" version=\\"1.1\\" xmlns=\\"http://www.w3.org/2000/svg\\" xmlns:xlink=\\"http://www.w3.org/1999/xlink\\">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
@@ -400,7 +407,8 @@ exports[`TextInput renders correctly 4`] = `
     </g>
 </svg>
 "
-        />
+          />
+        </View>
       </View>
     </TouchableWithoutFeedback>
   </View>
@@ -490,29 +498,30 @@ exports[`TextInput renders correctly 5`] = `
     <TouchableWithoutFeedback
       onPress={[Function]}
     >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "color": "#a3a6ac",
-            "display": "flex",
-            "height": 48.75,
-            "justifyContent": "center",
-            "marginLeft": 8.125,
-            "width": 20,
-          }
-        }
-      >
+      <View>
         <View
-          override={
+          style={
             Object {
-              "fill": "#fe56aa",
-              "height": 20,
-              "stroke": "#fe56aa",
+              "alignItems": "center",
+              "color": "#a3a6ac",
+              "display": "flex",
+              "height": 48.75,
+              "justifyContent": "center",
+              "marginLeft": 8.125,
               "width": 20,
             }
           }
-          xml="
+        >
+          <View
+            override={
+              Object {
+                "fill": "#fe56aa",
+                "height": 20,
+                "stroke": "#fe56aa",
+                "width": 20,
+              }
+            }
+            xml="
 <?xml version=\\"1.0\\" encoding=\\"UTF-8\\"?>
 <svg width=\\"1024px\\" height=\\"1024px\\" viewBox=\\"0 0 1024 1024\\" version=\\"1.1\\" xmlns=\\"http://www.w3.org/2000/svg\\" xmlns:xlink=\\"http://www.w3.org/1999/xlink\\">
     <!-- Generator: Sketch 53.2 (72643) - https://sketchapp.com -->
@@ -524,7 +533,8 @@ exports[`TextInput renders correctly 5`] = `
     </g>
 </svg>
 "
-        />
+          />
+        </View>
       </View>
     </TouchableWithoutFeedback>
   </View>

@@ -212,13 +212,16 @@ let make =
       {showPrevButton
          ? <TouchableOpacity
              testID={testID ++ "_prev-button"}
+             activeOpacity=0.2
              onPress=onPressPrev
              style=theme##calendar##headerButton>
              <Icon icon="single-left-outline" size=20.0 />
            </TouchableOpacity>
          : <View style=theme##calendar##headerButton />}
       <TouchableOpacity
-        onPress=onPressTitle style=theme##calendar##headerButton>
+        activeOpacity=0.2
+        onPress=onPressTitle
+        style=theme##calendar##headerButton>
         <Text style=theme##calendar##headerTitle>
           {currentView->formatTitleString->React.string}
         </Text>
@@ -226,6 +229,7 @@ let make =
       {showNextButton
          ? <TouchableOpacity
              testID={testID ++ "_next-button"}
+             activeOpacity=0.2
              onPress=onPressNext
              style=theme##calendar##headerButton>
              <Icon icon="single-right-outline" size=20.0 />
@@ -254,6 +258,7 @@ let make =
             ->Belt.Option.map(date =>
                 <TouchableOpacity
                   key={toDateString(date)}
+                  activeOpacity=0.2
                   onPress={_ => onChange(date)}
                   style=theme##calendar##day>
                   {renderMarks(date)}
@@ -283,6 +288,7 @@ let make =
             ->Belt.Option.map(date =>
                 <TouchableOpacity
                   key={toDateString(date)}
+                  activeOpacity=0.2
                   onPress={_ => onChange(date)}
                   style=theme##calendar##day>
                   <View
@@ -321,6 +327,7 @@ let make =
             ->Belt.Option.map(date =>
                 <TouchableOpacity
                   key={toDateString(date)}
+                  activeOpacity=0.2
                   onPress={_ => onChange(date)}
                   style=theme##calendar##day>
                   {renderMarks(date)}
