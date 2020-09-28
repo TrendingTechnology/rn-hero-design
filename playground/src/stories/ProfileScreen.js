@@ -8,7 +8,6 @@ import {
   Icon,
   injectTheme,
 } from 'rn-hero-design';
-import { FOCUS_BLUE_1, WHITE } from 'rn-hero-design/src/themes/hero/variables';
 
 const ProfileScreen = ({ theme }) => (
   <View>
@@ -17,15 +16,16 @@ const ProfileScreen = ({ theme }) => (
         alignItems: 'center',
         borderBottomWidth: 0.8,
         borderBottomColor: theme.variables.BORDER_COLOR,
-      }}
-    >
+      }}>
       <Avatar
         size="large"
         title="TN"
         wrapperStyle={{ marginVertical: theme.variables.MEDIUM_SIZE }}
       />
-      <Text size="h1">Toan Nguyen</Text>
-      <Text size="h2" color={theme.variables.MUTED_TEXT_COLOR}>
+      <Text size="h1" style={{ marginBottom: theme.variables.SMALL_SIZE }}>
+        Toan Nguyen
+      </Text>
+      <Text size="h3" color={theme.variables.MUTED_TEXT_COLOR}>
         Software Engineer
       </Text>
 
@@ -34,15 +34,13 @@ const ProfileScreen = ({ theme }) => (
           alignItems: 'center',
           marginTop: theme.variables.LARGE_SIZE + theme.variables.MEDIUM_SIZE,
           marginBottom: theme.variables.LARGE_SIZE,
-        }}
-      >
+        }}>
         <Text color={theme.variables.MUTED_TEXT_COLOR}>
           Sorry, Overview is not available at this time.
         </Text>
         <Text
           color={theme.variables.PRIMARY_COLOR}
-          style={{ marginTop: theme.variables.SMALL_SIZE }}
-        >
+          style={{ marginTop: theme.variables.SMALL_SIZE }}>
           Try again
         </Text>
       </View>
@@ -76,16 +74,5 @@ const ProfileScreen = ({ theme }) => (
     </Container>
   </View>
 );
-
-ProfileScreen.navigationOptions = {
-  title: 'Profile',
-  headerStyle: {
-    backgroundColor: FOCUS_BLUE_1,
-    borderBottomWidth: 0,
-  },
-  headerTitleStyle: {
-    color: WHITE,
-  },
-};
 
 export default injectTheme(ProfileScreen);

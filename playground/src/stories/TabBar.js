@@ -1,6 +1,6 @@
 import React from 'react';
 import { ActivityIndicator } from 'react-native';
-import { ReTabBar, Text, Container, injectTheme, ReIcon } from 'rn-hero-design';
+import { TabBar, Text, Container, injectTheme, Icon } from 'rn-hero-design';
 
 const LazyView = ({ content }) => {
   const [isLoading, setIsLoading] = React.useState(true);
@@ -22,12 +22,11 @@ const TabBarScreen = ({ theme }) => {
   let [selectedIndex, setSelectedIndex] = React.useState(0);
 
   return (
-    <ReTabBar
+    <TabBar
       selectedIndex={selectedIndex}
-      onSelect={index => setSelectedIndex(index)}
-      contentStyle={{ backgroundColor: '#eee' }}
-    >
-      <ReTabBar.Tab
+      onSelect={(index) => setSelectedIndex(index)}
+      contentStyle={{ backgroundColor: theme.variables.BACKGROUND_COLOR }}>
+      <TabBar.Tab
         title={
           <Text
             weight="600"
@@ -35,15 +34,13 @@ const TabBarScreen = ({ theme }) => {
               selectedIndex === 0
                 ? theme.variables.PRIMARY_COLOR
                 : theme.variables.TEXT_COLOR
-            }
-          >
+            }>
             Tab 1
           </Text>
-        }
-      >
-        <LazyView content="Nhìn cũng ok" />
-      </ReTabBar.Tab>
-      <ReTabBar.Tab
+        }>
+        <LazyView content="Look ok" />
+      </TabBar.Tab>
+      <TabBar.Tab
         title={
           <Text
             weight="600"
@@ -51,17 +48,15 @@ const TabBarScreen = ({ theme }) => {
               selectedIndex === 1
                 ? theme.variables.PRIMARY_COLOR
                 : theme.variables.TEXT_COLOR
-            }
-          >
+            }>
             Tab 2
           </Text>
-        }
-      >
-        <LazyView content="Nhìn cũng được" />
-      </ReTabBar.Tab>
-      <ReTabBar.Tab
+        }>
+        <LazyView content="Look fine" />
+      </TabBar.Tab>
+      <TabBar.Tab
         title={
-          <ReIcon
+          <Icon
             icon="email"
             size={24}
             color={
@@ -70,11 +65,10 @@ const TabBarScreen = ({ theme }) => {
                 : theme.variables.TEXT_COLOR
             }
           />
-        }
-      >
-        <LazyView content="Nhìn cũng tạm" />
-      </ReTabBar.Tab>
-    </ReTabBar>
+        }>
+        <LazyView content="Look good" />
+      </TabBar.Tab>
+    </TabBar>
   );
 };
 

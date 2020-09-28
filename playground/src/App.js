@@ -47,7 +47,7 @@ const App = injectTheme(({ theme }) => {
 
   return (
     <NavigationContainer theme={CustomTheme}>
-      <Stack.Navigator initialRouteName="DateTimePicker">
+      <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
           name="Home"
           component={HomeScreen}

@@ -25,7 +25,7 @@ const genders = [
 ];
 
 const getLabelOfValue = (options, value) => {
-  const selectedOption = options.find(option => option.value === value);
+  const selectedOption = options.find((option) => option.value === value);
   return selectedOption ? selectedOption.label : '';
 };
 
@@ -87,7 +87,7 @@ const SelectScreen = () => {
         show={!!changingField}
         options={fieldMap[changingField].options}
         value={fieldMap[changingField].value}
-        onChange={value => fieldMap[changingField].onChange(value)}
+        onChange={(value) => fieldMap[changingField].onChange(value)}
         onDismiss={() => setChangingField(null)}
       />
     </>

@@ -11,7 +11,6 @@ import {
   BottomButton,
   injectTheme,
 } from 'rn-hero-design';
-import { FOCUS_BLUE_1, WHITE } from 'rn-hero-design/src/themes/hero/variables';
 
 const suggestionData = [
   { id: '1', name: 'Tuan Mai', job: 'Team leader' },
@@ -34,9 +33,9 @@ const suggestionData = [
 
 const noop = () => {};
 
-const isEmpty = array => array.length === 0;
+const isEmpty = (array) => array.length === 0;
 
-const getAcronym = string => string.match(/\b\w/g).join('');
+const getAcronym = (string) => string.match(/\b\w/g).join('');
 
 const MentionTextInputScreen = ({ theme }) => {
   const [value, setValue] = React.useState([]);
@@ -45,12 +44,10 @@ const MentionTextInputScreen = ({ theme }) => {
     <>
       <KeyboardAvoidingView
         withNavigation
-        style={{ flex: 1, backgroundColor: theme.variables.BACKGROUND_COLOR }}
-      >
+        style={{ flex: 1, backgroundColor: theme.variables.BACKGROUND_COLOR }}>
         <ScrollView
           keyboardShouldPersistTaps="handled"
-          contentContainerStyle={{ padding: theme.variables.MEDIUM_SIZE }}
-        >
+          contentContainerStyle={{ padding: theme.variables.MEDIUM_SIZE }}>
           <ListItem
             title="Toan Nguyen"
             subtitle="YOLO"
@@ -80,7 +77,7 @@ const MentionTextInputScreen = ({ theme }) => {
             rightIcon="comment-outline"
             value={value}
             autoFocus
-            onChange={value => setValue(value)}
+            onChange={(value) => setValue(value)}
             renderSuggestionList={(searchValue, onSelect) => (
               <SuggestionList searchValue={searchValue} onSelect={onSelect} />
             )}
@@ -107,8 +104,7 @@ const SuggestionList = injectTheme(({ searchValue, onSelect, theme }) => {
           justifyContent: 'center',
           height: theme.variables.LARGE_SIZE + theme.variables.SMALL_SIZE * 2,
           paddingVertical: 0,
-        }}
-      >
+        }}>
         <Text size="h5" weight="500" color={theme.variables.MUTED_TEXT_COLOR}>
           No result
         </Text>
@@ -120,7 +116,7 @@ const SuggestionList = injectTheme(({ searchValue, onSelect, theme }) => {
     <FlatList
       keyboardShouldPersistTaps="handled"
       data={searchResult}
-      keyExtractor={item => item.id}
+      keyExtractor={(item) => item.id}
       renderItem={({ item: { id, name, job, avatar } }) => (
         <SuggestionItem
           name={name}
@@ -140,19 +136,17 @@ const SuggestionItem = injectTheme(({ name, job, avatar, onPress, theme }) => (
       style={{
         alignItems: 'center',
         paddingVertical: theme.variables.SMALL_SIZE,
-      }}
-    >
+      }}>
       <Avatar
         size="small"
         title={getAcronym(name)}
         source={avatar}
-        wrapperStyle={{ marginRight: theme.variables.MEDIUM_SIZE }}
+        wrapperStyle={{ marginRight: theme.variables.SMALL_SIZE }}
       />
       <Text
         size="h5"
         weight="500"
-        style={{ marginRight: theme.variables.MEDIUM_SIZE }}
-      >
+        style={{ marginRight: theme.variables.SMALL_SIZE }}>
         {name}
       </Text>
       <Text size="h5" weight="500" color={theme.variables.MUTED_TEXT_COLOR}>
@@ -161,16 +155,5 @@ const SuggestionItem = injectTheme(({ name, job, avatar, onPress, theme }) => (
     </Container>
   </TouchableOpacity>
 ));
-
-MentionTextInputScreen.navigationOptions = {
-  title: 'Give a Shout Out',
-  headerStyle: {
-    backgroundColor: FOCUS_BLUE_1,
-    borderBottomWidth: 0,
-  },
-  headerTitleStyle: {
-    color: WHITE,
-  },
-};
 
 export default injectTheme(MentionTextInputScreen);

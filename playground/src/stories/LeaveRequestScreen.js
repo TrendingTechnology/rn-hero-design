@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, ScrollView, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, ScrollView, TouchableOpacity } from 'react-native';
 import {
   TextInput,
   DateTimePicker,
@@ -9,7 +9,6 @@ import {
   Icon,
   injectTheme,
 } from 'rn-hero-design';
-import { FOCUS_BLUE_1, WHITE } from 'rn-hero-design/src/themes/hero/variables';
 
 const noop = () => {};
 
@@ -38,17 +37,12 @@ const LeaveRequestScreen = ({ theme }) => {
   return (
     <KeyboardAvoidingView
       withNavigation
-      style={StyleSheet.flatten([
-        styles.keyboardAvoidingView,
-        { backgroundColor: theme.variables.BACKGROUND_COLOR },
-      ])}
-    >
+      style={{ flex: 1, backgroundColor: theme.variables.BACKGROUND_COLOR }}>
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
           padding: theme.variables.MEDIUM_SIZE,
-        }}
-      >
+        }}>
         <TouchableOpacity>
           <View pointerEvents="none">
             <TextInput
@@ -93,7 +87,7 @@ const LeaveRequestScreen = ({ theme }) => {
           value={comment}
           rightIcon="comment-outline"
           multiline
-          onChangeText={text => setComment(text)}
+          onChangeText={(text) => setComment(text)}
         />
 
         <ListItem
@@ -176,28 +170,11 @@ const LeaveRequestScreen = ({ theme }) => {
       <DateTimePicker
         show={!!changingField}
         value={fieldMap[changingField].value}
-        onChange={date => fieldMap[changingField].onChange(date)}
+        onChange={(date) => fieldMap[changingField].onChange(date)}
         onDismiss={() => setChangingField(null)}
       />
     </KeyboardAvoidingView>
   );
 };
-
-LeaveRequestScreen.navigationOptions = {
-  title: 'Leave request',
-  headerStyle: {
-    backgroundColor: FOCUS_BLUE_1,
-    borderBottomWidth: 0,
-  },
-  headerTitleStyle: {
-    color: WHITE,
-  },
-};
-
-const styles = StyleSheet.create({
-  keyboardAvoidingView: {
-    flex: 1,
-  },
-});
 
 export default injectTheme(LeaveRequestScreen);
