@@ -46,15 +46,15 @@ workflows:
           requires:
             - test
             - hold_publish
-      - deploy_doc:
-          context: org-global
-          filters:
-            branches:
-              only:
-                - release
-          requires:
-            - test
-            - hold_publish
+      # - deploy_doc:
+      #     context: org-global
+      #     filters:
+      #       branches:
+      #         only:
+      #           - release
+      #     requires:
+      #       - test
+      #       - hold_publish
       - hold_publish:
           type: approval
           filters:
