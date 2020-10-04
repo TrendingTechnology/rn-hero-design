@@ -6,10 +6,11 @@ import {
   Button,
   Text,
   KeyboardAvoidingView,
-  injectTheme,
+  useTheme,
 } from 'rn-hero-design';
 
-const LoginScreen = ({ navigation, theme }) => {
+const LoginScreen = ({ navigation }) => {
+  const theme = useTheme();
   const [email, setEmail] = useState('toan.nguyen@employmenthero.com');
   const [password, setPassword] = useState('12345678');
   const [visiblePassword, setVisiblePassword] = useState(false);
@@ -108,4 +109,4 @@ const LoginScreen = ({ navigation, theme }) => {
   );
 };
 
-export default injectTheme(LoginScreen);
+export default LoginScreen;
