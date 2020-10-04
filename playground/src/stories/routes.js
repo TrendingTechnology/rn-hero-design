@@ -121,12 +121,14 @@ export default {
 
   LoginScreen: {
     screen: LoginScreen,
+    badge: 'Demo',
     options: {
       headerShown: false,
     },
   },
   ProfileScreen: {
     screen: ProfileScreen,
+    badge: 'Demo',
     options: {
       title: 'Profile',
       headerStyle: {
@@ -140,6 +142,7 @@ export default {
   },
   LeaveRequestScreen: {
     screen: LeaveRequestScreen,
+    badge: 'Demo',
     options: {
       title: 'Leave Request',
       headerStyle: {
