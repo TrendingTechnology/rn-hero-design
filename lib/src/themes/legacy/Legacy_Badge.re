@@ -1,5 +1,5 @@
 open ReactNative.Style;
-open Hero_Variables;
+open Legacy_Variables;
 
 let _CONTENT_FONT_SIZE = _HEADER_5;
 let _WRAPPER_VERTICAL_PADDING = _SMALL_SIZE /. 2.0;
