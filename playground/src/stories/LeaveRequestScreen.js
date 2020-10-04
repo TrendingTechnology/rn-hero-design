@@ -7,12 +7,13 @@ import {
   KeyboardAvoidingView,
   ListItem,
   Icon,
-  injectTheme,
+  useTheme,
 } from 'rn-hero-design';
 
 const noop = () => {};
 
-const LeaveRequestScreen = ({ theme }) => {
+const LeaveRequestScreen = () => {
+  const theme = useTheme();
   const today = new Date();
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -177,4 +178,4 @@ const LeaveRequestScreen = ({ theme }) => {
   );
 };
 
-export default injectTheme(LeaveRequestScreen);
+export default LeaveRequestScreen;
