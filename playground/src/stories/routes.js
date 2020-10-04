@@ -21,6 +21,7 @@ import RadioScreen from './Radio';
 import RichTextEditorScreen from './RichTextEditor';
 import ButtonGroupScreen from './ButtonGroup';
 import ErrorScreen from './ErrorScreen';
+import BadgeScreen from './Badge';
 
 import LoginScreen from './LoginScreen';
 import ProfileScreen from './ProfileScreen';
@@ -113,6 +114,9 @@ export default {
   },
   ErrorScreen: {
     screen: ErrorScreen,
+  },
+  Badge: {
+    screen: BadgeScreen,
   },
 
   LoginScreen: {
