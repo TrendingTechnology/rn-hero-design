@@ -112,6 +112,48 @@ Object {
     },
     "wrapper": Object {},
   },
+  "badge": Object {
+    "content": Object {
+      "fontFamily": "Proxima Nova",
+      "fontSize": 13.487499999999999,
+      "fontWeight": "500",
+      "lineHeight": 13.487499999999999,
+      "textAlign": "center",
+      "textTransform": "uppercase",
+    },
+    "errorContent": Object {
+      "color": "#fcfcfc",
+    },
+    "errorWrapper": Object {
+      "backgroundColor": "#fe56aa",
+    },
+    "infoContent": Object {
+      "color": "#fcfcfc",
+    },
+    "infoWrapper": Object {
+      "backgroundColor": "#1dbeee",
+    },
+    "successContent": Object {
+      "color": "#fcfcfc",
+    },
+    "successWrapper": Object {
+      "backgroundColor": "#01b39c",
+    },
+    "warningContent": Object {
+      "color": "#fcfcfc",
+    },
+    "warningWrapper": Object {
+      "backgroundColor": "#ffa234",
+    },
+    "wrapper": Object {
+      "alignSelf": "flex-start",
+      "borderRadius": 10.806249999999999,
+      "height": 21.612499999999997,
+      "justifyContent": "center",
+      "minWidth": 21.612499999999997,
+      "paddingHorizontal": 8.125,
+    },
+  },
   "bottomButton": Object {
     "button": Object {
       "alignItems": "center",
