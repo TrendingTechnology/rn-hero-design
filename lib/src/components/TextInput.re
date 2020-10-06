@@ -32,6 +32,7 @@ let make =
       ~label="",
       ~placeholder="",
       ~keyboardType: option(string)=?,
+      ~defaultValue=?,
       ~value=?,
       ~onChange=noop,
       ~onChangeText=noop,
@@ -56,6 +57,9 @@ let make =
       ~theme=Hero_Theme.default,
     ) => {
   let (focused, setFocused) = React.useState(() => false);
+  let (internalValue, setInternalValue) = React.useState(() => defaultValue);
+
+  let isUncontrolled = Belt.Option.isNone(value);
   let placeholder_ =
     switch (placeholder, focused) {
     | ("", true) => ""
@@ -63,9 +67,10 @@ let make =
     | _ => placeholder
     };
   let label_ =
-    switch (value, focused) {
-    | (_, true) => label
-    | (Some(value), _) when !isEmpty(value) => label
+    switch (value, internalValue, focused) {
+    | (_, _, true) => label
+    | (Some(value), _, _) when !isEmpty(value) => label
+    | (None, Some(internalValue), _) when !isEmpty(internalValue) => label
     | _ => ""
     };
   let keyboardType_ =
@@ -93,6 +98,18 @@ let make =
       (onBlur, setFocused),
     );
 
+  let handleChangeText =
+    React.useCallback2(
+      text => {
+        if (isUncontrolled) {
+          setInternalValue(_ => Some(text));
+        };
+        onChangeText(text);
+        ();
+      },
+      (onChangeText, setInternalValue),
+    );
+
   <View
     style={StyleSheet.flatten([|theme##textInput##wrapper, wrapperStyle|])}>
     <Text
@@ -115,9 +132,10 @@ let make =
         testID
         placeholder=placeholder_
         keyboardType=keyboardType_
+        ?defaultValue
         ?value
         onChange
-        onChangeText
+        onChangeText=handleChangeText
         onSelectionChange
         onKeyPress
         onFocus=handleFocus

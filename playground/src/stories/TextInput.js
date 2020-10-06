@@ -16,9 +16,9 @@ const TextInputScreen = ({ theme }) => (
       contentContainerStyle={{ padding: theme.variables.MEDIUM_SIZE }}>
       <TextInput
         label="Email"
-        value="toan.nguyen@employmenthero.com"
+        defaultValue="gia.toan@employmenthero.com"
         rightIcon="email-outline"
-        onChangeText={noop}
+        onChange={console.log}
       />
 
       <TextInput
