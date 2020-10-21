@@ -2,39 +2,45 @@ import React, { useMemo } from 'react';
 import { Icon, Container, injectTheme } from 'rn-hero-design';
 
 const filledIcons = [
+  'ok-circle',
+  'cancel-circle',
+  'plus-circle',
+  'warning-circle',
   'email',
   'eye',
   'eye-invisible',
-  'ok-circle',
+  'folder',
   'calendar',
   'more-vertical',
-  'warning-circle',
   'radio-active',
   'radio-inactive',
 ];
 
 const outlinedIcons = [
+  'ok-circle-outline',
+  'cancel-circle-outline',
+  'plus-circle-outline',
+  'warning-circle-outline',
   'email-outline',
   'eye-outline',
   'eye-invisible-outline',
-  'cancel-outline',
-  'clock-circle-outline',
-  'comment-outline',
-  'plus-circle-outline',
+  'folder-outline',
   'plus-outline',
-  'piggy-bank-outline',
-  'target-outline',
+  'cancel-outline',
   'single-right-outline',
   'single-left-outline',
+  'arrow-down',
+  'clock-circle-outline',
+  'comment-outline',
+  'piggy-bank-outline',
+  'target-outline',
   'calendar-outline',
   'phone-outline',
   'face-id',
-  'arrow-down',
   'camera-outline',
   'paperclip',
   'image-outline',
   'file-outline',
-  'warning-circle-outline',
 ];
 
 const IconScreen = ({ theme }) => {
@@ -50,13 +56,25 @@ const IconScreen = ({ theme }) => {
     <>
       <Container direction="row" style={{ flexWrap: 'wrap' }}>
         {filledIcons.map((icon) => (
-          <Icon key={icon} icon={icon} size={24} wrapperStyle={iconStyle} />
+          <Icon
+            key={icon}
+            icon={icon}
+            size={24}
+            color={theme.variables.FOCUS_BLUE_1}
+            wrapperStyle={iconStyle}
+          />
         ))}
       </Container>
 
       <Container direction="row" style={{ flexWrap: 'wrap' }}>
         {outlinedIcons.map((icon) => (
-          <Icon key={icon} icon={icon} size={24} wrapperStyle={iconStyle} />
+          <Icon
+            key={icon}
+            icon={icon}
+            size={24}
+            color={theme.variables.FOCUS_BLUE_1}
+            wrapperStyle={iconStyle}
+          />
         ))}
       </Container>
     </>

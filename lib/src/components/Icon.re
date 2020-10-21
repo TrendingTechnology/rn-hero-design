@@ -57,6 +57,16 @@ external warningCircle: string = "default";
 [@bs.module "../icons/radio-active"] external radioActive: string = "default";
 [@bs.module "../icons/radio-inactive"]
 external radioInactive: string = "default";
+[@bs.module "../icons/plus-circle"] external plusCircle: string = "default";
+[@bs.module "../icons/cancel-circle"]
+external cancelCircle: string = "default";
+[@bs.module "../icons/cancel-circle-outline"]
+external cancelCircleOutline: string = "default";
+[@bs.module "../icons/ok-circle-outline"]
+external okCircleOutline: string = "default";
+[@bs.module "../icons/folder"] external folder: string = "default";
+[@bs.module "../icons/folder-outline"]
+external folderOutline: string = "default";
 
 [@bs.module "../icons/format_bold"] external formatBold: string = "default";
 [@bs.module "../icons/format_italic"]
@@ -105,6 +115,12 @@ let xmlFromIcon = icon =>
   | "format_underlined" => Some(formatUnderlined)
   | "format_list_numbered" => Some(formatListNumbered)
   | "format_list_bulleted" => Some(formatListBulleted)
+  | "plus-circle" => Some(plusCircle)
+  | "cancel-circle" => Some(cancelCircle)
+  | "cancel-circle-outline" => Some(cancelCircleOutline)
+  | "ok-circle-outline" => Some(okCircleOutline)
+  | "folder" => Some(folder)
+  | "folder-outline" => Some(folderOutline)
   | _ => None
   };
 
