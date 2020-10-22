@@ -32,7 +32,8 @@ For more details, view the [documentation](http://mobile.hero-design.surge.sh)
 Checkout the playground app [here](https://exp.host/@toan2406/rn-hero-design), which contains the list of components, their sample usages and common layouts.
 
 ## Development
-
+- Requirements:
+   - cocoapods 1.10.0
 - Start the playground bundler
 ```
 yarn dev
