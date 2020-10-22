@@ -1,8 +1,9 @@
 import React from 'react';
-import { ScrollView } from 'react-native';
+import { Alert, ScrollView } from 'react-native';
 import {
   Text,
   TextInput,
+  TouchableTextInput,
   BottomButton,
   KeyboardAvoidingView,
   injectTheme,
@@ -41,6 +42,15 @@ const TextInputScreen = ({ theme }) => (
       />
 
       <TextInput label="Region" value="Vietnam" disabled onChangeText={noop} />
+
+      <TouchableTextInput
+        label="District"
+        value="District 1"
+        rightIcon="cancel-circle"
+        iconStyle={{ color: theme.variables.ERROR_COLOR }}
+        onTouch={() => Alert.alert('Select district')}
+        onPressIcon={() => Alert.alert('Remove district')}
+      />
 
       <Text size="h5">* By sign-up, you agree to our terms and conditions</Text>
     </ScrollView>
