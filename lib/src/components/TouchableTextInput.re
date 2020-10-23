@@ -28,7 +28,8 @@ type keyboardType = [
 [@react.component]
 let make =
     (
-      ~testID="",
+      ~touchableTestID=?,
+      ~inputTestID=?,
       ~label="",
       ~placeholder="",
       ~keyboardType: option(string)=?,
@@ -80,11 +81,12 @@ let make =
         inputStyle,
       |])}>
       <TouchableOpacity
+        testID=?touchableTestID
         activeOpacity={disabled ? 1.0 : 0.2}
         onPress={disabled ? noop : onTouch}
         style={Style.style(~flex=1.0, ())}>
         <ReactNative.TextInput
-          testID
+          testID=?inputTestID
           placeholder=placeholder_
           keyboardType=keyboardType_
           ?value
