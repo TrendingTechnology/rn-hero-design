@@ -66,11 +66,13 @@ let make =
     | ("", false) => label
     | _ => placeholder
     };
+  /* defaultValue triggers re-render! So we need to handle showing label on defaultValue changed */
   let label_ =
-    switch (value, internalValue, focused) {
-    | (_, _, true) => label
-    | (Some(value), _, _) when !isEmpty(value) => label
-    | (None, Some(internalValue), _) when !isEmpty(internalValue) => label
+    switch (value, internalValue, defaultValue, focused) {
+    | (_, _, _, true) => label
+    | (Some(value), _, _, _) when !isEmpty(value) => label
+    | (None, Some(internalValue), _, _) when !isEmpty(internalValue) => label
+    | (None, _, Some(defaultValue), _) when !isEmpty(defaultValue) => label
     | _ => ""
     };
   let keyboardType_ =
