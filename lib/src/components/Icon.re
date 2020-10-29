@@ -71,6 +71,11 @@ external folderOutline: string = "default";
 [@bs.module "../icons/stopwatch-outline"]
 external stopwatchOutline: string = "default";
 [@bs.module "../icons/globe"] external globe: string = "default";
+[@bs.module "../icons/globe-outline"]
+external globeOutline: string = "default";
+[@bs.module "../icons/suitcase"] external suitcase: string = "default";
+[@bs.module "../icons/suitcase-outline"]
+external suitcaseOutline: string = "default";
 
 [@bs.module "../icons/format_bold"] external formatBold: string = "default";
 [@bs.module "../icons/format_italic"]
@@ -128,6 +133,9 @@ let xmlFromIcon = icon =>
   | "stopwatch" => Some(stopwatch)
   | "stopwatch-outline" => Some(stopwatchOutline)
   | "globe" => Some(globe)
+  | "globe-outline" => Some(globeOutline)
+  | "suitcase" => Some(suitcase)
+  | "suitcase-outline" => Some(suitcaseOutline)
   | _ => None
   };
 

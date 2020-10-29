@@ -12,11 +12,12 @@ const filledIcons = [
   'folder',
   'stopwatch',
   'calendar',
+  'globe',
+  'suitcase',
 
   'more-vertical',
   'radio-active',
   'radio-inactive',
-  'globe',
 ];
 
 const outlinedIcons = [
@@ -30,6 +31,8 @@ const outlinedIcons = [
   'folder-outline',
   'stopwatch-outline',
   'calendar-outline',
+  'globe-outline',
+  'suitcase-outline',
 
   'plus-outline',
   'cancel-outline',
