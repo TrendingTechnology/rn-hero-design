@@ -10,10 +10,13 @@ const filledIcons = [
   'eye',
   'eye-invisible',
   'folder',
+  'stopwatch',
   'calendar',
+
   'more-vertical',
   'radio-active',
   'radio-inactive',
+  'globe',
 ];
 
 const outlinedIcons = [
@@ -25,6 +28,9 @@ const outlinedIcons = [
   'eye-outline',
   'eye-invisible-outline',
   'folder-outline',
+  'stopwatch-outline',
+  'calendar-outline',
+
   'plus-outline',
   'cancel-outline',
   'single-right-outline',
@@ -34,7 +40,6 @@ const outlinedIcons = [
   'comment-outline',
   'piggy-bank-outline',
   'target-outline',
-  'calendar-outline',
   'phone-outline',
   'face-id',
   'camera-outline',

@@ -72,7 +72,7 @@ let make =
     | (_, _, _, true) => label
     | (Some(value), _, _, _) when !isEmpty(value) => label
     | (None, Some(internalValue), _, _) when !isEmpty(internalValue) => label
-    | (None, _, Some(defaultValue), _) when !isEmpty(defaultValue) => label
+    | (None, None, Some(defaultValue), _) when !isEmpty(defaultValue) => label
     | _ => ""
     };
   let keyboardType_ =
@@ -148,15 +148,7 @@ let make =
         secureTextEntry
         multiline
         scrollEnabled=false
-        placeholderTextColor={
-          StyleSheet.flatten([|
-            theme##textInput##baseTextInput,
-            inputStyle,
-            disabled ? theme##textInput##disabledBaseTextInput : emptyStyle,
-            isEmpty(placeholder) ? emptyStyle : theme##textInput##placeholder,
-          |])
-          ->getColorProperty
-        }
+        placeholderTextColor={theme##textInput##placeholder->getColorProperty}
         style={StyleSheet.flatten([|
           theme##textInput##baseTextInput,
           !

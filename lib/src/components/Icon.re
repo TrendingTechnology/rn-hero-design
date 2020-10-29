@@ -67,6 +67,10 @@ external okCircleOutline: string = "default";
 [@bs.module "../icons/folder"] external folder: string = "default";
 [@bs.module "../icons/folder-outline"]
 external folderOutline: string = "default";
+[@bs.module "../icons/stopwatch"] external stopwatch: string = "default";
+[@bs.module "../icons/stopwatch-outline"]
+external stopwatchOutline: string = "default";
+[@bs.module "../icons/globe"] external globe: string = "default";
 
 [@bs.module "../icons/format_bold"] external formatBold: string = "default";
 [@bs.module "../icons/format_italic"]
@@ -121,6 +125,9 @@ let xmlFromIcon = icon =>
   | "ok-circle-outline" => Some(okCircleOutline)
   | "folder" => Some(folder)
   | "folder-outline" => Some(folderOutline)
+  | "stopwatch" => Some(stopwatch)
+  | "stopwatch-outline" => Some(stopwatchOutline)
+  | "globe" => Some(globe)
   | _ => None
   };
 
