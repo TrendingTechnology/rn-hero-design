@@ -76,6 +76,9 @@ external globeOutline: string = "default";
 [@bs.module "../icons/suitcase"] external suitcase: string = "default";
 [@bs.module "../icons/suitcase-outline"]
 external suitcaseOutline: string = "default";
+[@bs.module "../icons/level"] external level: string = "default";
+[@bs.module "../icons/level-outline"]
+external levelOutline: string = "default";
 
 [@bs.module "../icons/format_bold"] external formatBold: string = "default";
 [@bs.module "../icons/format_italic"]
@@ -136,6 +139,8 @@ let xmlFromIcon = icon =>
   | "globe-outline" => Some(globeOutline)
   | "suitcase" => Some(suitcase)
   | "suitcase-outline" => Some(suitcaseOutline)
+  | "level" => Some(level)
+  | "level-outline" => Some(levelOutline)
   | _ => None
   };
 
