@@ -14,6 +14,7 @@ const filledIcons = [
   'calendar',
   'globe',
   'suitcase',
+  'level',
 
   'more-vertical',
   'radio-active',
@@ -33,6 +34,7 @@ const outlinedIcons = [
   'calendar-outline',
   'globe-outline',
   'suitcase-outline',
+  'level-outline',
 
   'plus-outline',
   'cancel-outline',
