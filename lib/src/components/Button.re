@@ -38,6 +38,7 @@ let getStylesByVariant = (variant: ButtonVariant.t, styles: Js.t('a)) => {
 [@react.component]
 let make =
     (
+      ~testID=?,
       ~text,
       ~onPress,
       ~loading=false,
@@ -61,8 +62,8 @@ let make =
     [@react.component]
     let make = (~children): React.element =>
       loading || disabled
-        ? <View style> children </View>
-        : <TouchableOpacity activeOpacity=0.2 onPress style>
+        ? <View ?testID style> children </View>
+        : <TouchableOpacity ?testID activeOpacity=0.2 onPress style>
             children
           </TouchableOpacity>;
   };

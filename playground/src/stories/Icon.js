@@ -40,6 +40,7 @@ const outlinedIcons = [
   'cancel-outline',
   'single-right-outline',
   'single-left-outline',
+  'arrow-up',
   'arrow-down',
   'clock-circle-outline',
   'comment-outline',
