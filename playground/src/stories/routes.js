@@ -27,6 +27,7 @@ import LoginScreen from './LoginScreen';
 import ProfileScreen from './ProfileScreen';
 import LeaveRequestScreen from './LeaveRequestScreen';
 
+import InAppBrower from './InAppBrowser';
 const heroTheme = themeManager.getTheme();
 
 const Logo = () => (
@@ -38,6 +39,13 @@ const Logo = () => (
 );
 
 export default {
+  InAppBrower: {
+    screen: InAppBrower,
+    badge: 'Demo',
+    options: {
+      headerShown: false,
+    },
+  },
   Text: {
     screen: TextScreen,
   },
