@@ -91,6 +91,10 @@ external formatListBulleted: string = "default";
 [@bs.module "../icons/format_list_numbered"]
 external formatListNumbered: string = "default";
 
+[@bs.module "../icons/share-1.js"] external share1: string = "default";
+[@bs.module "../icons/restart-outline"]
+external restartOutline: string = "default";
+
 let xmlFromIcon = icon =>
   switch (icon) {
   | "email" => Some(email)
@@ -143,6 +147,8 @@ let xmlFromIcon = icon =>
   | "suitcase-outline" => Some(suitcaseOutline)
   | "level" => Some(level)
   | "level-outline" => Some(levelOutline)
+  | "share-1" => Some(share1)
+  | "restart-outline" => Some(restartOutline)
   | _ => None
   };
 
