@@ -1,9 +1,36 @@
 open ReactNative;
 open React;
 open Hero_Variables;
+open Button;
 
 let _PRIMARY_COLOR = Hero_Variables._DARK_PRIMARY_COLOR;
 let _TEXT_COLOR = Hero_Variables._WHITE;
+let _DISABLED_TEXT_COLOR = Hero_Variables._DISABLED_BACKGROUND_COLOR;
+module MyButton = Button;
+
+module Icon = {
+  [@react.component]
+  let make = (~icon, ~onPress, ~disabled=false) => {
+    <ReactNative.TouchableOpacity
+      onPress
+      disabled
+      style={Style.style(
+        ~padding=Style.dp(4.0),
+        ~paddingHorizontal=Style.dp(10.0),
+        ~alignItems=`center,
+        ~justifyContent=`center,
+        (),
+      )}>
+      <Icon
+        key=icon
+        icon
+        size=20.0
+        color={disabled ? _GREY_3 : _WHITE}
+        wrapperStyle={Style.style(~opacity=disabled ? 0.5 : 1.0, ())}
+      />
+    </ReactNative.TouchableOpacity>;
+  };
+};
 
 module BottomBar = {
   [@react.component]
@@ -14,6 +41,7 @@ module BottomBar = {
         ~onPressBack,
         ~onPressGoForward,
         ~onPressShare,
+        ~onPressOpenByBrowser,
       ) => {
     <ReactNative.View
       style={StyleSheet.flatten([|
@@ -21,12 +49,22 @@ module BottomBar = {
           ~height=44.0->Style.dp,
           ~flexDirection=`row,
           ~justifyContent=`spaceBetween,
+          ~paddingHorizontal=Style.dp(10.0),
           (),
         ),
       |])}>
-      <Button onPress=onPressBack title="Back" disabled={!canGoBack} />
-      <Button onPress=onPressGoForward title="Next" disabled={!canGoForward} />
-      <Button onPress=onPressShare title="Share" />
+      <Icon
+        icon="single-left-outline"
+        onPress=onPressBack
+        disabled={!canGoBack}
+      />
+      <Icon
+        icon="single-right-outline"
+        onPress=onPressGoForward
+        disabled={!canGoForward}
+      />
+      <Icon icon="share-1" onPress=onPressShare />
+      <Button onPress=onPressOpenByBrowser title="Open Browser" />
     </ReactNative.View>;
   };
 };
@@ -41,15 +79,16 @@ module HeaderBar = {
           ~flexDirection=`row,
           ~justifyContent=`spaceBetween,
           ~backgroundColor=_PRIMARY_COLOR,
+          ~paddingHorizontal=Style.dp(10.0),
           (),
         ),
       |])}>
-      <Button onPress=onPressCancel title="Cancel" />
+      <Button.default onPress=onPressCancel title="Cancel" color=_TEXT_COLOR style= />
       <ReactNative.View
         style={Style.style(~flex=1.0, ~justifyContent=`center, ())}>
         <Text
           style={Style.style(
-            ~fontSize=_HEADER_4,
+            ~fontSize=_HEADER_5,
             ~textAlign=`center,
             ~color=_TEXT_COLOR,
             (),
@@ -57,7 +96,7 @@ module HeaderBar = {
           title->React.string
         </Text>
       </ReactNative.View>
-      <Button onPress=onPressReload title="reload" />
+      <Icon icon="restart-outline" onPress=onPressReload />
     </ReactNative.View>;
   };
 };
@@ -126,6 +165,18 @@ let make =
 
       ();
     });
+
+  let _onPressOpenByBrowser =
+    React.useCallback(_ => {
+      switch (onPressShare) {
+      | Some((callback: string => unit)) => callback(url)
+      | None =>
+        Linking.openURL(url);
+        ();
+      };
+
+      ();
+    });
   let _onNavigationStateChange =
     React.useCallback(navigation => {
       setCanGoBack(_ => navigation##canGoBack);
@@ -164,6 +215,7 @@ let make =
            onPressBack
            onPressGoForward
            onPressShare=_onPressShare
+           onPressOpenByBrowser=_onPressOpenByBrowser
          />
        : <View />}
   </RNSafeAreaView>;
