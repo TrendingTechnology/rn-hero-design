@@ -92,6 +92,7 @@ external formatListBulleted: string = "default";
 external formatListNumbered: string = "default";
 
 [@bs.module "../icons/share-1.js"] external share1: string = "default";
+[@bs.module "../icons/share-2.js"] external share2: string = "default";
 [@bs.module "../icons/restart-outline"]
 external restartOutline: string = "default";
 
@@ -148,6 +149,7 @@ let xmlFromIcon = icon =>
   | "level" => Some(level)
   | "level-outline" => Some(levelOutline)
   | "share-1" => Some(share1)
+  | "share-2" => Some(share2)
   | "restart-outline" => Some(restartOutline)
   | _ => None
   };
