@@ -22,6 +22,7 @@ import RichTextEditorScreen from './RichTextEditor';
 import ButtonGroupScreen from './ButtonGroup';
 import ErrorScreen from './ErrorScreen';
 import BadgeScreen from './Badge';
+import MapViewScreen from './MapView';
 
 import LoginScreen from './LoginScreen';
 import ProfileScreen from './ProfileScreen';
@@ -117,6 +118,9 @@ export default {
   },
   Badge: {
     screen: BadgeScreen,
+  },
+  MapView: {
+    screen: MapViewScreen,
   },
 
   LoginScreen: {
