@@ -1,7 +1,7 @@
-module RN = ReactNative;
-module Style = RN.Style;
 open React;
 open Hero_Variables;
+module RN = ReactNative;
+module Style = RN.Style;
 
 let _PRIMARY_COLOR = Hero_Variables._DARK_PRIMARY_COLOR;
 let _TEXT_COLOR = Hero_Variables._WHITE;
@@ -44,6 +44,7 @@ module BottomBar = {
         ~onPressGoForward,
         ~onPressShare,
         ~onPressOpenByBrowser,
+        ~theme=Hero_Theme.default,
       ) => {
     <ReactNative.View
       style={RN.StyleSheet.flatten([|
@@ -73,49 +74,19 @@ module BottomBar = {
 
 module HeaderBar = {
   [@react.component]
-  let make = (~title, ~onPressCancel, ~onPressReload) => {
-    <ReactNative.View
-      style={RN.StyleSheet.flatten([|
-        Style.style(
-          ~height=44.0->Style.dp,
-          ~flexDirection=`row,
-          ~justifyContent=`spaceBetween,
-          ~backgroundColor=_PRIMARY_COLOR,
-          ~paddingHorizontal=Style.dp(10.0),
-          (),
-        ),
-      |])}>
+  let make =
+      (~title, ~onPressCancel, ~onPressReload, ~theme=Hero_Theme.default) => {
+    <ReactNative.View style=theme##inAppBrowser##headerBar>
       <ReactNative.TouchableOpacity
-        onPress=onPressCancel
-        style={Style.style(
-          ~padding=Style.dp(4.0),
-          ~paddingHorizontal=Style.dp(10.0),
-          ~alignItems=`center,
-          ~justifyContent=`center,
-          ~width=80.0->Style.dp,
-          (),
-        )}>
-        <Text size="h4" color=_WHITE> "Cancel" </Text>
+        onPress=onPressCancel style={theme##inAppBrowser##headerBarLeftButton}>
+        <Text size="h4" color=theme##text##color> "Cancel" </Text>
       </ReactNative.TouchableOpacity>
-      <ReactNative.View
-        style={Style.style(
-          ~flex=1.0,
-          ~justifyContent=`center,
-          ~backgroundColor=_PRIMARY_COLOR,
-          (),
-        )}>
-        <Text
-          size="h4"
-          style={Style.style(~textAlign=`center, ~color=_TEXT_COLOR, ())}>
+      <ReactNative.View style={theme##inAppBrowser##headerTitle}>
+        <Text size="h4" style=theme##inAppBrowser##headerTitleText>
           title
         </Text>
       </ReactNative.View>
-      <ReactNative.View
-        style={Style.style(
-          ~width=80.0->Style.dp,
-          ~flexDirection=`rowReverse,
-          (),
-        )}>
+      <ReactNative.View style={theme##inAppBrowser##headerBarRightButton}>
         <Icon icon="restart-outline" onPress=onPressReload />
       </ReactNative.View>
     </ReactNative.View>;
@@ -219,7 +190,7 @@ let make =
       style,
     |])}>
     {showHeader
-       ? <HeaderBar title onPressCancel=_onPressCancel onPressReload />
+       ? <HeaderBar title onPressCancel=_onPressCancel onPressReload theme />
        : <RN.View />}
     <RNWebView
       ref=webview
@@ -237,6 +208,7 @@ let make =
            onPressGoForward
            onPressShare=_onPressShare
            onPressOpenByBrowser=_onPressOpenByBrowser
+           theme
          />
        : <RN.View />}
   </RNSafeAreaView>;

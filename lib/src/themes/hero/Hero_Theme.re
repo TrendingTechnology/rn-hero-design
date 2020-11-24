@@ -21,4 +21,5 @@ let default = {
   "buttonGroup": Hero_ButtonGroup.default,
   "errorScreen": Hero_ErrorScreen.default,
   "badge": Hero_Badge.default,
+  "inAppBrowser": Hero_InAppBrowser.default,
 };
