@@ -39,13 +39,6 @@ const Logo = () => (
 );
 
 export default {
-  InAppBrower: {
-    screen: InAppBrower,
-    badge: 'Demo',
-    options: {
-      headerShown: false,
-    },
-  },
   Text: {
     screen: TextScreen,
   },
@@ -126,7 +119,13 @@ export default {
   Badge: {
     screen: BadgeScreen,
   },
-
+  InAppBrower: {
+    screen: InAppBrower,
+    options: {
+      headerShown: false,
+      title: 'In-app Browser',
+    },
+  },
   LoginScreen: {
     screen: LoginScreen,
     badge: 'Demo',
