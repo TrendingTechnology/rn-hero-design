@@ -65,7 +65,7 @@ module BottomBar = {
         onPress=onPressGoForward
         disabled={!canGoForward}
       />
-      <Icon icon="share-2" onPress=onPressShare />
+      <Icon icon="share-1" onPress=onPressShare />
       <Icon icon="browser-outline" onPress=onPressOpenByBrowser />
     </ReactNative.View>;
   };
