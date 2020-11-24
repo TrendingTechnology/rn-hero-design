@@ -93,6 +93,8 @@ external formatListNumbered: string = "default";
 
 [@bs.module "../icons/share-1.js"] external share1: string = "default";
 [@bs.module "../icons/share-2.js"] external share2: string = "default";
+[@bs.module "../icons/browser-outline.js"]
+external browserOutline: string = "default";
 [@bs.module "../icons/restart-outline"]
 external restartOutline: string = "default";
 
@@ -151,6 +153,7 @@ let xmlFromIcon = icon =>
   | "share-1" => Some(share1)
   | "share-2" => Some(share2)
   | "restart-outline" => Some(restartOutline)
+  | "browser-outline" => Some(browserOutline)
   | _ => None
   };
 
