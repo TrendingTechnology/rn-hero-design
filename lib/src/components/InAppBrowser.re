@@ -1,26 +1,28 @@
-open ReactNative;
+module RN = ReactNative;
+module Style = RN.Style;
 open React;
 open Hero_Variables;
-open Button;
 
 let _PRIMARY_COLOR = Hero_Variables._DARK_PRIMARY_COLOR;
 let _TEXT_COLOR = Hero_Variables._WHITE;
 let _DISABLED_TEXT_COLOR = Hero_Variables._DISABLED_BACKGROUND_COLOR;
-module MyButton = Button;
 
 module Icon = {
   [@react.component]
-  let make = (~icon, ~onPress, ~disabled=false) => {
+  let make = (~icon, ~onPress, ~disabled=false, ~style: Style.t=Style.style()) => {
     <ReactNative.TouchableOpacity
       onPress
       disabled
-      style={Style.style(
-        ~padding=Style.dp(4.0),
-        ~paddingHorizontal=Style.dp(10.0),
-        ~alignItems=`center,
-        ~justifyContent=`center,
-        (),
-      )}>
+      style={RN.StyleSheet.flatten([|
+        Style.style(
+          ~padding=Style.dp(4.0),
+          ~paddingHorizontal=Style.dp(10.0),
+          ~alignItems=`center,
+          ~justifyContent=`center,
+          (),
+        ),
+        style,
+      |])}>
       <Icon
         key=icon
         icon
@@ -44,7 +46,7 @@ module BottomBar = {
         ~onPressOpenByBrowser,
       ) => {
     <ReactNative.View
-      style={StyleSheet.flatten([|
+      style={RN.StyleSheet.flatten([|
         Style.style(
           ~height=44.0->Style.dp,
           ~flexDirection=`row,
@@ -63,8 +65,8 @@ module BottomBar = {
         onPress=onPressGoForward
         disabled={!canGoForward}
       />
-      <Icon icon="share-1" onPress=onPressShare />
-      <Button onPress=onPressOpenByBrowser title="Open Browser" />
+      <Icon icon="share-2" onPress=onPressShare />
+      <Icon icon="browser-outline" onPress=onPressOpenByBrowser />
     </ReactNative.View>;
   };
 };
@@ -73,7 +75,7 @@ module HeaderBar = {
   [@react.component]
   let make = (~title, ~onPressCancel, ~onPressReload) => {
     <ReactNative.View
-      style={StyleSheet.flatten([|
+      style={RN.StyleSheet.flatten([|
         Style.style(
           ~height=44.0->Style.dp,
           ~flexDirection=`row,
@@ -83,20 +85,39 @@ module HeaderBar = {
           (),
         ),
       |])}>
-      <Button.default onPress=onPressCancel title="Cancel" color=_TEXT_COLOR style= />
+      <ReactNative.TouchableOpacity
+        onPress=onPressCancel
+        style={Style.style(
+          ~padding=Style.dp(4.0),
+          ~paddingHorizontal=Style.dp(10.0),
+          ~alignItems=`center,
+          ~justifyContent=`center,
+          ~width=80.0->Style.dp,
+          (),
+        )}>
+        <Text size="h4" color=_WHITE> "Cancel" </Text>
+      </ReactNative.TouchableOpacity>
       <ReactNative.View
-        style={Style.style(~flex=1.0, ~justifyContent=`center, ())}>
+        style={Style.style(
+          ~flex=1.0,
+          ~justifyContent=`center,
+          ~backgroundColor=_PRIMARY_COLOR,
+          (),
+        )}>
         <Text
-          style={Style.style(
-            ~fontSize=_HEADER_5,
-            ~textAlign=`center,
-            ~color=_TEXT_COLOR,
-            (),
-          )}>
-          title->React.string
+          size="h4"
+          style={Style.style(~textAlign=`center, ~color=_TEXT_COLOR, ())}>
+          title
         </Text>
       </ReactNative.View>
-      <Icon icon="restart-outline" onPress=onPressReload />
+      <ReactNative.View
+        style={Style.style(
+          ~width=80.0->Style.dp,
+          ~flexDirection=`rowReverse,
+          (),
+        )}>
+        <Icon icon="restart-outline" onPress=onPressReload />
+      </ReactNative.View>
     </ReactNative.View>;
   };
 };
@@ -159,7 +180,7 @@ let make =
       switch (onPressShare) {
       | Some((callback: string => unit)) => callback(url)
       | None =>
-        Share.share(ReactNative.Share.content(~url, ()));
+        RN.Share.share(ReactNative.Share.content(~url, ()));
         ();
       };
 
@@ -171,7 +192,7 @@ let make =
       switch (onPressShare) {
       | Some((callback: string => unit)) => callback(url)
       | None =>
-        Linking.openURL(url);
+        RN.Linking.openURL(url);
         ();
       };
 
@@ -193,19 +214,19 @@ let make =
 
   <RNSafeAreaView
     forceInset={"bottom": "always"}
-    style={StyleSheet.flatten([|
+    style={RN.StyleSheet.flatten([|
       Style.style(~backgroundColor=_PRIMARY_COLOR, ()),
       style,
     |])}>
     {showHeader
        ? <HeaderBar title onPressCancel=_onPressCancel onPressReload />
-       : <View />}
+       : <RN.View />}
     <RNWebView
       ref=webview
       originWhitelist
       source
       onMessage
-      style={StyleSheet.flatten([|Style.style(~flex=1.0, ())|])}
+      style={RN.StyleSheet.flatten([|Style.style(~flex=1.0, ())|])}
       onNavigationStateChange=_onNavigationStateChange
     />
     {showToolbar
@@ -217,7 +238,7 @@ let make =
            onPressShare=_onPressShare
            onPressOpenByBrowser=_onPressOpenByBrowser
          />
-       : <View />}
+       : <RN.View />}
   </RNSafeAreaView>;
 };
 

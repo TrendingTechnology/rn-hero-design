@@ -1,9 +1,10 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import React from 'react';
-
+import { useNavigation } from '@react-navigation/native';
 import { InAppBrowser, injectTheme } from 'rn-hero-design';
 
 const A = ({ theme }) => {
+  const navigation = useNavigation();
   return (
     <View style={{ flex: 1, backgroundColor: 'yellow' }}>
       <InAppBrowser
@@ -12,6 +13,9 @@ const A = ({ theme }) => {
         style={{
           flex: 1,
           height: 300,
+        }}
+        onPressCancel={() => {
+          navigation.goBack();
         }}
       />
     </View>
