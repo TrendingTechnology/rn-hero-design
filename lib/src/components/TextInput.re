@@ -73,6 +73,7 @@ let make =
     | (Some(value), _, _, _) when !isEmpty(value) => label
     | (None, Some(internalValue), _, _) when !isEmpty(internalValue) => label
     | (None, None, Some(defaultValue), _) when !isEmpty(defaultValue) => label
+    | (None, Some(""), Some(defaultValue), _) when !isEmpty(defaultValue) => label
     | _ => ""
     };
   let keyboardType_ =
