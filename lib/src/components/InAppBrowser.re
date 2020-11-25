@@ -17,16 +17,7 @@ module Icon = {
     <ReactNative.TouchableOpacity
       onPress
       disabled
-      style={RN.StyleSheet.flatten([|
-        Style.style(
-          ~padding=Style.dp(4.0),
-          ~paddingHorizontal=Style.dp(10.0),
-          ~alignItems=`center,
-          ~justifyContent=`center,
-          (),
-        ),
-        style,
-      |])}>
+      style={RN.StyleSheet.flatten([|theme##inAppBrowser##icon, style|])}>
       <Icon
         key=icon
         icon

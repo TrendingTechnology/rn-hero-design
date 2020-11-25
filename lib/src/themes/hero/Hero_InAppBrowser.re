@@ -9,9 +9,17 @@ let _ACTIVE_ICON_COLOR = _WHITE;
 let _INACTIVE_ICON_COLOR = _GREY_3;
 
 let styles: Js.t('a) = {
-  "wrapper": style(~backgroundColor=_PRIMARY_COLOR, ()),
+  "wrapper": style(~backgroundColor=_HEADER_BACKGROUND_COLOR, ()),
   "activeIcon": style(~color=_ACTIVE_ICON_COLOR, ()),
   "inactiveIcon": style(~color=_INACTIVE_ICON_COLOR, ()),
+  "icon":
+    style(
+      ~padding=_SMALL_SIZE,
+      ~paddingHorizontal=_MEDIUM_SIZE,
+      ~alignItems=`center,
+      ~justifyContent=`center,
+      (),
+    ),
   "headerBar":
     style(
       ~height=44.0->dp,
