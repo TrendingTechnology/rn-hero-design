@@ -3,6 +3,7 @@ open ReactNative.Style;
 let _HEADER_BACKGROUND_COLOR = Hero_Variables._DARK_PRIMARY_COLOR;
 let _SMALL_SIZE = Hero_Variables._SMALL_SIZE->dp;
 let _MEDIUM_SIZE = Hero_Variables._MEDIUM_SIZE->dp;
+let _TEXT_COLOR = Hero_Variables._WHITE;
 
 let styles: Js.t('a) = {
   "wrapper": style(),
@@ -24,8 +25,17 @@ let styles: Js.t('a) = {
       ~justifyContent=`center,
       (),
     ),
+  "headerBarLeftButtonText": style(~color=_TEXT_COLOR, ()),
   "headerBarRightButton":
     style(~width=80.0->dp, ~flexDirection=`rowReverse, ()),
+  "bottomBar":
+    style(
+      ~height=44.0->dp,
+      ~flexDirection=`row,
+      ~justifyContent=`spaceBetween,
+      ~paddingHorizontal=_MEDIUM_SIZE,
+      (),
+    ),
 };
 
 let default: Js.t('a) = ReactNative.StyleSheet.create(styles);

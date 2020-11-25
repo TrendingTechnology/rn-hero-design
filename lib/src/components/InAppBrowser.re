@@ -6,7 +6,6 @@ module Style = RN.Style;
 let _PRIMARY_COLOR = Hero_Variables._DARK_PRIMARY_COLOR;
 let _TEXT_COLOR = Hero_Variables._WHITE;
 let _DISABLED_TEXT_COLOR = Hero_Variables._DISABLED_BACKGROUND_COLOR;
-
 module Icon = {
   [@react.component]
   let make = (~icon, ~onPress, ~disabled=false, ~style: Style.t=Style.style()) => {
@@ -46,16 +45,7 @@ module BottomBar = {
         ~onPressOpenByBrowser,
         ~theme=Hero_Theme.default,
       ) => {
-    <ReactNative.View
-      style={RN.StyleSheet.flatten([|
-        Style.style(
-          ~height=44.0->Style.dp,
-          ~flexDirection=`row,
-          ~justifyContent=`spaceBetween,
-          ~paddingHorizontal=Style.dp(10.0),
-          (),
-        ),
-      |])}>
+    <ReactNative.View style=theme##inAppBrowser##bottomBar>
       <Icon
         icon="single-left-outline"
         onPress=onPressBack
@@ -79,7 +69,9 @@ module HeaderBar = {
     <ReactNative.View style=theme##inAppBrowser##headerBar>
       <ReactNative.TouchableOpacity
         onPress=onPressCancel style={theme##inAppBrowser##headerBarLeftButton}>
-        <Text size="h4" color=theme##text##color> "Cancel" </Text>
+        <Text size="h4" style=theme##inAppBrowser##headerBarLeftButtonText>
+          "Cancel"
+        </Text>
       </ReactNative.TouchableOpacity>
       <ReactNative.View style={theme##inAppBrowser##headerTitle}>
         <Text size="h4" style=theme##inAppBrowser##headerTitleText>
@@ -151,7 +143,7 @@ let make =
       switch (onPressShare) {
       | Some((callback: string => unit)) => callback(url)
       | None =>
-        RN.Share.share(ReactNative.Share.content(~url, ()));
+        let _ = RN.Share.share(ReactNative.Share.content(~url, ()));
         ();
       };
 
@@ -163,7 +155,7 @@ let make =
       switch (onPressShare) {
       | Some((callback: string => unit)) => callback(url)
       | None =>
-        RN.Linking.openURL(url);
+        let _ = RN.Linking.openURL(url);
         ();
       };
 
