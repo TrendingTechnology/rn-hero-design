@@ -424,6 +424,56 @@ Object {
       "color": "#000000",
     },
   },
+  "inAppBrowser": Object {
+    "activeIcon": Object {
+      "color": "#fcfcfc",
+    },
+    "bottomBar": Object {
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "space-between",
+      "paddingHorizontal": 16.25,
+    },
+    "headerBar": Object {
+      "backgroundColor": "#003580",
+      "flexDirection": "row",
+      "height": 44,
+      "justifyContent": "space-between",
+      "paddingHorizontal": 16.25,
+    },
+    "headerBarLeftButton": Object {
+      "justifyContent": "center",
+      "paddingLeft": 8.125,
+      "width": 80,
+    },
+    "headerBarLeftButtonText": Object {
+      "color": "#fcfcfc",
+    },
+    "headerBarRightButton": Object {
+      "flexDirection": "row-reverse",
+      "width": 80,
+    },
+    "headerTitle": Object {
+      "flex": 1,
+      "justifyContent": "center",
+    },
+    "headerTitleText": Object {
+      "color": "#fcfcfc",
+      "textAlign": "center",
+    },
+    "icon": Object {
+      "alignItems": "center",
+      "justifyContent": "center",
+      "padding": 8.125,
+      "paddingHorizontal": 16.25,
+    },
+    "inactiveIcon": Object {
+      "color": "#a3a6ac",
+    },
+    "wrapper": Object {
+      "backgroundColor": "#003580",
+    },
+  },
   "listItem": Object {
     "contentWrapper": Object {
       "alignItems": "center",
