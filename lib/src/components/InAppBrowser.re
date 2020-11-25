@@ -1,14 +1,19 @@
 open React;
-open Hero_Variables;
 module RN = ReactNative;
 module Style = RN.Style;
 
-let _PRIMARY_COLOR = Hero_Variables._DARK_PRIMARY_COLOR;
-let _TEXT_COLOR = Hero_Variables._WHITE;
-let _DISABLED_TEXT_COLOR = Hero_Variables._DISABLED_BACKGROUND_COLOR;
+[@bs.get] external getColorProperty: Style.t => RN.Color.t = "color";
+
 module Icon = {
   [@react.component]
-  let make = (~icon, ~onPress, ~disabled=false, ~style: Style.t=Style.style()) => {
+  let make =
+      (
+        ~icon,
+        ~onPress,
+        ~disabled=false,
+        ~style: Style.t=Style.style(),
+        ~theme=Hero_Theme.default,
+      ) => {
     <ReactNative.TouchableOpacity
       onPress
       disabled
@@ -26,7 +31,11 @@ module Icon = {
         key=icon
         icon
         size=20.0
-        color={disabled ? _GREY_3 : _WHITE}
+        color={
+          disabled
+            ? theme##inAppBrowser##inactiveIcon->getColorProperty
+            : theme##inAppBrowser##activeIcon->getColorProperty
+        }
         wrapperStyle={Style.style(~opacity=disabled ? 0.5 : 1.0, ())}
       />
     </ReactNative.TouchableOpacity>;
@@ -177,10 +186,7 @@ let make =
 
   <RNSafeAreaView
     forceInset={"bottom": "always"}
-    style={RN.StyleSheet.flatten([|
-      Style.style(~backgroundColor=_PRIMARY_COLOR, ()),
-      style,
-    |])}>
+    style={RN.StyleSheet.flatten([|theme##inAppBrowser##wrapper, style|])}>
     {showHeader
        ? <HeaderBar title onPressCancel=_onPressCancel onPressReload theme />
        : <RN.View />}

@@ -1,12 +1,17 @@
 open ReactNative.Style;
+open Hero_Variables;
 
-let _HEADER_BACKGROUND_COLOR = Hero_Variables._DARK_PRIMARY_COLOR;
-let _SMALL_SIZE = Hero_Variables._SMALL_SIZE->dp;
-let _MEDIUM_SIZE = Hero_Variables._MEDIUM_SIZE->dp;
-let _TEXT_COLOR = Hero_Variables._WHITE;
+let _HEADER_BACKGROUND_COLOR = _DARK_PRIMARY_COLOR;
+let _SMALL_SIZE = _SMALL_SIZE->dp;
+let _MEDIUM_SIZE = _MEDIUM_SIZE->dp;
+let _TEXT_COLOR = _WHITE;
+let _ACTIVE_ICON_COLOR = _WHITE;
+let _INACTIVE_ICON_COLOR = _GREY_3;
 
 let styles: Js.t('a) = {
-  "wrapper": style(),
+  "wrapper": style(~backgroundColor=_PRIMARY_COLOR, ()),
+  "activeIcon": style(~color=_ACTIVE_ICON_COLOR, ()),
+  "inactiveIcon": style(~color=_INACTIVE_ICON_COLOR, ()),
   "headerBar":
     style(
       ~height=44.0->dp,
