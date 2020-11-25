@@ -21,4 +21,5 @@ let default = {
   "buttonGroup": Legacy_ButtonGroup.default,
   "errorScreen": Legacy_ErrorScreen.default,
   "badge": Legacy_Badge.default,
+  "inAppBrowser": Legacy_InAppBrowser.default,
 };
