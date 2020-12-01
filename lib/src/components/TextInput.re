@@ -23,6 +23,14 @@ type keyboardType = [
   | [@bs.as "visible-password"] `visiblePassword
 ];
 
+[@bs.deriving jsConverter]
+type autoCapitalize = [
+  | `none
+  | `sentences
+  | `words
+  | `characters
+];
+
 [@bs.get] external getColorProperty: Style.t => Color.t = "color";
 
 [@react.component]
@@ -32,6 +40,7 @@ let make =
       ~label="",
       ~placeholder="",
       ~keyboardType: option(string)=?,
+      ~autoCapitalize: option(string)=?,
       ~defaultValue=?,
       ~value=?,
       ~onChange=noop,
@@ -80,6 +89,11 @@ let make =
     keyboardType
     ->Belt.Option.flatMap(keyboardTypeFromJs)
     ->Belt.Option.getWithDefault(`default);
+
+  let autoCapitalize_ =
+    autoCapitalize
+    ->Belt.Option.flatMap(autoCapitalizeFromJs)
+    ->Belt.Option.getWithDefault(`sentences);
 
   let handleFocus =
     React.useCallback2(
@@ -135,6 +149,7 @@ let make =
         testID
         placeholder=placeholder_
         keyboardType=keyboardType_
+        autoCapitalize=autoCapitalize_
         ?defaultValue
         ?value
         onChange

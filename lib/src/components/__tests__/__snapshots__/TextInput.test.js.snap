@@ -34,6 +34,7 @@ exports[`TextInput renders correctly 1`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoCapitalize="sentences"
       autoCorrect={false}
       autoFocus={false}
       editable={true}
@@ -123,6 +124,7 @@ exports[`TextInput renders correctly 2`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoCapitalize="sentences"
       autoCorrect={false}
       autoFocus={false}
       editable={true}
@@ -212,6 +214,7 @@ exports[`TextInput renders correctly 3`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoCapitalize="sentences"
       autoCorrect={false}
       autoFocus={false}
       editable={true}
@@ -338,6 +341,7 @@ exports[`TextInput renders correctly 4`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoCapitalize="sentences"
       autoCorrect={false}
       autoFocus={false}
       editable={false}
@@ -464,6 +468,7 @@ exports[`TextInput renders correctly 5`] = `
   >
     <TextInput
       allowFontScaling={true}
+      autoCapitalize="sentences"
       autoCorrect={false}
       autoFocus={false}
       editable={false}
