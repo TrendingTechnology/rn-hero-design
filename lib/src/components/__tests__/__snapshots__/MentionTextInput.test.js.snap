@@ -58,7 +58,7 @@ exports[`MentionTextInput Snapshot renders correctly 1`] = `
         >
           <TextInput
             allowFontScaling={true}
-            autoCapitalize="none"
+            autoCapitalize="sentences"
             autoCorrect={true}
             autoFocus={false}
             editable={true}
@@ -191,7 +191,7 @@ exports[`MentionTextInput Snapshot renders correctly 2`] = `
         >
           <TextInput
             allowFontScaling={true}
-            autoCapitalize="none"
+            autoCapitalize="sentences"
             autoCorrect={true}
             autoFocus={false}
             editable={false}

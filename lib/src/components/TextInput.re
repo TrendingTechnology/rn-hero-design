@@ -93,7 +93,7 @@ let make =
   let autoCapitalize_ =
     autoCapitalize
     ->Belt.Option.flatMap(autoCapitalizeFromJs)
-    ->Belt.Option.getWithDefault(`none);
+    ->Belt.Option.getWithDefault(`sentences);
 
   let handleFocus =
     React.useCallback2(
