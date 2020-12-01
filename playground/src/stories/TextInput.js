@@ -20,6 +20,7 @@ const TextInputScreen = ({ theme }) => (
         defaultValue="gia.toan@employmenthero.com"
         rightIcon="email-outline"
         onChange={console.log}
+        autoCapitalize="characters"
       />
 
       <TextInput
