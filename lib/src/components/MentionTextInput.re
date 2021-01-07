@@ -161,6 +161,8 @@ let make =
       ~placeholder,
       ~value: message,
       ~onChange: message => unit,
+      ~onFocus,
+      ~onBlur,
       ~renderSuggestionList,
       ~rightIcon,
       ~disabled,
@@ -358,6 +360,8 @@ let make =
       autoFocus
       multiline=true
       autoCorrect=true
+      onFocus
+      onBlur
       onKeyPress=handleKeyPress
       onChangeText=handleChangeText
       onSelectionChange=handleSelectionChange

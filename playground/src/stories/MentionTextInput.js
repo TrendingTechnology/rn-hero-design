@@ -78,6 +78,8 @@ const MentionTextInputScreen = ({ theme }) => {
             value={value}
             autoFocus
             onChange={(value) => setValue(value)}
+            onFocus={() => console.log('On focus')}
+            onBlur={() => console.log('On blur')}
             renderSuggestionList={(searchValue, onSelect) => (
               <SuggestionList searchValue={searchValue} onSelect={onSelect} />
             )}
