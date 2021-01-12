@@ -15,6 +15,7 @@ const filledIcons = [
   'globe',
   'suitcase',
   'level',
+  'user',
 
   'more-vertical',
   'radio-active',
@@ -35,6 +36,7 @@ const outlinedIcons = [
   'globe-outline',
   'suitcase-outline',
   'level-outline',
+  'user-outline',
 
   'plus-outline',
   'cancel-outline',
