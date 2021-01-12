@@ -4,6 +4,8 @@ let emptyStyle = RN.Style.style();
 
 let castArray: 't => array('t) = value => [|value|];
 
+let isEmptyString = string_ => String.length(string_) == 0;
+
 let arrayInsertAt = (~pos, ~value, array_) =>
   Js.Array.(
     value
@@ -194,14 +196,20 @@ let make =
   );
 
   let handleChange = () => {
-    let eventKey = eventKey^;
-    let eventText = eventText^;
-    let eventSelection = eventSelection^;
-
-    switch (eventKey, eventText, eventSelection) {
+    switch (eventKey^, eventText^, eventSelection^) {
     | (None, None, Some(selection)) =>
       setShowSuggestions(_ => false);
       previousSelection.current = selection;
+
+    /*
+     * if user presses Backspace when the value is empty already, handleChange
+     * will be called with the Backspace key, lead to wrong calculation.
+     * Detect this case and reset eventKey to None
+     */
+    | (Some("Backspace"), None, None) =>
+      if (valueText.current->isEmptyString) {
+        eventKey := None;
+      }
 
     | (Some(key), Some(text), Some(selection)) =>
       let valueText_ = valueText.current;

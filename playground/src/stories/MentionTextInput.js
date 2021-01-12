@@ -1,5 +1,11 @@
 import React from 'react';
-import { View, FlatList, ScrollView, TouchableOpacity } from 'react-native';
+import {
+  View,
+  FlatList,
+  ScrollView,
+  TouchableOpacity,
+  YellowBox,
+} from 'react-native';
 import {
   Text,
   Container,
@@ -39,6 +45,11 @@ const getAcronym = (string) => string.match(/\b\w/g).join('');
 
 const MentionTextInputScreen = ({ theme }) => {
   const [value, setValue] = React.useState([]);
+
+  // https://stackoverflow.com/questions/58243680/react-native-another-virtualizedlist-backed-container
+  React.useEffect(() => {
+    YellowBox.ignoreWarnings(['VirtualizedLists should never be nested']);
+  }, []);
 
   return (
     <>
