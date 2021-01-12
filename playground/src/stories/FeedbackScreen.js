@@ -1,19 +1,19 @@
 import React from 'react';
 import {
   View,
-  FlatList,
   ScrollView,
+  FlatList,
+  Image,
   TouchableOpacity,
   YellowBox,
 } from 'react-native';
 import {
   Text,
   Container,
-  ListItem,
   Avatar,
   TextInput,
-  MentionTextInput,
   KeyboardAvoidingView,
+  MentionTextInput,
   BottomButton,
   Icon,
   injectTheme,
@@ -44,7 +44,7 @@ const isEmpty = (message) => !message.map((block) => block.text).join();
 
 const getAcronym = (string) => string.match(/\b\w/g).join('');
 
-const MentionTextInputScreen = ({ theme }) => {
+const FeedbackScreen = ({ theme }) => {
   const [value, setValue] = React.useState([]);
   const [isDirty, setIsDirty] = React.useState(false);
 
@@ -55,30 +55,27 @@ const MentionTextInputScreen = ({ theme }) => {
 
   return (
     <>
-      <KeyboardAvoidingView
-        withNavigation
-        style={{ flex: 1, backgroundColor: theme.variables.BACKGROUND_COLOR }}>
+      <KeyboardAvoidingView withNavigation style={{ flex: 1 }}>
         <ScrollView
           keyboardShouldPersistTaps="handled"
           contentContainerStyle={{ padding: theme.variables.MEDIUM_SIZE }}>
-          <ListItem
-            title="Toan Nguyen"
-            subtitle="YOLO"
-            leftElement={
-              <Avatar
-                size="medium"
-                title="TN"
-                wrapperStyle={{ marginRight: theme.variables.MEDIUM_SIZE }}
+          <TouchableOpacity onPress={noop}>
+            <View pointerEvents="none">
+              <TextInput
+                rightIcon="user-outline"
+                placeholder="Who is this feedback for?"
+                value=""
+                onChangeText={noop}
+                errorStyle={{ display: 'none' }}
               />
-            }
-            wrapperStyle={{ paddingHorizontal: 0, borderBottomWidth: 0 }}
-          />
+            </View>
+          </TouchableOpacity>
 
           <TouchableOpacity onPress={noop}>
             <View pointerEvents="none">
               <TextInput
                 rightIcon="eye-outline"
-                value="Share to everyone"
+                value="Share with Recipient's Managers"
                 onChangeText={noop}
                 errorStyle={{ display: 'none' }}
               />
@@ -86,7 +83,7 @@ const MentionTextInputScreen = ({ theme }) => {
           </TouchableOpacity>
 
           <MentionTextInput
-            placeholder="Has someone brightened up your day? Type @ to give them a Shout Out!"
+            placeholder="Your feedback"
             rightIcon="comment-outline"
             value={value}
             autoFocus
@@ -95,14 +92,33 @@ const MentionTextInputScreen = ({ theme }) => {
               setValue(value);
               setIsDirty(true);
             }}
-            onFocus={() => console.log('On focus')}
-            onBlur={() => console.log('On blur')}
             renderSuggestionList={(searchValue, onSelect) => (
               <SuggestionList searchValue={searchValue} onSelect={onSelect} />
             )}
           />
 
-          <Icon icon="paperclip" size={20} />
+          <View
+            style={{
+              flexDirection: 'row',
+              marginBottom: theme.variables.MEDIUM_SIZE,
+            }}>
+            <Icon
+              icon="paperclip"
+              size={20}
+              wrapperStyle={{ marginRight: theme.variables.MEDIUM_SIZE }}
+            />
+            <Icon icon="camera-outline" size={20} />
+          </View>
+
+          <Image
+            source={{ uri: attachment1 }}
+            resizeMode="cover"
+            style={{
+              height: 300,
+              marginBottom: theme.variables.MEDIUM_SIZE,
+              borderRadius: theme.variables.SMALL_SIZE,
+            }}
+          />
         </ScrollView>
       </KeyboardAvoidingView>
 
@@ -177,4 +193,7 @@ const SuggestionItem = injectTheme(({ name, job, avatar, onPress, theme }) => (
   </TouchableOpacity>
 ));
 
-export default injectTheme(MentionTextInputScreen);
+const attachment1 =
+  'https://c.files.bbci.co.uk/1FFA/production/_92468180_hi036228060-ap.jpg';
+
+export default injectTheme(FeedbackScreen);

@@ -26,6 +26,7 @@ import BadgeScreen from './Badge';
 import LoginScreen from './LoginScreen';
 import ProfileScreen from './ProfileScreen';
 import LeaveRequestScreen from './LeaveRequestScreen';
+import FeedbackScreen from './FeedbackScreen';
 
 const heroTheme = themeManager.getTheme();
 
@@ -144,7 +145,21 @@ export default {
     screen: LeaveRequestScreen,
     badge: 'Demo',
     options: {
-      title: 'Leave Request',
+      title: 'Leave request',
+      headerStyle: {
+        backgroundColor: heroTheme.variables.FOCUS_BLUE_1,
+        borderBottomWidth: 0,
+      },
+      headerTitleStyle: {
+        color: heroTheme.variables.WHITE,
+      },
+    },
+  },
+  FeedbackScreen: {
+    screen: FeedbackScreen,
+    badge: 'Demo',
+    options: {
+      title: 'Share some feedback',
       headerStyle: {
         backgroundColor: heroTheme.variables.FOCUS_BLUE_1,
         borderBottomWidth: 0,

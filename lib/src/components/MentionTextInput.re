@@ -1,8 +1,11 @@
 module RN = ReactNative;
+open RN.Style;
 
-let emptyStyle = RN.Style.style();
+let emptyStyle = style();
 
 let castArray: 't => array('t) = value => [|value|];
+
+let isEmptyString = string_ => String.length(string_) == 0;
 
 let arrayInsertAt = (~pos, ~value, array_) =>
   Js.Array.(
@@ -166,6 +169,7 @@ let make =
       ~renderSuggestionList,
       ~rightIcon,
       ~disabled,
+      ~error="",
       ~autoFocus,
       ~theme=Hero_Theme.default,
     ) => {
@@ -194,14 +198,20 @@ let make =
   );
 
   let handleChange = () => {
-    let eventKey = eventKey^;
-    let eventText = eventText^;
-    let eventSelection = eventSelection^;
-
-    switch (eventKey, eventText, eventSelection) {
+    switch (eventKey^, eventText^, eventSelection^) {
     | (None, None, Some(selection)) =>
       setShowSuggestions(_ => false);
       previousSelection.current = selection;
+
+    /*
+     * if user presses Backspace when the value is empty already, handleChange
+     * will be called with the Backspace key, lead to wrong calculation.
+     * Detect this case and reset eventKey to None
+     */
+    | (Some("Backspace"), None, None) =>
+      if (valueText.current->isEmptyString) {
+        eventKey := None;
+      }
 
     | (Some(key), Some(text), Some(selection)) =>
       let valueText_ = valueText.current;
@@ -357,6 +367,7 @@ let make =
       keyboardType="default"
       rightIcon
       disabled
+      error
       autoFocus
       multiline=true
       autoCorrect=true
@@ -365,8 +376,10 @@ let make =
       onKeyPress=handleKeyPress
       onChangeText=handleChangeText
       onSelectionChange=handleSelectionChange
-      errorStyle=RN.Style.(style(~display=`none, ()))
-      wrapperStyle=RN.Style.(style(~marginBottom=0.0->dp, ()))>
+      errorStyle={
+        isEmptyString(error) ? style(~display=`none, ()) : emptyStyle
+      }
+      wrapperStyle={style(~marginBottom=0.0->dp, ())}>
       <RN.Text
         style={RN.StyleSheet.flatten([|
           theme##mentionTextInput##text,
