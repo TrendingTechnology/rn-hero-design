@@ -15,6 +15,7 @@ import {
   MentionTextInput,
   KeyboardAvoidingView,
   BottomButton,
+  Icon,
   injectTheme,
 } from 'rn-hero-design';
 
@@ -39,12 +40,13 @@ const suggestionData = [
 
 const noop = () => {};
 
-const isEmpty = (array) => array.length === 0;
+const isEmpty = (message) => !message.map((block) => block.text).join();
 
 const getAcronym = (string) => string.match(/\b\w/g).join('');
 
 const MentionTextInputScreen = ({ theme }) => {
   const [value, setValue] = React.useState([]);
+  const [isDirty, setIsDirty] = React.useState(false);
 
   // https://stackoverflow.com/questions/58243680/react-native-another-virtualizedlist-backed-container
   React.useEffect(() => {
@@ -88,13 +90,19 @@ const MentionTextInputScreen = ({ theme }) => {
             rightIcon="comment-outline"
             value={value}
             autoFocus
-            onChange={(value) => setValue(value)}
+            error={isEmpty(value) && isDirty ? "Message can't be blank" : ''}
+            onChange={(value) => {
+              setValue(value);
+              setIsDirty(true);
+            }}
             onFocus={() => console.log('On focus')}
             onBlur={() => console.log('On blur')}
             renderSuggestionList={(searchValue, onSelect) => (
               <SuggestionList searchValue={searchValue} onSelect={onSelect} />
             )}
           />
+
+          <Icon icon="paperclip" />
         </ScrollView>
       </KeyboardAvoidingView>
 
