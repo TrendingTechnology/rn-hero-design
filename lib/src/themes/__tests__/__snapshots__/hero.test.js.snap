@@ -553,6 +553,18 @@ Object {
       "fontSize": 16.25,
       "padding": 16.25,
     },
+    "errorMessage": Object {
+      "color": "#fe56aa",
+      "fontFamily": "Proxima Nova",
+      "fontSize": 13.487499999999999,
+      "fontWeight": "500",
+      "lineHeight": 13.487499999999999,
+      "marginTop": 8.125,
+      "minHeight": 13.487499999999999,
+    },
+    "errorWebview": Object {
+      "borderBottomColor": "#fe56aa",
+    },
     "separator": Object {
       "borderRightColor": "#d9dbdf",
       "borderRightWidth": 1,
@@ -576,11 +588,11 @@ Object {
     },
     "webview": Object {
       "backgroundColor": "transparent",
+      "borderBottomColor": "#d9dbdf",
+      "borderBottomWidth": 0.8,
       "minHeight": 120,
     },
     "wrapper": Object {
-      "borderBottomColor": "#d9dbdf",
-      "borderBottomWidth": 0.8,
       "marginBottom": 16.25,
     },
   },

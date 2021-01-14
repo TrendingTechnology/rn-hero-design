@@ -20,6 +20,8 @@ const filledIcons = [
   'more-vertical',
   'radio-active',
   'radio-inactive',
+  'multiple-stars',
+  'multiple-users',
 ];
 
 const outlinedIcons = [

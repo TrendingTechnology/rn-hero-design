@@ -24,12 +24,7 @@ type keyboardType = [
 ];
 
 [@bs.deriving jsConverter]
-type autoCapitalize = [
-  | `none
-  | `sentences
-  | `words
-  | `characters
-];
+type autoCapitalize = [ | `none | `sentences | `words | `characters];
 
 [@bs.get] external getColorProperty: Style.t => Color.t = "color";
 
@@ -91,8 +86,7 @@ let make =
     ->Belt.Option.getWithDefault(`default);
 
   let autoCapitalize_ =
-    autoCapitalize
-    ->Belt.Option.flatMap(autoCapitalizeFromJs)
+    autoCapitalize->Belt.Option.flatMap(autoCapitalizeFromJs);
 
   let handleFocus =
     React.useCallback2(

@@ -82,6 +82,10 @@ external suitcaseOutline: string = "default";
 external levelOutline: string = "default";
 [@bs.module "../icons/user"] external user: string = "default";
 [@bs.module "../icons/user-outline"] external userOutline: string = "default";
+[@bs.module "../icons/multiple-stars"]
+external multipleStars: string = "default";
+[@bs.module "../icons/multiple-users"]
+external multipleUsers: string = "default";
 
 [@bs.module "../icons/format_bold"] external formatBold: string = "default";
 [@bs.module "../icons/format_italic"]
@@ -92,6 +96,8 @@ external formatUnderlined: string = "default";
 external formatListBulleted: string = "default";
 [@bs.module "../icons/format_list_numbered"]
 external formatListNumbered: string = "default";
+[@bs.module "../icons/looks_one"] external looksOne: string = "default";
+[@bs.module "../icons/looks_two"] external looksTwo: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -131,6 +137,8 @@ let xmlFromIcon = icon =>
   | "format_underlined" => Some(formatUnderlined)
   | "format_list_numbered" => Some(formatListNumbered)
   | "format_list_bulleted" => Some(formatListBulleted)
+  | "looks_one" => Some(looksOne)
+  | "looks_two" => Some(looksTwo)
   | "plus-circle" => Some(plusCircle)
   | "cancel-circle" => Some(cancelCircle)
   | "cancel-circle-outline" => Some(cancelCircleOutline)
@@ -147,6 +155,8 @@ let xmlFromIcon = icon =>
   | "level-outline" => Some(levelOutline)
   | "user" => Some(user)
   | "user-outline" => Some(userOutline)
+  | "multiple-stars" => Some(multipleStars)
+  | "multiple-users" => Some(multipleUsers)
   | _ => None
   };
 

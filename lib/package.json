@@ -1,6 +1,6 @@
 {
   "name": "rn-hero-design",
-  "version": "3.2.10",
+  "version": "3.3.0",
   "description": "",
   "main": "lib.js",
   "scripts": {
@@ -38,7 +38,7 @@
   },
   "dependencies": {
     "events": "^3.2.0",
-    "hero-editor": "1.6.0",
+    "hero-editor": "1.8.3",
     "react-native-safe-area-view": "0.14.8"
   }
 }

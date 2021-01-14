@@ -11,16 +11,20 @@ let _EDITOR_FONT_SIZE = _HEADER_4;
 let _EDITOR_PADDING = _MEDIUM_SIZE;
 let _EDITOR_MARGIN = _MEDIUM_SIZE;
 let _EDITOR_BORDER_COLOR = _BORDER_COLOR;
+let _ERROR_FONT_SIZE = _HEADER_5;
+let _ERROR_MARGIN_VERTICAL = _SMALL_SIZE;
+let _ERROR_COLOR = _DANGER_COLOR;
 
 let styles: Js.t('a) = {
-  "wrapper":
+  "wrapper": style(~marginBottom=_EDITOR_MARGIN->dp, ()),
+  "webview":
     style(
-      ~marginBottom=_EDITOR_MARGIN->dp,
+      ~minHeight=120.0->dp,
+      ~backgroundColor="transparent",
       ~borderBottomWidth=0.8,
       ~borderBottomColor=_EDITOR_BORDER_COLOR,
       (),
     ),
-  "webview": style(~minHeight=120.0->dp, ~backgroundColor="transparent", ()),
   "editor":
     style(~padding=_EDITOR_PADDING->dp, ~fontSize=_EDITOR_FONT_SIZE, ()),
   "suggestionList": style(),
@@ -50,6 +54,18 @@ let styles: Js.t('a) = {
       ~borderRightColor=_SEPARATOR_COLOR,
       (),
     ),
+  "errorMessage":
+    style(
+      ~minHeight=_ERROR_FONT_SIZE->dp,
+      ~lineHeight=_ERROR_FONT_SIZE,
+      ~marginTop=_ERROR_MARGIN_VERTICAL->dp,
+      ~fontFamily=?_FONT_FAMILY,
+      ~fontSize=_ERROR_FONT_SIZE,
+      ~fontWeight=`_500,
+      ~color=_ERROR_COLOR,
+      (),
+    ),
+  "errorWebview": style(~borderBottomColor=_ERROR_COLOR, ()),
 };
 
 let default: Js.t('a) = ReactNative.StyleSheet.create(styles);

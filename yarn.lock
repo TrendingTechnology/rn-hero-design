@@ -3354,10 +3354,10 @@ hermes-profile-transformer@^0.0.6:
   dependencies:
     source-map "^0.7.3"
 
-hero-editor@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.npmjs.org/hero-editor/-/hero-editor-1.6.0.tgz#d7a590843ec0313948d9ed8000b97fb1a64a7968"
-  integrity sha512-PunsUX4tkBBvZmpI7yeYReVsZ/szXfyiF+hubA7MQpiGxcd+QqDSnt0Zdq+/BTkRZz3Vfo3cWK+EUf74yoRhQA==
+hero-editor@1.8.3:
+  version "1.8.3"
+  resolved "https://registry.npmjs.org/hero-editor/-/hero-editor-1.8.3.tgz#3bf3529da4181e66d180cc0509dcb3a751807240"
+  integrity sha512-M6p35UEVnUfXfjfGeQ7taY4XGuoXnN4/phX1moB0NVApsjbq2d9QRLnxkkuO+VI69UQmSGle+oHm/xAlMlAJQg==
   dependencies:
     is-url "^1.2.4"
     slate "^0.58.3"
