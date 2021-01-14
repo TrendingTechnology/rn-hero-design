@@ -21,9 +21,9 @@ import heroTheme from 'rn-hero-design/src/themes/hero/Hero_Variables.bs';
 
 const noop = () => {};
 
-const isEmpty = array => array.length === 0;
+const isEmpty = (array) => array.length === 0;
 
-const getAcronym = string => string.match(/\b\w/g).join('');
+const getAcronym = (string) => string.match(/\b\w/g).join('');
 
 const RichTextEditorScreen = ({ theme }) => {
   const scrollView = React.useRef(null);
@@ -36,14 +36,13 @@ const RichTextEditorScreen = ({ theme }) => {
       <ScrollView
         ref={scrollView}
         scrollEventThrottle={100}
-        onScroll={event => {
+        onScroll={(event) => {
           contentOffset.current = event.nativeEvent.contentOffset;
         }}
-        onLayout={event => {
+        onLayout={(event) => {
           scrollLayout.current = event.nativeEvent.layout;
         }}
-        contentContainerStyle={{ padding: theme.variables.MEDIUM_SIZE }}
-      >
+        contentContainerStyle={{ padding: theme.variables.MEDIUM_SIZE }}>
         <ListItem
           title="Toan Nguyen"
           leftElement={
@@ -73,10 +72,9 @@ const RichTextEditorScreen = ({ theme }) => {
         </TouchableOpacity>
 
         <View
-          onLayout={event => {
+          onLayout={(event) => {
             editorLayout.current = event.nativeEvent.layout;
-          }}
-        >
+          }}>
           <RichTextEditor
             name="test"
             placeholder="Has someone brightened up your day? Type @ to give them a Shout Out!"
@@ -106,21 +104,12 @@ const RichTextEditorScreen = ({ theme }) => {
                 }
               }
             }}
+            error=""
           />
         </View>
 
         <Image
           source={{ uri: attachment1 }}
-          resizeMode="cover"
-          style={{
-            height: 300,
-            marginBottom: theme.variables.MEDIUM_SIZE,
-            borderRadius: theme.variables.SMALL_SIZE,
-          }}
-        />
-
-        <Image
-          source={{ uri: attachment2 }}
           resizeMode="cover"
           style={{
             height: 300,
@@ -157,8 +146,7 @@ const SuggestionList = injectTheme(({ searchValue, onSelect, theme }) => {
           paddingVertical: 0,
           borderTopWidth: StyleSheet.hairlineWidth,
           borderTopColor: theme.variables.BORDER_COLOR,
-        }}
-      >
+        }}>
         <Text weight="500">No result 😕</Text>
       </Container>
     );
@@ -168,7 +156,7 @@ const SuggestionList = injectTheme(({ searchValue, onSelect, theme }) => {
     <FlatList
       keyboardShouldPersistTaps="handled"
       data={searchResult}
-      keyExtractor={item => item.id}
+      keyExtractor={(item) => item.id}
       renderItem={({ item: { id, name, job, avatar } }) => (
         <SuggestionItem
           name={name}
@@ -190,8 +178,7 @@ const SuggestionItem = injectTheme(({ name, job, avatar, onPress, theme }) => (
         paddingVertical: theme.variables.SMALL_SIZE,
         borderTopWidth: StyleSheet.hairlineWidth,
         borderTopColor: theme.variables.BORDER_COLOR,
-      }}
-    >
+      }}>
       <Avatar
         size="small"
         title={getAcronym(name)}
@@ -228,10 +215,7 @@ const suggestionData = [
 ];
 
 const attachment1 =
-  'https://www.nintendo.com/content/dam/noa/en_US/games/switch/s/super-mario-maker-2-switch/super-mario-maker-2-switch-hero.jpg';
-
-const attachment2 =
-  'https://www.nintendo.com/content/dam/noa/en_US/games/switch/n/new-super-mario-bros-u-deluxe-switch/new-super-mario-bros-u-deluxe-switch-hero.jpg';
+  'https://cloudfront-us-east-1.images.arcpublishing.com/advancelocal/5DVE7PTGCJEELJODUZJT3MW3IQ.jpg';
 
 RichTextEditorScreen.navigationOptions = {
   title: 'New Announcement',

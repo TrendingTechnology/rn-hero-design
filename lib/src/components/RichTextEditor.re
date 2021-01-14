@@ -23,6 +23,8 @@ let emitter = RichTextEditor__Event.emitter;
 
 let noop = _ => ();
 
+let isEmpty = str => String.length(str) == 0;
+
 let emptyStyle = Style.style();
 
 let defaultValue =
@@ -38,8 +40,10 @@ let make =
       ~initialValue: Js.Json.t=defaultValue,
       ~onChange=noop,
       ~onCursorChange=noop,
+      ~error="",
       ~style=emptyStyle,
       ~wrapperStyle=emptyStyle,
+      ~errorStyle=emptyStyle,
       ~theme=Hero_Theme.default,
     ) => {
   module Option = Belt.Option;
@@ -249,10 +253,20 @@ let make =
       keyboardDisplayRequiresUserAction=false
       style={StyleSheet.flatten([|
         theme##richTextEditor##webview,
+        !isEmpty(error) ? theme##richTextEditor##errorWebview : emptyStyle,
         Style.style(~height=?webviewHeight, ()),
         style,
       |])}
     />
+    {!isEmpty(error)
+       ? <Text
+           style={StyleSheet.flatten([|
+             theme##textInput##errorMessage,
+             errorStyle,
+           |])}>
+           error->React.string
+         </Text>
+       : React.null}
   </View>;
 };
 
