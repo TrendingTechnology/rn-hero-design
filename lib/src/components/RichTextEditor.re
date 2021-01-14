@@ -150,6 +150,26 @@ let make =
         )
       );
 
+    let removeHeadingOneListener =
+      Events.on'(emitter, normalizeEventName("heading-one"), _ =>
+        postMessageToWebview(
+          RNWebView.message(
+            ~type_="@hero-editor/webview/heading-one",
+            ~data=Json.null,
+          ),
+        )
+      );
+
+    let removeHeadingTwoListener =
+      Events.on'(emitter, normalizeEventName("heading-two"), _ =>
+        postMessageToWebview(
+          RNWebView.message(
+            ~type_="@hero-editor/webview/heading-two",
+            ~data=Json.null,
+          ),
+        )
+      );
+
     let removeMentionApplyListener =
       Events.on'(emitter, normalizeEventName("mention-apply"), data =>
         postMessageToWebview(
@@ -168,6 +188,8 @@ let make =
         removeBulletedListListener();
         removeNumberedListListener();
         removeMentionApplyListener();
+        removeHeadingOneListener();
+        removeHeadingTwoListener();
       },
     );
   });

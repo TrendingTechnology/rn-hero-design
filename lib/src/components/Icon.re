@@ -92,6 +92,8 @@ external formatUnderlined: string = "default";
 external formatListBulleted: string = "default";
 [@bs.module "../icons/format_list_numbered"]
 external formatListNumbered: string = "default";
+[@bs.module "../icons/looks_one"] external looksOne: string = "default";
+[@bs.module "../icons/looks_two"] external looksTwo: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -131,6 +133,8 @@ let xmlFromIcon = icon =>
   | "format_underlined" => Some(formatUnderlined)
   | "format_list_numbered" => Some(formatListNumbered)
   | "format_list_bulleted" => Some(formatListBulleted)
+  | "looks_one" => Some(looksOne)
+  | "looks_two" => Some(looksTwo)
   | "plus-circle" => Some(plusCircle)
   | "cancel-circle" => Some(cancelCircle)
   | "cancel-circle-outline" => Some(cancelCircleOutline)

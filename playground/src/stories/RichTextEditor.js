@@ -125,7 +125,20 @@ const RichTextEditorScreen = ({ theme }) => {
         )}
       />
 
-      <RichTextEditor.Toolbar name="test" />
+      <RichTextEditor.Toolbar
+        name="test"
+        buttons={[
+          'bold',
+          'italic',
+          'underline',
+          '|',
+          'headingOne',
+          'headingTwo',
+          '|',
+          'bulletedList',
+          'numberedList',
+        ]}
+      />
     </KeyboardAvoidingView>
   );
 };
