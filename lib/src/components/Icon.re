@@ -82,6 +82,10 @@ external suitcaseOutline: string = "default";
 external levelOutline: string = "default";
 [@bs.module "../icons/user"] external user: string = "default";
 [@bs.module "../icons/user-outline"] external userOutline: string = "default";
+[@bs.module "../icons/multiple-stars"]
+external multipleStars: string = "default";
+[@bs.module "../icons/multiple-users"]
+external multipleUsers: string = "default";
 
 [@bs.module "../icons/format_bold"] external formatBold: string = "default";
 [@bs.module "../icons/format_italic"]
@@ -151,6 +155,8 @@ let xmlFromIcon = icon =>
   | "level-outline" => Some(levelOutline)
   | "user" => Some(user)
   | "user-outline" => Some(userOutline)
+  | "multiple-stars" => Some(multipleStars)
+  | "multiple-users" => Some(multipleUsers)
   | _ => None
   };
 
