@@ -168,9 +168,9 @@ let make =
       ~icon,
       ~size=24.0,
       ~color=?,
-      ~testID,
       ~wrapperStyle=emptyStyle,
       ~theme=Hero_Theme.default,
+      ~testID="",
     ) => {
   let iconColor =
     color->Belt.Option.getWithDefault @@ getColorProperty @@  theme##icon##icon;

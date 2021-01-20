@@ -26,7 +26,7 @@ let make =
       ~titleStyle=?,
       ~subtitleStyle=?,
       ~theme=Hero_Theme.default,
-      ~testID,
+      ~testID="",
     ) => {
   <Wrapper
     style={StyleSheet.flatten([|
