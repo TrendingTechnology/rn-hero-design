@@ -168,6 +168,7 @@ let make =
       ~icon,
       ~size=24.0,
       ~color=?,
+      ~testID,
       ~wrapperStyle=emptyStyle,
       ~theme=Hero_Theme.default,
     ) => {
@@ -178,6 +179,7 @@ let make =
   | None => ReasonReact.null
   | Some(xml) =>
     <View
+      testID
       style={StyleSheet.flatten([|
         Style.(
           style(
