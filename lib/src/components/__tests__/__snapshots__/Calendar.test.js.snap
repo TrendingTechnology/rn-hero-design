@@ -86,6 +86,7 @@ exports[`Calendar Snapshot renders correctly 1`] = `
                 "width": 20,
               }
             }
+            testID=""
           >
             <View
               override={
@@ -805,6 +806,7 @@ exports[`Calendar Snapshot renders correctly 2`] = `
                 "width": 20,
               }
             }
+            testID=""
           >
             <View
               override={
@@ -874,6 +876,7 @@ exports[`Calendar Snapshot renders correctly 2`] = `
                 "width": 20,
               }
             }
+            testID=""
           >
             <View
               override={
@@ -2077,6 +2080,7 @@ exports[`Calendar Snapshot renders correctly 3`] = `
                 "width": 20,
               }
             }
+            testID=""
           >
             <View
               override={
