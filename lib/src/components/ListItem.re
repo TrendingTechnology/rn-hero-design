@@ -26,6 +26,7 @@ let make =
       ~titleStyle=?,
       ~subtitleStyle=?,
       ~theme=Hero_Theme.default,
+      ~testID="",
     ) => {
   <Wrapper
     style={StyleSheet.flatten([|
@@ -33,7 +34,7 @@ let make =
       wrapperStyle ||= emptyStyle,
     |])}
     ?onPress>
-    <View style={theme##listItem##contentWrapper}>
+    <View testID style={theme##listItem##contentWrapper}>
       {leftElement ||= React.null}
       <View style={theme##listItem##textWrapper}>
         <View>

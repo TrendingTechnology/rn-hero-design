@@ -170,6 +170,7 @@ let make =
       ~color=?,
       ~wrapperStyle=emptyStyle,
       ~theme=Hero_Theme.default,
+      ~testID="",
     ) => {
   let iconColor =
     color->Belt.Option.getWithDefault @@ getColorProperty @@  theme##icon##icon;
@@ -178,6 +179,7 @@ let make =
   | None => ReasonReact.null
   | Some(xml) =>
     <View
+      testID
       style={StyleSheet.flatten([|
         Style.(
           style(
