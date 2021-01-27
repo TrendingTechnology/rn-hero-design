@@ -15,7 +15,9 @@ let make =
     | None => React.null
     | Some(onPressClose) =>
       <RN.TouchableOpacity
-        onPress=onPressClose style=theme##errorScreen##closeButton>
+        onPress=onPressClose
+        style=theme##errorScreen##closeButton
+        testID="closeButton">
         <Icon icon="cancel-outline" size=24.0 />
       </RN.TouchableOpacity>
     };
