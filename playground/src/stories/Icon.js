@@ -3,6 +3,7 @@ import { Icon, Container, injectTheme } from 'rn-hero-design';
 
 const filledIcons = [
   'ok-circle',
+  'remove-circle',
   'cancel-circle',
   'plus-circle',
   'warning-circle',
@@ -26,6 +27,7 @@ const filledIcons = [
 
 const outlinedIcons = [
   'ok-circle-outline',
+  'remove-circle-outline',
   'cancel-circle-outline',
   'plus-circle-outline',
   'warning-circle-outline',
