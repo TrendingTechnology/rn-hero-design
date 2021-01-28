@@ -86,6 +86,10 @@ external levelOutline: string = "default";
 external multipleStars: string = "default";
 [@bs.module "../icons/multiple-users"]
 external multipleUsers: string = "default";
+[@bs.module "../icons/remove-circle"]
+external removeCircle: string = "default";
+[@bs.module "../icons/remove-circle-outline"]
+external removeCircleOutline: string = "default";
 
 [@bs.module "../icons/format_bold"] external formatBold: string = "default";
 [@bs.module "../icons/format_italic"]
@@ -157,6 +161,8 @@ let xmlFromIcon = icon =>
   | "user-outline" => Some(userOutline)
   | "multiple-stars" => Some(multipleStars)
   | "multiple-users" => Some(multipleUsers)
+  | "remove-circle" => Some(removeCircle)
+  | "remove-circle-outline" => Some(removeCircleOutline)
   | _ => None
   };
 
@@ -170,6 +176,7 @@ let make =
       ~color=?,
       ~wrapperStyle=emptyStyle,
       ~theme=Hero_Theme.default,
+      ~testID="",
     ) => {
   let iconColor =
     color->Belt.Option.getWithDefault @@ getColorProperty @@  theme##icon##icon;
@@ -178,6 +185,7 @@ let make =
   | None => ReasonReact.null
   | Some(xml) =>
     <View
+      testID
       style={StyleSheet.flatten([|
         Style.(
           style(

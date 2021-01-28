@@ -259,6 +259,7 @@ exports[`TextInput renders correctly 3`] = `
               "width": 20,
             }
           }
+          testID=""
         >
           <View
             override={
@@ -385,6 +386,7 @@ exports[`TextInput renders correctly 4`] = `
               "width": 20,
             }
           }
+          testID=""
         >
           <View
             override={
@@ -511,6 +513,7 @@ exports[`TextInput renders correctly 5`] = `
               "width": 20,
             }
           }
+          testID=""
         >
           <View
             override={
