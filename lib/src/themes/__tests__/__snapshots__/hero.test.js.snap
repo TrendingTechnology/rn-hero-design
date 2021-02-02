@@ -465,7 +465,7 @@ Object {
       "color": "#a3a6ac",
     },
     "highlightText": Object {
-      "backgroundColor": "#b5eeff",
+      "backgroundColor": "#d9dbdf",
       "borderRadius": 2,
     },
     "suggestionWrapper": Object {

@@ -171,6 +171,7 @@ let make =
       ~disabled,
       ~error="",
       ~autoFocus,
+      ~highlightTextStyle=emptyStyle,
       ~theme=Hero_Theme.default,
     ) => {
   let valueText = React.useRef("");
@@ -391,7 +392,10 @@ let make =
               | Some(_) =>
                 <RN.Text
                   key={index->string_of_int}
-                  style={theme##mentionTextInput##highlightText}>
+                  style={RN.StyleSheet.flatten([|
+                    theme##mentionTextInput##highlightText,
+                    highlightTextStyle,
+                  |])}>
                   {textBlock->textGet->React.string}
                 </RN.Text>
               | None =>

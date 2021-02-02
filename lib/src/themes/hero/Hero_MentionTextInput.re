@@ -4,7 +4,7 @@ open Hero_Variables;
 let _WRAPPER_MARGIN_VERTICAL = _MEDIUM_SIZE;
 let _TEXT_FONT_SIZE = _HEADER_4;
 let _TEXT_COLOR = Hero_Variables._TEXT_COLOR;
-let _HIGHLIGHT_TEXT_COLOR = _LIGHT_PRIMARY_COLOR;
+let _HIGHLIGHT_TEXT_COLOR = _GREY_4;
 let _SUGGESTION_WRAPPER_MARGIN = (-4.0);
 
 let styles: Js.t('a) = {
