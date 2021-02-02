@@ -97,7 +97,7 @@ exports[`MentionTextInput Snapshot renders correctly 1`] = `
               <Text
                 style={
                   Object {
-                    "backgroundColor": "#b5eeff",
+                    "backgroundColor": "#d9dbdf",
                     "borderRadius": 2,
                   }
                 }
@@ -229,7 +229,7 @@ exports[`MentionTextInput Snapshot renders correctly 2`] = `
               <Text
                 style={
                   Object {
-                    "backgroundColor": "#b5eeff",
+                    "backgroundColor": "#d9dbdf",
                     "borderRadius": 2,
                   }
                 }
