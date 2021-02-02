@@ -100,6 +100,10 @@ const MentionTextInputScreen = ({ theme }) => {
             renderSuggestionList={(searchValue, onSelect) => (
               <SuggestionList searchValue={searchValue} onSelect={onSelect} />
             )}
+            highlightTextStyle={{
+              backgroundColor: 'gold',
+              color: 'black',
+            }}
           />
 
           <Icon icon="paperclip" size={20} />
