@@ -58,6 +58,7 @@ const outlinedIcons = [
   'paperclip',
   'image-outline',
   'file-outline',
+  'bell-outline',
 ];
 
 const IconScreen = ({ theme }) => {
