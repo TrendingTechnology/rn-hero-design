@@ -102,6 +102,7 @@ external formatListBulleted: string = "default";
 external formatListNumbered: string = "default";
 [@bs.module "../icons/looks_one"] external looksOne: string = "default";
 [@bs.module "../icons/looks_two"] external looksTwo: string = "default";
+[@bs.module "../icons/bell-outline"] external bellOutline: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -163,6 +164,7 @@ let xmlFromIcon = icon =>
   | "multiple-users" => Some(multipleUsers)
   | "remove-circle" => Some(removeCircle)
   | "remove-circle-outline" => Some(removeCircleOutline)
+  | "bell-outline" => Some(bellOutline)
   | _ => None
   };
 
