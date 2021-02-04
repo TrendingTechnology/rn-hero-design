@@ -103,6 +103,15 @@ external formatListNumbered: string = "default";
 [@bs.module "../icons/looks_one"] external looksOne: string = "default";
 [@bs.module "../icons/looks_two"] external looksTwo: string = "default";
 [@bs.module "../icons/bell-outline"] external bellOutline: string = "default";
+[@bs.module "../icons/health-bag-outline"]
+external healthBagOutline: string = "default";
+[@bs.module "../icons/plane-outline"]
+external planeOutline: string = "default";
+[@bs.module "../icons/recognition-medal-outline"]
+external recognitionMedalOutline: string = "default";
+[@bs.module "../icons/talk-outline"] external talkOutline: string = "default";
+[@bs.module "../icons/speaker-outline"]
+external speakerOutline: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -165,6 +174,11 @@ let xmlFromIcon = icon =>
   | "remove-circle" => Some(removeCircle)
   | "remove-circle-outline" => Some(removeCircleOutline)
   | "bell-outline" => Some(bellOutline)
+  | "health-bag-outline" => Some(healthBagOutline)
+  | "plane-outline" => Some(planeOutline)
+  | "recognition-medal-outline" => Some(recognitionMedalOutline)
+  | "talk-outline" => Some(talkOutline)
+  | "speaker-outline" => Some(speakerOutline)
   | _ => None
   };
 
