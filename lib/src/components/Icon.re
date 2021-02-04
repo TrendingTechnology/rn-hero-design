@@ -103,6 +103,17 @@ external formatListNumbered: string = "default";
 [@bs.module "../icons/looks_one"] external looksOne: string = "default";
 [@bs.module "../icons/looks_two"] external looksTwo: string = "default";
 [@bs.module "../icons/bell-outline"] external bellOutline: string = "default";
+[@bs.module "../icons/clock2-circle-outline"]
+external clock2CircleOutline: string = "default";
+[@bs.module "../icons/health-bag-outlined"]
+external healthBagOutlined: string = "default";
+[@bs.module "../icons/plane-outlined"]
+external planeOutline: string = "default";
+[@bs.module "../icons/recognition-medal-outline"]
+external recognitionMetalOutline: string = "default";
+[@bs.module "../icons/talk-outline"] external talkOutline: string = "default";
+[@bs.module "../icons/speaker-outline"]
+external speakerOutline: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -165,6 +176,12 @@ let xmlFromIcon = icon =>
   | "remove-circle" => Some(removeCircle)
   | "remove-circle-outline" => Some(removeCircleOutline)
   | "bell-outline" => Some(bellOutline)
+  | "clock2-circle-outline" => Some(clockCircleOutline)
+  | "health-bag-outlined" => Some(healthBagOutlined)
+  | "plane-outlined" => Some(planeOutline)
+  | "recognition-medal-outline" => Some(recognitionMetalOutline)
+  | "talk-outline" => Some(talkOutline)
+  | "speaker-outline" => Some(speakerOutline)
   | _ => None
   };
 

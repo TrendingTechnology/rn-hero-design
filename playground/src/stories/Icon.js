@@ -59,6 +59,12 @@ const outlinedIcons = [
   'image-outline',
   'file-outline',
   'bell-outline',
+  'clock2-circle-outline',
+  'health-bag-outlined',
+  'plane-outlined',
+  'recognition-medal-outline',
+  'talk-outline',
+  'speaker-outline',
 ];
 
 const IconScreen = ({ theme }) => {
