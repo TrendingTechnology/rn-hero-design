@@ -112,6 +112,10 @@ external recognitionMedalOutline: string = "default";
 [@bs.module "../icons/talk-outline"] external talkOutline: string = "default";
 [@bs.module "../icons/speaker-outline"]
 external speakerOutline: string = "default";
+[@bs.module "../icons/home-outline"] external homeOutline: string = "default";
+
+[@bs.module "../icons/more-horizontal"]
+external moreHorizontal: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -179,6 +183,8 @@ let xmlFromIcon = icon =>
   | "recognition-medal-outline" => Some(recognitionMedalOutline)
   | "talk-outline" => Some(talkOutline)
   | "speaker-outline" => Some(speakerOutline)
+  | "home-outline" => Some(homeOutline)
+  | "more-horizontal" => Some(moreHorizontal)
   | _ => None
   };
 

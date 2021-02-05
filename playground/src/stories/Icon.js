@@ -64,6 +64,8 @@ const outlinedIcons = [
   'recognition-medal-outline',
   'talk-outline',
   'speaker-outline',
+  'home-outline',
+  'more-horizontal',
 ];
 
 const IconScreen = ({ theme }) => {
