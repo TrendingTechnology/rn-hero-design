@@ -66,6 +66,7 @@ const outlinedIcons = [
   'speaker-outline',
   'home-outline',
   'more-horizontal',
+  'cog-outline',
 ];
 
 const IconScreen = ({ theme }) => {
