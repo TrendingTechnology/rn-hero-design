@@ -101,12 +101,13 @@ let make =
     (
       ~show=false,
       ~value: Js.Date.t=Js.Date.make(),
+      ~mode=`date,
       ~onChange=noop,
       ~onDismiss=noop,
       ~theme=Hero_Theme.default,
     ) =>
   Helpers.Platform.isAndroid
-    ? <DateTimePickerAndroid show mode=`date value onChange onDismiss />
-    : <DateTimePickerIOS show mode=`date value onChange onDismiss theme />;
+    ? <DateTimePickerAndroid show mode value onChange onDismiss />
+    : <DateTimePickerIOS show mode value onChange onDismiss theme />;
 
 let default = Helpers.injectTheme(make);
