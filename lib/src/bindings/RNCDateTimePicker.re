@@ -12,7 +12,7 @@ type changeEvent = ChangeEvent.t;
 external make:
   (
     ~testID: string=?,
-    ~mode: [ | `date | `time]=?,
+    ~mode: [@bs.string] [ | `date | `time]=?,
     ~display: [@bs.string] [
                 | `default
                 | `spinner
