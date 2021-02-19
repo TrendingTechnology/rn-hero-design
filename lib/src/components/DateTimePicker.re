@@ -2,6 +2,9 @@ open ReactNative;
 
 let noop = _ => ();
 
+[@bs.deriving jsConverter]
+type mode = [ | `date | `time];
+
 module DateTimePickerIOS = {
   [@react.component]
   let make = (~show, ~mode, ~value, ~onChange, ~onDismiss, ~theme) => {
@@ -101,13 +104,17 @@ let make =
     (
       ~show=false,
       ~value: Js.Date.t=Js.Date.make(),
-      ~mode=`date,
+      ~mode=?,
       ~onChange=noop,
       ~onDismiss=noop,
       ~theme=Hero_Theme.default,
-    ) =>
+    ) => {
+  let mode_ =
+    mode->Belt.Option.flatMap(modeFromJs)->Belt.Option.getWithDefault(`date);
+
   Helpers.Platform.isAndroid
-    ? <DateTimePickerAndroid show mode value onChange onDismiss />
-    : <DateTimePickerIOS show mode value onChange onDismiss theme />;
+    ? <DateTimePickerAndroid show mode=mode_ value onChange onDismiss />
+    : <DateTimePickerIOS show mode=mode_ value onChange onDismiss theme />;
+};
 
 let default = Helpers.injectTheme(make);
