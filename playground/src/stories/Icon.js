@@ -67,6 +67,7 @@ const outlinedIcons = [
   'home-outline',
   'more-horizontal',
   'cog-outline',
+  'search-outline',
 ];
 
 const IconScreen = ({ theme }) => {

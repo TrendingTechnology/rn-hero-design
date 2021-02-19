@@ -104,6 +104,7 @@ external speakerOutline: string = "default";
 [@bs.module "../icons/more-horizontal"]
 external moreHorizontal: string = "default";
 [@bs.module "../icons/cog-outline"] external cogOutline: string = "default";
+[@bs.module "../icons/search-outline"] external searchOutline: string = "default";
 
 [@bs.module "../icons/format_bold"] external formatBold: string = "default";
 [@bs.module "../icons/format_italic"]
@@ -186,6 +187,7 @@ let xmlFromIcon = icon =>
   | "home-outline" => Some(homeOutline)
   | "more-horizontal" => Some(moreHorizontal)
   | "cog-outline" => Some(cogOutline)
+  | "search-outline" => Some(searchOutline)
   | _ => None
   };
 
