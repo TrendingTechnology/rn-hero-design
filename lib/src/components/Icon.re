@@ -90,18 +90,6 @@ external multipleUsers: string = "default";
 external removeCircle: string = "default";
 [@bs.module "../icons/remove-circle-outline"]
 external removeCircleOutline: string = "default";
-
-[@bs.module "../icons/format_bold"] external formatBold: string = "default";
-[@bs.module "../icons/format_italic"]
-external formatItalic: string = "default";
-[@bs.module "../icons/format_underlined"]
-external formatUnderlined: string = "default";
-[@bs.module "../icons/format_list_bulleted"]
-external formatListBulleted: string = "default";
-[@bs.module "../icons/format_list_numbered"]
-external formatListNumbered: string = "default";
-[@bs.module "../icons/looks_one"] external looksOne: string = "default";
-[@bs.module "../icons/looks_two"] external looksTwo: string = "default";
 [@bs.module "../icons/bell-outline"] external bellOutline: string = "default";
 [@bs.module "../icons/health-bag-outline"]
 external healthBagOutline: string = "default";
@@ -116,6 +104,20 @@ external speakerOutline: string = "default";
 [@bs.module "../icons/more-horizontal"]
 external moreHorizontal: string = "default";
 [@bs.module "../icons/cog-outline"] external cogOutline: string = "default";
+[@bs.module "../icons/search-outline"] external searchOutline: string = "default";
+
+[@bs.module "../icons/format_bold"] external formatBold: string = "default";
+[@bs.module "../icons/format_italic"]
+external formatItalic: string = "default";
+[@bs.module "../icons/format_underlined"]
+external formatUnderlined: string = "default";
+[@bs.module "../icons/format_list_bulleted"]
+external formatListBulleted: string = "default";
+[@bs.module "../icons/format_list_numbered"]
+external formatListNumbered: string = "default";
+[@bs.module "../icons/looks_one"] external looksOne: string = "default";
+[@bs.module "../icons/looks_two"] external looksTwo: string = "default";
+
 let xmlFromIcon = icon =>
   switch (icon) {
   | "email" => Some(email)
@@ -185,6 +187,7 @@ let xmlFromIcon = icon =>
   | "home-outline" => Some(homeOutline)
   | "more-horizontal" => Some(moreHorizontal)
   | "cog-outline" => Some(cogOutline)
+  | "search-outline" => Some(searchOutline)
   | _ => None
   };
 
