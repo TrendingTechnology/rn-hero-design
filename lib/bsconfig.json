@@ -17,6 +17,7 @@
   ],
   "bs-dependencies": [
     "@ehrocks/pdf-editor",
+    "bs-hero-design",
     "reason-react",
     "reason-react-native"
   ]
