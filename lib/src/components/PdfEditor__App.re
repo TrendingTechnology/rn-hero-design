@@ -3,4 +3,7 @@ module App = {
   let make = () => <h1> "Hello"->React.string </h1>;
 };
 
-ReactDOMRe.renderToElementWithId(<App />, "root");
+ReactDOMRe.renderToElementWithId(
+  <HD.ThemeProvider> <HD.CSSPreset /> <App /> </HD.ThemeProvider>,
+  "root",
+);
