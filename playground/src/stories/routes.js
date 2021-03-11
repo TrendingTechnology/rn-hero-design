@@ -34,7 +34,7 @@ const Logo = () => (
   <Image
     source={require('../images/header_logo.png')}
     resizeMode="contain"
-    style={{ height: 28 }}
+    style={{ height: 28, width: 28 }}
   />
 );
 
