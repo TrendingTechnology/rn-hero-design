@@ -2,3 +2,4 @@ node_modules/**/*
 .expo/*
 tags
 lib.js
+lib.js.map
