@@ -118,6 +118,14 @@ external formatListNumbered: string = "default";
 [@bs.module "../icons/looks_one"] external looksOne: string = "default";
 [@bs.module "../icons/looks_two"] external looksTwo: string = "default";
 
+[@bs.module "../icons/speaker"] external speaker: string = "default";
+[@bs.module "../icons/raising-hands"]
+external raisingHands: string = "default";
+[@bs.module "../icons/certificate"] external certificate: string = "default";
+[@bs.module "../icons/recognition-medal"]
+external recognitionMedal: string = "default";
+[@bs.module "../icons/birthday-cake"]
+external birthdayCake: string = "default";
 let xmlFromIcon = icon =>
   switch (icon) {
   | "email" => Some(email)
@@ -188,6 +196,11 @@ let xmlFromIcon = icon =>
   | "more-horizontal" => Some(moreHorizontal)
   | "cog-outline" => Some(cogOutline)
   | "search-outline" => Some(searchOutline)
+  | "speaker" => Some(speaker)
+  | "raising-hands" => Some(raisingHands)
+  | "certificate" => Some(certificate)
+  | "recognition-medal" => Some(recognitionMedal)
+  | "birthday-cake" => Some(birthdayCake)
   | _ => None
   };
 
