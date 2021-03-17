@@ -17,7 +17,7 @@
     "@babel/plugin-proposal-class-properties": "^7.7.4",
     "@babel/preset-flow": "^7.7.4",
     "@babel/preset-react": "^7.7.4",
-    "@ehrocks/pdf-editor": "^0.0.200",
+    "@ehrocks/pdf-editor": "^0.0.201",
     "@glennsl/bs-json": "^5.0.2",
     "@testing-library/react-native": "^6.0.0",
     "babel-loader": "^8.2.2",
@@ -47,7 +47,7 @@
     "react": "16.11.0",
     "react-native": "0.62.2",
     "react-native-svg": "~9.9.2",
-    "react-native-webview": "^10.8.2",
+    "react-native-webview": "^11.2.5",
     "react-redux": "7.2.0"
   },
   "dependencies": {

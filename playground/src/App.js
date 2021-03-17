@@ -61,7 +61,7 @@ const App = injectTheme(({ theme }) => {
 
   return (
     <NavigationContainer theme={CustomTheme}>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator initialRouteName="PdfEditorPreview">
         <Stack.Screen
           name="Home"
           component={HomeScreen}
