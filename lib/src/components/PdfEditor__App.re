@@ -1,9 +1,9 @@
 open PdfEditor.Types;
 
 let pdfWorkerUrl: string =
-  "https://cdnjs.cloudflare.com/ajax/libs/pdf.js/"
+  "https://unpkg.com/pdfjs-dist@"
   ++ PdfEditor__Reader.Pdfjs.version
-  ++ "/pdf.worker.js";
+  ++ "/es5/build/pdf.worker.js";
 
 PdfEditor__Reader.Pdfjs.setSrc(
   PdfEditor__Reader.Pdfjs.globalWorker,
