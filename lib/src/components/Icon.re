@@ -104,7 +104,16 @@ external speakerOutline: string = "default";
 [@bs.module "../icons/more-horizontal"]
 external moreHorizontal: string = "default";
 [@bs.module "../icons/cog-outline"] external cogOutline: string = "default";
-[@bs.module "../icons/search-outline"] external searchOutline: string = "default";
+[@bs.module "../icons/search-outline"]
+external searchOutline: string = "default";
+[@bs.module "../icons/speaker"] external speaker: string = "default";
+[@bs.module "../icons/raising-hands"]
+external raisingHands: string = "default";
+[@bs.module "../icons/certificate"] external certificate: string = "default";
+[@bs.module "../icons/recognition-medal"]
+external recognitionMedal: string = "default";
+[@bs.module "../icons/birthday-cake"]
+external birthdayCake: string = "default";
 
 [@bs.module "../icons/format_bold"] external formatBold: string = "default";
 [@bs.module "../icons/format_italic"]
@@ -188,6 +197,11 @@ let xmlFromIcon = icon =>
   | "more-horizontal" => Some(moreHorizontal)
   | "cog-outline" => Some(cogOutline)
   | "search-outline" => Some(searchOutline)
+  | "speaker" => Some(speaker)
+  | "raising-hands" => Some(raisingHands)
+  | "certificate" => Some(certificate)
+  | "recognition-medal" => Some(recognitionMedal)
+  | "birthday-cake" => Some(birthdayCake)
   | _ => None
   };
 

@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+
 import { Icon, Container, injectTheme } from 'rn-hero-design';
 
 const filledIcons = [
@@ -17,12 +18,17 @@ const filledIcons = [
   'suitcase',
   'level',
   'user',
+  'recognition-medal',
+  'speaker',
 
   'more-vertical',
   'radio-active',
   'radio-inactive',
   'multiple-stars',
   'multiple-users',
+  'raising-hands',
+  'certificate',
+  'birthday-cake',
 ];
 
 const outlinedIcons = [
@@ -41,6 +47,8 @@ const outlinedIcons = [
   'suitcase-outline',
   'level-outline',
   'user-outline',
+  'recognition-medal-outline',
+  'speaker-outline',
 
   'plus-outline',
   'cancel-outline',
@@ -61,9 +69,7 @@ const outlinedIcons = [
   'bell-outline',
   'health-bag-outline',
   'plane-outline',
-  'recognition-medal-outline',
   'talk-outline',
-  'speaker-outline',
   'home-outline',
   'more-horizontal',
   'cog-outline',
