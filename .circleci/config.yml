@@ -19,9 +19,9 @@ jobs:
       - checkout
       - run: yarn install --ignore-engines
       - run: yarn lib:build
-      - run:
-          name: Authenticate with registry
-          command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+      # - run:
+      #     name: Authenticate with registry
+      #     command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
       - run: cd lib && npm publish
   deploy_doc:
     <<: *defaults
