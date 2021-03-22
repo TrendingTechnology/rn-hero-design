@@ -1,16 +1,13 @@
-open PdfEditor.Types;
-
 [@bs.module "./pdfEditorApp"] external pdfEditorApp: string = "default";
 
-type editorProps = {
-  file: string,
-  variableValues: Js.Json.t,
-};
+let noop = _ => ();
 
 [@react.component]
-let make = () => {
+let make = (~file: string, ~variableValues: Js.Json.t) => {
   let html =
     React.useMemo0(() => {
+      let variableValues = variableValues->Json.stringify;
+
       {j|
       <!DOCTYPE html>
       <html>
@@ -26,21 +23,23 @@ let make = () => {
         <body>
           <div id="root"></div>
           <script>
+            window.__pdfEditorData = {
+              file: "$file",
+              variableValues: $variableValues,
+            };
             $pdfEditorApp
           </script>
         </body>
       </html>
-      |j}
+      |j};
     });
-
-  let onMessage = event => ();
 
   <RNWebView
     originWhitelist=[|"*"|]
     source={RNWebView.Source.html(~html, ())}
+    onMessage=noop
     scrollEnabled=true
     allowUniversalAccessFromFileURLs=true
-    onMessage
   />;
 };
 
