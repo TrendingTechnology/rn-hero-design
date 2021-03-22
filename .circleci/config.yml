@@ -11,13 +11,13 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: yarn install
+      - run: yarn install --ignore-engines
       - run: yarn test
   publish_lib:
     <<: *defaults
     steps:
       - checkout
-      - run: yarn install
+      - run: yarn install --ignore-engines
       - run: yarn lib:build
       - run:
           name: Authenticate with registry
@@ -27,7 +27,7 @@ jobs:
     <<: *defaults
     steps:
       - checkout
-      - run: yarn install
+      - run: yarn install --ignore-engines
       - run: yarn lib:build
       - run: yarn doc:deploy
 

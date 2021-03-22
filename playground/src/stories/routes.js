@@ -22,6 +22,7 @@ import RichTextEditorScreen from './RichTextEditor';
 import ButtonGroupScreen from './ButtonGroup';
 import ErrorScreen from './ErrorScreen';
 import BadgeScreen from './Badge';
+import PdfEditorPreviewScreen from './PdfEditorPreview';
 
 import LoginScreen from './LoginScreen';
 import ProfileScreen from './ProfileScreen';
@@ -34,7 +35,7 @@ const Logo = () => (
   <Image
     source={require('../images/header_logo.png')}
     resizeMode="contain"
-    style={{ height: 28 }}
+    style={{ height: 28, width: 28 }}
   />
 );
 
@@ -118,6 +119,9 @@ export default {
   },
   Badge: {
     screen: BadgeScreen,
+  },
+  PdfEditorPreview: {
+    screen: PdfEditorPreviewScreen,
   },
 
   LoginScreen: {
