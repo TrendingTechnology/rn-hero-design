@@ -15,5 +15,11 @@
       "subdirs": true
     }
   ],
-  "bs-dependencies": ["reason-react", "reason-react-native"]
+  "bs-dependencies": [
+    "@ehrocks/pdf-editor",
+    "@glennsl/bs-json",
+    "bs-hero-design",
+    "reason-react",
+    "reason-react-native"
+  ]
 }

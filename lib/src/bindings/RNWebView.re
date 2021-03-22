@@ -53,6 +53,7 @@ external make:
     ~hideKeyboardAccessoryView: bool=?,
     ~keyboardDisplayRequiresUserAction: bool=?,
     ~scrollEnabled: bool=?,
+    ~allowUniversalAccessFromFileURLs: bool=?,
     ~style: ReactNative.Style.t=?
   ) =>
   React.element =
