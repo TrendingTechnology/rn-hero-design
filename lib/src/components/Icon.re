@@ -126,6 +126,8 @@ external formatListBulleted: string = "default";
 external formatListNumbered: string = "default";
 [@bs.module "../icons/looks_one"] external looksOne: string = "default";
 [@bs.module "../icons/looks_two"] external looksTwo: string = "default";
+[@bs.module "../icons/remove"] external remove: string = "default";
+[@bs.module "../icons/add"] external add: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -202,6 +204,8 @@ let xmlFromIcon = icon =>
   | "certificate" => Some(certificate)
   | "recognition-medal" => Some(recognitionMedal)
   | "birthday-cake" => Some(birthdayCake)
+  | "remove" => Some(remove)
+  | "add" => Some(add)
   | _ => None
   };
 
