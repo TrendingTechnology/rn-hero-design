@@ -29,8 +29,6 @@ const filledIcons = [
   'raising-hands',
   'certificate',
   'birthday-cake',
-  'remove',
-  'add',
 ];
 
 const outlinedIcons = [
@@ -76,8 +74,12 @@ const outlinedIcons = [
   'more-horizontal',
   'cog-outline',
   'search-outline',
-  'remove',
+  'coins-outline',
   'add',
+  'remove',
+  'checkmark',
+  'number',
+  'percentage',
 ];
 
 const IconScreen = ({ theme }) => {
