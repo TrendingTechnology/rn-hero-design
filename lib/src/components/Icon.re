@@ -114,6 +114,13 @@ external raisingHands: string = "default";
 external recognitionMedal: string = "default";
 [@bs.module "../icons/birthday-cake"]
 external birthdayCake: string = "default";
+[@bs.module "../icons/remove"] external remove: string = "default";
+[@bs.module "../icons/add"] external add: string = "default";
+[@bs.module "../icons/checkmark"] external checkmark: string = "default";
+[@bs.module "../icons/coins-outline"]
+external coinsOutline: string = "default";
+[@bs.module "../icons/number"] external number: string = "default";
+[@bs.module "../icons/percentage"] external percentage: string = "default";
 
 [@bs.module "../icons/format_bold"] external formatBold: string = "default";
 [@bs.module "../icons/format_italic"]
@@ -126,8 +133,6 @@ external formatListBulleted: string = "default";
 external formatListNumbered: string = "default";
 [@bs.module "../icons/looks_one"] external looksOne: string = "default";
 [@bs.module "../icons/looks_two"] external looksTwo: string = "default";
-[@bs.module "../icons/remove"] external remove: string = "default";
-[@bs.module "../icons/add"] external add: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -206,6 +211,10 @@ let xmlFromIcon = icon =>
   | "birthday-cake" => Some(birthdayCake)
   | "remove" => Some(remove)
   | "add" => Some(add)
+  | "checkmark" => Some(checkmark)
+  | "coins-outline" => Some(coinsOutline)
+  | "number" => Some(number)
+  | "percentage" => Some(percentage)
   | _ => None
   };
 
