@@ -234,7 +234,7 @@ let make = (
   )
 
   switch xmlFromIcon(icon) {
-  | None => ReasonReact.null
+  | None => React.null
   | Some(xml) =>
     <View
       testID

@@ -72,9 +72,7 @@ let make = (
   }, [selectedIndex])
 
   <View style={StyleSheet.flatten([theme["tabBar"]["wrapper"], wrapperStyle])}>
-    <View style={StyleSheet.flatten([theme["tabBar"]["navigator"]])}>
-      {titles->ReasonReact.array}
-    </View>
+    <View style={StyleSheet.flatten([theme["tabBar"]["navigator"]])}> {titles->React.array} </View>
     <View style={StyleSheet.flatten([theme["tabBar"]["content"], contentStyle])}>
       {contents
       ->Belt.Array.mapWithIndex((index, content) =>
@@ -84,7 +82,7 @@ let make = (
           content
         </View>
       )
-      ->ReasonReact.array}
+      ->React.array}
     </View>
   </View>
 }

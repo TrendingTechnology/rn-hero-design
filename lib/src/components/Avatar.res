@@ -73,7 +73,7 @@ let make = (
         source={Image.uriSource(~uri=source', ())->Image.Source.fromUriSource}
         style={StyleSheet.flatten([theme["avatar"]["image"], styles["image"]])}
       />
-    | None => ReasonReact.null
+    | None => React.null
     }}
   </View>
 }
