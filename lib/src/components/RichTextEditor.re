@@ -1,4 +1,5 @@
 open ReactNative;
+open Js;
 
 [@bs.module "./heroEditorApp"] external heroEditorApp: string = "default";
 
@@ -32,6 +33,7 @@ let defaultValue =
     {| [{ "type": "paragraph", "children": [{ "text": "" }] }] |},
   );
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -47,7 +49,6 @@ let make =
       ~theme=Hero_Theme.default,
     ) => {
   module Option = Belt.Option;
-  module Json = Js.Json;
   module Dict = Js.Dict;
 
   let webview = React.useRef(Js.Null.empty);
@@ -209,10 +210,7 @@ let make =
         ->Option.flatMap(Json.decodeString)
         ->Option.getExn;
 
-      let messageData =
-        message
-        ->Dict.get("data")
-        ->Option.getExn;
+      let messageData = message->Dict.get("data")->Option.getExn;
 
       switch (messageType) {
       | "@hero-editor/webview/editor-focus" =>
@@ -237,8 +235,7 @@ let make =
 
         onChange(value);
 
-      | "@hero-editor/webview/cursor-change" =>
-        onCursorChange(messageData)
+      | "@hero-editor/webview/cursor-change" => onCursorChange(messageData)
 
       | "@hero-editor/webview/editor-layout" =>
         let editorLayout =
@@ -306,4 +303,5 @@ setToolbarSubComponent(make, RichTextEditor__Toolbar.make);
 
 setMentionListSubComponent(make, RichTextEditor__MentionList.make);
 
+[@genType]
 let default = Helpers.injectTheme(make);

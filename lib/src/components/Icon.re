@@ -220,6 +220,7 @@ let xmlFromIcon = icon =>
 
 let emptyStyle = ReactNative.Style.style();
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -264,4 +265,5 @@ let make =
   };
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);

@@ -61,4 +61,5 @@ let styles: Js.t('a) = {
   "inactiveText": style(~color=_INACTIVE_TEXT_COLOR, ()),
 };
 
+[@genType]
 let default: Js.t('a) = ReactNative.StyleSheet.create(styles);

@@ -99,6 +99,7 @@ module DateTimePickerAndroid = {
   };
 };
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -117,4 +118,5 @@ let make =
     : <DateTimePickerIOS show mode=mode_ value onChange onDismiss theme />;
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);

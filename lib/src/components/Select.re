@@ -146,6 +146,7 @@ module SelectAndroid = {
   };
 };
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -160,4 +161,5 @@ let make =
     ? <SelectAndroid options show value onChange onDismiss theme />
     : <SelectIOS options show value onChange onDismiss theme />;
 
+[@genType]
 let default = Helpers.injectTheme(make);

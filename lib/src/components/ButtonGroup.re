@@ -54,6 +54,7 @@ module Button = {
   let make = Helpers.injectTheme(make);
 };
 
+[@genType]
 [@react.component]
 let make = (~children, ~theme=Hero_Theme.default) => {
   <View style=theme##buttonGroup##group> children </View>;
@@ -61,4 +62,5 @@ let make = (~children, ~theme=Hero_Theme.default) => {
 
 setButtonSubComponent(make, Button.make);
 
+[@genType]
 let default = Helpers.injectTheme(make);

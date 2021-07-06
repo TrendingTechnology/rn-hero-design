@@ -5,6 +5,7 @@ let _APPBAR_HEIGHT = isIOS ? 44.0 : 56.0;
 let _STATUSBAR_HEIGHT = isIOS ? 20.0 : 0.0;
 let _HEADER_HEIGHT = _APPBAR_HEIGHT +. _STATUSBAR_HEIGHT;
 
+[@genType]
 [@react.component]
 let make = (~children, ~style=?, ~withNavigation=?) => {
   /*
@@ -26,4 +27,5 @@ let make = (~children, ~style=?, ~withNavigation=?) => {
   </RNKeyboardAvoidingView>;
 };
 
+[@genType]
 let default = make;

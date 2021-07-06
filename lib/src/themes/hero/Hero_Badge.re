@@ -37,4 +37,5 @@ let styles: Js.t('a) = {
   "infoContent": style(~color=_INVERTED_TEXT_COLOR, ()),
 };
 
+[@genType]
 let default: Js.t('a) = ReactNative.StyleSheet.create(styles);

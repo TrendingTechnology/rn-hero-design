@@ -4,6 +4,7 @@ open ReactNative;
 
 let noop = _ => ();
 
+[@genType]
 [@react.component]
 let make = (~value=false, ~onValueChange=noop, ~theme=Hero_Theme.default) => {
   let offset =
@@ -48,4 +49,5 @@ let make = (~value=false, ~onValueChange=noop, ~theme=Hero_Theme.default) => {
   </TouchableWithoutFeedback>;
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);
