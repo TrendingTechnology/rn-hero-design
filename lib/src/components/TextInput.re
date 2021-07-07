@@ -6,6 +6,7 @@ let emptyStyle = Style.style();
 
 let noop = _ => ();
 
+[@genType]
 [@bs.deriving jsConverter]
 type keyboardType = [
   | `default
@@ -23,6 +24,7 @@ type keyboardType = [
   | [@bs.as "visible-password"] `visiblePassword
 ];
 
+[@genType]
 [@bs.deriving jsConverter]
 type autoCapitalize = [ | `none | `sentences | `words | `characters];
 
