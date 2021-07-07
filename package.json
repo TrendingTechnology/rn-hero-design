@@ -27,7 +27,8 @@
     "doc:serve": "yarn documentation serve",
     "doc:deploy": "yarn documentation build && yarn documentation deploy",
     "dev": "yarn lib:watch",
-    "test": "yarn lib:ts:lint && yarn lib:ts:build && yarn lib:test",
+    "test": "yarn lib:test",
+    "ts:build": "yarn lib:build && yarn lib:ts:lint && yarn lib:ts:build",
     "bump": "yarn version --cwd lib"
   },
   "author": "",
