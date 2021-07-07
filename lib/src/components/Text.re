@@ -26,6 +26,7 @@ let (|?) = (x, y) =>
   | None => y
   };
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -70,4 +71,5 @@ let make =
     {children |> React.string}
   </ReactNative.Text>;
 
+[@genType]
 let default = Helpers.injectTheme(make);

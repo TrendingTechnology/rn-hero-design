@@ -1,3 +1,4 @@
+[@genType]
 let default = {
   "variables": Legacy_Variables.default,
   "button": Legacy_Button.default,

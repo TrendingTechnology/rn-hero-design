@@ -2,6 +2,7 @@ open ReactNative;
 
 let emptyStyle = Style.style();
 
+[@genType]
 [@react.component]
 let make = (~children, ~style=?, ~theme=Hero_Theme.default) =>
   <View
@@ -12,4 +13,5 @@ let make = (~children, ~style=?, ~theme=Hero_Theme.default) =>
     children
   </View>;
 
+[@genType]
 let default = Helpers.injectTheme(make);

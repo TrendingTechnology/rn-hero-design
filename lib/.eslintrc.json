@@ -1,0 +1,59 @@
+{
+  "root": true,
+  "parser": "babel-eslint",
+  "extends": [
+    "plugin:react/recommended",
+    "prettier",
+    "prettier/flowtype",
+    "prettier/react"
+  ],
+  "plugins": ["react", "react-native", "prettier", "immutable", "import"],
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "env": {
+    "browser": true,
+    "jasmine": true,
+    "mocha": true,
+    "es6": true,
+    "node": true,
+    "jest": true
+  },
+  "rules": {},
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/ignore": ["react-native"],
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".android.js", ".ios.js", ".ts", ".tsx"]
+      }
+    }
+  },
+  "overrides": [
+    {
+      "files": ["**/*.ts", "**/*.tsx"],
+      "env": { "browser": true, "es6": true, "node": true },
+      "parser": "@typescript-eslint/parser",
+      "plugins": ["@typescript-eslint"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:import/recommended",
+        "plugin:import/typescript"
+      ],
+      "rules": {
+        "import/first": "off",
+        "@typescript-eslint/no-var-requires": "off",
+        "@typescript-eslint/no-extra-semi": "off",
+        "@typescript-eslint/ban-types": "off"
+      }
+    }
+  ]
+}

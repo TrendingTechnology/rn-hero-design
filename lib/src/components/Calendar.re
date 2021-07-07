@@ -50,6 +50,7 @@ type markedDates = array(markedDate);
 
 type parsedMarkedDates = Js.Dict.t(array(color));
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -355,4 +356,5 @@ let make =
   </View>;
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);

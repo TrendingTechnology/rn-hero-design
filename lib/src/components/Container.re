@@ -11,6 +11,7 @@ let (|?) = (x, y) =>
   | None => y
   };
 
+[@genType]
 [@react.component]
 let make =
     (~children, ~fluid=false, ~direction, ~style=?, ~theme=Hero_Theme.default) => {
@@ -27,4 +28,5 @@ let make =
   </View>;
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);

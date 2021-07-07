@@ -41,6 +41,7 @@ let getStylesBySize: (option(string), Js.t('a)) => stylesBySize =
     );
   };
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -87,4 +88,5 @@ let make =
   </View>;
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);
