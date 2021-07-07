@@ -1,6 +1,6 @@
 {
   "name": "rn-hero-design",
-  "version": "3.4.0-dev.2",
+  "version": "3.4.0-beta.1",
   "description": "",
   "main": "lib.js",
   "types": "./dist/src/index.d.ts",
