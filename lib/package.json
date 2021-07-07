@@ -1,13 +1,13 @@
 {
   "name": "rn-hero-design",
-  "version": "3.4.0-dev.1",
+  "version": "3.4.0-dev.2",
   "description": "",
   "main": "lib.js",
   "types": "./dist/src/index.d.ts",
   "scripts": {
     "clean": "gentype -clean && bsb -clean-world && bsb -make-world",
     "watch": "bsb -make-world -w & webpack --config webpack.lib.js -w",
-    "build": "bsb -clean-world -make-world && webpack --config webpack.lib.js && yarn ts:lint",
+    "build": "bsb -clean-world -make-world && webpack --config webpack.lib.js && yarn ts:build",
     "pdf-editor:build": "webpack --config webpack.pdfEditorApp.js",
     "test": "bsb -make-world && jest",
     "ts:build": "tsc",
