@@ -17,6 +17,8 @@
     "lib:watch": "yarn lib clean && yarn lib watch",
     "lib:build": "yarn lib build",
     "lib:test": "yarn lib test",
+    "lib:ts:lint": "yarn lib ts:lint",
+    "lib:ts:build": "yarn lib ts:build",
     "playground:start": "yarn playground start",
     "playground:ios": "yarn playground ios",
     "playground:android": "yarn playground android",
@@ -25,7 +27,7 @@
     "doc:serve": "yarn documentation serve",
     "doc:deploy": "yarn documentation build && yarn documentation deploy",
     "dev": "yarn lib:watch",
-    "test": "yarn lib:test",
+    "test": "yarn lib:ts:lint && yarn lib:ts:build && yarn lib:test",
     "bump": "yarn version --cwd lib"
   },
   "author": "",
