@@ -21,5 +21,22 @@
     "bs-hero-design",
     "reason-react",
     "reason-react-native"
-  ]
+  ],
+  "gentypeconfig": {
+    "language": "typescript",
+    "module": "es6",
+    "shims": {
+      "Js": "Js",
+      "React": "ReactShim",
+      "ReactEvent": "ReactEvent",
+      "ReasonPervasives": "ReasonPervasives",
+      "ReasonReact": "ReactShim",
+      "ReactNative": "ReactNative"
+    },
+    "debug": {
+      "all": false,
+      "basic": false
+    },
+    "exportInterfaces": true
+  }
 }

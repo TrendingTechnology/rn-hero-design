@@ -2,6 +2,7 @@
 
 let noop = _ => ();
 
+[@genType]
 [@react.component]
 let make = (~file: string, ~variableValues: Js.Json.t) => {
   let html =
@@ -43,4 +44,5 @@ let make = (~file: string, ~variableValues: Js.Json.t) => {
   />;
 };
 
+[@genType]
 let default = make;

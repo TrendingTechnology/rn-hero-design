@@ -27,6 +27,7 @@ module Tab = {
   let make = () => React.null;
 };
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -107,4 +108,5 @@ let make =
 
 setTabSubComponent(make, Tab.make);
 
+[@genType]
 let default = Helpers.injectTheme(make);

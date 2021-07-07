@@ -4,6 +4,7 @@ open ReactNative;
 
 let noop = _ => ();
 
+[@genType]
 [@react.component]
 let make =
     (~label="", ~checked=false, ~onPress=noop, ~theme=Hero_Theme.default) => {
@@ -21,4 +22,5 @@ let make =
   </TouchableOpacity>;
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);

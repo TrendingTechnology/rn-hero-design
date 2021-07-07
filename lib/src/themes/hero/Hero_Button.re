@@ -48,4 +48,5 @@ let styles: Js.t('a) = {
   "disabledText": style(~color=_DISABLED_TEXT_COLOR, ()),
 };
 
+[@genType]
 let default: Js.t('a) = ReactNative.StyleSheet.create(styles);

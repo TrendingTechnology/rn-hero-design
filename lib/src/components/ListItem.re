@@ -14,6 +14,7 @@ let (||=) = Belt.Option.getWithDefault;
 
 let emptyStyle = Style.style();
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -63,4 +64,5 @@ let make =
   </Wrapper>;
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);

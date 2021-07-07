@@ -1,5 +1,6 @@
 module RN = ReactNative;
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -35,4 +36,5 @@ let make =
   </Container>;
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);

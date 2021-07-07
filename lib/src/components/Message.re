@@ -44,6 +44,7 @@ let getStylesByVariant = (variant: MessageVariant.t, styles: Js.t('a)) => {
 
 let emptyStyle = Style.style();
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -72,4 +73,5 @@ let make =
   </View>;
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);

@@ -21,7 +21,8 @@ module PropsDecoder = {
 };
 
 [@bs.scope "__pdfEditorData"] [@bs.val] external file: string = "file";
-[@bs.scope "__pdfEditorData"] [@bs.val] external variableValues: Js.Json.t = "variableValues";
+[@bs.scope "__pdfEditorData"] [@bs.val]
+external variableValues: Js.Json.t = "variableValues";
 
 let featureToggle: FeatureToggle.t = {
   dateFormatCustomization: false,

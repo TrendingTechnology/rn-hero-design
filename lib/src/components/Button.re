@@ -35,6 +35,7 @@ let getStylesByVariant = (variant: ButtonVariant.t, styles: Js.t('a)) => {
   );
 };
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -86,4 +87,5 @@ let make =
   </Wrapper>;
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);

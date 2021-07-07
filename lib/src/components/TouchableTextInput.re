@@ -25,6 +25,7 @@ type keyboardType = [
 
 [@bs.get] external getColorProperty: Style.t => Color.t = "color";
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -139,4 +140,5 @@ let make =
   </View>;
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);

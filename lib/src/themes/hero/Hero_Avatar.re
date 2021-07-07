@@ -120,4 +120,5 @@ let styles: Js.t('a) = {
     ),
 };
 
+[@genType]
 let default: Js.t('a) = ReactNative.StyleSheet.create(styles);

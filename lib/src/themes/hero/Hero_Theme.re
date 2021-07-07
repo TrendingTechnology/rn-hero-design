@@ -1,3 +1,4 @@
+[@genType]
 let default = {
   "variables": Hero_Variables.default,
   "button": Hero_Button.default,

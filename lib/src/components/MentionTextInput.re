@@ -157,6 +157,7 @@ let getAffectedMentionIndexes:
 
 let _TRIGGER = "@";
 
+[@genType]
 [@react.component]
 let make =
     (
@@ -415,4 +416,5 @@ let make =
   </RN.View>;
 };
 
+[@genType]
 let default = Helpers.injectTheme(make);
