@@ -6,6 +6,7 @@ let emptyStyle = Style.style();
 
 let noop = _ => ();
 
+[@genType]
 [@bs.deriving jsConverter]
 type keyboardType = [
   | `default

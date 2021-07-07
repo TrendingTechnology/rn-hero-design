@@ -2,6 +2,7 @@ open ReactNative;
 
 let noop = _ => ();
 
+[@genType]
 [@bs.deriving jsConverter]
 type mode = [ | `date | `time];
 

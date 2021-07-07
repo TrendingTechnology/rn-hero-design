@@ -12,7 +12,11 @@ type stylesBySize = {
   "image": Style.t,
 };
 
-let getStylesBySize: (option(string), Js.t('a)) => stylesBySize =
+[@genType]
+[@bs.deriving jsConverter]
+type size = [ | `small | `large | `medium];
+
+let getStylesBySize: (option(size), Js.t('a)) => stylesBySize =
   (size, styles) => {
     let mediumSizeStyles = {
       "wrapper": styles##mediumWrapper,
@@ -35,8 +39,8 @@ let getStylesBySize: (option(string), Js.t('a)) => stylesBySize =
     size->Belt.Option.mapWithDefault(
       mediumSizeStyles,
       fun
-      | "large" => largeSizeStyles
-      | "small" => smallSizeStyles
+      | `large => largeSizeStyles
+      | `small => smallSizeStyles
       | _ => mediumSizeStyles,
     );
   };
@@ -46,7 +50,7 @@ let getStylesBySize: (option(string), Js.t('a)) => stylesBySize =
 let make =
     (
       ~source=?,
-      ~size=?,
+      ~size: option(size)=?,
       ~title="",
       ~wrapperStyle=?,
       ~titleStyle=?,

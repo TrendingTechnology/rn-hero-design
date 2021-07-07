@@ -1,5 +1,6 @@
 open ReactNative;
 
+[@genType]
 [@bs.deriving jsConverter]
 type containerDirection = [ | `column | `row | `columnReverse | `rowReverse];
 

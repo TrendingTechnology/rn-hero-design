@@ -2,6 +2,7 @@ open ReactNative;
 
 let emptyStyle = Style.style();
 
+[@genType]
 [@bs.deriving jsConverter]
 type weight = [
   | [@bs.as "100"] `_100
@@ -17,6 +18,7 @@ type weight = [
   | `normal
 ];
 
+[@genType]
 [@bs.deriving jsConverter]
 type ellipsizeMode = [ | `clip | `head | `middle | `tail];
 
@@ -27,12 +29,16 @@ let (|?) = (x, y) =>
   };
 
 [@genType]
+[@bs.deriving jsConverter]
+type size = [ | `h1 | `h2 | `h3 | `h4 | `h5];
+
+[@genType]
 [@react.component]
 let make =
     (
       ~testID=?,
       ~children,
-      ~size=?,
+      ~size: option(size)=?,
       ~weight=?,
       ~color=?,
       ~ellipsizeMode=?,
@@ -50,11 +56,11 @@ let make =
       theme##text##text,
       Belt.Option.mapWithDefault(size, emptyStyle, size =>
         switch (size) {
-        | "h1" => theme##text##h1
-        | "h2" => theme##text##h2
-        | "h3" => theme##text##h3
-        | "h4" => theme##text##h4
-        | "h5" => theme##text##h5
+        | `h1 => theme##text##h1
+        | `h2 => theme##text##h2
+        | `h3 => theme##text##h3
+        | `h4 => theme##text##h4
+        | `h5 => theme##text##h5
         | _ => emptyStyle
         }
       ),
