@@ -19,11 +19,13 @@
     "@ehrocks/pdf-editor",
     "@glennsl/bs-json",
     "@rescript/react",
+    "bs-hero-design",
     "rescript-react-native"
   ],
   "gentypeconfig": {
     "language": "typescript",
     "module": "es6",
+    "generatedFileExtension": ".gen.tsx",
     "shims": {
       "Js": "Js",
       "React": "ReactShim",
@@ -33,9 +35,8 @@
       "ReactNative": "ReactNative"
     },
     "debug": {
-      "all": false,
-      "basic": false
+      "all": false
     },
-    "exportInterfaces": true
+    "exportInterfaces": false
   }
 }
