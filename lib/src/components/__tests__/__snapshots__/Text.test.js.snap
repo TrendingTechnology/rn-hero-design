@@ -1,0 +1,171 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Text renders correctly 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      ellipsizeMode="clip"
+      numberOfLines={2}
+      style={
+        Object {
+          "color": "#000000",
+          "fontFamily": "Proxima Nova",
+          "fontSize": 32.5,
+          "fontWeight": "100",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Text renders correctly 2`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      ellipsizeMode="clip"
+      numberOfLines={2}
+      style={
+        Object {
+          "color": "#000000",
+          "fontFamily": "Proxima Nova",
+          "fontSize": 24.375,
+          "fontWeight": "normal",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Text renders correctly 3`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      ellipsizeMode="clip"
+      numberOfLines={2}
+      style={
+        Object {
+          "color": "#000000",
+          "fontFamily": "Proxima Nova",
+          "fontSize": 19.0125,
+          "fontWeight": "bold",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Text renders correctly 4`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      ellipsizeMode="clip"
+      numberOfLines={2}
+      style={
+        Object {
+          "color": "#000000",
+          "fontFamily": "Proxima Nova",
+          "fontSize": 16.25,
+          "fontWeight": "600",
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Text renders correctly 5`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <Text
+      ellipsizeMode="clip"
+      numberOfLines={2}
+      style={
+        Object {
+          "color": "#000000",
+          "fontFamily": "Proxima Nova",
+          "fontSize": 13.487499999999999,
+          "fontWeight": "400",
+        }
+      }
+    />
+  </View>
+</View>
+`;

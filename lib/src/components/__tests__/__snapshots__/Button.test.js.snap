@@ -163,8 +163,10 @@ exports[`Button renders correctly 4`] = `
       style={
         Object {
           "alignItems": "center",
-          "backgroundColor": "#1dbeee",
+          "backgroundColor": "transparent",
+          "borderColor": "#1dbeee",
           "borderRadius": 24.375,
+          "borderWidth": 1.2,
           "display": "flex",
           "height": 48.75,
           "justifyContent": "center",
@@ -175,9 +177,10 @@ exports[`Button renders correctly 4`] = `
       <Text
         style={
           Object {
-            "color": "#fcfcfc",
+            "color": "#1dbeee",
             "fontFamily": "Proxima Nova",
             "fontSize": 16.25,
+            "fontWeight": "500",
             "lineHeight": 16.25,
           }
         }
