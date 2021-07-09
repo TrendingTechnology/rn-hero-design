@@ -4,6 +4,7 @@
 // tslint:disable-next-line:no-var-requires
 import { Props } from '../components/Text.gen';
 
-export declare type Theme = Props['theme'];
+export type Theme = Props['theme'];
 
-export declare const useTheme: () => Theme;
+declare const useTheme: () => Theme;
+export { useTheme };
