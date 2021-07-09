@@ -15,9 +15,14 @@ let (|?) = (x, y) =>
 [@genType]
 [@react.component]
 let make =
-    (~children, ~fluid=false, ~direction, ~style=?, ~theme=Hero_Theme.default) => {
-  let direction =
-    containerDirectionFromJs(direction)->Belt.Option.getWithDefault(`column);
+    (
+      ~children,
+      ~fluid=false,
+      ~direction: option(containerDirection)=?,
+      ~style=?,
+      ~theme=Hero_Theme.default,
+    ) => {
+  let direction = direction->Belt.Option.getWithDefault(`column);
   <View
     style={StyleSheet.flatten([|
       theme##container##container,
