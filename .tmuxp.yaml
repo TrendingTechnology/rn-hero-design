@@ -1,0 +1,20 @@
+session_name: hero-design
+windows:
+  - window_name: main window
+    focus: 'true'
+    layout: main-vertical
+    panes:
+      - focus: 'true'
+        shell_command: 
+        - nvim ./
+      - shell_command: 
+        - 
+    options:
+      main-pane-width: 220
+  - window_name: yarn playground start
+    panes:
+      - shell_command: 
+        - yarn playground start
+      - shell_command: 
+        - yarn playground ios
+

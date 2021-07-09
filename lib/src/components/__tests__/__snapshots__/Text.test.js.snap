@@ -53,7 +53,7 @@ exports[`Text renders correctly 2`] = `
     }
   >
     <Text
-      ellipsizeMode="clip"
+      ellipsizeMode="tail"
       numberOfLines={2}
       style={
         Object {
@@ -87,7 +87,7 @@ exports[`Text renders correctly 3`] = `
     }
   >
     <Text
-      ellipsizeMode="clip"
+      ellipsizeMode="middle"
       numberOfLines={2}
       style={
         Object {
@@ -121,7 +121,7 @@ exports[`Text renders correctly 4`] = `
     }
   >
     <Text
-      ellipsizeMode="clip"
+      ellipsizeMode="head"
       numberOfLines={2}
       style={
         Object {
