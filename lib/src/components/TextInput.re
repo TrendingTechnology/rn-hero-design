@@ -37,8 +37,8 @@ let make =
       ~testID="",
       ~label="",
       ~placeholder="",
-      ~keyboardType: option(string)=?,
-      ~autoCapitalize: option(string)=?,
+      ~keyboardType: option(keyboardType)=?,
+      ~autoCapitalize: option(autoCapitalize)=?,
       ~defaultValue=?,
       ~value=?,
       ~onChange=noop,
@@ -83,13 +83,9 @@ let make =
     | (None, Some(""), Some(defaultValue), _) when !isEmpty(defaultValue) => label
     | _ => ""
     };
-  let keyboardType_ =
-    keyboardType
-    ->Belt.Option.flatMap(keyboardTypeFromJs)
-    ->Belt.Option.getWithDefault(`default);
+  let keyboardType_ = keyboardType->Belt.Option.getWithDefault(`default);
 
-  let autoCapitalize_ =
-    autoCapitalize->Belt.Option.flatMap(autoCapitalizeFromJs);
+  let autoCapitalize_ = autoCapitalize;
 
   let handleFocus =
     React.useCallback2(

@@ -3,7 +3,6 @@ open ReactNative;
 let noop = _ => ();
 
 [@genType]
-[@bs.deriving jsConverter]
 type mode = [ | `date | `time];
 
 module DateTimePickerIOS = {
@@ -106,13 +105,12 @@ let make =
     (
       ~show=false,
       ~value: Js.Date.t=Js.Date.make(),
-      ~mode=?,
+      ~mode:option(mode)=?,
       ~onChange=noop,
       ~onDismiss=noop,
       ~theme=Hero_Theme.default,
     ) => {
-  let mode_ =
-    mode->Belt.Option.flatMap(modeFromJs)->Belt.Option.getWithDefault(`date);
+  let mode_ = mode->Belt.Option.getWithDefault(`date);
 
   Helpers.Platform.isAndroid
     ? <DateTimePickerAndroid show mode=mode_ value onChange onDismiss />

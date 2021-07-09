@@ -1,0 +1,232 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DateTimePicker renders correctly 1`] = `
+<View
+  forwardedRef={[Function]}
+  onLayout={[Function]}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "backgroundColor": "#f5f6f8",
+      "paddingBottom": 0,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "paddingTop": 0,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderBottomColor": "#d9dbdf",
+        "borderBottomWidth": 0.5,
+        "flexDirection": "row",
+        "justifyContent": "flex-end",
+      }
+    }
+  >
+    <TouchableOpacity
+      onPress={[Function]}
+      style={
+        Object {
+          "height": 45.9875,
+          "justifyContent": "center",
+          "paddingHorizontal": 16.25,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1dbeee",
+            "fontSize": 16.25,
+          }
+        }
+      >
+        Cancel
+      </Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+      onPress={[Function]}
+      style={
+        Object {
+          "height": 45.9875,
+          "justifyContent": "center",
+          "paddingHorizontal": 16.25,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1dbeee",
+            "fontSize": 16.25,
+            "fontWeight": "600",
+          }
+        }
+      >
+        Done
+      </Text>
+    </TouchableOpacity>
+  </View>
+</View>
+`;
+
+exports[`DateTimePicker renders correctly 2`] = `null`;
+
+exports[`DateTimePicker renders correctly 3`] = `
+<View
+  forwardedRef={[Function]}
+  onLayout={[Function]}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "backgroundColor": "#f5f6f8",
+      "paddingBottom": 0,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "paddingTop": 0,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderBottomColor": "#d9dbdf",
+        "borderBottomWidth": 0.5,
+        "flexDirection": "row",
+        "justifyContent": "flex-end",
+      }
+    }
+  >
+    <TouchableOpacity
+      onPress={[Function]}
+      style={
+        Object {
+          "height": 45.9875,
+          "justifyContent": "center",
+          "paddingHorizontal": 16.25,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1dbeee",
+            "fontSize": 16.25,
+          }
+        }
+      >
+        Cancel
+      </Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+      onPress={[Function]}
+      style={
+        Object {
+          "height": 45.9875,
+          "justifyContent": "center",
+          "paddingHorizontal": 16.25,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1dbeee",
+            "fontSize": 16.25,
+            "fontWeight": "600",
+          }
+        }
+      >
+        Done
+      </Text>
+    </TouchableOpacity>
+  </View>
+</View>
+`;
+
+exports[`DateTimePicker renders correctly 4`] = `
+<View
+  forwardedRef={[Function]}
+  onLayout={[Function]}
+  pointerEvents="box-none"
+  style={
+    Object {
+      "backgroundColor": "#f5f6f8",
+      "paddingBottom": 0,
+      "paddingLeft": 0,
+      "paddingRight": 0,
+      "paddingTop": 0,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "borderBottomColor": "#d9dbdf",
+        "borderBottomWidth": 0.5,
+        "flexDirection": "row",
+        "justifyContent": "flex-end",
+      }
+    }
+  >
+    <TouchableOpacity
+      onPress={[Function]}
+      style={
+        Object {
+          "height": 45.9875,
+          "justifyContent": "center",
+          "paddingHorizontal": 16.25,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1dbeee",
+            "fontSize": 16.25,
+          }
+        }
+      >
+        Cancel
+      </Text>
+    </TouchableOpacity>
+    <TouchableOpacity
+      onPress={[Function]}
+      style={
+        Object {
+          "height": 45.9875,
+          "justifyContent": "center",
+          "paddingHorizontal": 16.25,
+        }
+      }
+    >
+      <Text
+        style={
+          Object {
+            "color": "#1dbeee",
+            "fontSize": 16.25,
+            "fontWeight": "600",
+          }
+        }
+      >
+        Done
+      </Text>
+    </TouchableOpacity>
+  </View>
+  <RNDateTimePicker
+    date={1625828137971}
+    displayIOS="spinner"
+    mode="time"
+    onChange={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "height": 216,
+      }
+    }
+  />
+</View>
+`;
