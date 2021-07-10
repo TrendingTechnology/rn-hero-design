@@ -216,7 +216,7 @@ exports[`DateTimePicker renders correctly 4`] = `
     </TouchableOpacity>
   </View>
   <RNDateTimePicker
-    date={1625828137971}
+    date={1628467200000}
     displayIOS="spinner"
     mode="time"
     onChange={[Function]}
