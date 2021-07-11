@@ -74,7 +74,7 @@ export make = (
             window.__editorConfigs = {
               placeholder: "${placeholder}",
               initialValue: ${initialValue},
-              isAndroid: ${isAndroid ? "yes" : "no"},
+              isAndroid: ${isAndroid ? "true" : "false"},
               autoFocus: true,
               style: {
                 padding: 0,
