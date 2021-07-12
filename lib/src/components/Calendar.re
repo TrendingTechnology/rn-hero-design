@@ -40,6 +40,7 @@ let hasVisibleDate = dates => dates |> Js.Array.some(Belt.Option.isSome);
 
 type color = string;
 
+[@genType]
 [@bs.deriving abstract]
 type markedDate = {
   date: Js.Date.t,

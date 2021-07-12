@@ -8,6 +8,7 @@ let getFirstOptionValue = options =>
   | Some(option_) => option_##value
   };
 
+[@genType.as "Option"]
 type option_ = {
   .
   "label": string,

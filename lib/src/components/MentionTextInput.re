@@ -366,7 +366,7 @@ let make =
     <TextInput
       testID
       placeholder
-      keyboardType="default"
+      keyboardType=`default
       rightIcon
       disabled
       error

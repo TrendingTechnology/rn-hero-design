@@ -1,0 +1,159 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Container renders correctly 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "yellow",
+          "flex": 1,
+          "flexDirection": "column",
+          "padding": 16.25,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Container renders correctly 2`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "yellow",
+          "flex": 1,
+          "flexDirection": "row",
+          "padding": 16.25,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Container renders correctly 3`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "yellow",
+          "flex": 1,
+          "flexDirection": "row-reverse",
+          "padding": 16.25,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Container renders correctly 4`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "yellow",
+          "flex": 1,
+          "flexDirection": "column-reverse",
+          "padding": 16.25,
+        }
+      }
+    />
+  </View>
+</View>
+`;
+
+exports[`Container renders correctly 5`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "column",
+          "padding": 16.25,
+        }
+      }
+    />
+  </View>
+</View>
+`;
