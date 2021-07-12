@@ -1,8 +1,11 @@
 open ReactNative;
 
-[@genType]
-[@bs.deriving jsConverter]
-type containerDirection = [ | `column | `row | `columnReverse | `rowReverse];
+type containerDirection = [
+  | `column
+  | `row
+  | [@genType.as "column-reverse"] `columnReverse
+  | [@genType.as "row-reverse"] `rowReverse
+];
 
 let noStyle = Style.style();
 

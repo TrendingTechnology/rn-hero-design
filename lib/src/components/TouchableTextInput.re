@@ -6,21 +6,20 @@ let emptyStyle = Style.style();
 
 let noop = _ => ();
 
-[@genType]
 type keyboardType = [
   | `default
-  | `numberPad
-  | `decimalPad
+  | [@genType.as "number-pad"] `numberPad
+  | [@genType.as "decimal-pad"] `decimalPad
   | `numeric
-  | `emailAddress
-  | `phonePad
-  | `asciiCapable
-  | `numbersAndPunctuation
+  | [@genType.as "email-address"] `emailAddress
+  | [@genType.as "phone-pad"] `phonePad
+  | [@genType.as "ascii-capable"] `asciiCapable
+  | [@genType.as "numbers-and-punctuation"] `numbersAndPunctuation
   | `url
-  | `namePhonePad
+  | [@genType.as "name-phone-pad"] `namePhonePad
   | `twitter
-  | `webSearch
-  | `visiblePassword
+  | [@genType.as "web-search"] `webSearch
+  | [@genType.as "visible-password"] `visiblePassword
 ];
 
 [@bs.get] external getColorProperty: Style.t => Color.t = "color";
