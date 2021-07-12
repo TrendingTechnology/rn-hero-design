@@ -6,21 +6,20 @@ let emptyStyle = Style.style();
 
 let noop = _ => ();
 
-[@bs.deriving jsConverter]
 type keyboardType = [
   | `default
-  | [@bs.as "number-pad"] `numberPad
-  | [@bs.as "decimal-pad"] `decimalPad
+  | [@genType.as "number-pad"] `numberPad
+  | [@genType.as "decimal-pad"] `decimalPad
   | `numeric
-  | [@bs.as "email-address"] `emailAddress
-  | [@bs.as "phone-pad"] `phonePad
-  | [@bs.as "ascii-capable"] `asciiCapable
-  | [@bs.as "numbers-and-punctuation"] `numbersAndPunctuation
+  | [@genType.as "email-address"] `emailAddress
+  | [@genType.as "phone-pad"] `phonePad
+  | [@genType.as "ascii-capable"] `asciiCapable
+  | [@genType.as "numbers-and-punctuation"] `numbersAndPunctuation
   | `url
-  | [@bs.as "name-phone-pad"] `namePhonePad
+  | [@genType.as "name-phone-pad"] `namePhonePad
   | `twitter
-  | [@bs.as "web-search"] `webSearch
-  | [@bs.as "visible-password"] `visiblePassword
+  | [@genType.as "web-search"] `webSearch
+  | [@genType.as "visible-password"] `visiblePassword
 ];
 
 [@bs.get] external getColorProperty: Style.t => Color.t = "color";
@@ -33,7 +32,7 @@ let make =
       ~inputTestID=?,
       ~label="",
       ~placeholder="",
-      ~keyboardType: option(string)=?,
+      ~keyboardType: option(keyboardType)=?,
       ~value=?,
       ~onTouch=noop,
       ~onPressIcon=noop,
@@ -60,10 +59,7 @@ let make =
     | Some(value) when !isEmpty(value) => label
     | _ => ""
     };
-  let keyboardType_ =
-    keyboardType
-    ->Belt.Option.flatMap(keyboardTypeFromJs)
-    ->Belt.Option.getWithDefault(`default);
+  let keyboardType_ = keyboardType->Belt.Option.getWithDefault(`default);
 
   <View
     style={StyleSheet.flatten([|theme##textInput##wrapper, wrapperStyle|])}>

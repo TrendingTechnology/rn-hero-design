@@ -23,7 +23,7 @@ let make =
       </RN.TouchableOpacity>
     };
 
-  <Container direction="column" style=theme##errorScreen##container>
+  <Container direction=`column style=theme##errorScreen##container>
     closeButton
     <RN.Image
       source=imageSource

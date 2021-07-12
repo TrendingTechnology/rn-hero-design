@@ -558,3 +558,715 @@ exports[`TextInput renders correctly 5`] = `
   </Text>
 </View>
 `;
+
+exports[`TextInput renders keyboardType correctly 1`] = `
+<View
+  style={
+    Object {
+      "marginBottom": 16.25,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#a3a6ac",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "height": 13.487499999999999,
+        "lineHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#d9dbdf",
+        "borderBottomWidth": 0.8,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      autoFocus={false}
+      editable={true}
+      keyboardType="name-phone-pad"
+      multiline={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
+      placeholder=""
+      placeholderTextColor="#a3a6ac"
+      rejectResponderTermination={true}
+      scrollEnabled={false}
+      secureTextEntry={false}
+      style={
+        Object {
+          "color": "#000000",
+          "flex": 1,
+          "fontFamily": "Proxima Nova",
+          "fontSize": 16.25,
+          "paddingBottom": 16.25,
+          "paddingTop": 16.25,
+          "textAlignVertical": "center",
+        }
+      }
+      testID=""
+      underlineColorAndroid="transparent"
+      value="kienhiepsi"
+    />
+    <TouchableWithoutFeedback
+      onPress={[Function]}
+    >
+      <View />
+    </TouchableWithoutFeedback>
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#fe56aa",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "lineHeight": 13.487499999999999,
+        "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`TextInput renders keyboardType correctly 2`] = `
+<View
+  style={
+    Object {
+      "marginBottom": 16.25,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#a3a6ac",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "height": 13.487499999999999,
+        "lineHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#d9dbdf",
+        "borderBottomWidth": 0.8,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      autoFocus={false}
+      editable={true}
+      keyboardType="web-search"
+      multiline={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
+      placeholder=""
+      placeholderTextColor="#a3a6ac"
+      rejectResponderTermination={true}
+      scrollEnabled={false}
+      secureTextEntry={false}
+      style={
+        Object {
+          "color": "#000000",
+          "flex": 1,
+          "fontFamily": "Proxima Nova",
+          "fontSize": 16.25,
+          "paddingBottom": 16.25,
+          "paddingTop": 16.25,
+          "textAlignVertical": "center",
+        }
+      }
+      testID=""
+      underlineColorAndroid="transparent"
+      value="kienhiepsi"
+    />
+    <TouchableWithoutFeedback
+      onPress={[Function]}
+    >
+      <View />
+    </TouchableWithoutFeedback>
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#fe56aa",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "lineHeight": 13.487499999999999,
+        "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`TextInput renders keyboardType correctly 3`] = `
+<View
+  style={
+    Object {
+      "marginBottom": 16.25,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#a3a6ac",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "height": 13.487499999999999,
+        "lineHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#d9dbdf",
+        "borderBottomWidth": 0.8,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      autoFocus={false}
+      editable={true}
+      keyboardType="number-pad"
+      multiline={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
+      placeholder=""
+      placeholderTextColor="#a3a6ac"
+      rejectResponderTermination={true}
+      scrollEnabled={false}
+      secureTextEntry={false}
+      style={
+        Object {
+          "color": "#000000",
+          "flex": 1,
+          "fontFamily": "Proxima Nova",
+          "fontSize": 16.25,
+          "paddingBottom": 16.25,
+          "paddingTop": 16.25,
+          "textAlignVertical": "center",
+        }
+      }
+      testID=""
+      underlineColorAndroid="transparent"
+      value="kienhiepsi"
+    />
+    <TouchableWithoutFeedback
+      onPress={[Function]}
+    >
+      <View />
+    </TouchableWithoutFeedback>
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#fe56aa",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "lineHeight": 13.487499999999999,
+        "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`TextInput renders keyboardType correctly 4`] = `
+<View
+  style={
+    Object {
+      "marginBottom": 16.25,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#a3a6ac",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "height": 13.487499999999999,
+        "lineHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#d9dbdf",
+        "borderBottomWidth": 0.8,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      autoFocus={false}
+      editable={true}
+      keyboardType="decimal-pad"
+      multiline={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
+      placeholder=""
+      placeholderTextColor="#a3a6ac"
+      rejectResponderTermination={true}
+      scrollEnabled={false}
+      secureTextEntry={false}
+      style={
+        Object {
+          "color": "#000000",
+          "flex": 1,
+          "fontFamily": "Proxima Nova",
+          "fontSize": 16.25,
+          "paddingBottom": 16.25,
+          "paddingTop": 16.25,
+          "textAlignVertical": "center",
+        }
+      }
+      testID=""
+      underlineColorAndroid="transparent"
+      value="kienhiepsi"
+    />
+    <TouchableWithoutFeedback
+      onPress={[Function]}
+    >
+      <View />
+    </TouchableWithoutFeedback>
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#fe56aa",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "lineHeight": 13.487499999999999,
+        "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`TextInput renders keyboardType correctly 5`] = `
+<View
+  style={
+    Object {
+      "marginBottom": 16.25,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#a3a6ac",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "height": 13.487499999999999,
+        "lineHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#d9dbdf",
+        "borderBottomWidth": 0.8,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      autoFocus={false}
+      editable={true}
+      keyboardType="phone-pad"
+      multiline={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
+      placeholder=""
+      placeholderTextColor="#a3a6ac"
+      rejectResponderTermination={true}
+      scrollEnabled={false}
+      secureTextEntry={false}
+      style={
+        Object {
+          "color": "#000000",
+          "flex": 1,
+          "fontFamily": "Proxima Nova",
+          "fontSize": 16.25,
+          "paddingBottom": 16.25,
+          "paddingTop": 16.25,
+          "textAlignVertical": "center",
+        }
+      }
+      testID=""
+      underlineColorAndroid="transparent"
+      value="kienhiepsi"
+    />
+    <TouchableWithoutFeedback
+      onPress={[Function]}
+    >
+      <View />
+    </TouchableWithoutFeedback>
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#fe56aa",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "lineHeight": 13.487499999999999,
+        "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`TextInput renders keyboardType correctly 6`] = `
+<View
+  style={
+    Object {
+      "marginBottom": 16.25,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#a3a6ac",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "height": 13.487499999999999,
+        "lineHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#d9dbdf",
+        "borderBottomWidth": 0.8,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      autoFocus={false}
+      editable={true}
+      keyboardType="ascii-capable"
+      multiline={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
+      placeholder=""
+      placeholderTextColor="#a3a6ac"
+      rejectResponderTermination={true}
+      scrollEnabled={false}
+      secureTextEntry={false}
+      style={
+        Object {
+          "color": "#000000",
+          "flex": 1,
+          "fontFamily": "Proxima Nova",
+          "fontSize": 16.25,
+          "paddingBottom": 16.25,
+          "paddingTop": 16.25,
+          "textAlignVertical": "center",
+        }
+      }
+      testID=""
+      underlineColorAndroid="transparent"
+      value="kienhiepsi"
+    />
+    <TouchableWithoutFeedback
+      onPress={[Function]}
+    >
+      <View />
+    </TouchableWithoutFeedback>
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#fe56aa",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "lineHeight": 13.487499999999999,
+        "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`TextInput renders keyboardType correctly 7`] = `
+<View
+  style={
+    Object {
+      "marginBottom": 16.25,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#a3a6ac",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "height": 13.487499999999999,
+        "lineHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#d9dbdf",
+        "borderBottomWidth": 0.8,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      autoFocus={false}
+      editable={true}
+      keyboardType="numbers-and-punctuation"
+      multiline={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
+      placeholder=""
+      placeholderTextColor="#a3a6ac"
+      rejectResponderTermination={true}
+      scrollEnabled={false}
+      secureTextEntry={false}
+      style={
+        Object {
+          "color": "#000000",
+          "flex": 1,
+          "fontFamily": "Proxima Nova",
+          "fontSize": 16.25,
+          "paddingBottom": 16.25,
+          "paddingTop": 16.25,
+          "textAlignVertical": "center",
+        }
+      }
+      testID=""
+      underlineColorAndroid="transparent"
+      value="kienhiepsi"
+    />
+    <TouchableWithoutFeedback
+      onPress={[Function]}
+    >
+      <View />
+    </TouchableWithoutFeedback>
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#fe56aa",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "lineHeight": 13.487499999999999,
+        "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+</View>
+`;
+
+exports[`TextInput renders keyboardType correctly 8`] = `
+<View
+  style={
+    Object {
+      "marginBottom": 16.25,
+    }
+  }
+>
+  <Text
+    style={
+      Object {
+        "color": "#a3a6ac",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "height": 13.487499999999999,
+        "lineHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "borderBottomColor": "#d9dbdf",
+        "borderBottomWidth": 0.8,
+        "flexDirection": "row",
+      }
+    }
+  >
+    <TextInput
+      allowFontScaling={true}
+      autoCorrect={false}
+      autoFocus={false}
+      editable={true}
+      keyboardType="visible-password"
+      multiline={false}
+      onBlur={[Function]}
+      onChange={[Function]}
+      onChangeText={[Function]}
+      onFocus={[Function]}
+      onKeyPress={[Function]}
+      onSelectionChange={[Function]}
+      placeholder=""
+      placeholderTextColor="#a3a6ac"
+      rejectResponderTermination={true}
+      scrollEnabled={false}
+      secureTextEntry={false}
+      style={
+        Object {
+          "color": "#000000",
+          "flex": 1,
+          "fontFamily": "Proxima Nova",
+          "fontSize": 16.25,
+          "paddingBottom": 16.25,
+          "paddingTop": 16.25,
+          "textAlignVertical": "center",
+        }
+      }
+      testID=""
+      underlineColorAndroid="transparent"
+      value="kienhiepsi"
+    />
+    <TouchableWithoutFeedback
+      onPress={[Function]}
+    >
+      <View />
+    </TouchableWithoutFeedback>
+  </View>
+  <Text
+    style={
+      Object {
+        "color": "#fe56aa",
+        "fontFamily": "Proxima Nova",
+        "fontSize": 13.487499999999999,
+        "fontWeight": "500",
+        "lineHeight": 13.487499999999999,
+        "marginTop": 8.125,
+        "minHeight": 13.487499999999999,
+      }
+    }
+  >
+    
+  </Text>
+</View>
+`;

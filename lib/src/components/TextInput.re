@@ -6,23 +6,23 @@ let emptyStyle = Style.style();
 
 let noop = _ => ();
 
-[@bs.deriving jsConverter]
 type keyboardType = [
   | `default
-  | [@bs.as "number-pad"] `numberPad
-  | [@bs.as "decimal-pad"] `decimalPad
+  | [@genType.as "number-pad"] `numberPad
+  | [@genType.as "decimal-pad"] `decimalPad
   | `numeric
-  | [@bs.as "email-address"] `emailAddress
-  | [@bs.as "phone-pad"] `phonePad
-  | [@bs.as "ascii-capable"] `asciiCapable
-  | [@bs.as "numbers-and-punctuation"] `numbersAndPunctuation
+  | [@genType.as "email-address"] `emailAddress
+  | [@genType.as "phone-pad"] `phonePad
+  | [@genType.as "ascii-capable"] `asciiCapable
+  | [@genType.as "numbers-and-punctuation"] `numbersAndPunctuation
   | `url
-  | [@bs.as "name-phone-pad"] `namePhonePad
+  | [@genType.as "name-phone-pad"] `namePhonePad
   | `twitter
-  | [@bs.as "web-search"] `webSearch
-  | [@bs.as "visible-password"] `visiblePassword
+  | [@genType.as "web-search"] `webSearch
+  | [@genType.as "visible-password"] `visiblePassword
 ];
 
+[@genType]
 [@bs.deriving jsConverter]
 type autoCapitalize = [ | `none | `sentences | `words | `characters];
 
@@ -35,8 +35,8 @@ let make =
       ~testID="",
       ~label="",
       ~placeholder="",
-      ~keyboardType: option(string)=?,
-      ~autoCapitalize: option(string)=?,
+      ~keyboardType: option(keyboardType)=?,
+      ~autoCapitalize: option(autoCapitalize)=?,
       ~defaultValue=?,
       ~value=?,
       ~onChange=noop,
@@ -81,13 +81,9 @@ let make =
     | (None, Some(""), Some(defaultValue), _) when !isEmpty(defaultValue) => label
     | _ => ""
     };
-  let keyboardType_ =
-    keyboardType
-    ->Belt.Option.flatMap(keyboardTypeFromJs)
-    ->Belt.Option.getWithDefault(`default);
+  let keyboardType_ = keyboardType->Belt.Option.getWithDefault(`default);
 
-  let autoCapitalize_ =
-    autoCapitalize->Belt.Option.flatMap(autoCapitalizeFromJs);
+  let autoCapitalize_ = autoCapitalize;
 
   let handleFocus =
     React.useCallback2(
