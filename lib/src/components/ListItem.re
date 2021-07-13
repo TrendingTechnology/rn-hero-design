@@ -18,8 +18,8 @@ let emptyStyle = Style.style();
 [@react.component]
 let make =
     (
-      ~title,
-      ~subtitle=?,
+      ~title: string,
+      ~subtitle: option(string)=?,
       ~onPress=?,
       ~leftElement=?,
       ~rightElement=?,
@@ -27,7 +27,7 @@ let make =
       ~titleStyle=?,
       ~subtitleStyle=?,
       ~theme=Hero_Theme.default,
-      ~testID="",
+      ~testID=?,
     ) => {
   <Wrapper
     style={StyleSheet.flatten([|
@@ -35,7 +35,7 @@ let make =
       wrapperStyle ||= emptyStyle,
     |])}
     ?onPress>
-    <View testID style={theme##listItem##contentWrapper}>
+    <View ?testID style={theme##listItem##contentWrapper}>
       {leftElement ||= React.null}
       <View style={theme##listItem##textWrapper}>
         <View>
@@ -44,7 +44,7 @@ let make =
               theme##listItem##title,
               titleStyle ||= emptyStyle,
             |])}>
-            title
+            title->React.string
           </Text>
           {switch (subtitle) {
            | None => React.null
@@ -54,7 +54,7 @@ let make =
                  theme##listItem##subtitle,
                  subtitleStyle ||= emptyStyle,
                |])}>
-               subtitle
+               subtitle->React.string
              </Text>
            }}
         </View>

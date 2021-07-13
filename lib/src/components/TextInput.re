@@ -32,7 +32,7 @@ type autoCapitalize = [ | `none | `sentences | `words | `characters];
 [@react.component]
 let make =
     (
-      ~testID="",
+      ~testID=?,
       ~label="",
       ~placeholder="",
       ~keyboardType: option(keyboardType)=?,
@@ -136,7 +136,7 @@ let make =
         inputStyle,
       |])}>
       <ReactNative.TextInput
-        testID
+        ?testID
         placeholder=placeholder_
         keyboardType=keyboardType_
         autoCapitalize=?autoCapitalize_

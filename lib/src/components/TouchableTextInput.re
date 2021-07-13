@@ -28,7 +28,7 @@ type keyboardType = [
 [@react.component]
 let make =
     (
-      ~touchableTestID=?,
+      ~testID=?,
       ~inputTestID=?,
       ~label="",
       ~placeholder="",
@@ -78,7 +78,7 @@ let make =
         inputStyle,
       |])}>
       <TouchableOpacity
-        testID=?touchableTestID
+        ?testID
         activeOpacity={disabled ? 1.0 : 0.2}
         onPress={disabled ? noop : onTouch}
         style={Style.style(~flex=1.0, ())}>
