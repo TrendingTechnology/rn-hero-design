@@ -28,7 +28,6 @@ exports[`Icon renders correctly 1`] = `
           "width": 24,
         }
       }
-      testID=""
     >
       <View
         override={
@@ -86,7 +85,6 @@ exports[`Icon renders correctly 2`] = `
           "width": 24,
         }
       }
-      testID=""
     >
       <View
         override={
@@ -144,7 +142,6 @@ exports[`Icon renders correctly 3`] = `
           "width": 48,
         }
       }
-      testID=""
     >
       <View
         override={

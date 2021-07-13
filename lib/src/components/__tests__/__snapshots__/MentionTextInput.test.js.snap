@@ -79,7 +79,6 @@ exports[`MentionTextInput Snapshot renders correctly 1`] = `
                 "textAlignVertical": "center",
               }
             }
-            testID=""
             underlineColorAndroid="transparent"
           >
             <Text
@@ -211,7 +210,6 @@ exports[`MentionTextInput Snapshot renders correctly 2`] = `
                 "textAlignVertical": "center",
               }
             }
-            testID=""
             underlineColorAndroid="transparent"
           >
             <Text
