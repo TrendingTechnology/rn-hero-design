@@ -61,7 +61,6 @@ exports[`TextInput renders correctly 1`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value=""
     />
@@ -150,7 +149,6 @@ exports[`TextInput renders correctly 2`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value=""
     />
@@ -239,7 +237,6 @@ exports[`TextInput renders correctly 3`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value=""
     />
@@ -259,7 +256,6 @@ exports[`TextInput renders correctly 3`] = `
               "width": 20,
             }
           }
-          testID=""
         >
           <View
             override={
@@ -366,7 +362,6 @@ exports[`TextInput renders correctly 4`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value=""
     />
@@ -386,7 +381,6 @@ exports[`TextInput renders correctly 4`] = `
               "width": 20,
             }
           }
-          testID=""
         >
           <View
             override={
@@ -493,7 +487,6 @@ exports[`TextInput renders correctly 5`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value=""
     />
@@ -513,7 +506,6 @@ exports[`TextInput renders correctly 5`] = `
               "width": 20,
             }
           }
-          testID=""
         >
           <View
             override={
@@ -620,7 +612,6 @@ exports[`TextInput renders keyboardType correctly 1`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value="kienhiepsi"
     />
@@ -709,7 +700,6 @@ exports[`TextInput renders keyboardType correctly 2`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value="kienhiepsi"
     />
@@ -798,7 +788,6 @@ exports[`TextInput renders keyboardType correctly 3`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value="kienhiepsi"
     />
@@ -887,7 +876,6 @@ exports[`TextInput renders keyboardType correctly 4`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value="kienhiepsi"
     />
@@ -976,7 +964,6 @@ exports[`TextInput renders keyboardType correctly 5`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value="kienhiepsi"
     />
@@ -1065,7 +1052,6 @@ exports[`TextInput renders keyboardType correctly 6`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value="kienhiepsi"
     />
@@ -1154,7 +1140,6 @@ exports[`TextInput renders keyboardType correctly 7`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value="kienhiepsi"
     />
@@ -1243,7 +1228,6 @@ exports[`TextInput renders keyboardType correctly 8`] = `
           "textAlignVertical": "center",
         }
       }
-      testID=""
       underlineColorAndroid="transparent"
       value="kienhiepsi"
     />

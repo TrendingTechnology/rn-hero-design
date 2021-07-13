@@ -72,7 +72,7 @@ export make = (
       Style.style(~fontWeight=weight->Belt.Option.getWithDefault(#_400), ~color?, ()),
       \"|?"(style, emptyStyle),
     ])}>
-    {children |> React.string}
+    {children}
   </ReactNative.Text>
 
 export default = Helpers.injectTheme(make)

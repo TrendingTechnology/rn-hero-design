@@ -37,7 +37,7 @@ export type size = "h4" | "h5" | "h3" | "h1" | "h2";
 
 // tslint:disable-next-line:interface-over-type-literal
 export type Props = {
-  readonly children: string; 
+  readonly children: React.ReactNode; 
   readonly color?: ReactNative_Color_t; 
   readonly ellipsizeMode?: ellipsizeMode; 
   readonly numberOfLines?: number; 
@@ -308,7 +308,7 @@ export type Props = {
 };
 
 export const make: React.ComponentType<{
-  readonly children: string; 
+  readonly children: React.ReactNode; 
   readonly color?: ReactNative_Color_t; 
   readonly ellipsizeMode?: ellipsizeMode; 
   readonly numberOfLines?: number; 
@@ -584,7 +584,7 @@ export const make: React.ComponentType<{
 
 // tslint:disable-next-line:interface-over-type-literal
 export type $$default_Props = {
-  readonly children: string; 
+  readonly children: React.ReactNode; 
   readonly color?: ReactNative_Color_t; 
   readonly ellipsizeMode?: ellipsizeMode; 
   readonly numberOfLines?: number; 
@@ -855,7 +855,7 @@ export type $$default_Props = {
 };
 
 export const $$default: React.ComponentType<{
-  readonly children: string; 
+  readonly children: React.ReactNode; 
   readonly color?: ReactNative_Color_t; 
   readonly ellipsizeMode?: ellipsizeMode; 
   readonly numberOfLines?: number; 

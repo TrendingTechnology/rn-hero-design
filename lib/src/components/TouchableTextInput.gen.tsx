@@ -47,6 +47,7 @@ export type Props = {
   readonly placeholder?: string; 
   readonly rightIcon?: string; 
   readonly secureTextEntry?: boolean; 
+  readonly testID?: string; 
   readonly theme?: {
     readonly _switch: {
       readonly thumb: ReactNative_Style_t; 
@@ -306,7 +307,6 @@ export type Props = {
       readonly YELLOW: string
     }
   }; 
-  readonly touchableTestID?: string; 
   readonly value?: string; 
   readonly wrapperStyle?: ReactNative_Style_t
 };
@@ -328,6 +328,7 @@ export const make: React.ComponentType<{
   readonly placeholder?: string; 
   readonly rightIcon?: string; 
   readonly secureTextEntry?: boolean; 
+  readonly testID?: string; 
   readonly theme?: {
     readonly _switch: {
       readonly thumb: ReactNative_Style_t; 
@@ -587,11 +588,10 @@ export const make: React.ComponentType<{
       readonly YELLOW: string
     }
   }; 
-  readonly touchableTestID?: string; 
   readonly value?: string; 
   readonly wrapperStyle?: ReactNative_Style_t
 }> = function TouchableTextInput(Arg1: any) {
-  const $props = {children:Arg1.children, disabled:Arg1.disabled, error:Arg1.error, errorStyle:Arg1.errorStyle, iconStyle:Arg1.iconStyle, inputStyle:Arg1.inputStyle, inputTestID:Arg1.inputTestID, keyboardType:(Arg1.keyboardType == null ? undefined : $$toRE8806304[Arg1.keyboardType]), label:Arg1.label, labelStyle:Arg1.labelStyle, multiline:Arg1.multiline, onPressIcon:Arg1.onPressIcon, onTouch:Arg1.onTouch, placeholder:Arg1.placeholder, rightIcon:Arg1.rightIcon, secureTextEntry:Arg1.secureTextEntry, theme:Arg1.theme, touchableTestID:Arg1.touchableTestID, value:Arg1.value, wrapperStyle:Arg1.wrapperStyle};
+  const $props = {children:Arg1.children, disabled:Arg1.disabled, error:Arg1.error, errorStyle:Arg1.errorStyle, iconStyle:Arg1.iconStyle, inputStyle:Arg1.inputStyle, inputTestID:Arg1.inputTestID, keyboardType:(Arg1.keyboardType == null ? undefined : $$toRE8806304[Arg1.keyboardType]), label:Arg1.label, labelStyle:Arg1.labelStyle, multiline:Arg1.multiline, onPressIcon:Arg1.onPressIcon, onTouch:Arg1.onTouch, placeholder:Arg1.placeholder, rightIcon:Arg1.rightIcon, secureTextEntry:Arg1.secureTextEntry, testID:Arg1.testID, theme:Arg1.theme, value:Arg1.value, wrapperStyle:Arg1.wrapperStyle};
   const result = React.createElement(TouchableTextInputBS.make, $props);
   return result
 };
@@ -614,6 +614,7 @@ export type $$default_Props = {
   readonly placeholder?: string; 
   readonly rightIcon?: string; 
   readonly secureTextEntry?: boolean; 
+  readonly testID?: string; 
   readonly theme?: {
     readonly _switch: {
       readonly thumb: ReactNative_Style_t; 
@@ -873,7 +874,6 @@ export type $$default_Props = {
       readonly YELLOW: string
     }
   }; 
-  readonly touchableTestID?: string; 
   readonly value?: string; 
   readonly wrapperStyle?: ReactNative_Style_t
 };
@@ -895,6 +895,7 @@ export const $$default: React.ComponentType<{
   readonly placeholder?: string; 
   readonly rightIcon?: string; 
   readonly secureTextEntry?: boolean; 
+  readonly testID?: string; 
   readonly theme?: {
     readonly _switch: {
       readonly thumb: ReactNative_Style_t; 
@@ -1154,11 +1155,10 @@ export const $$default: React.ComponentType<{
       readonly YELLOW: string
     }
   }; 
-  readonly touchableTestID?: string; 
   readonly value?: string; 
   readonly wrapperStyle?: ReactNative_Style_t
 }> = function TouchableTextInput(Arg1: any) {
-  const $props = {children:Arg1.children, disabled:Arg1.disabled, error:Arg1.error, errorStyle:Arg1.errorStyle, iconStyle:Arg1.iconStyle, inputStyle:Arg1.inputStyle, inputTestID:Arg1.inputTestID, keyboardType:(Arg1.keyboardType == null ? undefined : $$toRE8806304[Arg1.keyboardType]), label:Arg1.label, labelStyle:Arg1.labelStyle, multiline:Arg1.multiline, onPressIcon:Arg1.onPressIcon, onTouch:Arg1.onTouch, placeholder:Arg1.placeholder, rightIcon:Arg1.rightIcon, secureTextEntry:Arg1.secureTextEntry, theme:Arg1.theme, touchableTestID:Arg1.touchableTestID, value:Arg1.value, wrapperStyle:Arg1.wrapperStyle};
+  const $props = {children:Arg1.children, disabled:Arg1.disabled, error:Arg1.error, errorStyle:Arg1.errorStyle, iconStyle:Arg1.iconStyle, inputStyle:Arg1.inputStyle, inputTestID:Arg1.inputTestID, keyboardType:(Arg1.keyboardType == null ? undefined : $$toRE8806304[Arg1.keyboardType]), label:Arg1.label, labelStyle:Arg1.labelStyle, multiline:Arg1.multiline, onPressIcon:Arg1.onPressIcon, onTouch:Arg1.onTouch, placeholder:Arg1.placeholder, rightIcon:Arg1.rightIcon, secureTextEntry:Arg1.secureTextEntry, testID:Arg1.testID, theme:Arg1.theme, value:Arg1.value, wrapperStyle:Arg1.wrapperStyle};
   const result = React.createElement(TouchableTextInputBS.default, $props);
   return result
 };
