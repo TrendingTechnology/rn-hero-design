@@ -16,6 +16,7 @@ export type size = "small" | "medium" | "large";
 export type Props = {
   readonly size?: size; 
   readonly source?: string; 
+  readonly testID?: string; 
   readonly theme?: {
     readonly _switch: {
       readonly thumb: ReactNative_Style_t; 
@@ -283,6 +284,7 @@ export type Props = {
 export const make: React.ComponentType<{
   readonly size?: size; 
   readonly source?: string; 
+  readonly testID?: string; 
   readonly theme?: {
     readonly _switch: {
       readonly thumb: ReactNative_Style_t; 
@@ -551,6 +553,7 @@ export const make: React.ComponentType<{
 export type $$default_Props = {
   readonly size?: size; 
   readonly source?: string; 
+  readonly testID?: string; 
   readonly theme?: {
     readonly _switch: {
       readonly thumb: ReactNative_Style_t; 
@@ -818,6 +821,7 @@ export type $$default_Props = {
 export const $$default: React.ComponentType<{
   readonly size?: size; 
   readonly source?: string; 
+  readonly testID?: string; 
   readonly theme?: {
     readonly _switch: {
       readonly thumb: ReactNative_Style_t; 

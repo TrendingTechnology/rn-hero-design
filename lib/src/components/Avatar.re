@@ -55,10 +55,12 @@ let make =
       ~wrapperStyle=?,
       ~titleStyle=?,
       ~theme=Hero_Theme.default,
+      ~testID=?,
     ) => {
   let styles: stylesBySize = size->getStylesBySize(theme##avatar);
 
   <View
+    ?testID
     style={StyleSheet.flatten([|
       theme##avatar##wrapper,
       styles##wrapper,

@@ -16,7 +16,7 @@ export type Props = {
   readonly leftElement?: JSX.Element; 
   readonly onPress?: (_1:ReactNative_Event_pressEvent) => void; 
   readonly rightElement?: JSX.Element; 
-  readonly subtitle?: JSX.Element; 
+  readonly subtitle?: string; 
   readonly subtitleStyle?: ReactNative_Style_t; 
   readonly testID?: string; 
   readonly theme?: {
@@ -278,7 +278,7 @@ export type Props = {
       readonly YELLOW: string
     }
   }; 
-  readonly title: JSX.Element; 
+  readonly title: string; 
   readonly titleStyle?: ReactNative_Style_t; 
   readonly wrapperStyle?: ReactNative_Style_t
 };
@@ -287,7 +287,7 @@ export const make: React.ComponentType<{
   readonly leftElement?: JSX.Element; 
   readonly onPress?: (_1:ReactNative_Event_pressEvent) => void; 
   readonly rightElement?: JSX.Element; 
-  readonly subtitle?: JSX.Element; 
+  readonly subtitle?: string; 
   readonly subtitleStyle?: ReactNative_Style_t; 
   readonly testID?: string; 
   readonly theme?: {
@@ -549,7 +549,7 @@ export const make: React.ComponentType<{
       readonly YELLOW: string
     }
   }; 
-  readonly title: JSX.Element; 
+  readonly title: string; 
   readonly titleStyle?: ReactNative_Style_t; 
   readonly wrapperStyle?: ReactNative_Style_t
 }> = ListItemBS.make;
@@ -559,7 +559,7 @@ export type $$default_Props = {
   readonly leftElement?: JSX.Element; 
   readonly onPress?: (_1:ReactNative_Event_pressEvent) => void; 
   readonly rightElement?: JSX.Element; 
-  readonly subtitle?: JSX.Element; 
+  readonly subtitle?: string; 
   readonly subtitleStyle?: ReactNative_Style_t; 
   readonly testID?: string; 
   readonly theme?: {
@@ -821,7 +821,7 @@ export type $$default_Props = {
       readonly YELLOW: string
     }
   }; 
-  readonly title: JSX.Element; 
+  readonly title: string; 
   readonly titleStyle?: ReactNative_Style_t; 
   readonly wrapperStyle?: ReactNative_Style_t
 };
@@ -830,7 +830,7 @@ export const $$default: React.ComponentType<{
   readonly leftElement?: JSX.Element; 
   readonly onPress?: (_1:ReactNative_Event_pressEvent) => void; 
   readonly rightElement?: JSX.Element; 
-  readonly subtitle?: JSX.Element; 
+  readonly subtitle?: string; 
   readonly subtitleStyle?: ReactNative_Style_t; 
   readonly testID?: string; 
   readonly theme?: {
@@ -1092,7 +1092,7 @@ export const $$default: React.ComponentType<{
       readonly YELLOW: string
     }
   }; 
-  readonly title: JSX.Element; 
+  readonly title: string; 
   readonly titleStyle?: ReactNative_Style_t; 
   readonly wrapperStyle?: ReactNative_Style_t
 }> = ListItemBS.default;

@@ -37,6 +37,7 @@ let make =
       ~wrapperStyle=emptyStyle,
       ~contentStyle=emptyStyle,
       ~theme=Hero_Theme.default,
+      ~testID=?,
     ) => {
   let styles = variant->getStylesByVariant(theme##badge);
 
@@ -47,6 +48,7 @@ let make =
       wrapperStyle,
     |])}>
     <Text
+      ?testID
       style={StyleSheet.flatten([|
         theme##badge##content,
         styles##content,

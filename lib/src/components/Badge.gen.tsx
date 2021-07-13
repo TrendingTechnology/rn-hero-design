@@ -16,6 +16,7 @@ export type variant = "info" | "error" | "warning" | "success";
 export type Props = {
   readonly content: string; 
   readonly contentStyle?: ReactNative_Style_t; 
+  readonly testID?: string; 
   readonly theme?: {
     readonly _switch: {
       readonly thumb: ReactNative_Style_t; 
@@ -282,6 +283,7 @@ export type Props = {
 export const make: React.ComponentType<{
   readonly content: string; 
   readonly contentStyle?: ReactNative_Style_t; 
+  readonly testID?: string; 
   readonly theme?: {
     readonly _switch: {
       readonly thumb: ReactNative_Style_t; 
@@ -549,6 +551,7 @@ export const make: React.ComponentType<{
 export type $$default_Props = {
   readonly content: string; 
   readonly contentStyle?: ReactNative_Style_t; 
+  readonly testID?: string; 
   readonly theme?: {
     readonly _switch: {
       readonly thumb: ReactNative_Style_t; 
@@ -815,6 +818,7 @@ export type $$default_Props = {
 export const $$default: React.ComponentType<{
   readonly content: string; 
   readonly contentStyle?: ReactNative_Style_t; 
+  readonly testID?: string; 
   readonly theme?: {
     readonly _switch: {
       readonly thumb: ReactNative_Style_t; 
