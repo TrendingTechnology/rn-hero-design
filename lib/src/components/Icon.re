@@ -133,6 +133,10 @@ external formatListBulleted: string = "default";
 external formatListNumbered: string = "default";
 [@bs.module "../icons/looks_one"] external looksOne: string = "default";
 [@bs.module "../icons/looks_two"] external looksTwo: string = "default";
+[@bs.module "../icons/lock"] external lock: string = "default";
+[@bs.module "../icons/unlock"] external unlock: string = "default";
+[@bs.module "../icons/expense-outline"]
+external expenseOutline: string = "default";
 
 let xmlFromIcon = icon =>
   switch (icon) {
@@ -215,6 +219,9 @@ let xmlFromIcon = icon =>
   | "coins-outline" => Some(coinsOutline)
   | "number" => Some(number)
   | "percentage" => Some(percentage)
+  | "lock" => Some(lock)
+  | "unlock" => Some(unlock)
+  | "expense-outline" => Some(expenseOutline)
   | _ => None
   };
 
