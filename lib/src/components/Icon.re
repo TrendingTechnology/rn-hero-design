@@ -138,6 +138,7 @@ external formatListNumbered: string = "default";
 [@bs.module "../icons/expense-outline"]
 external expenseOutline: string = "default";
 
+[@bs.module "../icons/dollar-sign"] external dollarSign: string = "default";
 let xmlFromIcon = icon =>
   switch (icon) {
   | "email" => Some(email)
@@ -222,6 +223,7 @@ let xmlFromIcon = icon =>
   | "lock" => Some(lock)
   | "unlock" => Some(unlock)
   | "expense-outline" => Some(expenseOutline)
+  | "dollar-sign" => Some(dollarSign)
   | _ => None
   };
 
