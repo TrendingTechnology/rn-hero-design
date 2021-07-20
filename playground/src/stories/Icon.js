@@ -29,6 +29,8 @@ const filledIcons = [
   'raising-hands',
   'certificate',
   'birthday-cake',
+  'lock',
+  'unlock',
 ];
 
 const outlinedIcons = [
@@ -80,6 +82,8 @@ const outlinedIcons = [
   'checkmark',
   'number',
   'percentage',
+  'expense-outline',
+  'dollar-sign',
 ];
 
 const IconScreen = ({ theme }) => {
