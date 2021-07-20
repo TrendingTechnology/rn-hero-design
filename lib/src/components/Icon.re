@@ -138,92 +138,106 @@ external formatListNumbered: string = "default";
 [@bs.module "../icons/expense-outline"]
 external expenseOutline: string = "default";
 
+module Icon = {
+  [@bs.deriving jsConverter]
+  type t = [
+    | [@bs.as "email"] `Email
+    | [@bs.as "email-outline"] `EmailOutline
+  ];
+
+  let toIcon = x =>
+    switch (x) {
+    | `Email => email
+    | `EmailOutline => emailOutline
+    };
+};
+
 [@bs.module "../icons/dollar-sign"] external dollarSign: string = "default";
 let xmlFromIcon = icon =>
   switch (icon) {
   | "email" => Some(email)
   | "email-outline" => Some(emailOutline)
-  | "eye" => Some(eye)
-  | "eye-outline" => Some(eyeOutline)
-  | "eye-invisible" => Some(eyeInvisible)
-  | "eye-invisible-outline" => Some(eyeInvisibleOutline)
-  | "ok-circle" => Some(okCircle)
-  | "calendar" => Some(calendar)
-  | "calendar-outline" => Some(calendarOutline)
-  | "clock-circle-outline" => Some(clockCircleOutline)
-  | "comment-outline" => Some(commentOutline)
-  | "cancel-outline" => Some(cancelOutline)
-  | "plus-circle-outline" => Some(plusCircleOutline)
-  | "plus-outline" => Some(plusOutline)
-  | "piggy-bank-outline" => Some(piggyBankOutline)
-  | "target-outline" => Some(targetOutline)
-  | "single-right-outline" => Some(singleRightOutline)
-  | "single-left-outline" => Some(singleLeftOutline)
-  | "more-vertical" => Some(moreVertical)
-  | "phone-outline" => Some(phoneOutline)
-  | "face-id" => Some(faceId)
-  | "arrow-down" => Some(arrowDown)
-  | "arrow-up" => Some(arrowUp)
-  | "camera-outline" => Some(cameraOutline)
-  | "paperclip" => Some(paperclip)
-  | "image-outline" => Some(imageOutline)
-  | "file-outline" => Some(fileOutline)
-  | "warning-circle-outline" => Some(warningCircleOutline)
-  | "warning-circle" => Some(warningCircle)
-  | "radio-active" => Some(radioActive)
-  | "radio-inactive" => Some(radioInactive)
-  | "format_bold" => Some(formatBold)
-  | "format_italic" => Some(formatItalic)
-  | "format_underlined" => Some(formatUnderlined)
-  | "format_list_numbered" => Some(formatListNumbered)
-  | "format_list_bulleted" => Some(formatListBulleted)
-  | "looks_one" => Some(looksOne)
-  | "looks_two" => Some(looksTwo)
-  | "plus-circle" => Some(plusCircle)
-  | "cancel-circle" => Some(cancelCircle)
-  | "cancel-circle-outline" => Some(cancelCircleOutline)
-  | "ok-circle-outline" => Some(okCircleOutline)
-  | "folder" => Some(folder)
-  | "folder-outline" => Some(folderOutline)
-  | "stopwatch" => Some(stopwatch)
-  | "stopwatch-outline" => Some(stopwatchOutline)
-  | "globe" => Some(globe)
-  | "globe-outline" => Some(globeOutline)
-  | "suitcase" => Some(suitcase)
-  | "suitcase-outline" => Some(suitcaseOutline)
-  | "level" => Some(level)
-  | "level-outline" => Some(levelOutline)
-  | "user" => Some(user)
-  | "user-outline" => Some(userOutline)
-  | "multiple-stars" => Some(multipleStars)
-  | "multiple-users" => Some(multipleUsers)
-  | "remove-circle" => Some(removeCircle)
-  | "remove-circle-outline" => Some(removeCircleOutline)
-  | "bell-outline" => Some(bellOutline)
-  | "health-bag-outline" => Some(healthBagOutline)
-  | "plane-outline" => Some(planeOutline)
-  | "recognition-medal-outline" => Some(recognitionMedalOutline)
-  | "talk-outline" => Some(talkOutline)
-  | "speaker-outline" => Some(speakerOutline)
-  | "home-outline" => Some(homeOutline)
-  | "more-horizontal" => Some(moreHorizontal)
-  | "cog-outline" => Some(cogOutline)
-  | "search-outline" => Some(searchOutline)
-  | "speaker" => Some(speaker)
-  | "raising-hands" => Some(raisingHands)
-  | "certificate" => Some(certificate)
-  | "recognition-medal" => Some(recognitionMedal)
-  | "birthday-cake" => Some(birthdayCake)
-  | "remove" => Some(remove)
-  | "add" => Some(add)
-  | "checkmark" => Some(checkmark)
-  | "coins-outline" => Some(coinsOutline)
-  | "number" => Some(number)
-  | "percentage" => Some(percentage)
-  | "lock" => Some(lock)
-  | "unlock" => Some(unlock)
-  | "expense-outline" => Some(expenseOutline)
-  | "dollar-sign" => Some(dollarSign)
+  /* | "eye" => Some(eye) */
+  /* | "eye-outline" => Some(eyeOutline) */
+  /* | "eye-invisible" => Some(eyeInvisible) */
+  /* | "eye-invisible-outline" => Some(eyeInvisibleOutline) */
+  /* | "ok-circle" => Some(okCircle) */
+  /* | "calendar" => Some(calendar) */
+  /* | "calendar-outline" => Some(calendarOutline) */
+  /* | "clock-circle-outline" => Some(clockCircleOutline) */
+  /* | "comment-outline" => Some(commentOutline) */
+  /* | "cancel-outline" => Some(cancelOutline) */
+  /* | "plus-circle-outline" => Some(plusCircleOutline) */
+  /* | "plus-outline" => Some(plusOutline) */
+  /* | "piggy-bank-outline" => Some(piggyBankOutline) */
+  /* | "target-outline" => Some(targetOutline) */
+  /* | "single-right-outline" => Some(singleRightOutline) */
+  /* | "single-left-outline" => Some(singleLeftOutline) */
+  /* | "more-vertical" => Some(moreVertical) */
+  /* | "phone-outline" => Some(phoneOutline) */
+  /* | "face-id" => Some(faceId) */
+  /* | "arrow-down" => Some(arrowDown) */
+  /* | "arrow-up" => Some(arrowUp) */
+  /* | "camera-outline" => Some(cameraOutline) */
+  /* | "paperclip" => Some(paperclip) */
+  /* | "image-outline" => Some(imageOutline) */
+  /* | "file-outline" => Some(fileOutline) */
+  /* | "warning-circle-outline" => Some(warningCircleOutline) */
+  /* | "warning-circle" => Some(warningCircle) */
+  /* | "radio-active" => Some(radioActive) */
+  /* | "radio-inactive" => Some(radioInactive) */
+  /* | "format_bold" => Some(formatBold) */
+  /* | "format_italic" => Some(formatItalic) */
+  /* | "format_underlined" => Some(formatUnderlined) */
+  /* | "format_list_numbered" => Some(formatListNumbered) */
+  /* | "format_list_bulleted" => Some(formatListBulleted) */
+  /* | "looks_one" => Some(looksOne) */
+  /* | "looks_two" => Some(looksTwo) */
+  /* | "plus-circle" => Some(plusCircle) */
+  /* | "cancel-circle" => Some(cancelCircle) */
+  /* | "cancel-circle-outline" => Some(cancelCircleOutline) */
+  /* | "ok-circle-outline" => Some(okCircleOutline) */
+  /* | "folder" => Some(folder) */
+  /* | "folder-outline" => Some(folderOutline) */
+  /* | "stopwatch" => Some(stopwatch) */
+  /* | "stopwatch-outline" => Some(stopwatchOutline) */
+  /* | "globe" => Some(globe) */
+  /* | "globe-outline" => Some(globeOutline) */
+  /* | "suitcase" => Some(suitcase) */
+  /* | "suitcase-outline" => Some(suitcaseOutline) */
+  /* | "level" => Some(level) */
+  /* | "level-outline" => Some(levelOutline) */
+  /* | "user" => Some(user) */
+  /* | "user-outline" => Some(userOutline) */
+  /* | "multiple-stars" => Some(multipleStars) */
+  /* | "multiple-users" => Some(multipleUsers) */
+  /* | "remove-circle" => Some(removeCircle) */
+  /* | "remove-circle-outline" => Some(removeCircleOutline) */
+  /* | "bell-outline" => Some(bellOutline) */
+  /* | "health-bag-outline" => Some(healthBagOutline) */
+  /* | "plane-outline" => Some(planeOutline) */
+  /* | "recognition-medal-outline" => Some(recognitionMedalOutline) */
+  /* | "talk-outline" => Some(talkOutline) */
+  /* | "speaker-outline" => Some(speakerOutline) */
+  /* | "home-outline" => Some(homeOutline) */
+  /* | "more-horizontal" => Some(moreHorizontal) */
+  /* | "cog-outline" => Some(cogOutline) */
+  /* | "search-outline" => Some(searchOutline) */
+  /* | "speaker" => Some(speaker) */
+  /* | "raising-hands" => Some(raisingHands) */
+  /* | "certificate" => Some(certificate) */
+  /* | "recognition-medal" => Some(recognitionMedal) */
+  /* | "birthday-cake" => Some(birthdayCake) */
+  /* | "remove" => Some(remove) */
+  /* | "add" => Some(add) */
+  /* | "checkmark" => Some(checkmark) */
+  /* | "coins-outline" => Some(coinsOutline) */
+  /* | "number" => Some(number) */
+  /* | "percentage" => Some(percentage) */
+  /* | "lock" => Some(lock) */
+  /* | "unlock" => Some(unlock) */
+  /* | "expense-outline" => Some(expenseOutline) */
+  /* | "dollar-sign" => Some(dollarSign) */
   | _ => None
   };
 
@@ -243,7 +257,7 @@ let make =
   let iconColor =
     color->Belt.Option.getWithDefault @@ getColorProperty @@  theme##icon##icon;
 
-  switch (xmlFromIcon(icon)) {
+  switch (Icon.tFromJs(icon)) {
   | None => ReasonReact.null
   | Some(xml) =>
     <View
@@ -262,7 +276,7 @@ let make =
         wrapperStyle,
       |])}>
       <SvgXml
-        xml
+        xml={xml |> Icon.toIcon}
         override={
           "width": size,
           "height": size,
@@ -272,6 +286,35 @@ let make =
       />
     </View>
   };
+  /* switch (xmlFromIcon(icon)) { */
+  /* | None => ReasonReact.null */
+  /* | Some(xml) => */
+  /*   <View */
+  /*     ?testID */
+  /*     style={StyleSheet.flatten([| */
+  /*       Style.( */
+  /*         style( */
+  /*           ~display=`flex, */
+  /*           ~alignItems=`center, */
+  /*           ~justifyContent=`center, */
+  /*           ~width=size->dp, */
+  /*           ~height=size->dp, */
+  /*           (), */
+  /*         ) */
+  /*       ), */
+  /*       wrapperStyle, */
+  /*     |])}> */
+  /*     <SvgXml */
+  /*       xml */
+  /*       override={ */
+  /*         "width": size, */
+  /*         "height": size, */
+  /*         "stroke": iconColor, */
+  /*         "fill": iconColor, */
+  /*       } */
+  /*     /> */
+  /*   </View> */
+  /* }; */
 };
 
 [@genType]
