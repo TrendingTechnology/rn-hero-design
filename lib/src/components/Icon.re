@@ -138,21 +138,8 @@ external formatListNumbered: string = "default";
 [@bs.module "../icons/expense-outline"]
 external expenseOutline: string = "default";
 
-module Icon = {
-  [@bs.deriving jsConverter]
-  type t = [
-    | [@bs.as "email"] `Email
-    | [@bs.as "email-outline"] `EmailOutline
-  ];
-
-  let emailIcon = ("email", email);
-  let toIcon = x =>
-    switch (x) {
-    | `Email => email
-    };
-};
-
 type iconType = (string, string);
+let iconList = [|("email", email), ("email-outline", emailOutline)|];
 
 [@bs.module "../icons/dollar-sign"] external dollarSign: string = "default";
 let xmlFromIcon = icon =>
@@ -244,8 +231,6 @@ let xmlFromIcon = icon =>
   };
 
 let emptyStyle = ReactNative.Style.style();
-
-let iconList = [|("email", email), ("email-outline", emailOutline)|];
 
 [@genType]
 [@react.component]
