@@ -145,12 +145,14 @@ module Icon = {
     | [@bs.as "email-outline"] `EmailOutline
   ];
 
+  let emailIcon = ("email", email);
   let toIcon = x =>
     switch (x) {
     | `Email => email
-    | `EmailOutline => emailOutline
     };
 };
+
+type iconType = (string, string);
 
 [@bs.module "../icons/dollar-sign"] external dollarSign: string = "default";
 let xmlFromIcon = icon =>
@@ -243,6 +245,8 @@ let xmlFromIcon = icon =>
 
 let emptyStyle = ReactNative.Style.style();
 
+let iconList = [|("email", email), ("email-outline", emailOutline)|];
+
 [@genType]
 [@react.component]
 let make =
@@ -257,9 +261,9 @@ let make =
   let iconColor =
     color->Belt.Option.getWithDefault @@ getColorProperty @@  theme##icon##icon;
 
-  switch (Icon.tFromJs(icon)) {
+  switch (iconList->Belt.Array.getBy(((name, _)) => name == icon)) {
   | None => ReasonReact.null
-  | Some(xml) =>
+  | Some((_, iconSvg)) =>
     <View
       ?testID
       style={StyleSheet.flatten([|
@@ -276,7 +280,7 @@ let make =
         wrapperStyle,
       |])}>
       <SvgXml
-        xml={xml |> Icon.toIcon}
+        xml=iconSvg
         override={
           "width": size,
           "height": size,
