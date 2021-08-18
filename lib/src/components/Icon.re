@@ -136,6 +136,7 @@ external formatListNumbered: string = "default";
 [@bs.module "../icons/lock"] external lock: string = "default";
 [@bs.module "../icons/unlock"] external unlock: string = "default";
 [@bs.module "../icons/expense-outline"]
+external expenseOutline: string = "default";
 [@bs.module "../icons/send-outline"]
 external sendOutline: string = "default";
 
