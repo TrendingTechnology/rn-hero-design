@@ -19,7 +19,7 @@ let emptyStyle = Style.style();
 [@react.component]
 let make =
     (
-      ~text: string="",
+      ~text: string,
       ~onPress,
       ~disabled=false,
       ~loading=false,
