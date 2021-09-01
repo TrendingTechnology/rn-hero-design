@@ -84,6 +84,7 @@ const outlinedIcons = [
   'percentage',
   'expense-outline',
   'dollar-sign',
+  'send-outline',
 ];
 
 const IconScreen = ({ theme }) => {
