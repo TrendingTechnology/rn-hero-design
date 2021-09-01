@@ -18,7 +18,7 @@ export type Props = {
   readonly forceInset?: string; 
   readonly loading?: boolean; 
   readonly onPress?: (_1:ReactNative_Event_pressEvent) => void; 
-  readonly text: JSX.Element; 
+  readonly text?: string; 
   readonly textStyle?: ReactNative_Style_t; 
   readonly theme?: {
     readonly _switch: {
@@ -288,7 +288,7 @@ export const make: React.ComponentType<{
   readonly forceInset?: string; 
   readonly loading?: boolean; 
   readonly onPress?: (_1:ReactNative_Event_pressEvent) => void; 
-  readonly text: JSX.Element; 
+  readonly text?: string; 
   readonly textStyle?: ReactNative_Style_t; 
   readonly theme?: {
     readonly _switch: {
@@ -559,7 +559,7 @@ export type $$default_Props = {
   readonly forceInset?: string; 
   readonly loading?: boolean; 
   readonly onPress?: (_1:ReactNative_Event_pressEvent) => void; 
-  readonly text: JSX.Element; 
+  readonly text?: string; 
   readonly textStyle?: ReactNative_Style_t; 
   readonly theme?: {
     readonly _switch: {
@@ -829,7 +829,7 @@ export const $$default: React.ComponentType<{
   readonly forceInset?: string; 
   readonly loading?: boolean; 
   readonly onPress?: (_1:ReactNative_Event_pressEvent) => void; 
-  readonly text: JSX.Element; 
+  readonly text?: string; 
   readonly textStyle?: ReactNative_Style_t; 
   readonly theme?: {
     readonly _switch: {

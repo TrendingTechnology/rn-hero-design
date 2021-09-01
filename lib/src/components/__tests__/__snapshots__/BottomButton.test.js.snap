@@ -1,0 +1,289 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BottomButton renders correctly 1`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <TouchableOpacity
+      style={
+        Object {
+          "backgroundColor": "#1dbeee",
+          "borderRadius": 24.375,
+          "marginBottom": 16.25,
+          "marginHorizontal": 16.25,
+          "paddingBottom": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "height": 48.75,
+            "justifyContent": "center",
+            "paddingHorizontal": 16.25,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#fcfcfc",
+              "fontFamily": "Proxima Nova",
+              "fontSize": 16.25,
+              "lineHeight": 16.25,
+            }
+          }
+          value="Button"
+        >
+          Button
+        </Text>
+      </View>
+    </TouchableOpacity>
+  </View>
+</View>
+`;
+
+exports[`BottomButton renders correctly 2`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#d9dbdf",
+          "borderRadius": 24.375,
+          "marginBottom": 16.25,
+          "marginHorizontal": 16.25,
+          "paddingBottom": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "height": 48.75,
+            "justifyContent": "center",
+            "paddingHorizontal": 16.25,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#fcfcfc",
+              "fontFamily": "Proxima Nova",
+              "fontSize": 16.25,
+              "lineHeight": 16.25,
+            }
+          }
+          value="Button"
+        >
+          Button
+        </Text>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`BottomButton renders correctly 3`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "backgroundColor": "#1dbeee",
+          "borderRadius": 24.375,
+          "marginBottom": 16.25,
+          "marginHorizontal": 16.25,
+          "paddingBottom": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "height": 48.75,
+            "justifyContent": "center",
+            "paddingHorizontal": 16.25,
+          }
+        }
+      >
+        <ActivityIndicator
+          animating={true}
+          color="#fcfcfc"
+          hidesWhenStopped={true}
+          size="small"
+        />
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`BottomButton renders correctly 4`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <TouchableOpacity
+      style={
+        Object {
+          "backgroundColor": "#1dbeee",
+          "borderRadius": 24.375,
+          "marginBottom": 0,
+          "marginHorizontal": 16.25,
+          "paddingBottom": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "height": 48.75,
+            "justifyContent": "center",
+            "paddingHorizontal": 16.25,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#fcfcfc",
+              "fontFamily": "Proxima Nova",
+              "fontSize": 16.25,
+              "lineHeight": 16.25,
+            }
+          }
+          value="Button"
+        >
+          Button
+        </Text>
+      </View>
+    </TouchableOpacity>
+  </View>
+</View>
+`;
+
+exports[`BottomButton renders correctly 5`] = `
+<View
+  pointerEvents="box-none"
+  style={
+    Object {
+      "flex": 1,
+    }
+  }
+>
+  <View
+    collapsable={true}
+    pointerEvents="box-none"
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <TouchableOpacity
+      style={
+        Object {
+          "backgroundColor": "#1dbeee",
+          "borderRadius": 24.375,
+          "marginBottom": 16.25,
+          "marginHorizontal": 16.25,
+          "paddingBottom": 0,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "alignItems": "center",
+            "display": "flex",
+            "height": 48.75,
+            "justifyContent": "center",
+            "paddingHorizontal": 16.25,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "color": "#fcfcfc",
+              "fontFamily": "Proxima Nova",
+              "fontSize": 16.25,
+              "lineHeight": 16.25,
+            }
+          }
+          value="Button"
+        >
+          Button
+        </Text>
+      </View>
+    </TouchableOpacity>
+  </View>
+</View>
+`;

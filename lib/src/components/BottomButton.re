@@ -19,7 +19,7 @@ let emptyStyle = Style.style();
 [@react.component]
 let make =
     (
-      ~text,
+      ~text: string="",
       ~onPress,
       ~disabled=false,
       ~loading=false,
@@ -77,7 +77,7 @@ let make =
              disabled ? theme##bottomButton##disabledText : emptyStyle,
              textStyle,
            |])}>
-           text
+           text->React.string
          </Text>
        }}
     </View>
