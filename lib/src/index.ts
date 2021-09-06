@@ -1,6 +1,6 @@
 import themeManager from './helpers/themeManager';
 import injectTheme from './helpers/injectTheme';
-import { useTheme } from './bindings/Helpers.gen';
+import { useTheme, Theme as ThemeType } from './bindings/Helpers.gen';
 
 import Button, { make as BaseButton } from './components/Button.gen';
 import Text, { make as BaseText } from './components/Text.gen';
@@ -100,4 +100,5 @@ export {
   themeManager,
   injectTheme,
   useTheme,
+  ThemeType,
 };
