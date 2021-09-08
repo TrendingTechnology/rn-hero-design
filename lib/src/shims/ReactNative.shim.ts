@@ -10,10 +10,9 @@ import {
   ImageStyle,
 } from 'react-native';
 
-export type Style_t =
-  | StyleProp<ViewStyle>
-  | StyleProp<TextStyle>
-  | StyleProp<ImageStyle>;
+export type Style_t = StyleProp<ViewStyle> &
+  StyleProp<TextStyle> &
+  StyleProp<ImageStyle>;
 export type Color_t = string;
 export type Event_pressEvent = () => void;
 
