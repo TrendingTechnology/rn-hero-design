@@ -5,7 +5,6 @@ import {
   TextInputKeyPressEventData,
   ImageSourcePropType,
   ViewStyle,
-  StyleProp,
   TextStyle,
   ImageStyle,
 } from 'react-native';
