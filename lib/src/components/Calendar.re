@@ -41,13 +41,10 @@ let hasVisibleDate = dates => dates |> Js.Array.some(Belt.Option.isSome);
 type color = string;
 
 [@genType]
-[@bs.deriving abstract]
 type markedDate = {
   date: Js.Date.t,
   colors: array(color),
 };
-
-type markedDates = array(markedDate);
 
 type parsedMarkedDates = Js.Dict.t(array(color));
 
@@ -63,7 +60,7 @@ let make =
       ~onPressNext=noop,
       ~onPressTitle=noop,
       ~theme=Hero_Theme.default,
-      ~markedDates: markedDates=[||],
+      ~markedDates: array(markedDate)=[||],
       ~minDate: option(Js.Date.t)=?,
       ~maxDate: option(Js.Date.t)=?,
     ) => {
@@ -150,16 +147,16 @@ let make =
     markedDates->Belt.Array.reduce(
       Js.Dict.empty(),
       (parsedMarkedDates, mark) => {
-        let markedDateString = Js.Date.toDateString(dateGet(mark));
+        let markedDateString = Js.Date.toDateString(mark.date);
 
         switch (parsedMarkedDates->Js.Dict.get(markedDateString)) {
         | None =>
-          parsedMarkedDates->Js.Dict.set(markedDateString, colorsGet(mark));
+          parsedMarkedDates->Js.Dict.set(markedDateString, mark.colors);
           parsedMarkedDates;
         | Some(colors) =>
           parsedMarkedDates->Js.Dict.set(
             markedDateString,
-            Array.concat([colors, colorsGet(mark)]),
+            Array.concat([colors, mark.colors]),
           );
           parsedMarkedDates;
         };

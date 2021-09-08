@@ -11,17 +11,15 @@ import {Event_pressEvent as ReactNative_Event_pressEvent} from '../../src/shims/
 
 import {Style_t as ReactNative_Style_t} from '../../src/shims/ReactNative.shim';
 
-// tslint:disable-next-line:max-classes-per-file 
-// tslint:disable-next-line:class-name
-export abstract class markedDate { protected opaque!: any }; /* simulate opaque types */
-
 // tslint:disable-next-line:interface-over-type-literal
-export type markedDates = markedDate[];
+export type color = string;
+
+export interface ImarkedDate { readonly date: Date; readonly colors: color[] };
 
 // tslint:disable-next-line:interface-over-type-literal
 export type Props = {
   readonly currentView?: Date; 
-  readonly markedDates?: markedDates; 
+  readonly markedDates?: ImarkedDate[]; 
   readonly maxDate?: Date; 
   readonly minDate?: Date; 
   readonly onChange?: (_1:Date) => void; 
@@ -293,7 +291,7 @@ export type Props = {
 
 export const make: React.ComponentType<{
   readonly currentView?: Date; 
-  readonly markedDates?: markedDates; 
+  readonly markedDates?: ImarkedDate[]; 
   readonly maxDate?: Date; 
   readonly minDate?: Date; 
   readonly onChange?: (_1:Date) => void; 
@@ -566,7 +564,7 @@ export const make: React.ComponentType<{
 // tslint:disable-next-line:interface-over-type-literal
 export type $$default_Props = {
   readonly currentView?: Date; 
-  readonly markedDates?: markedDates; 
+  readonly markedDates?: ImarkedDate[]; 
   readonly maxDate?: Date; 
   readonly minDate?: Date; 
   readonly onChange?: (_1:Date) => void; 
@@ -838,7 +836,7 @@ export type $$default_Props = {
 
 export const $$default: React.ComponentType<{
   readonly currentView?: Date; 
-  readonly markedDates?: markedDates; 
+  readonly markedDates?: ImarkedDate[]; 
   readonly maxDate?: Date; 
   readonly minDate?: Date; 
   readonly onChange?: (_1:Date) => void; 
